@@ -1,0 +1,101 @@
+html {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(144deg, $color-white 50%, $color-primary-dark 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.pageContainer {
+  background-color: $color-white;
+  border-radius: 4px;
+  box-shadow: 1rem 1rem 5rem $shadow20;
+  @media screen and (max-width: $mobile-large) {
+    margin-top: 6rem;
+  }
+  //
+}
+
+body {
+  animation: pageAppearfromRight 0.6s ease-in-out;
+  height: fit-content;
+  border-radius: 4px;
+  
+  @media screen and (min-width: $bp-largest) {
+    margin: 2rem auto;
+    max-width: 80vw;
+  }
+  @media screen and (max-width: $bp-largest) {
+    margin: 4vh 8vw;
+  }
+  @media screen and (max-width: $bp-large) {
+    margin: 1vh 4vw;
+  }
+  @media screen and (max-width: $bp-medium) {
+    margin: 1vh 1vw;
+  }
+  @media screen and (max-width: $bp-small) {
+    margin: 0;
+    padding: 0;
+  }
+  @media screen and (max-width: $mobile-large) {
+    overflow-x: hidden;
+  }
+  @media screen and (max-width: $mobile-medium) {
+  }
+  @media screen and (max-width: $mobile-small) {
+
+  }
+}
+main {
+  padding: 0 8rem;
+  //
+  @media screen and (min-width: $bp-largest) {
+    margin: 0 auto;
+  }
+  @media screen and (max-width: $bp-largest) {
+  }
+  @media screen and (max-width: $bp-large) {
+  }
+  @media screen and (max-width: $bp-medium) {
+  }
+  @media screen and (max-width: $bp-small) {
+    padding: 0;
+  }
+  @media screen and (max-width: $mobile-large) {
+    padding: 0 1.2rem;
+  }
+  @media screen and (max-width: $mobile-medium) {
+  }
+  @media screen and (max-width: $mobile-small) {
+
+  }
+}
+
+
+/* ////////////////////////////////////////////////////////////////////////////////
+// GLOBAL FOOTER
+////////////////////////////////////////////////////////////////////////////////
+.footer {
+  padding: 0.4rem;
+  margin-top: 2rem;
+  background-color: $color-white;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-around;
+
+  & span {
+    font-size: 1.2rem;
+    color: $color-gray-light;
+  }
+
+  @media screen and (max-width: $mobile-large) {
+    margin: 0;
+    border-radius: 0;
+    text-align: center;
+  }
+}
+
+ */
+
+

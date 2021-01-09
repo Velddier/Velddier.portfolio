@@ -1,0 +1,690 @@
+html {
+  height: fit-content;
+}
+
+main {
+  position: relative;
+
+  & .flex__row {
+    @media screen and (max-width: $bp-medium) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+iframe {
+  border-radius: 4px;
+  box-shadow: 1rem 1rem 0.8rem $shadow10;
+
+  @media screen and (max-width: $bp-small) {
+    width: 88vw;
+  }
+}
+/* ==========================================================================
+   section - MAIN CONTENT (SINGLE PORTFOLIO ITEMS)
+   ========================================================================== */
+
+.mainContainer {
+  background-color: $color-white;
+  padding: 4rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset 1rem 1rem 2rem $shadow20;
+  margin: 16rem auto;
+  position: relative;
+}
+
+.mainContent {
+  margin: -4rem 0 4rem 0;
+  width: auto;
+  height: 100%;
+  position: relative;
+  object-fit: cover;
+
+  &__img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0.2rem 0.2rem 3px $shadow20;
+    transition: all 8s;
+
+    &:hover {
+      transform: scale(1.04);
+    }
+  }
+
+  &__caption {
+    opacity: 0;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $color-gray-dark;
+    padding: 4px 2rem;
+    border-radius: 3px;
+    font-size: 1.4rem;
+    color: $color-gray-light;
+  }
+
+  &__button {
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    border-radius: 50%;
+    background-color: $color-gray-dark;
+    padding: 1.4rem;
+    bottom: 2rem;
+    right: 2rem;
+    color: $color-gray-light;
+    transition: all 0.2s;
+
+    &:hover {
+      transform: scale(1.06);
+      cursor: pointer;
+    }
+  }
+
+  &:hover &__button {
+    transition: all 0.2s;
+    opacity: 1;
+  }
+  &:hover &__caption {
+    transition: all 0.2s;
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   section - HEADER
+   ========================================================================== */
+.articleHeader {
+  z-index: 1000;
+  border-radius: 4rem;
+  position: relative;
+  margin: 2rem 0 2rem;
+  background-size: cover;
+  padding: 4rem 2rem;
+  @media screen and (max-width: $bp-medium) {
+    margin: 2rem;
+    padding: 4rem;
+  }
+
+  // BANNER
+  &__banner {
+    margin-top: 8rem;
+    height: 29vh;
+    box-shadow: 0 -2rem 3rem -2rem $shadow20;
+    width: 100%;
+    border-radius: 16px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    overflow: hidden;
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right;
+    }
+    @media screen and (max-width: $bp-small) {
+      margin: 0 -1rem;
+      width: 97vw;
+    }
+  }
+
+  // CONTAINER
+  &__grid {
+    z-index: 1000;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 12rem;
+    @media screen and (max-width: $bp-medium) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  // ARTICLE TITLE
+  &__title {
+    display: flex;
+    align-items: center;
+    max-width: 50%;
+    @media screen and (max-width: $bp-medium) {
+      max-width: 90%;
+    }
+    & h1 {
+      color: $color-black;
+      @media screen and (max-width: $bp-medium) {
+        font-size: 6rem;
+        max-width: 88%;
+        text-align: center;
+        margin: 0 auto;
+      }
+      @media screen and (max-width: $bp-small) {
+        font-size: 6rem;
+        max-width: 96%;
+        text-align: center;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  // ARTICLE SUB INFORMATION
+  &__sub {
+    max-width: 30vw;
+
+    @media screen and (max-width: $bp-medium) {
+      max-width: none;
+    }
+
+    & p {
+      margin-top: -2rem;
+      text-align: center;
+    }
+  }
+
+  &__source {
+    margin: 0;
+    font-size: 1.4rem;
+    letter-spacing: 1.5;
+    line-height: 1.6;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  //
+  &__subtitle .subtitle {
+    margin: 0;
+    width: 100%;
+    font-size: 2rem;
+    text-align: justify;
+    letter-spacing: -0.7;
+    line-height: 1.8;
+    text-align: left;
+  }
+
+  //
+  &__icons {
+    position: relative;
+  }
+
+  &__iconsArray {
+    display: flex;
+    direction: row;
+    justify-content: space-between;
+    margin: 4rem 1rem;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__icon {
+    display: flex;
+    width: fit-content;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+
+    & svg {
+      fill: $color-primary;
+      height: 3.2rem;
+      width: 3.2rem;
+    }
+
+    &Label {
+      font-size: 1.6rem;
+      color: $color-primary-dark;
+      margin-left: 0.4rem;
+    }
+  }
+
+  // ARTICLE MAIN BUTTON
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-primary;
+    color: $color-white;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    height: 6rem;
+    margin-top: 4rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    position: relative;
+
+    &::selection {
+      background-color: rgba($color: #000, $alpha: 0);
+      color: inherit;
+    }
+    &:hover {
+      transform: scale(1.04);
+      color: $color-primary-dark;
+      background-color: $color-primary-light;
+    }
+    &:active {
+      transition: none;
+      transform: scale(1);
+      background-color: $color-primary-dark;
+    }
+
+    & svg {
+      fill: $color-white;
+      position: absolute;
+      top: 2px;
+      right: 3px;
+    }
+  }
+}
+
+/* ==========================================================================
+   section - ARTICLE
+   ========================================================================== */
+.article {
+  min-height: 30rem;
+  height: auto;
+  padding-bottom: 40rem;
+
+  & h2 {
+    transform: translateY(10rem);
+  }
+
+  //ALL TEXT
+  &__copy {
+    margin: 8rem auto;
+    width: 66%;
+    max-width: 80rem;
+
+    @media screen and (max-width: $bp-medium) {
+      width: 90%;
+    }
+  }
+}
+
+/* ==========================================================================
+   section - HEADER CONTENT DIVIDER
+   ========================================================================== */
+
+.headerDivider {
+  margin: 4.8rem 0 4rem;
+  height: 12rem;
+  position: relative;
+  animation-name: up-down;
+  animation-duration: 2s;
+  animation-iteration-count: 3;
+
+  &--wide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  & svg {
+    fill: $color-secondary;
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-bottom: -2rem;
+  }
+}
+
+/* ==========================================================================
+   section - INDEX
+   ========================================================================== */
+// todo FIX MOBILE
+.index {
+  position: sticky;
+  background-color: $color-white;
+  z-index: 1000;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  @media screen and (max-width: $bp-small) {
+    margin: 0 -1.2rem;
+    top: 0rem;
+    background-color: $color-black;
+    height: 2rem;
+  }
+
+  &__divider {
+    width: 100%;
+    margin: 2rem 0;
+
+    @media screen and (max-width: $bp-largest) {
+      margin: 2rem 0;
+    }
+
+    @media screen and (max-width: $bp-medium) {
+      order: 0;
+    }
+
+    /* The progress container (grey background) */
+    .progress-container {
+      width: 100%;
+      height: 0.6rem;
+      background: $color-black;
+      border-radius: 1000px;
+      @media screen and (max-width: $bp-medium) {
+        height: 0.8rem;
+        border-radius: 0;
+      }
+      @media screen and (max-width: $bp-small) {
+        margin: 0;
+      }
+    }
+
+    /* The progress bar (scroll indicator) */
+    .progress-bar {
+      height: 0.6rem;
+      background: $color-secondary-light;
+      width: 0%;
+      border-radius: 1000px;
+      @media screen and (max-width: $bp-medium) {
+        height: 0.8rem;
+        border-radius: 0;
+      }
+      @media screen and (max-width: $bp-small) {
+        margin: 0;
+      }
+    }
+  }
+
+  // INDEX LIST
+  &-list {
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    align-items: baseline;
+    justify-content: flex-start;
+    @media screen and (max-width: $bp-largest) {
+      height: 4rem;
+      width: 100%;
+    }
+    @media screen and (max-width: $bp-large) {
+      width: 94%;
+    }
+    @media screen and (max-width: $bp-small) {
+      display: none;
+    }
+
+    &__label {
+      flex: 0 1 auto;
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -1px;
+
+      &::selection {
+        color: inherit;
+        background-color: rgba($color: #000000, $alpha: 0);
+      }
+    }
+
+    & svg {
+      flex: 0 1 auto;
+      fill: $color-primary;
+    }
+
+    &__icon-open {
+      transform: translateX(-2rem) translateY(-3px);
+    }
+
+    &__sections {
+      font-size: 1.8rem;
+      font-weight: bold;
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      @media screen and (max-width: $bp-largest) {
+        font-size: 1.6rem;
+      }
+
+      @media screen and (max-width: $bp-large) {
+        font-size: 1.2rem;
+        justify-content: space-between;
+      }
+    }
+
+    &__section {
+      &::selection {
+        color: inherit;
+        background-color: rgba(#000000, 0);
+      }
+
+      &:link,
+      &:visited {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      &:hover {
+        transform: translateY(-0.5rem);
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+
+      &:active {
+        transform: translateY(0);
+        transform: scale(0.93);
+        transition: all 0.2s ease;
+        cursor: pointer;
+        color: $color-secondary;
+      }
+    }
+
+    &__section:hover::after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      border-radius: 10px;
+      height: 0.4rem;
+      background-color: $color-primary;
+      transform: translateY(-0.8rem);
+    }
+
+    &__icon-close {
+      transform: translateX(0.4rem) translateY(-3px);
+    }
+  }
+}
+
+/* ==========================================================================
+   section - DIVIDER
+   ========================================================================== */
+
+.dividerArrow--wide {
+  width: 100%;
+  display: flex;
+  font-size: 4rem;
+  justify-content: center;
+  align-items: center;
+  margin: 10rem 0;
+}
+
+/* ==========================================================================
+    COPYRIGHT STAMP
+   ========================================================================== */
+.copyrightStamp {
+  text-align: center;
+  color: $color-gray-dark;
+  margin-bottom: 8rem;
+}
+/* ==========================================================================
+   //IMG + CAPTION
+   ========================================================================== */
+
+.figure {
+  background-color: $color-white;
+  border-radius: 4px;
+  transition: all 0.4s;
+  color: $color-black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  object-fit: cover;
+  object-position: top;
+  overflow: hidden;
+  margin-bottom: 12rem;
+
+  & img {
+    border-radius: 4px;
+    transition: all 0.2s;
+    width: 100%;
+    height: auto;
+    &:hover {
+      cursor: zoom-in;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.01);
+  }
+  &:hover > &-caption {
+    opacity: 1;
+  }
+
+  &-caption {
+    background-color: #fff;
+    text-align: left;
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-4rem);
+    padding: 2rem 0;
+    color: inherit;
+
+    &::after {
+      flex: 1;
+      margin-left: 1rem;
+      content: "";
+      display: inline-block;
+      width: 90%;
+      height: 1px;
+      background-color: $color-primary-dark;
+    }
+    &::before {
+      flex: 1;
+      margin-right: 1rem;
+      content: "";
+      display: inline-block;
+      width: 90%;
+      height: 1px;
+      background-color: $color-primary-dark;
+    }
+  }
+
+  &-largest {
+    width: 100%;
+    height: auto;
+  }
+
+  &-large {
+    width: 66%;
+    height: auto;
+  }
+
+  &-medium {
+    width: 33%;
+    height: auto;
+  }
+
+  &-small {
+    width: 20%;
+    height: auto;
+  }
+
+  &-smallest {
+    width: 15%;
+    height: auto;
+  }
+
+  &-fullHeight {
+    display: inherit;
+  }
+}
+
+// COMBO
+.article__comboImgCopy {
+  display: flex;
+  gap: 2rem;
+  margin: 10rem auto;
+  justify-content: center;
+  @media screen and (max-width: $bp-medium) {
+    flex-direction: column;
+    box-shadow: 0 0.5rem 5px $shadow10;
+    padding-bottom: 2rem 0;
+  }
+
+  & a {
+    margin: 0;
+    width: auto;
+    height: auto;
+  }
+
+  & img {
+    width: 33vw;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+    cursor: zoom-in;
+    @media screen and (max-width: $bp-large) {
+      width: 50vw;
+    }
+    @media screen and (max-width: $bp-medium) {
+      width: 100%;
+      border-radius: 0;
+    }
+    @media screen and (max-width: $bp-small) {
+      width: 100%;
+      border-radius: 0;
+    }
+  }
+
+  &-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 4rem 8rem;
+    max-width: 50vh;
+    @media screen and (max-width: $bp-large) {
+      padding: 1rem 2rem 1rem;
+    }
+    @media screen and (max-width: $bp-medium) {
+      padding: 4rem 2rem;
+    }
+    @media screen and (max-width: $bp-small) {
+      align-items: center;
+      max-width: 100vw;
+    }
+  }
+
+  &-header {
+    font-size: 4rem;
+    align-self: flex-start;
+
+    &::after {
+      display: inline-block;
+      content: "";
+      margin-right: 33%;
+      width: 66%;
+      height: 1px;
+      transform: translateY(-1.4rem);
+      background-color: $color-gray-light;
+    }
+  }
+
+  & h4 {
+    text-align: left;
+  }
+}

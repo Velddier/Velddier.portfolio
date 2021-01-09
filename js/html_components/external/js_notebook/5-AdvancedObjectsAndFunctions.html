@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>2 Basics of JavaScript</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+    integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</head>
+
+<body class="vscode-light">
+  <h1 id="advanced-javascript-objects--functions">Advanced JavaScript: Objects &amp; Functions</h1>
+  <p><a href="index.html">go back</a> |</p>
+  <ul>
+    <li><a href="#advanced-javascript-objects--functions">Advanced JavaScript: Objects &amp; Functions</a>
+      <ul>
+        <li><a href="#51-everything-is-an-object-inheritence-and-prototype-chain">5.1 Everything is an object:
+            inheritence and prototype chain</a></li>
+        <li><a href="#52-object-oriented-programming">5.2 Object-oriented programming</a></li>
+        <li><a href="#53-inheritence-in-javascript-prototypes-and-prototype-chains">5.3 Inheritence in JavaScript:
+            Prototypes and Prototype chains</a></li>
+        <li><a href="#54-the-prototype-chain-in-the-console">5.4 The prototype chain in the console</a></li>
+        <li><a href="#55-primitives--objects">5.5 Primitives &amp; Objects</a></li>
+        <li><a href="#56-passing-functions-as-arguments">5.6 Passing functions as arguments</a>
+          <ul>
+            <li><a href="#functions-are-also-objects-in-javascript">Functions are also objects in JavaScript</a></li>
+          </ul>
+        </li>
+        <li><a href="#57-function-returning-functions">5.7 Function returning functions</a></li>
+        <li><a href="#58-iife---immediately-invoked-function-expression">5.8 IIFE - Immediately invoked function
+            expression</a>
+          <ul>
+            <li><a href="#iife-analyzed">IIFE analyzed</a></li>
+          </ul>
+        </li>
+        <li><a href="#59-closures">5.9 Closures</a>
+          <ul>
+            <li><a href="#closure-summary">Closure summary</a></li>
+          </ul>
+        </li>
+        <li><a href="#510-bind-call--apply">5.10 Bind, Call &amp; Apply</a>
+          <ul>
+            <li><a href="#call-method">Call method</a></li>
+            <li><a href="#apply-method">Apply method</a></li>
+            <li><a href="#bind-method">Bind method</a></li>
+            <li><a href="#bind-example">Bind example</a></li>
+          </ul>
+        </li>
+        <li><a href="#511-coding-challenge-7---quiz">5.11 Coding Challenge 7 - Quiz</a>
+          <ul>
+            <li><a href="#instructions-for-quiz">Instructions for Quiz</a></li>
+            <li><a href="#expert-challenge-for-quiz">Expert challenge for Quiz</a></li>
+            <li><a href="#approach-for-quiz">Approach for Quiz</a></li>
+          </ul>
+        </li>
+        <li><a href="#512-prototype-chain">5.12 Prototype chain</a></li>
+      </ul>
+    </li>
+  </ul>
+  <p>This section goes over <em>Objects</em> &amp; <em>Function</em>, the two elements used most often in JS.</p>
+  <h2 id="51-everything-is-an-object-inheritence-and-prototype-chain">5.1 Everything is an object: inheritence and
+    prototype chain</h2>
+  <p><img src="images\Slide14.png" alt="Objects in JS"></p>
+  <p>A common saying in JS is that everything is an object, which is partly true, but...</p>
+  <p>There are 2 different types of objects:</p>
+  <p><strong>Primitives</strong> &amp; <em>Everything else</em>.</p>
+  <p>Everything in JS is an object and used for more complex things under the hood</p>
+  <h2 id="52-object-oriented-programming">5.2 Object-oriented programming</h2>
+  <ul>
+    <li>Object interacting with one another through methods and properties.</li>
+    <li>Used to store data, structure applications into modules and keeping code clean.</li>
+  </ul>
+  <p>Image a blueprint from which infinite objects can be created:</p>
+  <pre><code>Person
+
+- name
+- yearOfBirth
+- job
+- calculateAge()
+</code></pre>
+  <p>Inheritence</p>
+  <p>Simply put: One object gets access to another objects properties:</p>
+  <pre><code>Athlete
+
+- olympics
+- olympicMedals
+- allowedOlympics()
+
+Athlete inheritance
+
+- name
+- yearOfBirth
+- job
+- calculateAge()
+- olympics
+- olympicMedals
+- allowedOlympics()
+</code></pre>
+  <hr>
+  <h2 id="53-inheritence-in-javascript-prototypes-and-prototype-chains">5.3 Inheritence in JavaScript: Prototypes and
+    Prototype chains</h2>
+  <p>Every object in JS has a prototype property.</p>
+  <p><img src="images\Slide15.png" alt="Prototype chain"></p>
+  <p><img src="images\Slide16.png" alt="Summary of prototype"></p>
+  <p>If we define a method inside the constructor, like this:</p>
+  <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name, yearOfBirth</span>) </span>{
+  <span class="hljs-keyword">this</span>.name = name;
+  <span class="hljs-keyword">this</span>.yearOfBirth = yearOfBirth;
+  <span class="hljs-keyword">this</span>.calcAge = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-number">2017</span> - <span class="hljs-keyword">this</span>.yearOfBirth;
+  };
+}
+</div></code></pre>
+  <p>then every object created with Person constructor will have the calcAge() method as its own method.</p>
+  <pre><code class="language-js"><div><span class="hljs-keyword">var</span> john = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"John"</span>, <span class="hljs-number">1990</span>);
+<span class="hljs-keyword">var</span> jane = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"Jane"</span>, <span class="hljs-number">1999</span>);
+<span class="hljs-keyword">var</span> mike = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"Mike"</span>, <span class="hljs-number">2000</span>);
+ 
+<span class="hljs-built_in">console</span>.log(john); <span class="hljs-comment">// Person { name: 'John', yearOfBirth: 1990, calcAge: [Function] }</span>
+<span class="hljs-built_in">console</span>.log(jane); <span class="hljs-comment">// Person { name: 'Jane', yearOfBirth: 1999, calcAge: [Function] }</span>
+<span class="hljs-built_in">console</span>.log(mike); <span class="hljs-comment">// Person { name: 'Mike', yearOfBirth: 2000, calcAge: [Function] }</span>
+</div></code></pre>
+  <p>As you can see, the calcAge method (calcAge: [Function]) is a property of each object created with Person
+    constructor.</p>
+  <p>It's not very efficient, because every object will have same methods, same code, so it will take more memory.</p>
+  <p>Instead we can define this method inside the prototype property of the Person constructor, like this:</p>
+  <pre><code class="language-js"><div>Person.prototype.calcAge = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-number">2017</span> - <span class="hljs-keyword">this</span>.yearOfBirth;
+};
+</div></code></pre>
+  <p>Now, the calcAge() method is not a property of each object created with Person constructor, but every object can
+    access this method (inherit) thanks to prototype chain:</p>
+  <pre><code class="language-js"><div><span class="hljs-keyword">var</span> john = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"John"</span>, <span class="hljs-number">1990</span>);
+<span class="hljs-keyword">var</span> jane = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"Jane"</span>, <span class="hljs-number">1999</span>);
+<span class="hljs-keyword">var</span> mike = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">"Mike"</span>, <span class="hljs-number">2000</span>);
+ 
+<span class="hljs-built_in">console</span>.log(john); <span class="hljs-comment">// Person { name: 'John', yearOfBirth: 1990 }</span>
+<span class="hljs-built_in">console</span>.log(jane); <span class="hljs-comment">// Person { name: 'Jane', yearOfBirth: 1999 }</span>
+<span class="hljs-built_in">console</span>.log(mike); <span class="hljs-comment">// Person { name: 'Mike', yearOfBirth: 2000 }</span>
+
+</div></code></pre>
+  <p>You can see that now, there's no calcAge method defined in these objects, because it's defined in the
+    Person.prototype. It saves memory and it's more efficient, because there is only one place where this method is
+    defined.</p>
+  <p>You can still use calcAge() method on these objects thanks to prototype chain. When you call a method:</p>
+  <p><code>console.log(john.calcAge()); </code></p>
+  <p>it will look for the calcAge() method in the john object, then (if there's no such a method) it will look for this
+    method in the prototype, then in the prototype of prototype and so on. That's how the prototype chain works in
+    simplification.</p>
+  <hr>
+  <h2 id="54-the-prototype-chain-in-the-console">5.4 The prototype chain in the console</h2>
+  <p>The consoles is a powerful tool to manage the prototype chain. The console can be used to inspect objects.</p>
+  <p>Console:</p>
+  <pre><code class="language-js"><div>john
+Person {<span class="hljs-attr">name</span>: <span class="hljs-string">"John"</span>, <span class="hljs-attr">yearOfBirth</span>: <span class="hljs-number">1990</span>, <span class="hljs-attr">job</span>: <span class="hljs-string">"teacher"</span>}job: <span class="hljs-string">"teacher"</span>name: <span class="hljs-string">"John"</span>yearOfBirth: <span class="hljs-number">1990</span>__proto__: <span class="hljs-built_in">Object</span>
+</div></code></pre>
+  <hr>
+  <h2 id="55-primitives--objects">5.5 Primitives &amp; Objects</h2>
+  <p>Only numbers, strings, booleans, etc are objects. Variables holding primitives <em>hold</em> that data on the
+    variable itself. <em>However, objects don't have a real copy of the object</em> and only has a reference to that
+    object.</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">//Primitives</span>
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">23</span>;
+<span class="hljs-keyword">var</span> b = a;
+a = <span class="hljs-number">45</span>;
+<span class="hljs-built_in">console</span>.log(a);
+<span class="hljs-built_in">console</span>.log(b);
+</div></code></pre>
+  <p>In the lines above, the result is still <code>a = 45</code> and <code>b = 23</code>, because <code>b</code> is
+    stored in it's one space.</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">//Objects</span>
+<span class="hljs-keyword">var</span> obj1 = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'john'</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>
+}
+<span class="hljs-keyword">var</span> obje2 = obj1;
+obj1.age = <span class="hljs-number">39</span>;
+<span class="hljs-built_in">console</span>.log(obj1.age);
+<span class="hljs-built_in">console</span>.log(obj2.age);
+</div></code></pre>
+  <p>What happens above? Object 1 and object 2 are both 30. <em>Why?</em> Because the code didn't create a new object.
+    It points to the same space in the memory and thus overlapse the information.</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">//Functions</span>
+<span class="hljs-keyword">var</span> age = <span class="hljs-number">28</span>;
+<span class="hljs-keyword">var</span> obj = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Jonas'</span>,
+  <span class="hljs-attr">city</span>: <span class="hljs-string">'Lisbon'</span>
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">change</span>(<span class="hljs-params">a, b</span>) </span>{
+  a = <span class="hljs-number">30</span>;
+  b.city = <span class="hljs-string">'San Francisco'</span>;
+}
+
+change(age, obj);
+
+<span class="hljs-built_in">console</span>.log(age);
+<span class="hljs-built_in">console</span>.log(obj.city);
+</div></code></pre>
+  <p>What happens above? The age variable is passed as well as the city. The primitive has been unchanged because it
+    will not be affected as an outside object. The object within the variable is changed however and reflected to the
+    outside.</p>
+  <hr>
+  <h2 id="56-passing-functions-as-arguments">5.6 Passing functions as arguments</h2>
+  <h3 id="functions-are-also-objects-in-javascript">Functions are also objects in JavaScript</h3>
+  <p>A function is an instance of the object type and behaves like any other object. A function can store a variable,
+    pass a function as an argument to another function and we can return a function from a function. We call functions
+    like this <em>First class functions</em>.</p>
+  <p><img src="images\Slide17.png" alt="First class functions"></p>
+  <p>Take an array on which we want to do calculations, for example...</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">//Passing Functions as arguments</span>
+<span class="hljs-keyword">var</span> years = [<span class="hljs-number">1990</span>, <span class="hljs-number">1992</span>, <span class="hljs-number">1997</span>, <span class="hljs-number">2004</span>, <span class="hljs-number">2015</span>];
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">arrayCalc</span>(<span class="hljs-params">arr, fn</span>) </span>{ <span class="hljs-comment">//Arguments arr : array &amp; fn : function</span>
+    <span class="hljs-keyword">var</span> arrRes = []; <span class="hljs-comment">//Array for results</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; <span class="hljs-number">1</span> &lt; arr.length; i++) { <span class="hljs-comment">//The for loop pushes the results of fn(arr[i]) into arrRes</span>
+        arrRes.push(fn(arr[i])); <span class="hljs-comment">//fn referes to the outside function *fn*</span>
+    }
+    <span class="hljs-keyword">return</span> arrRes;
+}
+
+<span class="hljs-comment">//Callback functions (fn)</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> = <span class="hljs-title">calculateAge</span>(<span class="hljs-params">el</span>) </span>{ <span class="hljs-comment">//el: element</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">2020</span> - el; <span class="hljs-comment">//simple task that will be called by arrayCalc</span>
+}
+
+<span class="hljs-comment">//To run the function arrayCalc we pass the variable years and calculateAge, ALSO as a function because it is a refering variable and not the function itself.</span>
+<span class="hljs-keyword">var</span> ages = arrayCalc(years, calculateAge);
+</div></code></pre>
+  <hr>
+  <h2 id="57-function-returning-functions">5.7 Function returning functions</h2>
+  <p>Building a function that creates different interview questions for a job. It will take a persons name as input.</p>
+  <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">interviewQuestion</span>(<span class="hljs-params">job</span>) </span>{
+    <span class="hljs-keyword">if</span> (job === <span class="hljs-string">'designer'</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name</span>) /* <span class="hljs-title">anonymous</span> <span class="hljs-title">function</span> (<span class="hljs-params">no name</span>) */</span>{
+            <span class="hljs-built_in">console</span>.log(name + <span class="hljs-string">', can you please explain what UX design is?'</span>);
+        }
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (job === <span class="hljs-string">'teacher'</span>) {
+        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name</span>) </span>{
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"What subject do you teach,"</span> + name + <span class="hljs-string">'?'</span>);
+        }
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name</span>) </span>{
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello '</span> + name + <span class="hljs-string">', what do you do?'</span>);
+        }
+    }
+}
+
+<span class="hljs-keyword">var</span> teacherQuestion = interviewQuestion(<span class="hljs-string">'teacher'</span>);
+<span class="hljs-keyword">var</span> designerQuestion = interviewQuestion(<span class="hljs-string">'designer'</span>);
+
+teacherQuestion(<span class="hljs-string">'John'</span>);
+designerQuestion(<span class="hljs-string">'Amy'</span>);
+</div></code></pre>
+  <p>The above lines of code return a complete <code>function</code>, which is made possible because all functions are
+    <code>first class objects</code> in JavaScript.</p>
+  <p>if we then take variable <code>[job]Question</code> and assign it the function
+    <code>interviewQuestion('teacher')</code> with 'teacher' as input, we can then use function
+    <code>teacherQuestion([input]);</code> and input a name, such as <code>teacherQuestion('John');</code> returning
+    <code>What subject do you teach, John?</code> in the command line.</p>
+  <hr>
+  <h2 id="58-iife---immediately-invoked-function-expression">5.8 IIFE - Immediately invoked function expression</h2>
+  <p>Image we are building a game where we win if the score is &gt;=5 and lose if it's &lt;5.</p>
+  <p>There is the standard way of writing this as a function:</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">//Standard function notation</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">game</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> score = <span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>;
+    <span class="hljs-built_in">console</span>.log(score &gt;= <span class="hljs-number">5</span>);
+}
+game();
+</div></code></pre>
+  <p>But there is also the <code>IIFE</code> way:</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">//IIFE function notation</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> score = <span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>;
+    <span class="hljs-built_in">console</span>.log(score &gt;= <span class="hljs-number">5</span>);
+})();
+</div></code></pre>
+  <h3 id="iife-analyzed">IIFE analyzed</h3>
+  <p>The purpose of <code>IIFE</code> is to declare it and call it at the same time. This is done by surrounding the
+    function in <code>parenthesis</code> and writing it out as normal.</p>
+  <p>To avoid the parser to think that <code>function () {}</code> is a declaration, and instead make it treat it as an
+    expression, the function needs to be wrapped in <code>parenthesis</code>, like <code>( [function()] )();</code>.</p>
+  <p>Using parameters:</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">//adding parameters</span>
+<span class="hljs-comment">//higher value goodLuck means higher chance to win</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">goodLuck</span>) </span>{
+    <span class="hljs-keyword">var</span> score = <span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">10</span>;
+    <span class="hljs-built_in">console</span>.log(score &gt;= <span class="hljs-number">5</span> - goodLuck);
+})(<span class="hljs-number">5</span>); <span class="hljs-comment">//input parameter of `goodLuck`</span>
+</div></code></pre>
+  <hr>
+  <h2 id="59-closures">5.9 Closures</h2>
+  <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">retirement</span>(<span class="hljs-params">retirementAge</span>) </span>{
+    <span class="hljs-keyword">var</span> a = <span class="hljs-string">' years left until retirement.'</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">yearOfBirth</span>) </span>{
+        <span class="hljs-keyword">var</span> age = <span class="hljs-number">2016</span> - yearOfBirth;
+        <span class="hljs-built_in">console</span>.log((retirementAge - age) + a)
+    }
+}
+
+<span class="hljs-comment">//Creates a new function for the retirement age in the USA, called retirementUS</span>
+<span class="hljs-keyword">var</span> retirementUS = retirement(<span class="hljs-number">66</span>);
+
+<span class="hljs-comment">//Calling the function:</span>
+retirementUS(<span class="hljs-number">1990</span>);
+<span class="hljs-comment">//or</span>
+retirement(<span class="hljs-number">66</span>)(<span class="hljs-number">1990</span>);
+</div></code></pre>
+  <p>What is important to notice about the above code is how the inner function within <code>retirement()</code> is able
+    to call <code>var a</code> and <code>function(retirementAge)</code> even after those have passed already.</p>
+  <p><img src="images\Slide18.png" alt="Closures"></p>
+  <p><img src="images\Slide19.png" alt="How closures work"></p>
+  <p>Closures don't need to be build manually; they are built into JavaScript.</p>
+  <p>We can apply the function of different countries' retirement ages to calculate for each:</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">//Creates a new function for the retirement age in the USA, called retirementUS</span>
+<span class="hljs-keyword">var</span> retirementUS = retirement(<span class="hljs-number">66</span>);
+<span class="hljs-keyword">var</span> retirementGermany = retirement(<span class="hljs-number">65</span>);
+<span class="hljs-keyword">var</span> retirementIceland = retirement(<span class="hljs-number">67</span>);
+
+<span class="hljs-comment">//Calling the function:</span>
+retirementUS(<span class="hljs-number">1990</span>);
+retirementGermany(<span class="hljs-number">1990</span>);
+retirementIceland(<span class="hljs-number">1990</span>);
+</div></code></pre>
+  <h3 id="closure-summary">Closure summary</h3>
+  <p><strong>An inner function has always access to the variables and parameters of its outer function, even after the
+      outer function has returned.</strong></p>
+  <p>Barebone example of a function within a function (closure).</p>
+  <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">outerFunction</span>(<span class="hljs-params">outerVariable</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">innerFunction</span>(<span class="hljs-params">innerVariable</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Outer Variable: '</span> + outerVariable);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Inner Variable: '</span> + innerVariable);
+  }
+}
+
+<span class="hljs-keyword">const</span> newFunction = outerFunction(<span class="hljs-string">'outside'</span>);
+newFunction(<span class="hljs-string">'inside'</span>);
+</div></code></pre>
+  <p>A previous function written as a closure:</p>
+  <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">interviewQuestion</span>(<span class="hljs-params">job</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name</span>) </span>{
+        <span class="hljs-keyword">if</span> (job === <span class="hljs-string">'designer'</span>) {
+            <span class="hljs-built_in">console</span>.log(name + <span class="hljs-string">', can you please explain what UX design is?'</span>);
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (job === <span class="hljs-string">'teacher'</span>) {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"What subject do you teach,"</span> + name + <span class="hljs-string">'?'</span>);
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello '</span> + name + <span class="hljs-string">', what do you do?'</span>);
+        }
+    }
+}
+
+interviewQuestion(<span class="hljs-string">'teacher'</span>)(<span class="hljs-string">'John'</span>);
+</div></code></pre>
+  <p>This is a better and cleaner way of writing this code.</p>
+  <hr>
+  <h2 id="510-bind-call--apply">5.10 Bind, Call &amp; Apply</h2>
+  <p>These methods allow to call a function and set the disvariable manually. Take the <code>john</code> object below,
+    which has a presentation method:</p>
+  <pre><code class="language-js"><div><span class="hljs-keyword">var</span> john = {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">'John'</span>,
+    <span class="hljs-attr">age</span>: <span class="hljs-number">26</span>,
+    <span class="hljs-attr">job</span>: <span class="hljs-string">'teacher'</span>,
+    <span class="hljs-attr">presentation</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">style, timeOfDay</span>) </span>{
+        <span class="hljs-keyword">if</span> (style === <span class="hljs-string">'formal'</span>) {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Good '</span> + timeOfDay + <span class="hljs-string">', ladies and gentlement! I\'m '</span> + <span class="hljs-keyword">this</span>.name + <span class="hljs-string">' , I\'m a '</span> + <span class="hljs-keyword">this</span>.job + <span class="hljs-string">' and I\'m '</span> + <span class="hljs-keyword">this</span>.age + <span class="hljs-string">' years old.'</span>);
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (style === <span class="hljs-string">'friendly'</span>) {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hey! What\'s up? I\'m '</span> + <span class="hljs-keyword">this</span>.name + <span class="hljs-string">' , I\'m a '</span> + <span class="hljs-keyword">this</span>.job + <span class="hljs-string">' and I\'m '</span> + <span class="hljs-keyword">this</span>.age + <span class="hljs-string">' years old. Have a nice '</span> + timeOfDay + <span class="hljs-string">'.'</span>);
+        }
+    }
+}
+</div></code></pre>
+  <h3 id="call-method">Call method</h3>
+  <p>Now, we also have an object <code>emily</code>, for which we want to use the same presentation function as in
+    object <code>john</code>. To do this we can use the <strong>call method</strong>:</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">//Call</span>
+john.presentation.call(emily, <span class="hljs-string">'friendly'</span>, <span class="hljs-string">'afternoon'</span>);
+</div></code></pre>
+  <p>The above is called <strong>method borrowing</strong>; it takes <code>john.presentation</code> and using
+    <code>call</code> with <code>(emily, 'friendly', 'afternoon')</code> to apply all variables.</p>
+  <p>In this example, variable <code>emily</code> is the <strong>disvariable</strong>, to use the
+    <code>john.presentation</code> method with <code>emily</code>.</p>
+  <h3 id="apply-method">Apply method</h3>
+  <p>There is also the <strong>apply method</strong>, which looks like: <code>john.presentation.apply(emily,
+      ['friendly', 'afternoon']);</code>. However, it will not actually work in this situation.</p>
+  <h3 id="bind-method">Bind method</h3>
+  <p>The bind method needs a preset variable to which a object function such as <code>john.presentation</code> can be
+    bound. For example:</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">//Bind</span>
+<span class="hljs-keyword">var</span> johnFriendly = john.presentation.bind(john, <span class="hljs-string">'friendly'</span>);
+
+johnFriendly(<span class="hljs-string">'afternoon'</span>);
+johnFriendly(<span class="hljs-string">'morning'</span>);
+
+<span class="hljs-keyword">var</span> emilyFormal = john.presentation.bind(emily, <span class="hljs-string">'formal'</span>);
+
+emilyFormal(<span class="hljs-string">'afternoon'</span>);
+</div></code></pre>
+  <p>This way we create handy shortcuts for either <code>formal</code> or <code>friendly</code> introductions.</p>
+  <h3 id="bind-example">Bind example</h3>
+  <pre><code class="language-js"><div><span class="hljs-keyword">var</span> years = [<span class="hljs-number">1990</span>, <span class="hljs-number">1992</span>, <span class="hljs-number">1997</span>, <span class="hljs-number">2004</span>, <span class="hljs-number">2015</span>];
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">arrayCalc</span>(<span class="hljs-params">arr, fn</span>) </span>{
+    <span class="hljs-keyword">var</span> arrRes = [];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; <span class="hljs-number">1</span> &lt; arr.length; i++) {
+        arrRes.push(fn(arr[i]));
+    }
+    <span class="hljs-keyword">return</span> arrRes;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">calculateAge</span>(<span class="hljs-params">el</span>) </span>{ <span class="hljs-comment">//el: element</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">2020</span> - el;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isFullAge</span>(<span class="hljs-params">limit, el</span>) </span>{
+    <span class="hljs-keyword">return</span> el &gt;= limit;
+}
+
+<span class="hljs-keyword">var</span> ages = arrayCalc(years, calculateAge);
+
+<span class="hljs-keyword">var</span> fullJapan = arrayCalc(ages, isFullAge.bind(<span class="hljs-keyword">this</span>, <span class="hljs-number">20</span>));
+</div></code></pre>
+  <hr>
+  <h2 id="511-coding-challenge-7---quiz">5.11 Coding Challenge 7 - Quiz</h2>
+  <h3 id="instructions-for-quiz">Instructions for Quiz</h3>
+  <ol>
+    <li>Build a <em>function contructor</em> called <code>Question</code> to describe a question. A question should
+      include:
+      <ol>
+        <li>the question itself</li>
+        <li>the answers from which the player can choose (choose an adequate data structure here, IE array object, etc.)
+        </li>
+        <li>the correct answer (use a number preferably)</li>
+      </ol>
+    </li>
+    <li>Create a couple of questions using the constructor.</li>
+    <li>Store them all inside an array.</li>
+    <li>Select one random question and log it on th econsole, together with the possible answers (each question should
+      have a number) <em>(HINT: Write a method for the <code>Question</code> objects for this task)</em>.</li>
+    <li>Use the <code>prompt</code> function to ask the user for the correct answer. The user should input the correct
+      answer such as you displayed it on Task 4.</li>
+    <li>Check if the answer is correct and print to the console wheather the answer is correct or not. <em>(HINT: write
+        another method for this)</em>.</li>
+    <li>Suppose the code would be a plugin for other programmers to use in their code. So make sure that all your code
+      is private and doesn't interfere with other programmers' code. <em>(HINT: There is a special technique to do
+        exactly that)</em>.</li>
+  </ol>
+  <h3 id="expert-challenge-for-quiz">Expert challenge for Quiz</h3>
+  <ol start="8">
+    <li>After you display the result, display the next random question, so that the game never ends. <em>(HINT: Write a
+        function for this and call it right after displaying the result)</em>.</li>
+    <li>Be careful: after task 8, the game literally never ends. So include the option to quit the game if the user
+      writes <code>exit</code> instead of the answer. In this case, <strong>don't</strong> call the function from task
+      8.</li>
+    <li>Track the user's score to make the game more fun. So each time an answer is correct, add 1 point to the score.
+      <em>(HINT: You could use <code>closures</code> for this, but you can also use different ways)</em>.</li>
+    <li>Display the score in the console. Use yet another method for this.</li>
+  </ol>
+  <h3 id="approach-for-quiz">Approach for Quiz</h3>
+  <pre><code class="language-js"><div><span class="hljs-comment">////</span>
+<span class="hljs-comment">//Solution</span>
+
+(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">//Question prototype</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Question</span>(<span class="hljs-params">question, answers, correct</span>) </span>{
+        <span class="hljs-keyword">this</span>.question = question;
+        <span class="hljs-keyword">this</span>.answers = answers;
+        <span class="hljs-keyword">this</span>.correct = correct;
+    }
+
+    <span class="hljs-comment">//Displays the question and its answers</span>
+    Question.prototype.displayQuestion = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.question);
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">this</span>.answers.length; i++) {
+            <span class="hljs-built_in">console</span>.log(i + <span class="hljs-string">': '</span> + <span class="hljs-keyword">this</span>.answers[i]);
+        }
+    }
+
+    <span class="hljs-comment">//Checks if the given answer is correct, using argument `ans` as answer</span>
+    Question.prototype.checkAnswer = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">ans, callback</span>) </span>{
+        <span class="hljs-keyword">var</span> sc;
+        <span class="hljs-keyword">if</span> (ans === <span class="hljs-keyword">this</span>.correct) {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Correct answer!'</span>);
+
+            <span class="hljs-comment">//Score question</span>
+            sc = callback(<span class="hljs-literal">true</span>);
+
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Wrong answer, try again...'</span>)
+
+            sc = callback(<span class="hljs-literal">false</span>);
+        }
+        <span class="hljs-keyword">this</span>.displayScore(sc);
+    }
+
+    <span class="hljs-comment">//Method to display score in console</span>
+    Question.prototype.displayScore = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">score</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Your current score: '</span> + score);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'-----------------------------------------'</span>);
+    }
+
+    <span class="hljs-comment">//Define questions from prototype</span>
+    <span class="hljs-keyword">var</span> q1 = <span class="hljs-keyword">new</span> Question(<span class="hljs-string">"What is this?"</span>, [<span class="hljs-string">'A JavaScript course'</span>, <span class="hljs-string">'Horseriding'</span>, <span class="hljs-string">'A CSS course'</span>], <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">var</span> q2 = <span class="hljs-keyword">new</span> Question(<span class="hljs-string">"Is JavaScript fun?"</span>, [<span class="hljs-string">'It\'s a blast!'</span>, <span class="hljs-string">'No, it\'s boring'</span>, <span class="hljs-string">'Please don\'t ask me'</span>], <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">var</span> q3 = <span class="hljs-keyword">new</span> Question(<span class="hljs-string">"What came first, the chicken or the egg?"</span>, [<span class="hljs-string">'Please don\'t ask me dumb questions'</span>, <span class="hljs-string">'The egg, of course!'</span>, <span class="hljs-string">'Obviously the chicken!'</span>], <span class="hljs-number">0</span>);
+    
+    <span class="hljs-comment">//Array of available questions</span>
+    <span class="hljs-keyword">var</span> questions = [q1, q2, q3];
+
+    <span class="hljs-comment">//Scoring function</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">score</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> sc = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">correct</span>) </span>{
+            <span class="hljs-keyword">if</span> (correct) {
+                sc++;
+            }
+            <span class="hljs-keyword">return</span> sc;
+        }
+    }
+
+    <span class="hljs-comment">//Example of closure, attaching variable `sc/score` to `keepScore`</span>
+    <span class="hljs-keyword">var</span> keepScore = score();
+
+    <span class="hljs-comment">//Function to continue the quiz after one question</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nextQuestion</span>(<span class="hljs-params"></span>) </span>{
+
+        <span class="hljs-comment">//Randomly select a question from the array</span>
+        <span class="hljs-keyword">var</span> n = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*questions.length);
+
+        <span class="hljs-comment">//Display Question, referring to displayQuestion prototype</span>
+        questions[n].displayQuestion();
+
+        <span class="hljs-comment">//Prompt answer</span>
+        <span class="hljs-keyword">var</span> answer = prompt(<span class="hljs-string">'Please select the correct answer.'</span>);
+
+        
+        <span class="hljs-comment">//To quit game, otherwise continue</span>
+        <span class="hljs-keyword">if</span>(answer !== <span class="hljs-string">'exit'</span>) {
+            <span class="hljs-comment">//Check answer, using var `answer`</span>
+            questions[n].checkAnswer(<span class="hljs-built_in">parseInt</span>(answer), keepScore);
+            nextQuestion();
+        }
+    }
+    nextQuestion();
+})();
+</div></code></pre>
+  <h2 id="512-prototype-chain">5.12 Prototype chain</h2>
+  <p>Using the <code>.prototype</code> attribute, any new object can retrieve the model of an established object and use
+    it for new purposes.</p>
+  <pre><code class="language-js"><div>Question.prototype.displayQuestion = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{}
+</div></code></pre>
+
+</body>
+
+</html>

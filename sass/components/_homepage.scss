@@ -1,0 +1,238 @@
+//HOMEPAGE UI V2
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//HeroBanner
+
+.hero {
+  margin: 0 -8rem;
+  background-color: $color-black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 80rem;
+  overflow: hidden;
+  box-shadow: 0 2px 1rem $shadow20;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+
+  &Item {
+    transition: all 0.4s;
+    overflow: hidden;
+    position: relative;
+    object-fit: cover;
+    z-index: 10;
+
+    &:hover {
+      transition: all 2s;
+      transform: scale(1.04);
+      z-index: 1;
+    }
+    &:hover &__copy {
+      width: 66%;
+      background-image: linear-gradient(90deg, $color-primary, 90%, rgba(0, 0, 0, 0));
+      transition: background-color 0.4s;
+      padding-left: 4rem;
+      & h3 {
+        transition: all 0.6s;
+        opacity: 1;
+        transform: translateX(2rem);
+      }
+      & p {
+        transition: all 0.8s;
+        opacity: 1;
+        transform: translateX(2rem);
+      }
+    }
+    &:hover &__img {
+      margin-left: 4%;
+      transition: all .3s;
+      -webkit-transition: all .3s;
+      -moz-transition: all .3s;
+      -ms-transition: all .3s;
+      -o-transition: all .3s;
+}
+
+    &__copy {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      height: 100%;
+      width: 0;
+      overflow: hidden;
+
+      & h3 {
+        opacity: 0;
+        color: $color-white;
+        margin: 0;
+      }
+      & p {
+        max-width: 16rem;
+        opacity: 0;
+        font-size: 2.4rem;
+        line-height: 1.4;
+        font-weight: 400;
+        color: $color-white;
+      }
+    }
+
+    & img {
+      height: 80rem;
+      width: auto;
+
+    }
+
+   
+  }
+
+  @media screen and (max-width: $bp-medium) {
+    height: 50rem;
+  }
+  @media screen and (max-width: $bp-small) {
+    display: none;
+  }
+}
+
+//Mobile Hero Banner
+.hero-mobile {
+  margin: 0 -1rem;
+  margin-bottom: 8rem;
+  display: flex;
+  @media screen and (max-width: $mobile-large){
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: $bp-small){
+    display: none;
+  }
+  
+  &__item {
+    width: 33%;
+    height: 40rem;
+    position: relative;
+    overflow: hidden;
+    & img {
+      height: 100%;
+      width: auto;
+      filter: contrast(0.8);
+      z-index: 10;
+    }
+    &-label {
+      z-index: 100;
+      margin: 0;
+      position: absolute;
+      bottom: 2rem;
+      left: 2rem;
+      font-size: 4rem;
+      font-weight: 600;
+      color: $color-white;
+      background-color: $color-black;
+      opacity: 0.9;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      &::before {
+        content: "▸ ";
+      }
+    }
+    @media screen and (max-width: $mobile-large){
+      width: 100%;
+      height: 20rem;
+      & img {
+        width: 100%;
+        height: auto;
+      }
+      &-label {
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0.4rem 2rem;
+      }
+    }
+  }
+}
+
+//Intro
+
+.intro {
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+
+  height: 36%;
+  display: flex;
+  margin: 8rem -8rem;
+  padding: 8rem 2rem;
+  box-shadow: 0 5px 1rem -5px $shadow20;
+
+  & .btn {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-primary-light;
+      color: $color-gray-dark
+    }
+  }
+  
+  @media screen and (max-width: $bp-small) {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    flex-direction: column-reverse;
+    margin: 4rem 0;
+    padding: 0;
+  }
+
+  &__img {
+    z-index: 10;
+    overflow: hidden;
+    display: flex;
+    & svg {
+      z-index: 10;
+      margin-right: 3rem;
+      width: 33vw;
+      height: auto;
+      @media screen and (max-width: $bp-small) {
+        width: 40vw;
+        margin: 0 auto;
+      }
+    }
+    @media screen and (max-width: $bp-small) {
+      margin: 0 auto;
+      height: auto;
+    }
+  }
+
+  &__copy {
+    z-index: 100;
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @media screen and (min-width: $bp-small) {
+      & h1,
+      & p {
+        width: 56%;
+      }
+      & h1 {
+        margin-bottom: 4rem;
+      }
+    }
+    @media screen and (max-width: $bp-small) {
+      & h1,
+      & p {
+        width: 88%;
+      }
+      & h1 {
+        margin: 4rem auto;
+        text-align: center;
+        font-size: 6rem;
+      }
+    }
+  }
+}
+
+//Homepage MoreInfo
+
+.moreInfo {
+  height: 33vh;
+  margin: 0 -8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

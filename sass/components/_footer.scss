@@ -1,0 +1,246 @@
+.footer {
+  background: $color-gray-dark;
+  box-shadow: inset 0 3rem 5px $shadow20;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 60rem;
+  overflow: hidden;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  clip-path: polygon(0 12%, 100% 0, 100% 100%, 0% 100%);
+
+  @media screen and (max-width: $bp-medium) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 30rem 1fr;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    overflow: visible;
+    height: 80rem;
+    padding-bottom: 16rem;
+  }
+
+
+  @media screen and (max-width: $mobile-large) {
+    grid-template-rows: auto 1fr;
+    height: 84%;
+  }
+
+  &Tiles {
+    margin-left: -3rem;
+    width: 50vw;
+    height: 100%;
+    display: grid;
+    transform: skewX(4deg);
+    grid-template-areas:
+      "A B C"
+      "A B C";
+
+    overflow: hidden;
+
+    @media screen and (max-width: $bp-medium) {
+      grid-template-areas: "A B C";
+      transform: skewX(0);
+      margin-left: 0;
+      height: 30rem;
+      width: 100vw;
+    }
+    @media screen and (max-width: $bp-small) {
+      width: 100vw;
+    }
+
+    @media screen and (max-width: $mobile-large) {
+      grid-template-areas: "A" "B" "C";
+      transform: skewX(0);
+      height: 40rem;
+      width: 100vw;
+      margin-left: 0;
+    }
+
+    &__img {
+      height: 100%;
+      width: auto;
+      transform: skewX(-4deg) scale(1.34);
+      opacity: 0.2;
+
+      @media screen and (max-width: $bp-medium) {
+        width: auto;
+        height: 100%;
+      }
+
+      @media screen and (max-width: $mobile-large) {
+        width: 100%;
+        height: 20rem;
+      }
+    }
+
+    &__label {
+      transform: skewX(-8deg) translate(50%, 50%);
+      font-size: 1.8rem;
+      opacity: 0.5;
+      color: $color-white;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+
+      @media screen and (max-width: $bp-medium) {
+        opacity: 1;
+        transform: skewX(0) translate(50%, 0);
+        font-size: 2rem;
+      }
+    }
+
+    &__item:hover &__img {
+      transition: all 0.2s;
+      opacity: 0.4;
+      transform: scale(1.4) skewX(-4deg);
+    }
+    &__item:hover &__label {
+      transition: all 0.2s;
+      opacity: 1;
+      top: 49%;
+    }
+
+    &__item:hover {
+      background-color: $color-tertiary;
+    }
+
+    &__item {
+      position: relative;
+      overflow: hidden;
+
+      &-1 {
+        grid-area: A;
+        background-image: url("img/portfolio_assets/stock/email_tileSmall.jpg");
+        background-color: $color-gray-dark;
+      }
+
+      &-2 {
+        grid-area: B;
+        background-color: $color-gray-dark;
+      }
+
+      &-3 {
+        grid-area: C;
+        background-color: $color-gray-dark;
+      }
+
+      &-4 {
+        display: none;
+        grid-area: D;
+        background-color: $color-gray-dark;
+      }
+    }
+  }
+}
+
+.footerNav {
+  position: relative;
+  /*   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+ */
+  padding: 12rem 4rem 12rem 4rem;
+  background: linear-gradient(
+    140deg,
+    $color-gray-dark 25%,
+    $color-gray-dark 89%,
+    rgba(42, 42, 42, 1) 90%
+  );
+
+  @media screen and (max-width: $mobile-large) {
+    padding: 2rem 0;
+  }
+
+
+  &__header {
+    margin-bottom: 2rem;
+    & a {
+      font-size: 1.6;
+      color: $color-tertiary;
+    }
+    @media screen and (max-width: $mobile-large) {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    margin-left: -2.4rem;
+    flex-direction: row;
+    gap: 2rem;
+    font-size: 1.6rem;
+    color: $color-tertiary;
+    @media screen and (max-width: $mobile-large) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+  }
+
+  &__social {
+    margin: 4rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 8rem;
+
+    & span,
+    div {
+      color: $color-tertiary;
+      font-size: 2.4rem;
+    }
+
+    @media screen and (max-width: $bp-large) {
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2rem;
+    }
+    @media screen and (max-width: $mobile-large) {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      margin: 2rem;
+    }
+
+  }
+
+  &__material-icons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__badges {
+    width: 100%;
+    margin-top: 8rem;
+    display: flex;
+    gap: 4rem;
+    justify-content: flex-start;
+
+    & img {
+      background-color: $color-tertiary;
+      box-shadow: 3px 3px 4px $shadow20;
+      opacity: 0.5;
+      height: 8rem;
+      width: auto;
+      border-radius: 1rem;
+    }
+    @media screen and (max-width: $mobile-large) {
+      margin-top: 4rem;
+      justify-content: center;
+    }
+
+  }
+
+  &__smallPrint {
+    display: none;
+    color: $color-tertiary;
+    position: absolute;
+    top: 20px;
+    right: -20px;
+    transform: rotate(-90deg);
+  }
+}
