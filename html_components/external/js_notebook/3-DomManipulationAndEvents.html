@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>4 - DOM Manipulations & Events</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+    integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+
+  <link rel="stylesheet" href="item_style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</head>
+
+<body class="vscode-light">
+  <h1 id="dom-manipulation--events">DOM Manipulation &amp; Events</h1>
+  <p><a href="javascript:history.back()">go back</a> |</p>
+  <ul>
+    <li><a href="#dom-manipulation--events">DOM Manipulation &amp; Events</a>
+      <ul>
+        <li><a href="#41-project-4-dom-challenge---the-pig-game">4.1 Project 4 Dom challenge - The Pig Game</a>
+          <ul>
+            <li><a href="#rules-of-the-game">Rules of the game</a></li>
+            <li><a href="#variable-setup">Variable setup</a></li>
+            <li><a href="#mathrandom--mathfloor">Math.random &amp; Math.floor</a></li>
+            <li><a href="#queryselector">querySelector</a></li>
+            <li><a href="#innerhtml">InnerHTML</a></li>
+            <li><a href="#using-the-queryselector-to-read-values">Using the querySelector to read values</a></li>
+            <li><a href="#css-styling-using-queryselector">CSS styling using querySelector</a></li>
+          </ul>
+        </li>
+        <li><a href="#42-events">4.2 Events</a>
+          <ul>
+            <li><a href="#what-events-are">What events are</a></li>
+            <li><a href="#how-events-are-processed">How events are processed</a></li>
+          </ul>
+        </li>
+        <li><a href="#43-event-handler-callback-functions-element-selector">4.3 Event handler, callback functions,
+            element selector</a>
+          <ul>
+            <li><a href="#setting-up-an-event-handler">Setting up an event handler</a>
+              <ul>
+                <li><a href="#calling-a-function">Calling a function</a></li>
+                <li><a href="#anonymous-function">Anonymous function</a></li>
+              </ul>
+            </li>
+            <li><a href="#getting-on-with-the-project">Getting on with the project</a>
+              <ul>
+                <li><a href="#displaying-the-result">Displaying the result</a></li>
+              </ul>
+            </li>
+            <li><a href="#getelementbyid">getElementById</a></li>
+            <li><a href="#getting-on-with-the-project---continued">Getting on with the project - continued</a>
+              <ul>
+                <li><a href="#current-player-indicator">Current player indicator</a></li>
+              </ul>
+            </li>
+            <li><a href="#hold--dry"><code>Hold</code> &amp; DRY</a>
+              <ul>
+                <li><a href="#switch-players-dry">Switch players: DRY</a></li>
+              </ul>
+            </li>
+            <li><a href="#game-initialization-function">Game initialization function</a></li>
+          </ul>
+        </li>
+        <li><a href="#44-state-variables">4.4 State variables</a>
+          <ul>
+            <li><a href="#dice-game-code">Dice game code</a></li>
+          </ul>
+        </li>
+        <li><a href="#45-dice-game---coding-challenges">4.5 Dice game - Coding Challenges</a></li>
+      </ul>
+    </li>
+  </ul>
+  <hr>
+  <p>DOM (Dominant Object Model) is a structured representation of an HTML document. It is used to connect webpages to
+    scripts like JavaScript. For each HTML box, there is an object in the DOM which can be interacted with in
+    JavaScript.</p>
+  <p><img src="images/Slide9.png" alt="The Dominant Object Model"></p>
+  <p>Using JavaScript methods you can interact with and alter the HTML through the DOM.</p>
+  <hr>
+  <h2 id="41-project-4-dom-challenge---the-pig-game">4.1 Project 4 Dom challenge - The Pig Game</h2>
+  <p><img src="images/Slide10.png" alt="Overview of Project 4"></p>
+  <h3 id="rules-of-the-game">Rules of the game</h3>
+  <ul>
+    <li>The game has 2 players, playing in rounds</li>
+    <li>In each turn, a player rolls a dice as many times as he whishes. Each result get added to his ROUND score</li>
+    <li>BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn</li>
+    <li>The player can choose to 'Hold', which means that his ROUND score gets added to his GLBAL score. After that,
+      it's the next player's turn</li>
+    <li>The first player to reach 100 points on GLOBAL score wins the game</li>
+  </ul>
+  <h3 id="variable-setup">Variable setup</h3>
+  <pre><code class="language-js"><div><span class="hljs-keyword">var</span> scores, roundScore, activePlayer, dice;
+
+scores = [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>];
+roundScore = <span class="hljs-number">0</span>;
+activePlayer = <span class="hljs-number">0</span>; <span class="hljs-comment">//`1` = player 1, `0` = player 2</span>
+</div></code></pre>
+  <h3 id="mathrandom--mathfloor">Math.random &amp; Math.floor</h3>
+  <pre><code class="language-js"><div>dice = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*<span class="hljs-number">6</span>)+<span class="hljs-number">1</span>;
+<span class="hljs-built_in">console</span>.log(dice);
+
+<span class="hljs-built_in">document</span>
+</div></code></pre>
+  <h3 id="queryselector">querySelector</h3>
+  <p>The <code>querySelector()</code> is a method to select objects from the DOM. It selects objects in a similar way as
+    in CSS. It selects the first object it finds however.</p>
+  <p>To select element with <code>id='score-0'</code> and assign the variable <code>dice</code> to it:</p>
+  <pre><code class="language-js"><div><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#current-0'</span>).textContent = dice;
+</div></code></pre>
+  <p>To account for the second player and with the help of <em>type coersion</em>, the string above can be altered to
+    account for the <code>var activePlayer</code>:</p>
+  <pre><code class="language-js"><div><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#current-'</span> + activePlayer).textContent = dice;
+</div></code></pre>
+  <h3 id="innerhtml">InnerHTML</h3>
+  <p>Another method to alter the HTML is using the <code>.innerHTML</code> selector. With this method we can do things
+    like changing the inline text styling:</p>
+  <pre><code class="language-js"><div><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#current-'</span> + activePlayer).innerHTML = <span class="hljs-string">'&lt;em&gt;'</span> + dice + <span class="hljs-string">'&lt;/em&gt;'</span>;
+</div></code></pre>
+  <p>The above line results in a emphasised <code>current-score</code> text. Doing this with the
+    <code>.textContent</code> selector wouldn't have resulted in the same way; it would have showed the HTML code
+    <code>&lt;em&gt;</code> without formatting it.</p>
+  <h3 id="using-the-queryselector-to-read-values">Using the querySelector to read values</h3>
+  <p>The <code>querySelector</code> can also be used to read and store values from the DOM, and store HTML page element
+    values in variables.</p>
+  <pre><code class="language-js"><div><span class="hljs-keyword">var</span> x = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#score-0'</span>).textContent;
+
+<span class="hljs-built_in">console</span>.log(x);
+</div></code></pre>
+  <h3 id="css-styling-using-queryselector">CSS styling using querySelector</h3>
+  <p>To alter CSS styles using the <code>querySelector</code> we write <code>.style.[css property] = '[property
+      value]';</code>, for example:</p>
+  <pre><code class="language-js"><div><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.dice'</span>).style.display = <span class="hljs-string">'none'</span>;
+</div></code></pre>
+  <hr>
+  <h2 id="42-events">4.2 Events</h2>
+  <h3 id="what-events-are">What events are</h3>
+  <p><img src="images/Slide11.png" alt="What are events?"></p>
+  <h3 id="how-events-are-processed">How events are processed</h3>
+  <p><img src="images/Slide12.png" alt="How events are processed"></p>
+  <p>Looking at the above diagram of the Execution Stack and Message Queue, in order of priority:</p>
+  <ul>
+    <li>The Execution Context objects are processed first;</li>
+    <li>Then the Message Queue, where all events in the browser are put.</li>
+  </ul>
+  <p>Here you can find the even listeners, which will get their own execution context object to be processed.</p>
+  <hr>
+  <h2 id="43-event-handler-callback-functions-element-selector">4.3 Event handler, callback functions, element selector
+  </h2>
+  <p><img src="images/Slide13.png" alt="What we will learn in this lecture"></p>
+  <h3 id="setting-up-an-event-handler">Setting up an event handler</h3>
+  <pre><code class="language-js"><div><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.btn-roll'</span>).addEventListener(<span class="hljs-string">'click'</span>)
+</div></code></pre>
+  <p>The <code>.addEventListener</code> selector is used to listen for webpage events. It takes <em>arguments</em>, in
+    this case <code>('click')</code>. All event names can be found here: [<a
+      href="https://developer.mozilla.org/en-US/docs/Web/Events">MDN Event Reference</a>](<a
+      href="https://link">https://link</a>).</p>
+  <h4 id="calling-a-function">Calling a function</h4>
+  <p>The inline way of calling a function in JS:</p>
+  <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">btn</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">//Do something here</span>
+}
+btn();
+</div></code></pre>
+  <p>Calling a function with the event listener:</p>
+  <pre><code class="language-js"><div><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.btn-roll'</span>).addEventListener(<span class="hljs-string">'click'</span>, btn);
+</div></code></pre>
+  <p>The main difference is that for function <code>btn()</code> in the event listener the parenthesis' are excluded.
+    This is called the <strong>callback function</strong>; the event listener will call the function for you.</p>
+  <h4 id="anonymous-function">Anonymous function</h4>
+  <p>What if we don't want an external function called? Anonymous functions can be placed right within the event
+    listener argument, such as:</p>
+  <pre><code class="language-js"><div>.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+   <span class="hljs-comment">//function here</span>
+});
+</div></code></pre>
+  <p>Anonymous functions are one purpose and cannot be used anywhere outside of the event.</p>
+  <hr>
+  <h3 id="getting-on-with-the-project">Getting on with the project</h3>
+  <p>Applying the use of event listeners and anonymous functions we can start on creating a button behaviour for the
+    dice roll.</p>
+  <pre><code class="language-js"><div><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.btn-roll'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// 1. random number</span>
+    dice = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">6</span>) + <span class="hljs-number">1</span>;
+    <span class="hljs-comment">//2. display result</span>
+    ---
+    <span class="hljs-comment">//3. update round score only IF the rolled number was NOT a 1</span>
+    ---
+});
+</div></code></pre>
+  <h4 id="displaying-the-result">Displaying the result</h4>
+  <pre><code class="language-js"><div><span class="hljs-comment">//2. display result</span>
+    <span class="hljs-keyword">var</span> diceDOM = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.dice'</span>); <span class="hljs-comment">//simplifies selector</span>
+    <span class="hljs-comment">//to make the dice visible again</span>
+    diceDOM.style.display = <span class="hljs-string">'block'</span>;
+    <span class="hljs-comment">//to display the right dice picture</span>
+    diceDOM.src = <span class="hljs-string">'dice-'</span> + dice + <span class="hljs-string">'.png'</span>;
+</div></code></pre>
+  <p>Used above:</p>
+  <ul>
+    <li>A variable <code>diceDOM</code> to easily reuse <code>document.querySelector</code> and simplify the code.</li>
+    <li>Setting back the dice display style to <code>block</code> to make it visible again.</li>
+    <li>using <code>.src</code> to set the object to the correct png file.</li>
+  </ul>
+  <h3 id="getelementbyid">getElementById</h3>
+  <blockquote>
+    <p>The .getElementById does the same thing as the querySelector, but points at <em>id elements</em> in the HTML
+      directly. It is a bit faster and cleaner than using querySelector.</p>
+  </blockquote>
+  <pre><code class="language-js"><div><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'score-0'</span>).textContent = <span class="hljs-string">'0'</span>;
+</div></code></pre>
+  <p>To set the player scores to zero, we use the above code.</p>
+  <hr>
+  <h3 id="getting-on-with-the-project---continued">Getting on with the project - continued</h3>
+  <pre><code class="language-js"><div>    <span class="hljs-keyword">if</span> (dice !== <span class="hljs-number">1</span>) {
+        <span class="hljs-comment">//add score</span>
+        roundScore += dice;
+        <span class="hljs-comment">//Update current score</span>
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#current-'</span> + activePlayer).textContent = dice;  
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">//next player</span>
+</div></code></pre>
+  <p>The above lines of code check if the dice result isn't 1, and then add it to the round score.</p>
+  <p>To switch turns between players, the <strong>Ternary operator</strong> can be used:</p>
+  <pre><code class="language-js"><div>} <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">//Switch to other player if activePlayer === 0</span>
+        activePlayer === <span class="hljs-number">0</span> ? activePlayer = <span class="hljs-number">1</span> : activePlayer = <span class="hljs-number">0</span>;
+    }
+</div></code></pre>
+  <p>If the current player rolls a 1, the turn is given over to the other player, but the roundScore should also be set
+    back to 0.</p>
+  <pre><code class="language-js"><div>    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">//Switch to other player if activePlayer === 0</span>
+        activePlayer === <span class="hljs-number">0</span> ? activePlayer = <span class="hljs-number">1</span> : activePlayer = <span class="hljs-number">0</span>;
+        roundScore = <span class="hljs-number">0</span>;
+</div></code></pre>
+  <p>While this updates the internal value of the roundScore, it does not yet update the displayed score. We can change
+    the displayed roundScore back to 0 with the following lines:</p>
+  <pre><code class="language-js"><div>    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">//Switch to other player if activePlayer === 0</span>
+        activePlayer === <span class="hljs-number">0</span> ? activePlayer = <span class="hljs-number">1</span> : activePlayer = <span class="hljs-number">0</span>;
+        roundScore = <span class="hljs-number">0</span>;
+
+        <span class="hljs-comment">//setting display to 0</span>
+        <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'current-0'</span>).textContent = <span class="hljs-string">'0'</span>;
+        <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'current-1'</span>).textContent = <span class="hljs-string">'0'</span>;
+    }
+</div></code></pre>
+  <h4 id="current-player-indicator">Current player indicator</h4>
+  <p>To indicate the current player, the page shows the player id in bold letters, shows a dot with the id, and makes
+    the player side highlighted.</p>
+  <p>In the html, the player side divs have a modifier class name <code>active</code>.</p>
+  <pre><code class="language-js"><div>&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"player-0-panel active"</span>&gt;
+</div></code></pre>
+  <p>Using JavaScript we can remove and add classes to HTML elements.</p>
+  <pre><code class="language-js"><div><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-0-panel'</span>).classList.remove(<span class="hljs-string">'active'</span>);
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-1-panel'</span>).classList.add(<span class="hljs-string">'active'</span>);
+</div></code></pre>
+  <p>The above lines switch the <code>active</code> class between player-0-panel and player-1-panel by adding and
+    removing.</p>
+  <p><strong>However</strong>, this would only switch the sides in one direction and <em>not</em> back around. To move
+    the class inbetween elements repeatedly you can use <em><strong>Toggle</strong></em></p>
+  <pre><code class="language-js"><div><span class="hljs-comment">//One direction</span>
+<span class="hljs-comment">// document.querySelector('.player-0-panel').classList.remove('active');</span>
+<span class="hljs-comment">// document.querySelector('.player-1-panel').classList.add('active');</span>
+
+<span class="hljs-comment">//Both directions</span>
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-0-panel'</span>).classList.toggle(<span class="hljs-string">'active'</span>);
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-1-panel'</span>).classList.toggle(<span class="hljs-string">'active'</span>);
+</div></code></pre>
+  <h3 id="hold--dry"><code>Hold</code> &amp; DRY</h3>
+  <p>Next in the project we're setting up the 'Hold score' button of the game.</p>
+  <pre><code class="language-js"><div><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.btn-hold'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// add current score to global score,</span>
+    <span class="hljs-comment">// update UI,</span>
+    <span class="hljs-comment">// and check if player won the game</span>
+    <span class="hljs-comment">// else next player</span>
+})
+</div></code></pre>
+  <p>The function should add the player score to their global score, like:</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">// add current score to global score,</span>
+    scores[activePlayer] += roundScore; <span class="hljs-comment">//adds the activeScore to the players global score</span>
+</div></code></pre>
+  <p>Then to update the UI:</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">// update UI,</span>
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#score-'</span> + activePlayer).textContent = scores[activePlayer];
+</div></code></pre>
+  <p>The above code selects the <code>id='score-[activeplayer:1/0]</code> and adds the relevant score to it. *Pay
+    attention how <code>[activePlayer]</code> is being used to always select the values of the relevant player.</p>
+  <h4 id="switch-players-dry">Switch players: DRY</h4>
+  <p>Don't repeat yourself. To switch the turn to the other player we could repeat the lines of code from before, but a
+    core principle in coding is to <em>not repeat yourself if unnecessary!</em> - so instead if adding…</p>
+  <pre><code class="language-js"><div><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'current-0'</span>).textContent = <span class="hljs-string">'0'</span>;
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'current-1'</span>).textContent = <span class="hljs-string">'0'</span>;
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-0-panel'</span>).classList.toggle(<span class="hljs-string">'active'</span>);
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-1-panel'</span>).classList.toggle(<span class="hljs-string">'active'</span>);
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.dice'</span>).style.display = <span class="hljs-string">'none'</span>;
+</div></code></pre>
+  <p>…again, we can instead follow the <em>DRY-Principle</em> and implement a new function, called
+    <code>nextPlayer()</code>:</p>
+  <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nextPlayer</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">//Switch to other player if activePlayer === 0</span>
+        activePlayer === <span class="hljs-number">0</span> ? activePlayer = <span class="hljs-number">1</span> : activePlayer = <span class="hljs-number">0</span>;
+        roundScore = <span class="hljs-number">0</span>;
+
+        <span class="hljs-comment">//setting display to 0</span>
+        <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'current-0'</span>).textContent = <span class="hljs-string">'0'</span>;
+        <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'current-1'</span>).textContent = <span class="hljs-string">'0'</span>;
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-0-panel'</span>).classList.toggle(<span class="hljs-string">'active'</span>);
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-1-panel'</span>).classList.toggle(<span class="hljs-string">'active'</span>);
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.dice'</span>).style.display = <span class="hljs-string">'none'</span>;
+}
+</div></code></pre>
+  <p>Now we can just plug in <code>nextPlayer()</code> wherever this code is needed, following the DRY-Principle.</p>
+  <p>Next, the game should check for a winner before handing over a turn by using an <em>if</em> statement to see if the
+    score of any player has exceeded a 100. If not, then the game will pass the turn normally.</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">// and check if player won the game</span>
+    <span class="hljs-keyword">if</span> (scores[activePlayer] &gt;= <span class="hljs-number">100</span>) {
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#name-'</span> + activePlayer).textContent = <span class="hljs-string">'Winner!'</span>;
+    } <span class="hljs-keyword">else</span> {
+        nextPlayer();
+    }
+</div></code></pre>
+  <p>Then remove the dice once the game is finished:</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">// and check if player won the game</span>
+    <span class="hljs-keyword">if</span> (scores[activePlayer] &gt;= <span class="hljs-number">100</span>) {
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#name-'</span> + activePlayer).textContent = <span class="hljs-string">'Winner!'</span>;
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.dice'</span>).style.display = <span class="hljs-string">'none'</span>;
+    } <span class="hljs-keyword">else</span> {...
+</div></code></pre>
+  <p>Now, the UI should be altered to show the winner's side and remove the activePlayer indicator, which is done by
+    removing the <code>active</code> modifier class, and adding the <code>winner</code> modifier class to the winner.
+  </p>
+  <pre><code class="language-js"><div><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-'</span> + activePlayer + <span class="hljs-string">'-panel'</span>).classList.add(<span class="hljs-string">'winner'</span>);
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-'</span> + activePlayer + <span class="hljs-string">'-panel'</span>).classList.remove(<span class="hljs-string">'active'</span>);
+</div></code></pre>
+  <p>The game is almost finished, but it still needs a way to initialize a new game.</p>
+  <hr>
+  <h3 id="game-initialization-function">Game initialization function</h3>
+  <p>To make the <em>new game</em> button work, let's create a function <code>init()</code> that resets all values and
+    visual changes, and sets the turn to player 0 once pressed.</p>
+  <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>{
+    scores = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>];
+    roundScore = <span class="hljs-number">0</span>;
+    activePlayer = <span class="hljs-number">0</span>; <span class="hljs-comment">//`0` = player 1, `1` = player 2</span>
+
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.dice'</span>).style.display = <span class="hljs-string">'none'</span>; <span class="hljs-comment">//setting dice display to 'none'</span>
+
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'score-0'</span>).textContent = <span class="hljs-string">'0'</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'score-1'</span>).textContent = <span class="hljs-string">'0'</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'current-0'</span>).textContent = <span class="hljs-string">'0'</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'current-1'</span>).textContent = <span class="hljs-string">'0'</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'name-0'</span>).textContent = <span class="hljs-string">'Player 1'</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'name-1'</span>).textContent = <span class="hljs-string">'Player 2'</span>;
+    
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-0-panel'</span>).classList.remove(<span class="hljs-string">'winner'</span>);
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-1-panel'</span>).classList.remove(<span class="hljs-string">'winner'</span>);
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-0-panel'</span>).classList.remove(<span class="hljs-string">'active'</span>);
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-1-panel'</span>).classList.remove(<span class="hljs-string">'active'</span>);
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-0-panel'</span>).classList.add(<span class="hljs-string">'active'</span>);
+}
+</div></code></pre>
+  <h2 id="44-state-variables">4.4 State variables</h2>
+  <p>State variables are a general concept in coding, not just in JavaScript.</p>
+  <p>A state variable tells you the condition of a system, and helps letting you know the state of something. We check
+    this by creating a variable which is updated based on the state of the game we're writing.</p>
+  <p>A state variable looks something like:</p>
+  <pre><code class="language-js"><div><span class="hljs-keyword">var</span> gamePlaying = <span class="hljs-literal">true</span>;
+</div></code></pre>
+  <p>Throughout the code of the game, we check on the state variable <code>gamePlaying = true/false</code> using an
+    <code>if-statement</code>.</p>
+  <blockquote>
+    <p><code>if (gamePlaying { ... });</code></p>
+  </blockquote>
+  <p>A place to check if <code>gamePlaying = true;</code> is when the player is about to make a move, so lets place the
+    <code>if-statement</code> around the <code>roll dice function</code>:</p>
+  <pre><code class="language-js"><div><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.btn-roll'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+
+    <span class="hljs-keyword">if</span> (gamePlaying) {
+
+        <span class="hljs-comment">// 1. random number</span>
+        dice = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">6</span>) + <span class="hljs-number">1</span>;
+        <span class="hljs-comment">//2. display result</span>
+        <span class="hljs-keyword">var</span> diceDOM = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.dice'</span>); <span class="hljs-comment">//simplifies selector</span>
+        <span class="hljs-comment">//to make the dice visible again</span>
+        diceDOM.style.display = <span class="hljs-string">'block'</span>;
+        <span class="hljs-comment">//to display the right dice picture</span>
+        diceDOM.src = <span class="hljs-string">'dice-'</span> + dice + <span class="hljs-string">'.png'</span>;
+        <span class="hljs-comment">//3. update round score only IF the rolled number was NOT a 1</span>
+        <span class="hljs-keyword">if</span> (dice !== <span class="hljs-number">1</span>) {
+            <span class="hljs-comment">//add score</span>
+            roundScore += dice;
+            <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#current-'</span> + activePlayer).textContent = roundScore;...
+</div></code></pre>
+  <p>There are also places in the code where the game is not in progress, or <code>gamePlaying = false;</code>, for
+    example after a player has won:</p>
+  <pre><code class="language-js"><div><span class="hljs-comment">// and check if player won the game</span>
+    <span class="hljs-keyword">if</span> (scores[activePlayer] &gt;= <span class="hljs-number">100</span>) {
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#name-'</span> + activePlayer).textContent = <span class="hljs-string">'Winner!'</span>;
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.dice'</span>).style.display = <span class="hljs-string">'none'</span>;
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-'</span> + activePlayer + <span class="hljs-string">'-panel'</span>).classList.add(<span class="hljs-string">'winner'</span>);
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-'</span> + activePlayer + <span class="hljs-string">'-panel'</span>).classList.remove(<span class="hljs-string">'active'</span>);
+
+        gamePlaying = <span class="hljs-literal">false</span>;
+</div></code></pre>
+  <p>Lastly, the game needs to be enables and <code>gamePlaying</code> set to true when <code>init()</code> is run.</p>
+  <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>{
+    scores = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>];
+    roundScore = <span class="hljs-number">0</span>;
+    activePlayer = <span class="hljs-number">0</span>; <span class="hljs-comment">//`0` = player 1, `1` = player 2</span>
+    gamePlaying = <span class="hljs-literal">true</span>;
+    ...
+</div></code></pre>
+  <h3 id="dice-game-code">Dice game code</h3>
+  <pre><code class="language-js"><div><span class="hljs-keyword">var</span> scores, roundScore, activePlayer, dice, gamePlaying;
+
+<span class="hljs-comment">//Setup new game</span>
+init();
+<span class="hljs-comment">//Function for 'new game' button</span>
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.btn-new'</span>).addEventListener(<span class="hljs-string">'click'</span>, init);
+<span class="hljs-comment">//Roll function</span>
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.btn-roll'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (gamePlaying) {
+        <span class="hljs-comment">// 1. random number</span>
+        dice = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">6</span>) + <span class="hljs-number">1</span>;
+        <span class="hljs-comment">//2. display result</span>
+        <span class="hljs-keyword">var</span> diceDOM = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.dice'</span>); <span class="hljs-comment">//simplifies selector</span>
+        <span class="hljs-comment">//to make the dice visible again</span>
+        diceDOM.style.display = <span class="hljs-string">'block'</span>;
+        <span class="hljs-comment">//to display the right dice picture</span>
+        diceDOM.src = <span class="hljs-string">'dice-'</span> + dice + <span class="hljs-string">'.png'</span>;
+        <span class="hljs-comment">//3. update round score only IF the rolled number was NOT a 1</span>
+        <span class="hljs-keyword">if</span> (dice !== <span class="hljs-number">1</span>) {
+            <span class="hljs-comment">//add score</span>
+            roundScore += dice;
+            <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#current-'</span> + activePlayer).textContent = roundScore;
+        } <span class="hljs-keyword">else</span> {
+            nextPlayer();
+        }
+    }
+});
+
+<span class="hljs-comment">//Hold function</span>
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.btn-hold'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">if</span> (gamePlaying) {
+            <span class="hljs-comment">// add current score to global score,</span>
+    scores[activePlayer] += roundScore; <span class="hljs-comment">//adds the activeScore to the players global score</span>
+
+    <span class="hljs-comment">// update UI,</span>
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#score-'</span> + activePlayer).textContent = scores[activePlayer];
+
+    <span class="hljs-comment">// and check if player won the game</span>
+    <span class="hljs-keyword">if</span> (scores[activePlayer] &gt;= <span class="hljs-number">100</span>) {
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#name-'</span> + activePlayer).textContent = <span class="hljs-string">'Winner!'</span>;
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.dice'</span>).style.display = <span class="hljs-string">'none'</span>;
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-'</span> + activePlayer + <span class="hljs-string">'-panel'</span>).classList.add(<span class="hljs-string">'winner'</span>);
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-'</span> + activePlayer + <span class="hljs-string">'-panel'</span>).classList.remove(<span class="hljs-string">'active'</span>);
+        gamePlaying = <span class="hljs-literal">false</span>;
+    } <span class="hljs-keyword">else</span> {
+        nextPlayer();
+    }
+    }
+});
+
+<span class="hljs-comment">//Switch turns function</span>
+<span class="hljs-keyword">var</span> nextPlayer = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">//Switch to other player if activePlayer === 0</span>
+    activePlayer === <span class="hljs-number">0</span> ? activePlayer = <span class="hljs-number">1</span> : activePlayer = <span class="hljs-number">0</span>;
+    roundScore = <span class="hljs-number">0</span>;
+
+    <span class="hljs-comment">//setting display to 0</span>
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'current-0'</span>).textContent = <span class="hljs-string">'0'</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'current-1'</span>).textContent = <span class="hljs-string">'0'</span>;
+
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-0-panel'</span>).classList.toggle(<span class="hljs-string">'active'</span>);
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-1-panel'</span>).classList.toggle(<span class="hljs-string">'active'</span>);
+
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.dice'</span>).style.display = <span class="hljs-string">'none'</span>;
+}
+<span class="hljs-comment">//New game function</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>{
+    scores = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>];
+    roundScore = <span class="hljs-number">0</span>;
+    activePlayer = <span class="hljs-number">0</span>; <span class="hljs-comment">//`0` = player 1, `1` = player 2</span>
+    gamePlaying = <span class="hljs-literal">true</span>;
+
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.dice'</span>).style.display = <span class="hljs-string">'none'</span>; <span class="hljs-comment">//setting dice display to 'none'</span>
+
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'score-0'</span>).textContent = <span class="hljs-string">'0'</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'score-1'</span>).textContent = <span class="hljs-string">'0'</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'current-0'</span>).textContent = <span class="hljs-string">'0'</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'current-1'</span>).textContent = <span class="hljs-string">'0'</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'name-0'</span>).textContent = <span class="hljs-string">'Player 1'</span>;
+    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'name-1'</span>).textContent = <span class="hljs-string">'Player 2'</span>;
+
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-0-panel'</span>).classList.remove(<span class="hljs-string">'winner'</span>);
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-1-panel'</span>).classList.remove(<span class="hljs-string">'winner'</span>);
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-0-panel'</span>).classList.remove(<span class="hljs-string">'active'</span>);
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-1-panel'</span>).classList.remove(<span class="hljs-string">'active'</span>);
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.player-0-panel'</span>).classList.add(<span class="hljs-string">'active'</span>);
+};
+</div></code></pre>
+  <p>That's the end of building a fully functional dice game. However, there is more in the coding challenges below.</p>
+  <hr>
+  <h2 id="45-dice-game---coding-challenges">4.5 Dice game - Coding Challenges</h2>
+  <p>Change the game to follow these rules:</p>
+  <ol>
+    <li>A player loses his <strong>entire</strong> score if he rolls two sixes in a row. After that, it's the next
+      players turn. <em>Hint: Always save the previous dice roll in a separate variable.</em></li>
+    <li>Add an input field to the HTML where players can set the winning score to any value. <em>Hint: you can read that
+        value with the .value property in JavaScript. You should google that :)</em></li>
+    <li>Add anothe dice to the game, so that there are two dice now. The player loses his current score when one of them
+      is a 1. <em>Hint: you will need CSS to position the second dice</em></li>
+  </ol>
+  <hr>
+
+</body>
+
+</html>
