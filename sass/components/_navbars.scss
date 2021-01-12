@@ -31,11 +31,11 @@
     justify-content: center;
    */
   box-shadow: 0 10px 8px -10px $shadow20;
-  padding: 1.4rem;
+  padding: 4.4rem;
   padding-bottom: 1rem;
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 2rem;
+  gap: 6rem;
   align-items: center;
 
   &__header {
@@ -62,7 +62,7 @@
   }
 
   &__menu {
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: 600;
     display: flex;
     gap: 4rem;
@@ -70,11 +70,11 @@
     justify-content: flex-start;
     color: $color-black;
     transition: all 0.2s;
-
+    
     &Item {
-      text-align: right;
+      text-align: right;  
     }
-
+    
     &Item::before {
       transition: all 0.2s;
       display: inline-block;
@@ -102,6 +102,22 @@
       transition: all 0.2s;
       transform: translateX(1.2rem);
       color: $color-secondary;
+    }
+  }  
+
+  &__menuSecondary {
+    justify-self: flex-end;
+    margin-left: auto;
+
+    &Item {
+      font-size: 1.6rem;
+      color: $color-gray-light;
+      align-self: flex-end;
+      justify-self: flex-end;
+      margin-right: 3.6rem;
+      &::before {
+        content: '‣'
+      }
     }
   }
 

@@ -22,6 +22,10 @@ iframe {
     width: 88vw;
   }
 }
+
+.scrolling_Navbar {
+  display: none;
+}
 /* ==========================================================================
    section - MAIN CONTENT (SINGLE PORTFOLIO ITEMS)
    ========================================================================== */
@@ -29,10 +33,9 @@ iframe {
 .mainContainer {
   background-color: $color-white;
   padding: 4rem 0;
-  border-radius: 8px;
   overflow: hidden;
   box-shadow: inset 1rem 1rem 2rem $shadow20;
-  margin: 16rem auto;
+  margin: 4rem -4rem;
   position: relative;
 }
 
@@ -250,8 +253,9 @@ iframe {
     font-size: 2rem;
     font-weight: 600;
     text-align: center;
-    height: 6rem;
+    height: 8rem;
     margin-top: 4rem;
+    margin-bottom: 4rem;
     border-radius: 4px;
     transition: all 0.2s;
     position: relative;
@@ -344,6 +348,7 @@ iframe {
   flex-direction: column;
   align-items: flex-start;
   margin: 0;
+  box-shadow: 0 -8rem 0 $color-white;
   @media screen and (max-width: $bp-small) {
     margin: 0 -1.2rem;
     top: 0rem;
@@ -513,8 +518,9 @@ iframe {
     COPYRIGHT STAMP
    ========================================================================== */
 .copyrightStamp {
-  text-align: center;
+  text-align: right;
   color: $color-gray-dark;
+  margin-right: 2rem;
   margin-bottom: 8rem;
 }
 /* ==========================================================================

@@ -9,7 +9,7 @@ body {
 p,
 .p {
   font-family: $font-text;
-  font-size: 1.8rem;
+  font-size: 2rem;
   line-height: 2;
   margin-bottom: 4rem;
   /* &::first-letter {
@@ -19,7 +19,7 @@ p,
   }*/
 
   @media screen and (max-width: $bp-large) {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   @media screen and (max-width: $bp-small) {
