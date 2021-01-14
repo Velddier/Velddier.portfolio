@@ -1,7 +1,7 @@
 html {
   margin: 0;
   padding: 0;
-  background: linear-gradient(144deg, $color-white 50%, $color-primary-dark 100%);
+  background-color: $color-primary-dark;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -10,6 +10,7 @@ html {
   background-color: $color-white;
   border-radius: 4px;
   box-shadow: 1rem 1rem 5rem $shadow20;
+  margin: 0;
   @media screen and (max-width: $mobile-large) {
     margin-top: 6rem;
   }
@@ -26,13 +27,13 @@ body {
     max-width: 90vw;
   }
   @media screen and (max-width: $bp-largest) {
-    margin: 2vh 8vw;
+    margin: 2vh 3vw;
   }
   @media screen and (max-width: $bp-large) {
-    margin: 1vh 4vw;
+    margin: 0;
   }
   @media screen and (max-width: $bp-medium) {
-    margin: 1vh 1vw;
+    margin: 0;
   }
   @media screen and (max-width: $bp-small) {
     margin: 0;

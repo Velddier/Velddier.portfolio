@@ -4,7 +4,7 @@ html {
 
 main {
   position: relative;
-
+  padding-top: 8rem;
   & .flex__row {
     @media screen and (max-width: $bp-medium) {
       flex-direction: column;

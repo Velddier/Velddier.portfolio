@@ -65,6 +65,17 @@
   &Banner {
     width: 40vw;
     position: relative;
+
+    &__inside {
+
+      object-fit: fill;
+
+      & img {
+        opacity: 0.3;
+        width: 100vw;
+      }
+     
+    }
     
     &__copy {
       position: absolute;

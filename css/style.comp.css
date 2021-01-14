@@ -456,16 +456,18 @@ iframe {
     iframe {
       width: 88vw; } }
 
+.scrolling_Navbar {
+  display: none; }
+
 /* ==========================================================================
    section - MAIN CONTENT (SINGLE PORTFOLIO ITEMS)
    ========================================================================== */
 .mainContainer {
   background-color: white;
   padding: 4rem 0;
-  border-radius: 8px;
   overflow: hidden;
   box-shadow: inset 1rem 1rem 2rem rgba(7, 10, 34, 0.335);
-  margin: 16rem auto;
+  margin: 4rem -4rem;
   position: relative; }
 
 .mainContent {
@@ -633,8 +635,9 @@ iframe {
     font-size: 2rem;
     font-weight: 600;
     text-align: center;
-    height: 6rem;
+    height: 8rem;
     margin-top: 4rem;
+    margin-bottom: 4rem;
     border-radius: 4px;
     transition: all 0.2s;
     position: relative; }
@@ -704,7 +707,8 @@ iframe {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 0; }
+  margin: 0;
+  box-shadow: 0 -8rem 0 white; }
   @media screen and (max-width: 768px) {
     .index {
       margin: 0 -1.2rem;
@@ -833,8 +837,9 @@ iframe {
     COPYRIGHT STAMP
    ========================================================================== */
 .copyrightStamp {
-  text-align: center;
+  text-align: right;
   color: #363636;
+  margin-right: 2rem;
   margin-bottom: 8rem; }
 
 /* ==========================================================================
@@ -998,7 +1003,8 @@ iframe {
     height: 100%;
     display: grid;
     transform: skewX(4deg);
-    grid-template-areas: "A B C" "A B C";
+    grid-template-areas: "A B C"
+ "A B C";
     overflow: hidden; }
     @media screen and (max-width: 1024px) {
       .footerTiles {
@@ -1671,7 +1677,7 @@ iframe {
   @media screen and (max-width: 768px) {
     .scrolling_Navbar {
       display: none; } }
-
+.navbar
 .navbar {
   z-index: 9999;
   /*   display: flex;
@@ -1680,69 +1686,80 @@ iframe {
     justify-content: center;
    */
   box-shadow: 0 10px 8px -10px rgba(7, 10, 34, 0.335);
-  padding: 1.4rem;
+  padding: 4.4rem;
   padding-bottom: 1rem;
   display: grid;
   grid-template-columns: auto 1fr auto;
-  gap: 2rem;
-  align-items: center; }
+  gap: 6rem;
+  .navbartems: center; }
   .navbar__header {
-    grid-column: 1/2; }
+  .navbarcolumn: 1/2; }
   .navbar__menu {
-    grid-column: 2/3; }
+  .navbarcolumn: 2/3; }
   .navbar__links {
-    grid-column: 3/4; }
+  .navbarcolumn: 3/4; }
   .navbar__siteHeader {
     color: #121314;
     font-size: 3.6rem;
     font-weight: 700;
     letter-spacing: -0.124rem;
     line-height: 1.1;
-    transition: all 0.2s ease; }
+    .navbarion: all 0.2s ease; }
     .navbar__siteHeader:hover {
-      cursor: pointer; }
+  .navbarsor: pointer; }
   .navbar__menu {
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: 600;
     display: flex;
     gap: 4rem;
     margin-left: 4rem;
     justify-content: flex-start;
     color: #121314;
-    transition: all 0.2s; }
+    .navbarion: all 0.2s; }
     .navbar__menuItem {
-      text-align: right; }
+    .navbaralign: right; }
     .navbar__menuItem::before {
       transition: all 0.2s;
       display: inline-block;
       font-size: 3rem;
       content: "⇁";
-      opacity: 0; }
+    .navbarty: 0; }
     .navbar__menuItem:hover::before {
       transition: all 0.2s;
-      opacity: 1; }
+    .navbarty: 1; }
     .navbar__menuItem:link {
       color: inherit;
-      text-decoration: none; }
+    .navbardecoration: none; }
     .navbar__menuItem:visited {
       color: inherit;
-      text-decoration: none; }
+    .navbardecoration: none; }
     .navbar__menuItem:hover {
       transition: all 0.2s;
-      transform: translateX(2rem); }
+    .navbarform: translateX(2rem); }
     .navbar__menuItem:active {
       transition: all 0.2s;
       transform: translateX(1.2rem);
-      color: #BD3737; }
+  .navbaror: #BD3737; }
+  .navbar__menuSecondary {
+    justify-self: flex-end;
+    .navbarleft: auto; }
+    .navbar__menuSecondaryItem {
+      font-size: 1.6rem;
+      color: #b8b8b8;
+      align-self: flex-end;
+      justify-self: flex-end;
+      .navbarright: 3.6rem; }
+      .navbar__menuSecondaryItem::before {
+  .navbarontent: '‣'; }
   .navbar__btn-respond {
     width: fit-content;
     padding: 1rem 3rem;
     font-weight: 800;
     color: #2991d6;
-    display: none; }
+  .navbaray: none; }
   .navbar *::selection {
     color: inherit;
-    background-color: rgba(0, 0, 0, 0); }
+  .navbarround-color: rgba(0, 0, 0, 0); }
   .navbar__navReturn {
     font-size: 3.2rem;
     font-weight: 800;
@@ -1752,20 +1769,20 @@ iframe {
     width: 4rem;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    .navbartems: center; }
     .navbar__navReturn:hover {
-      transform: translateX(-0.2rem); }
+  .navbarnsform: translateX(-0.2rem); }
   .navbar__links {
     display: flex;
     margin-left: 4rem;
     gap: 2rem;
     justify-content: center;
-    align-items: center; }
+    .navbartems: center; }
     .navbar__links svg {
-      fill: #4d6470; }
+      .navbar4d6470; }
       .navbar__links svg:hover {
         fill: #f09bb8; }
-  @media screen and (max-width: 768px) {
+  @m.navbarreen and (max-width: 768px) {
     .navbar {
       display: none; } }
 
@@ -2035,8 +2052,8 @@ iframe {
     page-break-after: avoid; } }
 
 html {
-  height: 100%;
   margin: 0;
+  padding: 0;
   background: linear-gradient(144deg, white 50%, #4d6470 100%);
   background-repeat: no-repeat;
   background-attachment: fixed; }
@@ -2056,10 +2073,10 @@ body {
   @media screen and (min-width: 2560px) {
     body {
       margin: 2rem auto;
-      max-width: 80vw; } }
+      max-width: 90vw; } }
   @media screen and (max-width: 2560px) {
     body {
-      margin: 4vh 8vw; } }
+      margin: 2vh 8vw; } }
   @media screen and (max-width: 1440px) {
     body {
       margin: 1vh 4vw; } }
@@ -2119,7 +2136,7 @@ body {
 p,
 .p {
   font-family: "Syne", sans-serif;
-  font-size: 1.8rem;
+  font-size: 2rem;
   line-height: 2;
   margin-bottom: 4rem;
   /* &::first-letter {
@@ -2130,7 +2147,7 @@ p,
   @media screen and (max-width: 1440px) {
     p,
     .p {
-      font-size: 1.8rem; } }
+      font-size: 2rem; } }
   @media screen and (max-width: 768px) {
     p,
     .p {
