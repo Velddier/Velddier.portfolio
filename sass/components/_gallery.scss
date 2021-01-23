@@ -50,7 +50,11 @@
 .galleryHero {
   margin: 0 -8rem;
   margin-bottom: -24rem;
-  background-image: linear-gradient(135deg, $color-primary, $color-primary-dark);
+  background-image: linear-gradient(
+    135deg,
+    $color-primary,
+    $color-primary-dark
+  );
   height: 52rem;
   overflow: hidden;
   box-shadow: 0 2px 1rem $shadow20;
@@ -136,7 +140,7 @@
     $color-white 93%,
     $shadow20 100%
   );
-  
+
   display: flex;
   flex-direction: column;
   padding: 16rem 4rem 20rem 4rem;
@@ -150,7 +154,7 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     background: none;
   }
-  
+
   & h2 {
     font-size: 2.8rem;
     z-index: 100;
