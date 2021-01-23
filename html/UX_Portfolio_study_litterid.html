@@ -33,7 +33,7 @@
 <body>
   <div class="pageContainer">
 
-    
+
     <!-- NAVIGATION from main.js -->
     <nav id="navbar"></nav>
 
@@ -49,7 +49,7 @@
             d="M12.141 13.418c0.268 0.271 0.268 0.709 0 0.978s-0.701 0.272-0.969 0l-3.83-3.908c-0.268-0.27-0.268-0.707 0-0.979l3.83-3.908c0.267-0.27 0.701-0.27 0.969 0s0.268 0.709 0 0.978l-3.141 3.421 3.141 3.418z">
           </path>
         </svg>
-        Back
+        <div class="bar__label">Back</div>
       </div>
     </a>
 
@@ -153,7 +153,7 @@
           </div>
         </div>
         <div class="index-list">
-          <div class="index-list__label">Index</div>
+          <div class="index-list__label">Roadmap</div>
           <div class="index-list__icon-open">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 40 40">
               <title>chevron-right</title>
@@ -295,7 +295,7 @@
               class="figure-largest" /></a>
           <figcaption class="figure-caption">
             <a
-              href="https://www.litterbins.co.uk/blog/the-facts-about-litter/#:~:text=Almost%252048%2525%2520of%2520people%2520admit,every%2520day%2520across%2520the%2520UK">Source:
+              href="https://www.litterbins.co.uk/blog/the-facts-about-litter/#:~:text=Almost%252048%2525%2520of%2520people%2520admit,every%2520day%2520across%2520the%2520UK">References:
               litterbins.co.uk</a>&nbsp;&amp;&nbsp;<a
               href="https://www.conserve-energy-future.com/various-littering-facts.php#:~:text=Litter%2520is%2520nothing%2520but%2520a,recycling%2520bin%2520or%2520trash%2520container">conserve-energy-future.com</a>
           </figcaption>
@@ -306,7 +306,7 @@
               class="figure-largest" /></a>
           <figcaption class="figure-caption">
             <a
-              href="https://www.gov.uk/government/publications/litter-and-littering-in-england-data-dashboard/litter-and-littering-in-england-2017-to-2018">source:
+              href="https://www.gov.uk/government/publications/litter-and-littering-in-england-data-dashboard/litter-and-littering-in-england-2017-to-2018">References:
               gov.co.uk</a>
           </figcaption>
         </figure>
@@ -365,6 +365,213 @@
             <li>Pokemon Go</li>
           </ul>
         </div>
+
+        <h2 id="analysis">Analysis</h2>
+
+        <div class="article__comboImgCopy" id="workshop_notes">
+
+          <div class="article__comboImgCopy-copy">
+            <div class="article__comboImgCopy-header">Making sense out <br>of our research</div>
+            <p class="article__comboImgCopy-text">
+              With research gathered, putting it all in order is the next step. To be able to make decisions on what the
+              finished app should be, I considered a few important factors in the early stages.
+            </p>
+            <p class="article__comboImgCopy-text">
+              Setting goals for how the app will interact with the user, how it will treat their data, and deciding on
+              the nature of data collection, preferably in a way that is centred on the cause LitterID is for, not the
+              user's unrelated data. Also, who would generally have a part in the system and what is the everyday use
+              case for it?
+            </p>
+          </div>
+          <figure>
+            <a href="img/content_litterid/Litter_ID_User_Workshop_Notes@2x.png" target="_blank"><img
+                src="img/content_litterid/Litter_ID_User_Workshop_Notes.png"
+                alt="All brainstorming, research, and user account notes, sorted in categories."
+                class="figure-largest" /></a>
+            <figcaption class="figure-caption">
+              An early challenge for this project deciding where to balance the app: social v. indiviualistic use,
+              commercial v. public, etc.
+            </figcaption>
+          </figure>
+        </div>
+
+
+
+        <div class="article__comboImgCopy" id="empathy_mapping">
+          <figure>
+            <a href="img/content_litterid/Litter_ID_Empathy_Mapping@2x.png" target="_blank"><img
+                src="img/content_litterid/Litter_ID_Empathy_Mapping.png"
+                alt="The litterID empathy map compares an encounter of litter with and without the litterID app."
+                class="figure-largest" /></a>
+            <figcaption class="figure-caption">
+              Immediate feedback for good deeds and a shared cause towards environmental improvement might entice people
+              to play a part.
+            </figcaption>
+          </figure>
+          <div class="article__comboImgCopy-copy">
+            <div class="article__comboImgCopy-header">First introduction to the user</div>
+            <p class="article__comboImgCopy-text">
+              Generally, people can agree on one thing: no one likes litter. Although we should not expect that most
+              people will want to start cleaning littered areas, no matter how bothersome the sight, are people
+              willing to contribute a smaller effort to improve the environment if there is direct positive feedback for
+              it?
+            </p>
+            <p class="article__comboImgCopy-text">
+              A great way to get people to want to do things is to disguise it as play. Thus, implementing LitterID with
+              a use system that adds challenge, rewards, and personal accomplishment would be essential to receive
+              successful user engagement. As a result, this approach aims to spark hype, interuser competition, and
+              sense of progression whilst using the app.
+            </p>
+          </div>
+        </div>
+
+        <div class="article__copy">
+          <h3>User Journey Map: The common use case</h3>
+          <p>To hypothesize the average user's experience of LitterID, it is important to describe the way the app is most
+            commonly used. By looking at every step of the useflow in detail, it becomes more apparent what parts of the
+            experience to pay closer attention to.</p>
+          <p>It is important that the user is aware of the purpose of the app, what they can expect from using it, why
+            they should use is, and what they can get for using it.</p>
+        </div>
+
+        <figure class="figure">
+          <a href="img/content_litterid/Litter_ID_User_Journey_Map@2x.png" target="_blank"><img
+              src="img/content_litterid/Litter_ID_User_Journey_Map.png"
+              alt="This diagram describes the ideal LitterID user." class="figure-largest" /></a>
+          <figcaption class="figure-caption">
+            Everything that can go right, or wrong... we should be prepared.
+          </figcaption>
+        </figure>
+
+
+
+        <div class="article__comboImgCopy" id="workshop_notes">
+          <div class="article__comboImgCopy-copy">
+            <div class="article__comboImgCopy-header">Establishing the players</div>
+            <p class="article__comboImgCopy-text">
+              As an app with a larger socio-environmental cause, it is not just its users that will interact with
+              LitterID. To take on the issue of littering, all parties potentially involved with the problem should at
+              the very least be identified.
+            </p>
+            <p class="article__comboImgCopy-text">
+              In the diagram aside, I describe which parties might possibly be involved through LitterID, and how they
+              would interact or benefit from eachother. There are also parties that would have no need to interact with
+              eachother, or aren't legally able to.
+            </p>
+          </div>
+          <figure class="figure">
+            <a href="img/content_litterid/LitterID_party_interaction_matrix@2x.png" target="_blank"><img
+                src="img/content_litterid/LitterID_party_interaction_matrix.png"
+                alt="Diagram that describes all the potential parties and how they could interact on the platform."
+                class="figure-largest" /></a>
+            <figcaption class="figure-caption">
+              Establishing, or at least predicting the parties that could use the platform once launched helps with
+              controlling outcome.
+            </figcaption>
+          </figure>
+        </div>
+
+
+        <h2>Design</h2>
+
+        <div class="article__comboImgCopy" id="workshop_notes">
+          <div class="article__comboImgCopy-copy">
+            <div class="article__comboImgCopy-header">The start of putting <br>it all together</div>
+            <p class="article__comboImgCopy-text">
+              Having established the core functionality of the app, thinking about the visual appearances is the next
+              step in the process. To summarize, LitterID is to be a playful and engaging app that rewards users for
+              helping to collect data about littering and spread awareness of a common issue.
+            </p>
+            <p class="article__comboImgCopy-text">
+              The infographic on the right summarizes the core user experience: download the app, get informed of the
+              purpose, make a difference, and get rewarded.
+            </p>
+          </div>
+          <figure class="figure">
+            <a href="img/content_litterid/LitterID_mobile_flow@2x.png" target="_blank"><img
+                src="img/content_litterid/LitterID_mobile_flow@2x.png"
+                alt="LitterID user flow describes the direct interaction between user and app"
+                class="figure-largest" /></a>
+            <figcaption class="figure-caption">
+              The concept of LitterID is simple: do a good deed, get rewarded.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="article__copy">
+          <blockquote>LitterID is to be a playful and engaging app that rewards users for helping to collect data about
+            littering and spread awareness of a common issue.</blockquote>
+        </div>
+
+
+
+
+
+        <div class="flex__row">
+          <figure class="figure">
+            <a href="img/content_litterid/LitterID_mockup@2x.png" target="_blank"><img
+                src="img/content_litterid/LitterID_mockup@2x.png"
+                alt="The structure of the app consists of three main sections: user profile and score, community, and scanner"
+                class="figure-largest" /></a>
+            <figcaption class="figure-caption">
+              Users can find the app on their app store, or be directed from their browser.
+            </figcaption>
+          </figure>
+
+          <figure class="figure">
+            <a href="img/content_litterid/LitterID_conversation_about_litterid@2x.png" target="_blank"><img
+                src="img/content_litterid/LitterID_conversation_about_litterid@2x.png"
+                alt="A conversation between 2 people talking about what LitterID does." class="figure-largest" /></a>
+            <figcaption class="figure-caption">
+              Social engagement and transparency to the user is an important part for LitterID to become a success.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="article__comboImgCopy" id="workshop_notes">
+          <div class="article__comboImgCopy-copy">
+            <div class="article__comboImgCopy-header">At the core of navigation</div>
+            <p class="article__comboImgCopy-text">
+              As an app with quite the specific use case, people are very likely to spend a long time on the app everytime. Therefor, it is important that navigation is swift and to the point.
+            </p>
+            <p class="article__comboImgCopy-text">
+              Introducing users with a brief onboarding process, after which the user has the choice to start scanning, engage further with the community, or further complete their personal details.
+            </p>
+            <a href="img/content_litterid/LitterID_diagrams.png" target="_blank" class="btn-small"
+      id="link_all_sketches">Complete navigation structure</a>
+          </div>
+          <figure class="figure">
+            <a href="img/content_litterid/LitterID_diagrams.png" target="_blank"><img
+                src="img/content_litterid/LitterID_Flowmap_Screenshot.png"
+                alt="The structure of the app consists of three main sections: user profile and score, community, and scanner"
+                class="figure-largest" /></a>
+            <figcaption class="figure-caption">
+              A high-level overview of the app's sections, content and navigation design. (Click for full map)
+            </figcaption>
+          </figure>
+        </div>
+        
+        <div class="article__comboImgCopy" id="workshop_notes">
+        <figure class="figure">
+          <a href="img/content_litterid/LitterID_invision_freehands.png" target="_blank"><img
+              src="img/content_litterid/LitterID_invision_freehands.png"
+              alt="Creating the fundation for the LitterID app's design" class="figure-largest" /></a>
+          <figcaption class="figure-caption">
+            Creating the fundation for the LitterID app's design
+          </figcaption>
+        </figure>
+          <div class="article__comboImgCopy-copy">
+            <div class="article__comboImgCopy-header">Sketching the mobile UI</div>
+            <p class="article__comboImgCopy-text">
+              Before really getting into the design process, rough sketches help to work out the functionality of the app's interface and use.
+            </p>
+            <p class="article__comboImgCopy-text">
+              A center-focussed 'home' screen should display an overview of user status and social updates. From there the user can navigate into a more detailed account / profile section. Or they can go to the commmunity section, where they can find updates, local events, messages, special offers, etc. 
+            </p>
+          </div>
+        </div>
+
+
       </article>
     </main>
 
@@ -379,10 +586,10 @@
   <script src="js/UX_Portfolio_script.js"></script>
 
   <!-- REUSABLE COMPONENT LINK -->
-  
 
-  
-  
+
+
+
 </body>
 
 </html>

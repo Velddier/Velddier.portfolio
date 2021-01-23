@@ -24,12 +24,12 @@ window.addEventListener('scroll', function () {
 
   // detects new state and compares it with the new one
   if ((document.body.getBoundingClientRect()).top > scrollPos2 || (document.body.getBoundingClientRect()).top === 0) {
-    document.querySelector('.index').style.top = "8rem";
+    document.querySelector('.index').style.top = "6rem";
     document.querySelector('.index').style.transition = "all .2s 0s";
     document.querySelector('.scrolling_Navbar').style.marginTop = '1rem';
     
   } else {
-    document.querySelector('.index').style.top = "2rem";
+    document.querySelector('.index').style.top = "0";
     document.querySelector('.index').style.transition = "all .2s 0s";
     document.querySelector('.scrolling_Navbar').style.marginTop = '-7rem';
   }

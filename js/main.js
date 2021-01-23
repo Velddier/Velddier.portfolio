@@ -2,14 +2,16 @@
 const navbar__content = `
 <div class="navbar__siteHeader"> <a href="index.html" class="navbar__siteHeader-link">Frederik DeVilder</a></div>
 <div class="navbar__menu">
-  <a href="html/UX_Portfolio.html" class="navbar__menuItem">UX Design</a> <a
-    href="html/UI_Portfolio.html" class="navbar__menuItem">Web/UI</a> <a href="html/Coding_Portfolio.html"
-    class="navbar__menuItem">Coding, etc.</a>
+  <a href="html/UX_Portfolio.html" class="navbar__menuItem">UX Design</a> 
+  <a href="html/UI_Portfolio.html" class="navbar__menuItem">Web/UI</a>
+  <a href="html/Coding_Portfolio.html" class="navbar__menuItem">Coding</a>
+  <a href="html/Coding_Portfolio.html" class="navbar__menuItem">Etc.</a>
   </div>
+  <div class="navbar__menuExpand">more<span> &dtrif;</span></div>
   <div class="navbar__menuSecondary">
-    <a href="html/recommended_reading.html" class="navbar__menuItem navbar__menuSecondaryItem">📖 Reading</a>
-    <a href="html_components/external/Frederik_DeVilder_UX_Designer_CV_2020.pdf" target="_blank" class="navbar__menuItem navbar__menuSecondaryItem">📃 Resume</a>
-    <a href="mailto:velddier@gmail.com" target="_blank" class="navbar__menuItem navbar__menuSecondaryItem">📧 Email</a>
+  <a href="mailto:velddier@gmail.com" target="_blank" class="navbar__menuItem navbar__menuSecondaryItem">📧 Email</a>
+  <a href="html_components/external/Frederik_DeVilder_UX_Designer_CV_2020.pdf" target="_blank" class="navbar__menuItem navbar__menuSecondaryItem">📃 CV</a>
+  <a href="html/recommended_Good reads.html" class="navbar__menuItem navbar__menuSecondaryItem">📖 Good reads</a>
   </div>
 <div class="navbar__btn-respond btn"> <a href="mailto:velddier@gmail.com" class="mail">Send a
     message</a> </div>
@@ -17,10 +19,11 @@ const navbar__content = `
 
 
 document.querySelector('nav').insertAdjacentHTML("afterbegin", `
-<nav id="navbar"></nav>
+<nav id="navbar">
 <div class="navbar">
   ${navbar__content}
 </div>
+</nav>
   
 <!-- SCROLLING NAVBAR -->
 <div class="scrolling_Navbar" style="margin-top: -10rem;">
@@ -68,14 +71,14 @@ document.querySelector('footer').innerHTML = `
         <div class="footerTiles__item footerTiles__item-1"> <a target="_blank" href="mailto:velddier@gmail.com"
             class="footerTiles__link"><img class="footerTiles__img" src="img/asset_Manchester_streets_1.jpg" alt="#" />
           </a>
-          <div class="footerTiles__label"><a href="mailto:velddier@gmail.com">Email me</a></div>
+          <div class="footerTiles__label"><a href="mailto:velddier@gmail.com">Email</a></div>
         </div>
         <!-- Tile 2 -->
         <div class="footerTiles__item footerTiles__item-2"> <a target="_blank"
             href="/html_components/external/Frederik_DeVilder_UX_Designer_CV_2020.pdf" class="footerTiles__link"><img
               class="footerTiles__img" src="img/asset_Manchester_streets_2.jpg" alt="Frederik DeVilder's CV" /> </a>
           <div class="footerTiles__label"><a
-              href="/html_components/external/Frederik_DeVilder_UX_Designer_CV_2020.pdf">CV / Resume</a></div>
+              href="/html_components/external/Frederik_DeVilder_UX_Designer_CV_2020.pdf">CV</a></div>
         </div>
         <!-- Tile 3 -->
         <div class="footerTiles__item footerTiles__item-3"> <a target="_blank"
@@ -117,13 +120,42 @@ document.querySelector('footer').innerHTML = `
       </div>`
 
 
+const navbarExpand = document.querySelectorAll('.navbar__menuExpand');
+const menuSecondary = document.querySelectorAll('.navbar__menuSecondary');
+const navbar = document.querySelector('.navbar');
+var navbarExpanded = 0;
+[...navbarExpand].forEach((c) => {
+  c.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    if (navbarExpanded === 0) {
+      navbar.style.paddingTop = '1.55rem';
+      [...navbarExpand].forEach(f => f.innerHTML = 'less <span> &utrif;');
+      [...menuSecondary].forEach((d) => {
+        d.style.display = 'inline';
+        d.style.transform = 'scaleY(1)';
+      })
+      navbarExpanded = 1;
+    } else if (navbarExpanded === 1) {
+      [...navbarExpand].forEach(f => f.innerHTML = 'more <span> &dtrif;');
+      navbar.style.paddingTop = '4rem';
+      [...menuSecondary].forEach((d) => {
+        d.style.display = 'none';
+        d.style.transform = 'scaleY(0)';
+      })
+      navbarExpanded = 0;
+    }
+  })
+});
+
+
 
 
 window.onscroll = () => {
   if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
     document.querySelector(".scrolling_Navbar").style.top = "0";
   } else {
-    document.querySelector(".scrolling_Navbar").style.top = "-13rem";
+    document.querySelector(".scrolling_Navbar").style.top = "-15rem";
   }
 }
 

@@ -1,7 +1,7 @@
 html {
   margin: 0;
   padding: 0;
-  background-color: $color-primary-dark;
+  background-color: $color-primary;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -12,22 +12,22 @@ html {
   box-shadow: 1rem 1rem 5rem $shadow20;
   margin: 0;
   @media screen and (max-width: $mobile-large) {
-    margin-top: 6rem;
+    margin-top: 10rem;
   }
-  //
 }
 
 body {
   animation: pageAppearfromRight 0.6s ease-in-out;
   height: fit-content;
   border-radius: 4px;
+  box-shadow: 0 0 3rem $color-primary;
   
   @media screen and (min-width: $bp-largest) {
     margin: 2rem auto;
     max-width: 90vw;
   }
   @media screen and (max-width: $bp-largest) {
-    margin: 2vh 3vw;
+    margin: 3vh 3vw;
   }
   @media screen and (max-width: $bp-large) {
     margin: 0;
@@ -48,6 +48,7 @@ body {
 
   }
 }
+
 main {
   padding: 0 8rem;
   //
