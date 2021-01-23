@@ -5,7 +5,7 @@ const navbar__content = `
   <a href="html/UX_Portfolio.html" class="navbar__menuItem">UX Design</a> 
   <a href="html/UI_Portfolio.html" class="navbar__menuItem">Web/UI</a>
   <a href="html/Coding_Portfolio.html" class="navbar__menuItem">Coding</a>
-  <a href="html/Coding_Portfolio.html" class="navbar__menuItem">Etc.</a>
+  <a href="html/Other_Portfolio.html" class="navbar__menuItem">Etc.</a>
   </div>
   <div class="navbar__menuExpand">more<span> &dtrif;</span></div>
   <div class="navbar__menuSecondary">
@@ -16,7 +16,6 @@ const navbar__content = `
 <div class="navbar__btn-respond btn"> <a href="mailto:velddier@gmail.com" class="mail">Send a
     message</a> </div>
 </div>`
-
 
 document.querySelector('nav').insertAdjacentHTML("afterbegin", `
 <nav id="navbar">
@@ -64,6 +63,8 @@ document.querySelector('nav').insertAdjacentHTML("afterbegin", `
   </div>
 </nav>`)
 
+
+// Insert FOOTER
 document.querySelector('footer').innerHTML = `
 <!-- Footer Tiles -->
 <div class="footerTiles">
@@ -106,9 +107,11 @@ document.querySelector('footer').innerHTML = `
                 email </span> <span>velddier@gmail.com</span> </a>
           </div>
         </div>
-        <div class="footerNav__menu"> <a href="html/UX_Portfolio.html" class="navbar__menuItem">UX Design</a>
-          <a href="html/UI_Portfolio.html" class="navbar__menuItem">Web/UI</a> <a
-            href="html/Coding_Portfolio.html" class="navbar__menuItem">Coding, etc.</a>
+        <div class="footerNav__menu"> 
+          <a href="html/UX_Portfolio.html" class="navbar__menuItem">UX Design</a>
+          <a href="html/UI_Portfolio.html" class="navbar__menuItem">Web/UI</a> 
+          <a href="html/Coding_Portfolio.html" class="navbar__menuItem">Coding</a>
+          <a href="html/Other_Portfolio.html" class="navbar__menuItem">Etc.</a>
         </div>
         <div class="footerNav__badges">
           <div class="footerNav__badgesItem-1"> <img src="img/UXDI_badge_textonly.png" alt="" /> </div>
@@ -117,7 +120,35 @@ document.querySelector('footer').innerHTML = `
         </div>
         <div class="footerNav__smallPrint">&copy;2020 Frederik
           DeVilder</div>
-      </div>`
+      </div>
+      `
+
+
+// Insert CLOSING PARAGRAPH
+document.querySelector('.closingParagraph').innerHTML = `
+<div class="authorMessage">
+  <figure class="authorMessage__profile">
+    <a href="#" class="authorMessage__profile-link"><img src="img/Selfie_badge.png"
+        alt="Profile picture of the author" class="authorMessage__profile-img" /></a>
+  </figure>
+  <div class="authorMessage__copy">
+    <h4>About the designer</h4>
+    <p>
+      The content on this page is created by Frederik DeVilder, a
+      professionally trained and certified, detail-focused designer who
+      loves to come up with optimized experience flows and crystal clear
+      visual designs to guide user to their goals and objectives.
+      Besides designing, he often works on improving his understanding
+      and skills of front-end development. When not working on building
+      digital experiences, Frederik enjoys tech, music, playing the
+      piano, and cooking.
+    </p>
+  </div>
+</div>
+<div class="contactForm"></div>
+</section>
+`
+
 
 
 const navbarExpand = document.querySelectorAll('.navbar__menuExpand');
@@ -169,7 +200,7 @@ window.addEventListener('scroll', function () {
     document.querySelector('.navMobile').style.bottom = "0";
     document.querySelector('.navMobile__siteHeader').style.top = "0";
     document.querySelector('.pageContainer').style.transition = "all .2s";
-    document.querySelector('.scrolling_Navbar').style.marginTop = '2rem';
+    document.querySelector('.scrolling_Navbar').style.marginTop = '0rem';
 
   } else {
     document.querySelector('.navMobile').style.bottom = "-20rem";

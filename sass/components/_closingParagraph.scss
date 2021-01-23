@@ -1,38 +1,24 @@
 /* ==========================================================================
    section - ARTICLE FOOTER
    ========================================================================== */
-.articleFooter {
-  clip-path: polygon(0 8rem, 100% 0%, 100% 100%, 0% 100%);
-  padding: 16rem 0;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  background: linear-gradient($shadow20 2%, $color-white 6%, $color-white 100%);
+.closingParagraph {
+  clip-path: polygon(0 8rem, 100% 0%, 100% 92%, 0% 100%);
+  padding: 16rem 4rem;
+  color: $color-white;
+  margin-bottom: -8rem;
+  background: linear-gradient(357deg, $color-primary-dark 0%, $color-primary 16%, $color-primary 83%, $color-primary-dark 100%);
+
 
   @media screen and (max-width: $bp-medium) {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     background: $color-white;
   }
-
-  &__nav {
-    font-size: 1.6rem;
-    display: flex;
-    justify-content: center;
-    margin: 8rem 0;
-    margin-left: -8rem;
-    @media screen and (max-width: $mobile-large) {
-      margin: 4rem 4rem;
-      padding: 1rem;
-      align-items: center;
-      & * {
-        border-right: solid 1px $color-primary; 
-      }
-    }
-  }
 }
+
 
 .authorMessage {
   display: flex;
-  margin: 8rem 20vw;
+  margin: -4rem 20vw;
   justify-content: center;
   @media screen and (max-width: $bp-small) {
     flex-direction: column;
@@ -41,12 +27,11 @@
   }
 
   &__profile {
-    align-self: center;
-    height: auto;
-    width: 16rem;
-
+    align-self: center;    
     &-img {
-      width: 100%;
+      border-radius: 100rem;
+      box-shadow: 1rem 1rem 4rem $shadow20;
+      width: 20rem;
       height: auto;
       transform: rotate(5.5deg);
       filter: saturate(0);
@@ -56,20 +41,28 @@
   &__copy {
     width: 100%;
     & h4 {
-      margin-left: -1rem;
+      font-size: 2.6rem;
+      &::after {
+        background-color: $color-white;
+      }
     }
     & p {
-      font-size: 1.6em;
+      font-size: 2em;
       @media screen and (max-width: $bp-small) {
         font-size: 2rem;
       }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      background-color: #fff;
+      height: 1px;
     }
   }
 }
 
 .recommended {
-  clip-path: polygon(0 12%, 100% 0%, 100% 100%, 0% 100%);
-  box-shadow: inset 0rem 2rem 1rem $shadow20;
   margin: 8rem 0;
   padding: 2rem 0;
   & h3 {
@@ -79,12 +72,12 @@
   @media screen and (max-width: $bp-small) {
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
     box-shadow: none;
-    
+
     & .contentGrid {
       grid-column: repeat(3, auto);
       margin-top: 8rem;
     }
-    
+
     & .contentFrame {
       width: 40vw;
       height: 20vh;

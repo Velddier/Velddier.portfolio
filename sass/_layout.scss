@@ -9,7 +9,7 @@ html {
 .pageContainer {
   background-color: $color-white;
   border-radius: 4px;
-  box-shadow: 1rem 1rem 5rem $shadow20;
+  box-shadow: 1rem 1rem 5rem -2rem $shadow20;
   margin: 0;
   @media screen and (max-width: $mobile-large) {
     margin-top: 10rem;
