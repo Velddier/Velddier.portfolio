@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript - &midast;Arrays&midast;</title>
+
+  <base href="https://www.velddier.com/">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+    integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <link rel="stylesheet" href="css/notebookStyle.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <div class="navbar"><a href="javascript:history.back()" class="navbar__back">Back</a>
+    <div class="menu">
+      <a href="html/UX_Portfolio.html">UX Design</a>
+      <span>|</span>
+      <a href="html/UI_Portfolio.html">Web Services</a>
+      <span>|</span>
+      <a href="html/Coding_Portfolio.html">Coding</a>
+      <span>|</span>
+      <a href="html/Other_Portfolio.html">Etc.</a>
+    </div>
+    <a href="/" class="logo">Frederik DeVilder</a>
+  </div>
+  <div class="window">
+    <ul class="index">
+      <li><a href="#javascript---arrays">JavaScript - <em>Arrays</em></a>
+        <ul>
+          <li><a href="#basic-array-modifiers">Basic Array Modifiers</a>
+            <ul>
+              <li><a href="#slice--slicestartindexendindex">Slice — <code>.slice([startIndex],[endIndex])</code></a>
+              </li>
+              <li><a href="#splice--splicestartindex-countfromstart">Splice — <code>.splice([startIndex],
+                    [countFromStart])</code></a></li>
+              <li><a href="#reverse--reverse">Reverse — <code>.reverse()</code></a></li>
+              <li><a href="#concat--concatarr">Concat — <code>.concat(arr)</code></a></li>
+              <li><a href="#join--join-">Join — <code>.join(' ')</code></a></li>
+            </ul>
+          </li>
+          <li><a href="#looping-over-arrays">Looping Over Arrays</a>
+            <ul>
+              <li><a href="#foreach--foreachfunctioncur-i-arr">forEach — <code>.forEach(function(cur, i,
+                    arr))</code></a>
+              </li>
+              <li><a href="#map-method--mapfunctioncur-i-arr">Map method — <code>.map(function(cur, i, arr))</code></a>
+              </li>
+              <li><a href="#filter-method--filterfunctioncur-i-arr">Filter method — <code>.filter(function(cur, i,
+                    arr))</code></a></li>
+              <li><a href="#reduce-method--reducefunctionacc-cur-i-arr--operation--initialaccumulatorvalue">Reduce
+                  method
+                  — <code>.reduce(function(acc, cur, i, arr) {-operation-}, initialAccumulatorValue)</code></a></li>
+              <li><a href="#find-method--findfunctioncur-i-arr">Find method — <code>.find(function(cur, i,
+                    arr)</code></a>
+                <ul>
+                  <li><a href="#findindex">findIndex</a></li>
+                </ul>
+              </li>
+              <li><a href="#some-method--somefunctioncur-i-arr">Some method — <code>.some(function(cur, i,
+                    arr))</code></a></li>
+              <li><a href="#every-method--everyfunctioncur-i-arr">Every method — <code>.every(function(cur, i,
+                    arr))</code></a></li>
+              <li><a href="#flat--flat-map-methods--flatdepth--flatmap">Flat / Flat map methods —
+                  <code>.flat([depth])</code> / <code>.flatMap()</code></a></li>
+              <li><a href="#sort-method--sortcurrent-next">Sort method — <code>.sort(current, next)</code></a>
+                <ul>
+                  <li><a href="#sorting-numbers-with-sort">Sorting numbers with <code>.sort()</code></a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#creating-and-filling-arrays">Creating and Filling Arrays</a>
+            <ul>
+              <li><a href="#new-arrays--new-arraysize">New arrays — <code>new Array([size])</code></a></li>
+              <li><a href="#fill-method--fillplacing-value-startindex-endindex">Fill method — <code>.fill(placing value,
+                    startIndex, endIndex)</code></a></li>
+              <li><a href="#from-method--fromlength--function">From method — <code>.from({length: [#]},
+                    function())</code></a>
+                <ul>
+                  <li><a href="#queryselectorall--from-method">QuerySelectorAll &amp; From method</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="content">
+
+      <h1 id="javascript---arrays">JavaScript - <em>Arrays</em></h1>
+      <h2 id="basic-array-modifiers">Basic Array Modifiers</h2>
+      <h3 id="slice--slicestartindexendindex">Slice — <code>.slice([startIndex],[endIndex])</code></h3>
+      <p>Slice is an unmuting array method that cuts a part of the original into a new variable.</p>
+      <pre><code class="language-js"><div><span class="hljs-comment">// consider:</span>
+    <span class="hljs-keyword">let</span> arr = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>];
+    
+    <span class="hljs-built_in">console</span>.log(arr.slice(<span class="hljs-number">2</span>));
+    <span class="hljs-built_in">console</span>.log(arr.slice(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>));
+    </div></code></pre>
+      <pre><code class="language-js"><div><span class="hljs-comment">// negative parameters starts at end of the array</span>
+    <span class="hljs-built_in">console</span>.log(arr.slice(<span class="hljs-number">1</span>, <span class="hljs-number">-2</span>));
+    <span class="hljs-built_in">console</span>.log(arr.slice(<span class="hljs-number">-2</span>));
+    <span class="hljs-built_in">console</span>.log(arr.slice(<span class="hljs-number">-4</span>, <span class="hljs-number">3</span>));
+    </div></code></pre>
+      <pre><code class="language-js"><div><span class="hljs-comment">// copy entire array</span>
+    <span class="hljs-built_in">console</span>.log(arr.slice());
+    </div></code></pre>
+      <h3 id="splice--splicestartindex-countfromstart">Splice — <code>.splice([startIndex], [countFromStart])</code>
+      </h3>
+      <p>The splice method is similar to slice, with the difference that it modifies the original array.</p>
+      <pre><code class="language-js"><div><span class="hljs-built_in">console</span>.log(arr.splice(<span class="hljs-number">2</span>)); <span class="hljs-comment">// returns: c d e</span>
+    <span class="hljs-built_in">console</span>.log(arr); <span class="hljs-comment">// a b</span>
+    </div></code></pre>
+      <pre><code class="language-js"><div><span class="hljs-comment">//Splice to delete last elements:</span>
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`original: <span class="hljs-subst">${arr}</span>\ndeleted with splice: <span class="hljs-subst">${arr.splice(<span class="hljs-number">-1</span>)}</span>\nleft: <span class="hljs-subst">${arr}</span>`</span>);
+    </div></code></pre>
+      <h3 id="reverse--reverse">Reverse — <code>.reverse()</code></h3>
+      <p>Reverses the order of an array, modifying the original.</p>
+      <h3 id="concat--concatarr">Concat — <code>.concat(arr)</code></h3>
+      <p>An immuting function that sticks 2 arrays or strings together.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> comboArray = arr.concat(arr2);
+    
+    <span class="hljs-comment">// Alternatively:</span>
+    <span class="hljs-keyword">const</span> comboArraySpread = [...arr, ...arr2];
+    </div></code></pre>
+      <h3 id="join--join-">Join — <code>.join(' ')</code></h3>
+      <p>This method unmuting joins the content of an array into a string, taking an argument to define the filler
+        between
+        items.</p>
+      <pre><code class="language-js"><div><span class="hljs-built_in">console</span>.log(letters.join(<span class="hljs-string">&#x27;-&#x27;</span>)); <span class="hljs-comment">//=&gt; a-b-c-d-e-f-...</span>
+    </div></code></pre>
+      <hr>
+      <h2 id="looping-over-arrays">Looping Over Arrays</h2>
+      <h3 id="foreach--foreachfunctioncur-i-arr">forEach — <code>.forEach(function(cur, i, arr))</code></h3>
+      <p>The <code>forEach</code> method passes over each item of an array and executes a function defined in its
+        callback
+        method.</p>
+      <p>The arguments of the forEach callback method are:</p>
+      <ol>
+        <li>the current item,</li>
+        <li>the current index,</li>
+        <li>the entire array.</li>
+      </ol>
+      <p>Using for each with maps and sets:</p>
+      <pre><code class="language-js"><div><span class="hljs-comment">// forEach with Map --------</span>
+    <span class="hljs-comment">// looks like:</span>
+    <span class="hljs-comment">// [map].forEach(function([firstArg: value], [secondArg: key], [thirdArg: entireMap]));</span>
+    <span class="hljs-comment">// consider:</span>
+    <span class="hljs-keyword">const</span> currencies = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>([
+      <span class="hljs-comment">// single map entry key:value</span>
+      [<span class="hljs-string">&#x27;USD&#x27;</span>, <span class="hljs-string">&#x27;United States dollar&#x27;</span>],
+      <span class="hljs-comment">// single map entry key:value</span>
+      [<span class="hljs-string">&#x27;EUR&#x27;</span>, <span class="hljs-string">&#x27;Euro&#x27;</span>],
+      <span class="hljs-comment">// single map entry key:value</span>
+      [<span class="hljs-string">&#x27;GBP&#x27;</span>, <span class="hljs-string">&#x27;Pound sterling&#x27;</span>],
+    ]);
+    
+    currencies.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, key, map</span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${key}</span>: <span class="hljs-subst">${value}</span>`</span>);
+    })
+    </div></code></pre>
+      <pre><code class="language-js"><div><span class="hljs-comment">// forEach with Set --------</span>
+    <span class="hljs-keyword">const</span> currenciesUnique = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-string">&#x27;USD&#x27;</span>, <span class="hljs-string">&#x27;GBP&#x27;</span>, <span class="hljs-string">&#x27;USD&#x27;</span>, <span class="hljs-string">&#x27;EUR&#x27;</span>]); <span class="hljs-comment">// Shows unique values</span>
+    
+    currenciesUnique.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, _, map</span>) </span>{
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${value}</span>`</span>);
+    })
+    
+    <span class="hljs-comment">// Because the set.forEach does not have need for a key, the argument[key] is ommited by the underscore &#x27;_&#x27;.</span>
+    </div></code></pre>
+      <h3 id="map-method--mapfunctioncur-i-arr">Map method — <code>.map(function(cur, i, arr))</code></h3>
+      <p>The <code>.map()</code> method does the same as the forEach method, the important difference that it creates a
+        new
+        array.</p>
+      <h3 id="filter-method--filterfunctioncur-i-arr">Filter method — <code>.filter(function(cur, i, arr))</code></h3>
+      <p>The filter method creates a new array of the items that pass a certain check, for example:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> deposits = movements.filter(<span class="hljs-function"><span class="hljs-params">mov</span> =&gt;</span> mov &gt; <span class="hljs-number">0</span>);
+    <span class="hljs-comment">// mov as the first argument refers to the currentValue!</span>
+    </div></code></pre>
+      <h3 id="reduce-method--reducefunctionacc-cur-i-arr--operation--initialaccumulatorvalue">Reduce method —
+        <code>.reduce(function(acc, cur, i, arr) {-operation-}, initialAccumulatorValue)</code></h3>
+      <p>The reduce method takes all items of an array and reduces them into a single value.</p>
+      <p>The function itself takes 2 arguments: a callback function and the innitial starting value.</p>
+      <p>The function takes 4 arguments:</p>
+      <ol>
+        <li>the accumulator value,</li>
+        <li>the current value,</li>
+        <li>the current index,</li>
+        <li>the entire array.</li>
+      </ol>
+      <p>Examples:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> balance = movements.reduce(<span class="hljs-function">(<span class="hljs-params">acc, cur</span>) =&gt;</span> acc + cur, <span class="hljs-number">0</span>);
+    </div></code></pre>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> maxMovements = movements.reduce(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">acc, mov</span>) </span>{
+        <span class="hljs-keyword">if</span> (acc &gt; mov)
+            <span class="hljs-keyword">return</span> acc;
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-keyword">return</span> mov;
+    }, movements[<span class="hljs-number">0</span>]);
+    </div></code></pre>
+      <h3 id="find-method--findfunctioncur-i-arr">Find method — <code>.find(function(cur, i, arr)</code></h3>
+      <p>The find method returns the first item of an array that satisfies its conditions.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> firstWithdrawal = movements.find(<span class="hljs-function"><span class="hljs-params">mov</span> =&gt;</span> mov &lt; <span class="hljs-number">0</span>)
+    </div></code></pre>
+      <h4 id="findindex">findIndex</h4>
+      <p>The findIndex returns the index of the found element, not the element itself.</p>
+      <h3 id="some-method--somefunctioncur-i-arr">Some method — <code>.some(function(cur, i, arr))</code></h3>
+      <p>Returns true or false based on wether any element of an array passes a condition.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">var</span> anyDeposits = movements.some(<span class="hljs-function"><span class="hljs-params">mov</span> =&gt;</span> mov &gt; <span class="hljs-number">0</span>);
+    <span class="hljs-built_in">console</span>.log(anyDeposits) <span class="hljs-comment">// returns boolean true</span>
+    <span class="hljs-comment">//↑↑↑ Checks for any deposits (above 0) ----</span>
+    </div></code></pre>
+      <h3 id="every-method--everyfunctioncur-i-arr">Every method — <code>.every(function(cur, i, arr))</code></h3>
+      <p>Returns true or false based on whether all elements pass a condition.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> positiveEvery = [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">14</span>, <span class="hljs-number">132</span>];
+    <span class="hljs-built_in">console</span>.log(positiveEvery.every(<span class="hljs-function"><span class="hljs-params">mov</span> =&gt;</span> mov &gt; <span class="hljs-number">0</span>));
+    <span class="hljs-comment">//↑↑↑ Returns true ----</span>
+    </div></code></pre>
+      <h3 id="flat--flat-map-methods--flatdepth--flatmap">Flat / Flat map methods — <code>.flat([depth])</code> /
+        <code>.flatMap()</code></h3>
+      <p>The flat method is used to flatten a multilevel array, with the method parameter used to define the level of
+        depth
+        it should flatten to.</p>
+      <p>Example:</p>
+      <pre><code class="language-js"><div><span class="hljs-comment">// Flat</span>
+    <span class="hljs-keyword">const</span> accountMovements = accounts.map(<span class="hljs-function"><span class="hljs-params">acc</span> =&gt;</span> acc.movements).flat();
+    <span class="hljs-built_in">console</span>.log(accountMovements);
+    </div></code></pre>
+      <p>The flatMap method is used to flatten a map:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> movementsFlatMap = accounts.flatMap(<span class="hljs-function"><span class="hljs-params">acc</span> =&gt;</span> acc.movements).flat();
+    <span class="hljs-built_in">console</span>.log(movementsFlatMap);
+    </div></code></pre>
+      <h3 id="sort-method--sortcurrent-next">Sort method — <code>.sort(current, next)</code></h3>
+      <p>The sort method sorts the elements of an array, based on the type of elements.</p>
+      <h4 id="sorting-numbers-with-sort">Sorting numbers with <code>.sort()</code></h4>
+      <p>Using sort to sort an array of numbers does not sort the numbers nummerically; this is because
+        <code>.sort()</code>
+        sorts items <em>as a string</em>.</p>
+      <p>Passing a compare callback solves this:</p>
+      <pre><code class="language-js"><div><span class="hljs-comment">//---- ASCENDING --------</span>
+    <span class="hljs-keyword">const</span> movementSortAsc = movements.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
+      <span class="hljs-keyword">if</span> (a &gt; b) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; <span class="hljs-comment">// KEEP ORDER</span>
+      <span class="hljs-keyword">if</span> (a &lt; b) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>; <span class="hljs-comment">// SWITCH ORDER</span>
+    });
+    
+    <span class="hljs-comment">// SAME AS:</span>
+    <span class="hljs-keyword">const</span> movementSortAsc = movements.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a - b);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Asc order: <span class="hljs-subst">${movementSortAsc}</span>`</span>);
+    </div></code></pre>
+      <pre><code class="language-js"><div><span class="hljs-comment">//---- DESCENDING --------</span>
+    <span class="hljs-keyword">const</span> movementSortDesc = movements.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
+      <span class="hljs-keyword">if</span> (a &gt; b) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>; <span class="hljs-comment">// SWITCH ORDER</span>
+      <span class="hljs-keyword">if</span> (a &lt; b) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>; <span class="hljs-comment">// KEEP ORDER</span>
+    });
+    
+    <span class="hljs-comment">//SAME AS:</span>
+    <span class="hljs-keyword">const</span> movementSortDesc = movements.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> b - a);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Desc order: <span class="hljs-subst">${movementSortDesc}</span>`</span>);
+    </div></code></pre>
+      <p>In short:</p>
+      <pre><code class="language-js"><div>numbers.sort(<span class="hljs-function">(<span class="hljs-params">current, next</span>) =&gt;</span> {
+      Ascending or descending sorting order:
+      <span class="hljs-keyword">return</span> &lt; <span class="hljs-number">0</span> -&gt; A, B (KEEP ORDER)
+      <span class="hljs-keyword">return</span> &gt; <span class="hljs-number">0</span> -&gt; B, A (SWITCH ORDER)
+    })
+    </div></code></pre>
+      <hr>
+      <h2 id="creating-and-filling-arrays">Creating and Filling Arrays</h2>
+      <h3 id="new-arrays--new-arraysize">New arrays — <code>new Array([size])</code></h3>
+      <p>Creating a new empty array with a specified number of spaces:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> x = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">7</span>);
+    <span class="hljs-comment">//=&gt; Creates an array of 7 spaces</span>
+    </div></code></pre>
+      <h3 id="fill-method--fillplacing-value-startindex-endindex">Fill method — <code>.fill(placing value, startIndex,
+          endIndex)</code></h3>
+      <pre><code class="language-js"><div><span class="hljs-comment">// fill array x ==-&gt; mutates</span>
+    <span class="hljs-comment">/* Looks like: ----
+    x.fill([placing value], [startIndex], [endIndex]) */</span>
+    x.fill(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>);
+    <span class="hljs-built_in">console</span>.log(x);
+    </div></code></pre>
+      <pre><code class="language-js"><div><span class="hljs-comment">// Fill array with existing values:</span>
+    <span class="hljs-built_in">console</span>.log(arr.fill(<span class="hljs-number">23</span>, <span class="hljs-number">2</span>, <span class="hljs-number">6</span>));
+    </div></code></pre>
+      <h3 id="from-method--fromlength--function">From method — <code>.from({length: [#]}, function())</code></h3>
+      <p>The from method is used as an array innitiator, which takes a length argument as well as an input function:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> y = <span class="hljs-built_in">Array</span>.from({ <span class="hljs-attr">length</span>: <span class="hljs-number">7</span> }, <span class="hljs-function">() =&gt;</span> <span class="hljs-number">1</span>);
+    </div></code></pre>
+      <p>The method can also be used to get 10 results of a dice throw:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> diceRolls10 = <span class="hljs-built_in">Array</span>.from({<span class="hljs-attr">length</span>: <span class="hljs-number">10</span>}, <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">Math</span>.ceil(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">6</span>));
+    </div></code></pre>
+      <h4 id="queryselectorall--from-method">QuerySelectorAll &amp; From method</h4>
+      <p>The <code>QuerySelectorAll</code> returns a nodelist; a kind of array with all selected elements.</p>
+      <p>It is not a real array so it doesn't work with some methods.</p>
+      <p>Using <code>Array.from</code>, the nodelist from the DOM can be converted into a mutable array, without an
+        array
+        needing to be store elsewhere.</p>
+      <pre><code class="language-js"><div><span class="hljs-comment">// Consider the movements of the banking app:</span>
+    <span class="hljs-keyword">const</span> movementsUI = <span class="hljs-built_in">Array</span>.from(<span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">&#x27;.movements__value&#x27;</span>));
+    <span class="hljs-comment">//↑↑↑ Creates an array of all movements__value elements----</span>
+    </div></code></pre>
+      <pre><code class="language-js"><div><span class="hljs-comment">// Alternative, doesn&#x27;t allow chaining:</span>
+    <span class="hljs-keyword">const</span> movementsUI2 = [...document.querySelectorAll(<span class="hljs-string">&#x27;.movements__value&#x27;</span>)];
+    </div></code></pre>
+    </div>
+
+  </div>
+</body>
+
+</html>

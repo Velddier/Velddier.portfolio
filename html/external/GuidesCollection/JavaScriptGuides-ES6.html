@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript - &midast;ES6&midast;</title>
+
+  <base href="https://www.velddier.com/">
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+    integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <link rel="stylesheet" href="css/notebookStyle.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <div class="navbar"><a href="javascript:history.back()" class="navbar__back">Back</a>
+    <div class="menu">
+      <a href="html/UX_Portfolio.html">UX Design</a>
+      <span>|</span>
+      <a href="html/UI_Portfolio.html">Web Services</a>
+      <span>|</span>
+      <a href="html/Coding_Portfolio.html">Coding</a>
+      <span>|</span>
+      <a href="html/Other_Portfolio.html">Etc.</a>
+    </div>
+    <a href="/" class="logo">Frederik DeVilder</a>
+  </div>
+
+
+  <!-- PAGE CONTENT -->
+  <div class="window">
+
+    <ul class="index">
+      <li><a href="#javascript-es6">JavaScript ES6</a>
+        <ul>
+          <li><a href="#var-let--const"><code>var</code>, <code>let</code>, &amp; <code>const</code></a>
+            <ul>
+              <li><a href="#difference-between-var-and-let">Difference between <code>var</code> and
+                  <code>let</code></a>
+              </li>
+              <li><a href="#comparing-scopes-of-the-var-and-let-keywords">Comparing scopes of the
+                  <code>var</code> and
+                  <code>let</code> keywords</a></li>
+              <li><a href="#declaring-a-read-only-var-with-const">Declaring a <em>read only</em> var with
+                  <code>const</code></a></li>
+              <li><a href="#mutate-an-array-declared-with-const">Mutate an array declared with
+                  <code>const</code></a></li>
+              <li><a href="#prevent-object-mutation-objectfreeze">Prevent object mutation
+                  <em>→Object.freeze()</em></a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#arrow-functions">Arrow Functions</a>
+            <ul>
+              <li><a href="#use-arrow-function-to-write-a-concise-anonymous-function">Use <code>arrow
+                    function</code> to
+                  write a concise <em>anonymous</em> function</a></li>
+              <li><a href="#arrow-functions-with-parameters">Arrow functions with
+                  <code>parameters</code></a>
+                <ul>
+                  <li><a href="#parameters-and-modifiers">Parameters and modifiers</a></li>
+                  <li><a href="#omitting-the-parenthesis-on-a-single-parameter">Omitting the
+                      parenthesis on a single
+                      parameter</a></li>
+                  <li><a href="#multiple-parameters">Multiple parameters</a></li>
+                </ul>
+              </li>
+              <li><a href="#set-default-parameters-for-functions-creates-more-flexible-functions">Set
+                  default parameters
+                  for functions <em>→creates more flexible functions</em></a></li>
+            </ul>
+          </li>
+          <li><a href="#rest-parameter--spread-operator"><code>rest parameter</code> &amp; <code>spread
+                operator</code></a>
+            <ul>
+              <li><a href="#use-the-rest-parameter-with-function-parameters">Use the <code>...rest
+                    parameter</code> with
+                  function parameters</a></li>
+              <li><a href="#use-the-spread-operator-to-evaluate-arrays-in-place">Use the <code>spread
+                    operator</code> to
+                  evaluate arrays in place</a>
+                <ul>
+                  <li><a href="#es5--apply-to-find-the-highest-array-value">ES5 → <code>apply()</code>
+                      to find the highest
+                      array value</a></li>
+                  <li><a href="#in-es6">In ES6</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#destructuring-assignments">Destructuring assignments</a>
+            <ul>
+              <li><a href="#use-destructuring-assignments-to-extract-values-from-an-object">Use
+                  destructuring assignments
+                  to <code>extract values from an object</code></a>
+                <ul>
+                  <li><a href="#es5-v-es6">ES5 v. ES6</a></li>
+                </ul>
+              </li>
+              <li><a href="#use-destructuring-assignments-to-assign-variables-from-objects">Use
+                  destructuring assignments
+                  to <code>assign variables from objects</code></a></li>
+              <li><a href="#use-destructuring-assignments-to-assign-variables-from-nested-objects">Use
+                  destructuring
+                  assignments to <code>assign variables from nested objects</code></a>
+                <ul>
+                  <li><a href="#extracting-values">Extracting values</a></li>
+                  <li><a href="#extract-and-assign-to-variables">Extract and assign to variables</a>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="#use-destructuring-assignment-to-assign-variables-from-array">Use destructuring
+                  assignment to
+                  <code>assign variables from array</code></a></li>
+              <li><a href="#use-destructuring-assignment-with-the-rest-parameter-to-reasign-array-elements">Use
+                  destructuring assignment with <code>the rest parameter to reasign array
+                    elements</code></a></li>
+              <li><a href="#use-destructuring-assignment-to-pass-an-object-as-a-functions-parameter">Use
+                  destructuring
+                  assignment to <code>pass an object as a function's parameter</code></a>
+                <ul>
+                  <li><a href="#another-example">Another example</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#template---object-literals"><code>Template-</code> &amp; <code>Object
+                Literals</code></a>
+            <ul>
+              <li><a href="#create-strings-using-template-literals">Create strings using <code>template
+                    literals</code></a>
+                <ul>
+                  <li><a href="#example-using-template-literals">Example using <code>template
+                        literals</code></a></li>
+                </ul>
+              </li>
+              <li><a href="#write-concise-object-literal-declarations-using-object-property-shorthand">Write
+                  concise
+                  object literal declarations using <code>object property shorthand</code></a>
+                <ul>
+                  <li><a href="#simplified-es6-syntax">Simplified <code>ES6</code> syntax</a></li>
+                </ul>
+              </li>
+              <li><a href="#write-concise-declarative-functions">Write <code>concise declarative
+                    functions</code></a></li>
+              <li><a href="#use-the-class-syntax-to-define-a-constructor-function">Use the
+                  <code>class</code> syntax to
+                  define a <code>constructor function</code></a></li>
+            </ul>
+          </li>
+          <li><a href="#use-getters--setters-to-control-access-to-an-object">Use <code>getters</code> &amp;
+              <code>setters</code> to control access to an object</a>
+            <ul>
+              <li><a href="#getter-function">Getter function</a></li>
+              <li><a href="#setter-function">Setter function</a></li>
+            </ul>
+          </li>
+          <li><a href="#module-scripts-import--export"><code>Module scripts</code>, <code>import</code> &amp;
+              <code>export</code></a>
+            <ul>
+              <li><a href="#create-a-module-script">Create a <code>module script</code></a></li>
+              <li><a href="#use-export-to-share-a-codeblock">Use <code>export</code> to share a
+                  codeblock</a></li>
+              <li><a href="#using-import-to-reuse-javascript-code">Using <code>import</code> to reuse
+                  JavaScript code</a>
+              </li>
+              <li><a href="#using--to-import-everything-from-a-file">Using <code>*</code> to import
+                  everything from a
+                  file</a></li>
+              <li><a href="#create-an-export-fallback-with-export-default">Create an export fallback with
+                  <code>export
+                    default</code></a></li>
+              <li><a href="#import-a-default-export">Import a <code>default export</code></a></li>
+            </ul>
+          </li>
+          <li><a href="#javascript-promises">JavaScript <code>promises</code></a>
+            <ul>
+              <li><a href="#creating-a-javascript-promise">Creating a JavaScript <code>promise</code></a>
+              </li>
+              <li><a href="#complete-a-promise-with-resolve--reject">Complete a promise with
+                  <code>resolve</code> &amp;
+                  <code>reject</code></a></li>
+              <li><a href="#handle-a-fulfilled-promise-with-then">Handle a <em>fulfilled promise</em> with
+                  <code>then</code></a></li>
+              <li><a href="#handle-a-rejected-promise-with-catch">Handle a <em>rejected promise</em> with
+                  <code>catch</code></a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="content">
+
+      <h1 id="javascript-es6">JavaScript ES6</h1>
+
+      <h2 id="var-let--const"><code>var</code>, <code>let</code>, &amp; <code>const</code></h2>
+      <h3 id="difference-between-var-and-let">Difference between <code>var</code> and <code>let</code></h3>
+      <p>In JavaScript vars are easily overwritten. <code>ES6</code> introduced a more secure variable keyword
+        <em><code>let</code></em>, which can only be declared once per variable. It prevents from important
+        variables being
+        overwritten.</p>
+      <h3 id="comparing-scopes-of-the-var-and-let-keywords">Comparing scopes of the <code>var</code> and
+        <code>let</code>
+        keywords</h3>
+      <p>Let behaves just like var, but has some exclusive functions:</p>
+      <p>Within a block, statement or expression, a <code>let</code> variable is <em>limited to that specific
+          location</em>.
+      </p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">var</span> numArray = [];
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++) { <span class="hljs-comment">// `i` is defined as `0` and will stay exclusive to the `for loop` scope.</span>
+    numArray.push(i);
+}
+
+<span class="hljs-built_in">console</span>.log(i) <span class="hljs-comment">//`i` is undefined because it is only within the scope of the `for loop`.</span>
+</div></code></pre>
+      <h3 id="declaring-a-read-only-var-with-const">Declaring a <em>read only</em> var with <code>const</code>
+      </h3>
+      <p>Variables declared with <code>const</code> are <strong>read only</strong>, meaning that they are constant
+        variables
+        and cannot be reassigned.</p>
+      <blockquote>
+        <p><em>Note: It's common to use <code>UPPERCASE</code> for variable indentifiers for imutable values and
+            <code>lowerCase</code> camelCase for mutable values such as objects and arrays.</em></p>
+      </blockquote>
+      <h3 id="mutate-an-array-declared-with-const">Mutate an array declared with <code>const</code></h3>
+      <p>Some developers always us <code>const</code> unless they are certain that they <em>will have to change
+          the
+          variable</em>.</p>
+      <p>An array value declared and assigned with <code>const</code> cannot be reassigned as a whole, but its
+        content
+        <em>can be altered individually</em>.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> S = [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>];
+S = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]; <span class="hljs-comment">// !Will result in an error!</span>
+S[<span class="hljs-number">2</span>] = <span class="hljs-number">45</span>; <span class="hljs-comment">// Works like normal.</span>
+</div></code></pre>
+      <h3 id="prevent-object-mutation-objectfreeze">Prevent object mutation <em>→Object.freeze()</em></h3>
+      <p>Using the built-in function <code>Object.freeze()</code> ensures that data of certain objects doesn't
+        change no
+        matter what.</p>
+      <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">freezeObj</span>(<span class="hljs-params"></span>) </span>{
+<span class="hljs-meta">    &#x27;use strict&#x27;</span>
+    <span class="hljs-keyword">const</span> MATH_CONSTANTS = {
+        <span class="hljs-attr">PI</span>: <span class="hljs-number">3.14</span>
+    };
+
+    <span class="hljs-built_in">Object</span>.freeze(MATH_CONSTANTS);
+
+    <span class="hljs-keyword">try</span> {
+        MATH_CONSTANTS.PI = <span class="hljs-number">99</span>;
+    } <span class="hljs-keyword">catch</span> (ex) {
+        <span class="hljs-built_in">console</span>.log(ex);
+    }
+    <span class="hljs-keyword">return</span> MATH_CONSTANTS.PI
+}
+<span class="hljs-keyword">const</span> PI = freezeObj();
+</div></code></pre>
+      <p><code>Object.freeze</code> will perform a shallow freeze on an object, but will not protect deep
+        properties from
+        being mutated.</p>
+      <hr>
+      <h2 id="arrow-functions">Arrow Functions</h2>
+      <h3 id="use-arrow-function-to-write-a-concise-anonymous-function">Use <code>arrow function</code> to write a
+        concise
+        <em>anonymous</em> function</h3>
+      <p>In JavaScript functions often don't have to be named, especially when being passed as arguments in other
+        functions.
+      </p>
+      <p>Using inline functions instead, we don't need to name these <em>one-time-use</em> functions.</p>
+      <pre><code class="language-js"><div><span class="hljs-comment">// Standard notation:</span>
+<span class="hljs-keyword">const</span> myFunc = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> myVar = <span class="hljs-string">&#x27;value&#x27;</span>;
+    <span class="hljs-keyword">return</span> myVar; <span class="hljs-comment">// Returns the `myVar` variable</span>
+}
+</div></code></pre>
+      <p>The same function can be written more concise using <code>ES6</code>, shortening <code>function()</code>
+        to simply
+        <code>() =&gt;</code></p>
+      <pre><code class="language-js"><div><span class="hljs-comment">// `ES6` simplified notation:</span>
+<span class="hljs-keyword">const</span> myFunc = <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-keyword">const</span> myVar = <span class="hljs-string">&#x27;value&#x27;</span>;
+    <span class="hljs-keyword">return</span> myVar;
+}
+</div></code></pre>
+      <p>When there's no body function and only a return value, <em>arrow function syntax allows you to omit the
+          keyword
+          <code>return</code> as well as the brackets surrounding the code</em>, simplifying the code even
+        further.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> myFunc = <span class="hljs-function">() =&gt;</span> <span class="hljs-string">&#x27;value&#x27;</span>;
+<span class="hljs-comment">// `myFunc` will automatically return `&#x27;value&#x27;`.</span>
+</div></code></pre>
+      <h3 id="arrow-functions-with-parameters">Arrow functions with <code>parameters</code></h3>
+      <h4 id="parameters-and-modifiers">Parameters and modifiers</h4>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> doubler = <span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> item * <span class="hljs-number">2</span>;
+<span class="hljs-comment">// An arrow function with parameters and value modifications.</span>
+</div></code></pre>
+      <h4 id="omitting-the-parenthesis-on-a-single-parameter">Omitting the parenthesis on a single parameter</h4>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> tripler = <span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item * <span class="hljs-number">3</span>;
+<span class="hljs-comment">// With single parameters the parenthesis may be omitted.</span>
+</div></code></pre>
+      <h4 id="multiple-parameters">Multiple parameters</h4>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> multiplier = <span class="hljs-function">(<span class="hljs-params">item, factor</span>) =&gt;</span> item * factor;
+<span class="hljs-comment">// An arrow function with multiple parameters.</span>
+</div></code></pre>
+      <h3 id="set-default-parameters-for-functions-creates-more-flexible-functions">Set default parameters for
+        functions
+        <em>→creates more flexible functions</em></h3>
+      <p><code>Default function parameters</code> kick in when an argument is not specified:</p>
+      <pre><code class="language-js"><div><span class="hljs-comment">// Creating a function with a default function parameter for `name`:</span>
+<span class="hljs-keyword">const</span> greeting = <span class="hljs-function">(<span class="hljs-params">name = <span class="hljs-string">&quot;anonymous user&quot;</span></span>) =&gt;</span> <span class="hljs-string">&quot;Hello&quot;</span> + name;
+
+<span class="hljs-comment">// Calling `greeting` with a defined parameter:</span>
+<span class="hljs-built_in">console</span>.log(greeting(<span class="hljs-string">&quot;John&quot;</span>));
+<span class="hljs-comment">//returns: Hello John</span>
+
+<span class="hljs-comment">// Calling `greetings` without a parameter:</span>
+<span class="hljs-built_in">console</span>.log(greeting());
+<span class="hljs-comment">//returns: Hello anonymous user</span>
+</div></code></pre>
+      <hr>
+      <h2 id="rest-parameter--spread-operator"><code>rest parameter</code> &amp; <code>spread operator</code></h2>
+      <h3 id="use-the-rest-parameter-with-function-parameters">Use the <code>...rest parameter</code> with
+        function
+        parameters</h3>
+      <p><code>rest parameters</code> allow functions that take a varying number of arguments. <em>These arguments
+          are
+          stored in an array that can be accessed later from within its function</em>.</p>
+      <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">howMany</span>(<span class="hljs-params">...args</span>) </span>{ <span class="hljs-comment">// `args` can be named anything.</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;You have passed &quot;</span> + args.length + <span class="hljs-string">&quot;arguments.&quot;</span>;
+}
+
+<span class="hljs-built_in">console</span>.log(howMany(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>));
+<span class="hljs-comment">// returns: &quot;You have passed 3 arguments.&quot;</span>
+
+<span class="hljs-built_in">console</span>.log(howMany(<span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-literal">true</span>, <span class="hljs-number">43</span>, <span class="hljs-string">&quot;something&quot;</span>));
+<span class="hljs-comment">// returns: &quot;You have passed 4 arguments.&quot;</span>
+</div></code></pre>
+      <h3 id="use-the-spread-operator-to-evaluate-arrays-in-place">Use the <code>spread operator</code> to
+        evaluate arrays
+        in place</h3>
+      <p>The <code>spread operator</code> allows for the expansion of arrays and other expressions in place where
+        <em>multiple parameters or elements are expected</em>.</p>
+      <h4 id="es5--apply-to-find-the-highest-array-value">ES5 → <code>apply()</code> to find the highest array
+        value</h4>
+      <pre><code class="language-js"><div><span class="hljs-keyword">var</span> array = [<span class="hljs-number">6</span>, <span class="hljs-number">89</span>, <span class="hljs-number">3</span>, <span class="hljs-number">45</span>];
+
+<span class="hljs-keyword">var</span> maximus = <span class="hljs-built_in">Math</span>.max.apply(<span class="hljs-literal">null</span>, array);
+<span class="hljs-comment">//returns: 89</span>
+</div></code></pre>
+      <p>Without the <code>spread operator</code>, the way to find the highest values of <code>array</code> was by
+        <code>Math.max.apply(null, array)</code>. This because <code>Math.max</code> cannot handle arrays on its
+        own.</p>
+      <h4 id="in-es6">In ES6</h4>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> array = [<span class="hljs-number">6</span>, <span class="hljs-number">89</span>, <span class="hljs-number">3</span>, <span class="hljs-number">45</span>];
+
+<span class="hljs-keyword">const</span> maximus = <span class="hljs-built_in">Math</span>.max(...array);
+<span class="hljs-comment">// `...array` returns an unpacked array, meaning it spreads the array.</span>
+</div></code></pre>
+      <blockquote>
+        <p><em>Note: <code>...array</code> only works as a placeholder, like a function argument or in an array
+            literal.
+            <code>const spread = ...array;</code> is invalid</em>.</p>
+      </blockquote>
+      <hr>
+      <h2 id="destructuring-assignments">Destructuring assignments</h2>
+      <h3 id="use-destructuring-assignments-to-extract-values-from-an-object">Use destructuring assignments to
+        <code>extract
+          values from an object</code></h3>
+      <p>Introduced in ES6, the destructuring assignment helps <em>neatly</em> assigning values taken directly
+        from an
+        object.</p>
+      <h4 id="es5-v-es6">ES5 v. ES6</h4>
+      <pre><code class="language-js"><div><span class="hljs-comment">// Consider the following object `User`...</span>
+<span class="hljs-keyword">const</span> user = {<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Mark&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">32</span>};
+
+<span class="hljs-comment">// ES5</span>
+<span class="hljs-keyword">const</span> name = user.name <span class="hljs-comment">//name = &quot;Mark&quot;</span>
+<span class="hljs-keyword">const</span> age = user.age <span class="hljs-comment">//age = 32</span>
+
+<span class="hljs-comment">//ES6</span>
+<span class="hljs-keyword">const</span> { name, age } = user;
+<span class="hljs-built_in">console</span>.log(name, age); <span class="hljs-comment">// returns: &quot;Mark&quot; 32</span>
+</div></code></pre>
+      <p>Using the <code>ES6</code> method, the <code>name</code> &amp; <code>age</code> variables will be created
+        and
+        assigned the values of their respective values from the <code>user</code> object.</p>
+      <h3 id="use-destructuring-assignments-to-assign-variables-from-objects">Use destructuring assignments to
+        <code>assign
+          variables from objects</code></h3>
+      <p>This lets you assign values of objects to new variables. →<code>const {name: userName}</code>.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> HighTemps = {
+    <span class="hljs-attr">yesterday</span>: <span class="hljs-number">75</span>,
+    <span class="hljs-attr">today</span>: <span class="hljs-number">77</span>,
+    <span class="hljs-attr">tomorrow</span>: <span class="hljs-number">80</span>
+};
+
+<span class="hljs-keyword">const</span> {<span class="hljs-attr">today</span>: highToday, <span class="hljs-attr">tomorrow</span>: highTomorrow} = HighTemps;
+<span class="hljs-comment">// Creates a new variable `highToday` and `highTomorrow`.</span>
+</div></code></pre>
+      <h3 id="use-destructuring-assignments-to-assign-variables-from-nested-objects">Use destructuring assignments
+        to
+        <code>assign variables from nested objects</code></h3>
+      <p>Consider object <code>user</code>:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> user = {
+    <span class="hljs-attr">johnDoe</span>: {
+        <span class="hljs-attr">age</span>: <span class="hljs-number">34</span>,
+        <span class="hljs-attr">gender</span>: <span class="hljs-string">&quot;male&quot;</span>
+    }
+};
+</div></code></pre>
+      <h4 id="extracting-values">Extracting values</h4>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> {<span class="hljs-attr">johnDoe</span>: {age, gender}} = user;
+</div></code></pre>
+      <h4 id="extract-and-assign-to-variables">Extract and assign to variables</h4>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> {<span class="hljs-attr">johnDoe</span>: {<span class="hljs-attr">age</span>: userAge, <span class="hljs-attr">gender</span>: userGender}} = user;
+</div></code></pre>
+      <h3 id="use-destructuring-assignment-to-assign-variables-from-array">Use destructuring assignment to
+        <code>assign
+          variables from array</code></h3>
+      <p>Consider:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> [a, b] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+</div></code></pre>
+      <p>The variable <code>a</code> is assigned to the first value (1) and <code>b</code> to the second value (2)
+        of the
+        array.</p>
+      <p>The value of any index can be reached by using <code>,</code> to reach the desired index:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> [a, b, ,, ,c] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]; <span class="hljs-comment">// [a(1), b(2), (3), (4), c(5)]</span>
+<span class="hljs-built_in">console</span>.log(a, b, c) <span class="hljs-comment">// return: 1, 2, 5</span>
+</div></code></pre>
+      <h3 id="use-destructuring-assignment-with-the-rest-parameter-to-reasign-array-elements">Use destructuring
+        assignment
+        with <code>the rest parameter to reasign array elements</code></h3>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> [a, b, ...arr] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>];
+
+<span class="hljs-built_in">console</span>.log(a, b) <span class="hljs-comment">// returns: 1, 2</span>
+<span class="hljs-built_in">console</span>.log(arr) <span class="hljs-comment">// returns: 3, 4, 5, 6, 7</span>
+</div></code></pre>
+      <h3 id="use-destructuring-assignment-to-pass-an-object-as-a-functions-parameter">Use destructuring
+        assignment to
+        <code>pass an object as a function's parameter</code></h3>
+      <p>In some cases, you can destructure the object in a function argument itself.</p>
+      <p><em>consider:</em></p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> profileUpdate = <span class="hljs-function">(<span class="hljs-params">profileData</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> {name, age} = profileData;
+};
+
+<span class="hljs-comment">// do something with these variables...</span>
+</div></code></pre>
+      <p>The same can be done in place:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> profileUpdate = <span class="hljs-function">(<span class="hljs-params">{name, age}</span>) =&gt;</span> {
+    <span class="hljs-comment">// do something with these variables...</span>
+};
+</div></code></pre>
+      <h4 id="another-example">Another example</h4>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> stat = {
+    <span class="hljs-attr">max</span>: <span class="hljs-number">56.83</span>,
+    <span class="hljs-attr">standard_deviation</span>: <span class="hljs-number">4.24</span>,
+    <span class="hljs-attr">median</span>: <span class="hljs-number">34.45</span>,
+    <span class="hljs-attr">mode</span>: <span class="hljs-number">23.34</span>,
+    <span class="hljs-attr">min</span>: <span class="hljs-number">-0.74</span>,
+    <span class="hljs-attr">avg</span>: <span class="hljs-number">34.85</span>
+};
+
+<span class="hljs-keyword">const</span> half = <span class="hljs-function">(<span class="hljs-params">{min, max}</span>) =&gt;</span> (min + max) / <span class="hljs-number">2.0</span>;
+<span class="hljs-comment">// returns: 28.0</span>
+</div></code></pre>
+      <hr>
+      <h2 id="template---object-literals"><code>Template-</code> &amp; <code>Object Literals</code></h2>
+      <h3 id="create--strings-using-template-literals">Create strings using <code>template literals</code></h3>
+      <p><code>Template literals</code> are special types of strings to help create complex strings.</p>
+      <p>Qualities of a string with template literals:</p>
+      <ul>
+        <li>looks like <code>${a_variable}</code>;</li>
+        <li>is wrapped in <code>backticks</code>;</li>
+        <li>is multi-line (<em>doesn't need <code>\n</code> to break lines</em>);</li>
+        <li>does not require <code>+</code> operators;</li>
+        <li>can process operations <code>$(a + b)</code>.</li>
+      </ul>
+      <h4 id="example-using-template-literals">Example using <code>template literals</code></h4>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> person = {<span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Zodiac&quot;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">43</span>};
+
+<span class="hljs-keyword">const</span> greeting = <span class="hljs-string">`Hello, my name is <span class="hljs-subst">${person.name}</span>!
+I am <span class="hljs-subst">${person.age}</span> years old.
+I was born in <span class="hljs-subst">${currentYear - person.age}</span>.`</span>;
+</div></code></pre>
+      <h3 id="write-concise-object-literal-declarations-using-object-property-shorthand">Write concise object
+        literal
+        declarations using <code>object property shorthand</code></h3>
+      <p><em>consider:</em></p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> getMousePosition = <span class="hljs-function">(<span class="hljs-params">x, y</span>) =&gt;</span> ({
+    <span class="hljs-attr">x</span>: x,
+    <span class="hljs-attr">y</span>: y
+});
+
+<span class="hljs-comment">// `getMousePosition` simply returns an object with 2 properties.</span>
+</div></code></pre>
+      <h4 id="simplified-es6-syntax">Simplified <code>ES6</code> syntax</h4>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> getMousePosition = <span class="hljs-function">(<span class="hljs-params">x,y</span>) =&gt;</span> ({x,y});
+</div></code></pre>
+      <p><em>also:</em></p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> createPerson = <span class="hljs-function">(<span class="hljs-params">name, age</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> {name, age};
+};
+createPerson(<span class="hljs-string">&quot;Nick&quot;</span>, <span class="hljs-number">18</span>); <span class="hljs-comment">// name: &quot;Nick&quot; age: 18;</span>
+</div></code></pre>
+      <h3 id="write-concise-declarative-functions">Write <code>concise declarative functions</code></h3>
+      <p>In <code>ES5</code> methods within an object are written like so:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> person = {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Taylor&quot;</span>,
+
+    <span class="hljs-attr">sayHello</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello, my name is <span class="hljs-subst">${<span class="hljs-built_in">this</span>.name}</span>.`</span>;
+    }
+};
+</div></code></pre>
+      <p>In <code>ES6</code> you can leave out the <code>:colon</code> and <code>function</code> keyword.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> person = {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Taylor&quot;</span>,
+    sayHello() {retrn <span class="hljs-string">`Hello I&#x27;m <span class="hljs-subst">${<span class="hljs-built_in">this</span>.name}</span>.`</span>;}
+};
+</div></code></pre>
+      <h3 id="use-the-class-syntax-to-define-a-constructor-function">Use the <code>class</code> syntax to define a
+        <code>constructor function</code></h3>
+      <p><code>ES6</code> introduced the <code>class</code> keyword: a syntax that isn't exactly a complete class
+        system as
+        in <code>Java</code>, <code>Ruby</code>, or <code>Python</code>, but it adds some handy functionality to
+        <code>ES6</code>.</p>
+      <p>In <code>ES5</code> an object is instantiated by <em>defining a constructor function and using the
+          <code>new</code>
+          keyword</em>, like:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">var</span> SpaceShuttle = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">targetPlanet</span>) </span>{
+    <span class="hljs-built_in">this</span>.targetPlanet = targetPlanet;
+}
+<span class="hljs-comment">// A new `SpaceShuttle` object with target: &#x27;Jupiter&#x27;...</span>
+<span class="hljs-keyword">var</span> zeus = <span class="hljs-keyword">new</span> SpaceShuttle(<span class="hljs-string">&#x27;Jupiter&#x27;</span>);
+</div></code></pre>
+      <p><em>in <code>ES6</code>:</em></p>
+      <pre><code class="language-js"><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SpaceShuttle</span> </span>{
+    <span class="hljs-keyword">constructor</span>(targetPlanet) {
+        <span class="hljs-built_in">this</span>.targetPlanet = targetPlanet;
+    }
+}
+<span class="hljs-comment">// New `SpaceShuttle`...</span>
+<span class="hljs-keyword">const</span> zeus = <span class="hljs-keyword">new</span> SpaceShuttle(<span class="hljs-string">&#x27;Jupiter&#x27;</span>);
+</div></code></pre>
+      <p>Using the <code>class</code> keyword also requires the use of a <code>constructor()</code> keyword, which
+        takes the
+        object parameter as an argument.</p>
+      <hr>
+      <h2 id="use-getters--setters-to-control-access-to-an-object">Use <code>getters</code> &amp;
+        <code>setters</code> to
+        control access to an object</h2>
+      <h3 id="getter-function">Getter function</h3>
+      <p><code>Getters</code> return the values of an object's private variable to the user <em>without directly
+          providing
+          the user access to the variable.</em></p>
+      <h3 id="setter-function">Setter function</h3>
+      <p>Setters modify the value of an object's private variable based on the value passed into the setter
+        function, which
+        can involve calculation or even overwrite previous values.</p>
+      <pre><code class="language-js"><div><span class="hljs-comment">// Book constructor...</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Book</span> </span>{
+    <span class="hljs-keyword">constructor</span>(author) {
+        <span class="hljs-built_in">this</span>._author;
+    }
+    <span class="hljs-keyword">get</span> <span class="hljs-title">writer</span>() {
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>._author;
+    }
+    <span class="hljs-keyword">set</span> <span class="hljs-title">writer</span>(<span class="hljs-params">updateAuthor</span>) {
+        <span class="hljs-built_in">this</span>._author = updateAuthor;
+    }
+}
+
+<span class="hljs-comment">// new object from `Book` constructor...</span>
+<span class="hljs-keyword">const</span> novel = <span class="hljs-keyword">new</span> Book(<span class="hljs-string">&#x27;Sara B. Tupple&#x27;</span>);
+<span class="hljs-built_in">console</span>.log(novel.writer); <span class="hljs-comment">// &#x27;Sara B. Tupple&#x27;</span>
+
+novel.writer = <span class="hljs-string">&#x27;New Author&#x27;</span>;
+<span class="hljs-built_in">console</span>.log(novel.writer); <span class="hljs-comment">// &#x27;New Author&#x27;</span>
+</div></code></pre>
+      <p><code>Getter</code> &amp; <code>setter</code> functions are important because they hide the internal
+        implementation
+        details.</p>
+      <blockquote>
+        <p><em>Note: It is conventional to precede a private function with an <code>_underscore</code>, though
+            it does not
+            carry any function and doesn't make a variable private.</em></p>
+      </blockquote>
+      <hr>
+      <h2 id="module-scripts-import--export"><code>Module scripts</code>, <code>import</code> &amp;
+        <code>export</code></h2>
+      <h3 id="create-a-module-script">Create a <code>module script</code></h3>
+      <p><code>ES6</code> introduced a way to easily share code between JavaScript files. It allows any part of
+        the code to
+        be exported and implemented into another file.</p>
+      <p><em>a module script:</em></p>
+      <pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;file.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div></code></pre>
+      <h3 id="use-export-to-share-a-codeblock">Use <code>export</code> to share a codeblock</h3>
+      <p>Imagine a JavaScript file with several functions you want to reuse in other <code>.js</code>-files.</p>
+      <p><em>In order to share with other files, you need to export it.</em></p>
+      <pre><code class="language-js"><div><span class="hljs-comment">// method 1</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> add = <span class="hljs-function">(<span class="hljs-params">x,y</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> x + y;
+}
+
+<span class="hljs-comment">// method 2</span>
+<span class="hljs-keyword">const</span> add = <span class="hljs-function">(<span class="hljs-params">x,y</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> x + y;
+}
+
+<span class="hljs-keyword">export</span> { add };
+<span class="hljs-keyword">export</span> { add, subtract, divide } <span class="hljs-comment">// multiple</span>
+</div></code></pre>
+      <h3 id="using-import-to-reuse-javascript-code">Using <code>import</code> to reuse JavaScript code</h3>
+      <p>Once code is epxorted, this is how you retrieve it into another file:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">import</span> { add } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./math_functions.js&#x27;</span>;
+
+<span class="hljs-comment">// Multiple modules from single source</span>
+<span class="hljs-keyword">import</span> { add, subtract } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./math_functions.js&#x27;</span>;
+</div></code></pre>
+      <h3 id="using--to-import-everything-from-a-file">Using <code>*</code> to import everything from a file</h3>
+      <pre><code class="language-js"><div><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> myMathModule <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./math_functions.js&#x27;</span>;
+<span class="hljs-comment">// myMathModule a variable name</span>
+</div></code></pre>
+      <p>The above creates an object that contains all the exports from <code>'math_functions.js'</code>, allowing
+        you
+        access to the object properties.</p>
+      <p>Calling functions from imported properties is simply done by calling the object and method, like so:</p>
+      <pre><code class="language-js"><div>myMathModule.add(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>);
+myMathModule.subtract(<span class="hljs-number">5</span>, <span class="hljs-number">2</span>);
+</div></code></pre>
+      <h3 id="create-an-export-fallback-with-export-default">Create an export fallback with <code>export
+          default</code></h3>
+      <p>Usually you'll use the <code>export default</code> syntax if only one value is being exported from a
+        file.</p>
+      <p><em>It is also used to create a fallback value for a file or module.</em></p>
+      <pre><code class="language-js"><div><span class="hljs-comment">// named function</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">x,y</span>) </span>{
+    <span class="hljs-keyword">return</span> x + y;
+}
+
+<span class="hljs-comment">// anonymous function</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> x + y;
+}
+</div></code></pre>
+      <p>Since <code>export default</code> is used to declare a fallback value for a file or module, <em>you can
+          only have
+          one value be a default export in each module or file.</em></p>
+      <p>Additionally, you cannot use <code>export default</code> with <code>var</code>, <code>let</code>, or
+        <code>const</code>.</p>
+      <h3 id="import-a-default-export">Import a <code>default export</code></h3>
+      <p>To import a <code>default export</code>, you need to use a different <code>import</code> syntax:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">import</span> add <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./math_functions.js&#x27;</span>;
+</div></code></pre>
+      <p><em>Note: <code>add</code> is not surrounded by <code>{}</code>. It is simply a variable name for
+          whatever the
+          default export of the <code>math_function.js</code> file is. You can use any other name.</em></p>
+      <hr>
+      <h2 id="javascript-promises">JavaScript <code>promises</code></h2>
+      <h3 id="creating-a-javascript-promise">Creating a JavaScript <code>promise</code></h3>
+      <p>A <code>promise</code> in JavaScript say you'll do something, usually asynchronously.</p>
+      <p>When the task is completed, you will have either fullfilled or broken the <em>promise</em>.</p>
+      <p>It is a <code>constructor function</code> and uses the <code>new</code> keyword. It takes a <em>function
+          with
+          arguments</em>: <code>resolve</code> &amp; <code>reject</code> to determine the <em>promise
+          outcome</em>.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> myPromise = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+    <span class="hljs-comment">// do something</span>
+});
+</div></code></pre>
+      <h3 id="complete-a-promise-with-resolve--reject">Complete a promise with <code>resolve</code> &amp;
+        <code>reject</code></h3>
+      <p>A promise has 3 states: <code>pending</code>, <code>fullfilled</code>, and <code>completed</code>.</p>
+      <p><code>Resolve</code> and <code>reject</code> parameters are used to determine the <em>state of the
+          promise</em>.
+      </p>
+      <p><strong><code>Resolve</code> is used when you want the promise to succeed;</strong></p>
+      <p><strong><code>Reject</code> is used when you want it to fail.</strong></p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> myPromise = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (<span class="hljs-comment">/*condition*/</span>) {
+        resolve(<span class="hljs-string">&quot;Promise was fulfilled&quot;</span>);
+    }<span class="hljs-keyword">else</span>{
+        reject(<span class="hljs-string">&quot;Promise was rejected&quot;</span>);
+    }
+});
+</div></code></pre>
+      <h3 id="handle-a-fulfilled-promise-with-then">Handle a <em>fulfilled promise</em> with <code>then</code>
+      </h3>
+      <p>Promises are most useful when you have something that takes an <em>undefined amount of time</em>, like a
+        server
+        request.</p>
+      <p>With the <code>then</code> keyword you can do something immediately once the <em>promise is
+          resolved</em>, like so:
+      </p>
+      <pre><code class="language-js"><div>myPromise.then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
+    <span class="hljs-comment">// Do something with `results` here...</span>
+});
+</div></code></pre>
+      <p><code>result</code> comes from the arguments given to the resolve method.</p>
+      <h3 id="handle-a-rejected-promise-with-catch">Handle a <em>rejected promise</em> with <code>catch</code>
+      </h3>
+      <p>The <code>catch</code> method is used when a promise is rejected, like so:</p>
+      <pre><code class="language-js"><div>myPromise.catch(<span class="hljs-function"><span class="hljs-params">error</span> =&gt;</span> {
+    <span class="hljs-comment">// Do something with `error` here...</span>
+});
+</div></code></pre>
+      <p><code>error</code> is the argument passed into the <code>reject</code> method.</p>
+
+
+    </div>
+
+  </div>
+</body>
+
+</html>

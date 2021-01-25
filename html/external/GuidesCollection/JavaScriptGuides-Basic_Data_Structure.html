@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript - &grave;Basic Data Structures&grave;</title>
+
+  <base href="https://www.velddier.com/">
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+    integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <link rel="stylesheet" href="css/notebookStyle.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <div class="navbar"><a href="javascript:history.back()" class="navbar__back">Back</a>
+    <div class="menu">
+      <a href="html/UX_Portfolio.html">UX Design</a>
+      <span>|</span>
+      <a href="html/UI_Portfolio.html">Web Services</a>
+      <span>|</span>
+      <a href="html/Coding_Portfolio.html">Coding</a>
+      <span>|</span>
+      <a href="html/Other_Portfolio.html">Etc.</a>
+    </div>
+    <a href="/" class="logo">Frederik DeVilder</a>
+  </div>
+
+
+  <!-- PAGE CONTENT -->
+  <div class="window">
+
+    <ul class="index">
+      <li><a href="#javascript---basic-data-structures">JavaScript - <code>Basic Data Structures</code></a>
+        <ul>
+          <li><a href="#basics">Basics</a>
+            <ul>
+              <li><a href="#use-an-array-to-store-a-collection-of-data">Use an array to store a
+                  <em>collection of
+                    data</em></a></li>
+              <li><a href="#access-an-arrays-content-using-bracket-notation">Access an array's content
+                  using <code>bracket
+                    notation</code></a></li>
+            </ul>
+          </li>
+          <li><a href="#modifying-arrays">Modifying Arrays</a>
+            <ul>
+              <li><a href="#add-items-to-an-array-with-push-and-unshift">Add items to an array with
+                  <code>push()</code>
+                  and <code>unshift()</code></a></li>
+              <li><a href="#remove-items-from-an-array-with-pop-and-shift">Remove items from an array with
+                  <code>pop</code> and <code>shift</code></a></li>
+              <li><a href="#remove-items-using-splice">Remove items using <code>splice()</code></a>
+                <ul>
+                  <li><a href="#adding-items-with-the-third-splice-parameter">Adding items with the
+                      third
+                      <code>splice()</code> parameter</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#moving-arrays">Moving Arrays</a>
+            <ul>
+              <li><a href="#copy-array-items-using-slice">Copy array items using <code>slice()</code></a>
+              </li>
+              <li><a href="#copy-an-array-with-the-spread-operator">Copy an array with the <code>spread
+                    operator</code></a></li>
+              <li><a href="#combine-arrays-with-the-spread-operator">Combine arrays with the <code>spread
+                    operator</code></a></li>
+            </ul>
+          </li>
+          <li><a href="#assessing-arrays">Assessing Arrays</a>
+            <ul>
+              <li><a href="#check-for-the-presence-of-an-element-with-indexof">Check for the presence of
+                  an element with
+                  <code>indexOf()</code></a></li>
+              <li><a href="#iterate-through-all-an-arrays-items-using-for-loops">Iterate through all an
+                  array's items
+                  using <code>for loops</code></a></li>
+            </ul>
+          </li>
+          <li><a href="#array-types-expanded--objects">Array Types Expanded &amp; Objects</a>
+            <ul>
+              <li><a href="#create-complex-multi-dimensional-arrays">Create complex
+                  <code>multi-dimensional</code>
+                  arrays</a></li>
+              <li><a href="#add-key-value-pairs-to-javascript-objects">Add <code>key-value pairs</code> to
+                  JavaScript
+                  objects</a></li>
+              <li><a href="#modify-an-object-nested-within-an-object">Modify an object nested within an
+                  object</a></li>
+              <li><a href="#access-property-names-with-bracket-notation">Access property names with
+                  <code>bracket
+                    notation</code></a></li>
+            </ul>
+          </li>
+          <li><a href="#modifying-objects">Modifying Objects</a>
+            <ul>
+              <li><a href="#use-the-delete-keyword-to-remove-object-properties">Use the
+                  <code>delete</code> keyword to
+                  remove object properties</a></li>
+              <li><a href="#check-if-an-object-has-a-property">Check if an object has a property</a></li>
+              <li><a href="#iterate-through-the-keys-of-an-object-with-a-forin-statement">Iterate through
+                  the keys of an
+                  object with a <code>for...in</code> statement</a></li>
+              <li><a href="#generate-an-array-of-all-object-keys-with-objectkeys">Generate an array of all
+                  object keys
+                  with <code>Object.keys()</code></a></li>
+              <li><a href="#modify-an-array-stored-in-an-object">Modify an array stored in an object</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="content">
+
+      <h1 id="javascript---basic-data-structures">JavaScript - <code>Basic Data Structures</code></h1>
+      <h2 id="basics">Basics</h2>
+      <h3 id="use-an-array-to-store-a-collection-of-data">Use an array to store a <em>collection of data</em></h3>
+      <p>An <code>array</code> data structure is used to store data of various types. The simplest array is a
+        <em>one-dimensional array</em>, with only one level.</p>
+      <p><em>A complex array, multidimensional array:</em></p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">let</span> complexArray = [
+    [
+        {
+            <span class="hljs-attr">one</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-attr">two</span>: <span class="hljs-number">2</span>
+        },
+        {
+            <span class="hljs-attr">three</span>: <span class="hljs-number">3</span>,
+            <span class="hljs-attr">four</span>: <span class="hljs-number">4</span>
+        },
+    ],
+    [
+        {
+            <span class="hljs-attr">a</span>: <span class="hljs-string">&quot;a&quot;</span>,
+            <span class="hljs-attr">b</span>: <span class="hljs-string">&quot;b&quot;</span>
+        },
+        {
+            <span class="hljs-attr">c</span>: <span class="hljs-string">&quot;c&quot;</span>,
+            <span class="hljs-attr">d</span>: <span class="hljs-string">&quot;d&quot;</span>
+        }
+    ]
+];
+</div></code></pre>
+      <p>All arrays have a length property: array<code>.length</code>.</p>
+      <h3 id="access-an-arrays-content-using-bracket-notation">Access an array's content using <code>bracket
+          notation</code>
+      </h3>
+      <p>Accessing an array's data can be done by calling using bracket notation, allowing content to be
+        referenced or
+        altered.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">let</span> myArray = [<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>, <span class="hljs-string">&quot;d&quot;</span>];
+myArray[<span class="hljs-number">1</span>] = <span class="hljs-string">&quot;hello&quot;</span>;
+<span class="hljs-built_in">console</span>.log(myArray);
+</div></code></pre>
+      <h2 id="modifying-arrays">Modifying Arrays</h2>
+      <h3 id="add-items-to-an-array-with-push-and-unshift">Add items to an array with <code>push()</code> and
+        <code>unshift()</code></h3>
+      <p>Array.<code>push()</code> and array.<code>unshift()</code> are used to add items to the beginning and end
+        of the
+        array.</p>
+      <p><code>Push</code> adds items to the end of the array.</p>
+      <p><code>Unshift</code> adds items to the start of the array.</p>
+      <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">mixedNumbers</span>(<span class="hljs-params">arr</span>) </span>{
+  arr.unshift(<span class="hljs-string">&#x27;I&#x27;</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;three&#x27;</span>);
+  arr.push(<span class="hljs-number">7</span>, <span class="hljs-string">&#x27;VIII&#x27;</span>, <span class="hljs-number">9</span>);
+  <span class="hljs-keyword">return</span> arr;
+}
+<span class="hljs-built_in">console</span>.log(mixedNumbers([<span class="hljs-string">&#x27;IV&#x27;</span>, <span class="hljs-number">5</span>, <span class="hljs-string">&#x27;six&#x27;</span>]));
+<span class="hljs-comment">// Returns: [ &#x27;I&#x27;, 2, &#x27;three&#x27;, &#x27;IV&#x27;, 5, &#x27;six&#x27;, 7, &#x27;VIII&#x27;, 9 ]</span>
+
+</div></code></pre>
+      <h3 id="remove-items-from-an-array-with-pop-and-shift">Remove items from an array with <code>pop</code> and
+        <code>shift</code></h3>
+      <p><code>Pop</code> removes an element from <em>the end of an array</em>.</p>
+      <p><code>Shift</code> removes an element from <em>the start of an array</em>.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">let</span> greetings = [<span class="hljs-string">&#x27;whats up?&#x27;</span>, <span class="hljs-string">&#x27;hello&#x27;</span>, <span class="hljs-string">&#x27;see ya!&#x27;</span>];
+
+greetings.pop;
+<span class="hljs-comment">// now equals [&#x27;whats up?&#x27;, &#x27;hello&#x27;]</span>
+
+greetings.shift;
+<span class="hljs-comment">// now equals [&#x27;hello&#x27;]</span>
+</div></code></pre>
+      <p>The main thing to remember is than neither <code>pop</code> and <code>shift</code> take arguments, and
+        each only
+        allows an array to be modified by a single element at a time.</p>
+      <p>It is possible to <em>assign the removed values to a new variable</em>:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">let</span> popped = greetings.pop;
+<span class="hljs-comment">// returns &#x27;hello&#x27;</span>
+<span class="hljs-comment">// greetings now equals []</span>
+</div></code></pre>
+      <h3 id="remove-items-using-splice">Remove items using <code>splice()</code></h3>
+      <p><code>Splice()</code> allows you to remove any number of consecutive items from the middle of the array.
+      </p>
+      <p>It can take up to <em>three parameters</em>, these are the first two:</p>
+      <ul>
+        <li>from what index should splice() start;</li>
+        <li>and how many items should splice remove.</li>
+      </ul>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>];
+arr.splice(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>);
+<span class="hljs-built_in">console</span>.log(arr);
+<span class="hljs-comment">// Returns: [ 2, 5, 2, 1 ]</span>
+</div></code></pre>
+      <h4 id="adding-items-with-the-third-splice-parameter">Adding items with the third <code>splice()</code>
+        parameter</h4>
+      <p>Using the third parameter of <code>splice</code> we can add <em>one or more</em> items.</p>
+      <p>We have defined a function, htmlColorNames, which takes an array of HTML colors as an argument. Modify
+        the function
+        using splice() to remove the first two elements of the array and add 'DarkSalmon' and 'BlanchedAlmond'
+        in their
+        respective places.</p>
+      <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">htmlColorNames</span>(<span class="hljs-params">arr</span>) </span>{
+  arr.splice(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;DarkSalmon&#x27;</span>, <span class="hljs-string">&#x27;BlanchedAlmond&#x27;</span>);
+  <span class="hljs-keyword">return</span> arr;
+}
+
+<span class="hljs-built_in">console</span>.log(htmlColorNames([<span class="hljs-string">&#x27;DarkGoldenRod&#x27;</span>, <span class="hljs-string">&#x27;WhiteSmoke&#x27;</span>, <span class="hljs-string">&#x27;LavenderBlush&#x27;</span>, <span class="hljs-string">&#x27;PaleTurquoise&#x27;</span>, <span class="hljs-string">&#x27;FireBrick&#x27;</span>]));
+<span class="hljs-comment">// returns: </span>
+[ <span class="hljs-string">&#x27;DarkSalmon&#x27;</span>,
+  <span class="hljs-string">&#x27;BlanchedAlmond&#x27;</span>,
+  <span class="hljs-string">&#x27;LavenderBlush&#x27;</span>,
+  <span class="hljs-string">&#x27;PaleTurquoise&#x27;</span>,
+  <span class="hljs-string">&#x27;FireBrick&#x27;</span> ]
+</div></code></pre>
+      <h2 id="moving-arrays">Moving Arrays</h2>
+      <h3 id="copy-array-items-using-slice">Copy array items using <code>slice()</code></h3>
+      <p>Rather than modifying an array, <code>slice()</code> copies or <em>extracts</em> a number of elements to
+        a new
+        array.</p>
+      <p>It leaves the original array <em>untouched</em>.</p>
+      <p><em>Slice takes two parameters</em>:</p>
+      <ul>
+        <li>the index where to begin;</li>
+        <li>and the index where to end.</li>
+      </ul>
+      <p>*Note - `slice(2, 4) will NOT include the fifth item[4] of the array.</p>
+      <p>We have defined a function, forecast, that takes an array as an argument. Modify the function using
+        slice() to
+        extract information from the argument array and return a new array that contains the elements 'warm' and
+        'sunny'.
+      </p>
+      <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">forecast</span>(<span class="hljs-params">arr</span>) </span>{
+  <span class="hljs-keyword">return</span> arr.slice(<span class="hljs-number">2</span>, <span class="hljs-number">4</span>);
+}
+
+<span class="hljs-built_in">console</span>.log(forecast([<span class="hljs-string">&#x27;cold&#x27;</span>, <span class="hljs-string">&#x27;rainy&#x27;</span>, <span class="hljs-string">&#x27;warm&#x27;</span>, <span class="hljs-string">&#x27;sunny&#x27;</span>, <span class="hljs-string">&#x27;cool&#x27;</span>, <span class="hljs-string">&#x27;thunderstorms&#x27;</span>]));
+
+<span class="hljs-comment">// Returns: [ &#x27;warm&#x27;, &#x27;sunny&#x27; ]</span>
+</div></code></pre>
+      <h3 id="copy-an-array-with-the-spread-operator">Copy an array with the <code>spread operator</code></h3>
+      <p>New in ES6, the <code>spread operator</code> copies <em>all</em> of an array's elements in order.</p>
+      <p>The spread syntax simply looks like: <code>...</code></p>
+      <p><em>Example</em>:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">let</span> thisArray = [<span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">null</span>];
+<span class="hljs-keyword">let</span> thatArray = [...thisArray];
+<span class="hljs-comment">// thatArray equals [true, true, undefined, false, null]</span>
+<span class="hljs-comment">// thisArray remains unchanged and thatArray contains the same elements as thisArray</span>
+</div></code></pre>
+      <p><em>Exercise</em>:</p>
+      <p>We have defined a function, copyMachine which takes arr (an array) and num (a number) as arguments. The
+        function is
+        supposed to return a new array made up of num copies of arr. We have done most of the work for you, but
+        it doesn't
+        work quite right yet. Modify the function using spread syntax so that it works correctly (hint: another
+        method we
+        have already covered might come in handy here!).</p>
+      <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">copyMachine</span>(<span class="hljs-params">arr, num</span>) </span>{
+  <span class="hljs-keyword">let</span> newArr = [];
+  <span class="hljs-keyword">while</span> (num &gt;= <span class="hljs-number">1</span>) {
+    <span class="hljs-keyword">let</span> obj = [...arr];
+    newArr.push(obj);
+    num--;
+  }
+  <span class="hljs-keyword">return</span> newArr;
+}
+
+<span class="hljs-built_in">console</span>.log(copyMachine([<span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>], <span class="hljs-number">2</span>));
+
+</div></code></pre>
+      <h3 id="combine-arrays-with-the-spread-operator">Combine arrays with the <code>spread operator</code></h3>
+      <p>Another hige advantage of the <code>spread operator</code> is the ability to combine arrays.</p>
+      <p><em>Example</em>:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">let</span> thisArray = [<span class="hljs-string">&#x27;sage&#x27;</span>, <span class="hljs-string">&#x27;rosemary&#x27;</span>, <span class="hljs-string">&#x27;parsley&#x27;</span>, <span class="hljs-string">&#x27;thyme&#x27;</span>];
+
+<span class="hljs-keyword">let</span> thatArray = [<span class="hljs-string">&#x27;basil&#x27;</span>, <span class="hljs-string">&#x27;cilantro&#x27;</span>, ...thisArray, <span class="hljs-string">&#x27;coriander&#x27;</span>];
+<span class="hljs-comment">// thatArray now equals [&#x27;basil&#x27;, &#x27;cilantro&#x27;, &#x27;sage&#x27;, &#x27;rosemary&#x27;, &#x27;parsley&#x27;, &#x27;thyme&#x27;, &#x27;coriander&#x27;]</span>
+</div></code></pre>
+      <h2 id="assessing-arrays">Assessing Arrays</h2>
+      <h3 id="check-for-the-presence-of-an-element-with-indexof">Check for the presence of an element with
+        <code>indexOf()</code></h3>
+      <p>To figure out the presence and index of an element within an array, <code>indexOf()</code> allows you to
+        check.</p>
+      <p>The parameter <code>indexOf</code> takes is the element you are looking for.</p>
+      <p>It will return the index or position if the element is present, and <code>-1</code> if it isn't present.
+      </p>
+      <p><em>Exercise</em>:</p>
+      <p>indexOf() can be incredibly useful for quickly checking for the presence of an element on an array. We
+        have defined
+        a function, quickCheck, that takes an array and an element as arguments. Modify the function using
+        indexOf() so that
+        it returns true if the passed element exists on the array, and false if it does not.</p>
+      <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">quickCheck</span>(<span class="hljs-params">arr, elem</span>) </span>{
+  <span class="hljs-keyword">if</span> (arr.indexOf(elem) &gt;= <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+}
+
+<span class="hljs-built_in">console</span>.log(quickCheck([<span class="hljs-string">&#x27;squash&#x27;</span>, <span class="hljs-string">&#x27;onions&#x27;</span>, <span class="hljs-string">&#x27;shallots&#x27;</span>], <span class="hljs-string">&#x27;mushrooms&#x27;</span>));
+</div></code></pre>
+      <h3 id="iterate-through-all-an-arrays-items-using-for-loops">Iterate through all an array's items using
+        <code>for
+          loops</code></h3>
+      <p>Sometimes when working with arrays you need to iterate through each item to find one or more elements.
+      </p>
+      <p>JavaScript offers various built in methods, such as: <code>every()</code>, <code>forEach()</code>,
+        <code>map()</code>, to iterate over arrays, but a simple <code>for loop</code> is perfect for the job.
+      </p>
+      <p><em>Consider</em>:</p>
+      <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greaterThanTen</span>(<span class="hljs-params">arr</span>) </span>{
+    <span class="hljs-keyword">let</span> newArr = [];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; arr.length; i++) {
+        <span class="hljs-keyword">if</span> (arr[i] &gt; <span class="hljs-number">10</span>) {
+            newArr.push(arr[i]);
+        }
+    }
+    <span class="hljs-keyword">return</span> newArr;
+}
+
+greaterThanTen([<span class="hljs-number">2</span>, <span class="hljs-number">12</span>, <span class="hljs-number">8</span>, <span class="hljs-number">14</span>, <span class="hljs-number">80</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]);
+<span class="hljs-comment">// returns [12, 14, 80]</span>
+</div></code></pre>
+      <p><em>Exercise</em>:</p>
+      <p>We have defined a function, filteredArray, which takes arr, a nested array, and elem as arguments, and
+        returns a
+        new array. elem represents an element that may or may not be present on one or more of the arrays nested
+        within arr.
+        Modify the function, using a for loop, to return a filtered version of the passed array such that any
+        array nested
+        within arr containing elem has been removed.</p>
+      <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filteredArray</span>(<span class="hljs-params">arr, elem</span>) </span>{
+  <span class="hljs-keyword">let</span> newArr = [];
+  <span class="hljs-comment">//Iterate each subarray:</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; arr.length; i++) {
+    <span class="hljs-comment">//if the subarray does not contain elem:</span>
+    <span class="hljs-keyword">if</span> (arr[i].indexOf(elem) != <span class="hljs-number">-1</span>) {
+      <span class="hljs-keyword">continue</span>;
+    <span class="hljs-comment">// When it does, place in newArr:</span>
+    } <span class="hljs-keyword">else</span> {
+      newArr.push(arr[i]);
+    }
+  }
+  <span class="hljs-keyword">return</span> newArr;
+}
+
+<span class="hljs-built_in">console</span>.log(filteredArray([[<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">6</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">13</span>, <span class="hljs-number">26</span>], [<span class="hljs-number">19</span>, <span class="hljs-number">3</span>, <span class="hljs-number">9</span>]], <span class="hljs-number">3</span>));
+</div></code></pre>
+      <h2 id="array-types-expanded--objects">Array Types Expanded &amp; Objects</h2>
+      <h3 id="create-complex-multi-dimensional-arrays">Create complex <code>multi-dimensional</code> arrays</h3>
+      <p>Arrays can contain, or be made completely out of other arrays. It makes an array into a complex data
+        storing
+        device: a <em>multi-dimensional</em>, or <em>nested</em> array.</p>
+      <p>An array can have many levels, which can each be reached with the <code>bracket notation</code>.</p>
+      <pre><code class="language-js"><div><span class="hljs-built_in">console</span>.log(nestedArray[<span class="hljs-number">2</span>][<span class="hljs-number">1</span>][<span class="hljs-number">0</span>][<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]);
+<span class="hljs-comment">// logs: deepest-est?</span>
+</div></code></pre>
+      <h3 id="add-key-value-pairs-to-javascript-objects">Add <code>key-value pairs</code> to JavaScript objects
+      </h3>
+      <p>Key-value pairs are collected in <code>objects</code>, each a piece of data (<em>value</em>) mapped to a
+        unique
+        identifier (<em>properties/keys</em>).</p>
+      <p><em>Example</em>:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> tekkenCharacter = {
+  <span class="hljs-attr">player</span>: <span class="hljs-string">&#x27;Hwoarang&#x27;</span>,
+  <span class="hljs-attr">fightingStyle</span>: <span class="hljs-string">&#x27;Tae Kwon Doe&#x27;</span>,
+  <span class="hljs-attr">human</span>: <span class="hljs-literal">true</span>
+};
+</div></code></pre>
+      <p>Adding a property is easy, using the <code>dot notation</code>:</p>
+      <p><code>tekkenCharacter.origin = 'South Korea';</code></p>
+      <p>Or by using the <code>bracket notation</code>:</p>
+      <p><code>tekkenCharacter['hair color'] = 'dyed orange';</code></p>
+      <p>*Note - Bracket notation is required if the property has a <code>space</code> in it or if you want to use
+        a
+        <code>variable</code> to name the property. Without quotes it will be evaluated as a variable.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">const</span> eyes = <span class="hljs-string">&#x27;eye color&#x27;</span>;
+
+tekkenCharacter[eyes] = <span class="hljs-string">&#x27;brown&#x27;</span>;
+</div></code></pre>
+      <h3 id="modify-an-object-nested-within-an-object">Modify an object nested within an object</h3>
+      <p>Like arrays, objects in JavaScript can also consist of multiple levels.</p>
+      <p>Items in these levels can be reached and modified, <em>consider</em>:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">let</span> nestedObject = {
+  <span class="hljs-attr">id</span>: <span class="hljs-number">28802695164</span>,
+  <span class="hljs-attr">date</span>: <span class="hljs-string">&#x27;December 31, 2016&#x27;</span>,
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">totalUsers</span>: <span class="hljs-number">99</span>,
+    <span class="hljs-attr">online</span>: <span class="hljs-number">80</span>,
+    <span class="hljs-attr">onlineStatus</span>: {
+      <span class="hljs-attr">active</span>: <span class="hljs-number">67</span>,
+      <span class="hljs-attr">away</span>: <span class="hljs-number">13</span>,
+      <span class="hljs-attr">busy</span>: <span class="hljs-number">8</span>
+    }
+  }
+};
+</div></code></pre>
+      <p>To assign the value <code>10</code> to the <code>busy</code> property, <code>dot notation</code> can be
+        used, like
+        so:</p>
+      <p><code>nestedObject.data.onlineStatus.busy = 10;</code></p>
+      <h3 id="access-property-names-with-bracket-notation">Access property names with <code>bracket
+          notation</code></h3>
+      <p>Imagine that the <code>foods</code> object is being used in a program for a supermarket cash register. We
+        have some
+        function that sets the <code>selectedFood</code> and we want to check our <code>foods</code> object for
+        the presence
+        of that food. It might look like:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">let</span> selectedFood = getCurrentFood(scannedItem);
+<span class="hljs-keyword">let</span> inventory = foods[selectedFood];
+</div></code></pre>
+      <p>This code will evaluate the value stored in the <code>selectedFood</code> variable and return the value
+        of that key
+        in the <code>foods</code> object, or <code>undefined</code> if it's not present.</p>
+      <p>Bracket notation is very useful because sometimes object properties are not known before runtime or we
+        need to
+        access them in a more dynamic way.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">let</span> foods = {
+  <span class="hljs-attr">apples</span>: <span class="hljs-number">25</span>,
+  <span class="hljs-attr">oranges</span>: <span class="hljs-number">32</span>,
+  <span class="hljs-attr">plums</span>: <span class="hljs-number">28</span>,
+  <span class="hljs-attr">bananas</span>: <span class="hljs-number">13</span>,
+  <span class="hljs-attr">grapes</span>: <span class="hljs-number">35</span>,
+  <span class="hljs-attr">strawberries</span>: <span class="hljs-number">27</span>
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkInventory</span>(<span class="hljs-params">scannedItem</span>) </span>{
+  <span class="hljs-keyword">return</span> foods[scannedItem];
+}
+
+<span class="hljs-built_in">console</span>.log(checkInventory(<span class="hljs-string">&quot;apples&quot;</span>));
+</div></code></pre>
+      <h2 id="modifying-objects">Modifying Objects</h2>
+      <h3 id="use-the-delete-keyword-to-remove-object-properties">Use the <code>delete</code> keyword to remove
+        object
+        properties</h3>
+      <p>To remove a key-value pair from an object, we can use the <code>delete</code> keyword, like so:</p>
+      <p><code>delete foods.apples;</code></p>
+      <p><em>Example</em>:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">let</span> foods = {
+  <span class="hljs-attr">apples</span>: <span class="hljs-number">25</span>,
+  <span class="hljs-attr">oranges</span>: <span class="hljs-number">32</span>,
+  <span class="hljs-attr">plums</span>: <span class="hljs-number">28</span>,
+  <span class="hljs-attr">bananas</span>: <span class="hljs-number">13</span>,
+  <span class="hljs-attr">grapes</span>: <span class="hljs-number">35</span>,
+  <span class="hljs-attr">strawberries</span>: <span class="hljs-number">27</span>
+};
+
+<span class="hljs-keyword">delete</span> foods.oranges, <span class="hljs-keyword">delete</span> foods.plums, <span class="hljs-keyword">delete</span> foods.strawberries;
+
+<span class="hljs-built_in">console</span>.log(foods); <span class="hljs-comment">//returns: { apples: 25, bananas: 13, grapes: 35 }</span>
+</div></code></pre>
+      <h3 id="check-if-an-object-has-a-property">Check if an object has a property</h3>
+      <p>To check if an object has a certain property, <em>there are two methods</em>:</p>
+      <ul>
+        <li><code>hasOwnProperty()</code>,</li>
+        <li>and <code>in</code> keyword.</li>
+      </ul>
+      <p><em>Consider an object with property <code>Alan</code></em>:</p>
+      <pre><code class="language-js"><div>users.hasOwnProperty(<span class="hljs-string">&#x27;Alan&#x27;</span>);
+<span class="hljs-string">&#x27;Alan&#x27;</span> <span class="hljs-keyword">in</span> users;
+<span class="hljs-comment">// both return true</span>
+</div></code></pre>
+      <p><em>Exercise</em>:</p>
+      <pre><code class="language-js"><div><span class="hljs-comment">// Returns `true` if everyone is present</span>
+
+<span class="hljs-keyword">let</span> users = {
+  <span class="hljs-attr">Alan</span>: {
+    <span class="hljs-attr">age</span>: <span class="hljs-number">27</span>,
+    <span class="hljs-attr">online</span>: <span class="hljs-literal">true</span>
+  },
+  <span class="hljs-attr">Jeff</span>: {
+    <span class="hljs-attr">age</span>: <span class="hljs-number">32</span>,
+    <span class="hljs-attr">online</span>: <span class="hljs-literal">true</span>
+  },
+  <span class="hljs-attr">Sarah</span>: {
+    <span class="hljs-attr">age</span>: <span class="hljs-number">48</span>,
+    <span class="hljs-attr">online</span>: <span class="hljs-literal">true</span>
+  },
+  <span class="hljs-attr">Ryan</span>: {
+    <span class="hljs-attr">age</span>: <span class="hljs-number">19</span>,
+    <span class="hljs-attr">online</span>: <span class="hljs-literal">true</span>
+  }
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isEveryoneHere</span>(<span class="hljs-params">obj</span>) </span>{
+  <span class="hljs-comment">// Only change code below this line</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-string">&#x27;Alan&#x27;</span> <span class="hljs-keyword">in</span> users &amp;&amp; <span class="hljs-string">&#x27;Jeff&#x27;</span> <span class="hljs-keyword">in</span> users &amp;&amp; <span class="hljs-string">&#x27;Sarah&#x27;</span> <span class="hljs-keyword">in</span> users &amp;&amp; <span class="hljs-string">&#x27;Ryan&#x27;</span> <span class="hljs-keyword">in</span> users) {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+  <span class="hljs-comment">// Only change code above this line</span>
+}
+
+<span class="hljs-built_in">console</span>.log(isEveryoneHere(users));
+
+</div></code></pre>
+      <h3 id="iterate-through-the-keys-of-an-object-with-a-forin-statement">Iterate through the keys of an object
+        with a
+        <code>for...in</code> statement</h3>
+      <p>A <code>for...in</code> statement is a special syntax to iterate through all keys within an object.</p>
+      <p>For object <code>users</code>, this could look like:</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> user <span class="hljs-keyword">in</span> users) {
+  <span class="hljs-built_in">console</span>.log(user);
+}
+
+<span class="hljs-comment">// logs:</span>
+Alan
+Jeff
+Sarah
+Ryan
+</div></code></pre>
+      <p>In this statement, we defined a variable user, and as you can see, this variable was reset during each
+        iteration to
+        each of the object's keys as the statement looped through the object, resulting in each user's name
+        being printed to
+        the console.</p>
+      <p><em>Note - Objects do not maintain an ordering to stored keys like arrays do; thus a key's position on an
+          object,
+          or the relative order in which it appears, is irrelevant when referencing or accessing that
+          key.</em></p>
+      <h3 id="generate-an-array-of-all-object-keys-with-objectkeys">Generate an array of all object keys with
+        <code>Object.keys()</code></h3>
+      <p>Using <code>Object.keys()</code>, taking an object as argument, we can generate an array which contains
+        <em>all the
+          keys stored in an object</em>.</p>
+      <p>This will return an array with strings representing each property in the object.</p>
+      <p>There will be no specific order to the entries in the array.</p>
+      <p><em>Exercise</em>:</p>
+      <p>Finish writing the getArrayOfUsers function so that it returns an array containing all the properties in
+        the object
+        it receives as an argument.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">let</span> users = {
+  <span class="hljs-attr">Alan</span>: {
+    <span class="hljs-attr">age</span>: <span class="hljs-number">27</span>,
+    <span class="hljs-attr">online</span>: <span class="hljs-literal">false</span>
+  },
+  <span class="hljs-attr">Jeff</span>: {
+    <span class="hljs-attr">age</span>: <span class="hljs-number">32</span>,
+    <span class="hljs-attr">online</span>: <span class="hljs-literal">true</span>
+  },
+  <span class="hljs-attr">Sarah</span>: {
+    <span class="hljs-attr">age</span>: <span class="hljs-number">48</span>,
+    <span class="hljs-attr">online</span>: <span class="hljs-literal">false</span>
+  },
+  <span class="hljs-attr">Ryan</span>: {
+    <span class="hljs-attr">age</span>: <span class="hljs-number">19</span>,
+    <span class="hljs-attr">online</span>: <span class="hljs-literal">true</span>
+  }
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArrayOfUsers</span>(<span class="hljs-params">obj</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.keys(obj);
+}
+
+<span class="hljs-built_in">console</span>.log(getArrayOfUsers(users));
+</div></code></pre>
+      <h3 id="modify-an-array-stored-in-an-object">Modify an array stored in an object</h3>
+      <p><em>Exercise</em>:</p>
+      <p>The <code>user</code> object containst three keys. The <code>data</code> key contains five keys, one of
+        which
+        contains an array of <code>friends</code>. From this, you cna see how flexibe objects are as data
+        structures.</p>
+      <p>Finish writing function <code>addFriends</code>, so that it takes <code>user</code> object and adds the
+        name of the
+        <code>friend</code> argument to the array stored in <code>user.data.friends</code> and returns that
+        array.</p>
+      <pre><code class="language-js"><div><span class="hljs-keyword">let</span> user = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Kenneth&#x27;</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-number">28</span>,
+  <span class="hljs-attr">data</span>: {
+    <span class="hljs-attr">username</span>: <span class="hljs-string">&#x27;kennethCodesAllDay&#x27;</span>,
+    <span class="hljs-attr">joinDate</span>: <span class="hljs-string">&#x27;March 26, 2016&#x27;</span>,
+    <span class="hljs-attr">organization</span>: <span class="hljs-string">&#x27;freeCodeCamp&#x27;</span>,
+    <span class="hljs-attr">friends</span>: [
+      <span class="hljs-string">&#x27;Sam&#x27;</span>,
+      <span class="hljs-string">&#x27;Kira&#x27;</span>,
+      <span class="hljs-string">&#x27;Tomo&#x27;</span>
+    ],
+    <span class="hljs-attr">location</span>: {
+      <span class="hljs-attr">city</span>: <span class="hljs-string">&#x27;San Francisco&#x27;</span>,
+      <span class="hljs-attr">state</span>: <span class="hljs-string">&#x27;CA&#x27;</span>,
+      <span class="hljs-attr">country</span>: <span class="hljs-string">&#x27;USA&#x27;</span>
+    }
+  }
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addFriend</span>(<span class="hljs-params">userObj, friend</span>) </span>{
+    <span class="hljs-comment">//Accessing friends and adding to the array:</span>
+  userObj.data.friends.push(friend);
+  <span class="hljs-comment">// Returning the modified array into the global scope:</span>
+  <span class="hljs-keyword">return</span> userObj.data.friends;
+}
+
+<span class="hljs-built_in">console</span>.log(addFriend(user, <span class="hljs-string">&#x27;Pete&#x27;</span>));
+</div></code></pre>
+
+
+    </div>
+
+  </div>
+</body>
+
+</html>

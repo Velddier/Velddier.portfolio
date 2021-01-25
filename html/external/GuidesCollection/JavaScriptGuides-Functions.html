@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - &midast;Functions&midast;</title>
+
+    <base href="https://www.velddier.com/">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+        integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+    <link rel="stylesheet" href="css/notebookStyle.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</head>
+
+<body class="vscode-body vscode-light">
+    <div class="navbar"><a href="javascript:history.back()" class="navbar__back">Back</a>
+        <div class="menu">
+            <a href="html/UX_Portfolio.html">UX Design</a>
+            <span>|</span>
+            <a href="html/UI_Portfolio.html">Web Services</a>
+            <span>|</span>
+            <a href="html/Coding_Portfolio.html">Coding</a>
+            <span>|</span>
+            <a href="html/Other_Portfolio.html">Etc.</a>
+        </div>
+        <a href="/" class="logo">Frederik DeVilder</a>
+    </div>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="window">
+
+        <ul class="index">
+            <li><a href="#javascript---functions">JavaScript - <em>Functions</em></a>
+                <ul>
+                    <li><a href="#function-parameters">Function parameters</a>
+                        <ul>
+                            <li><a href="#default-parameters">Default parameters</a></li>
+                            <li><a href="#passing-arguments-value-v-reference">Passing arguments: <em>value v.
+                                        reference</em></a></li>
+                            <li><a href="#first-class-v-higher-order-functions">First-class v. higher-order
+                                    functions</a></li>
+                            <li><a href="#functions-returning-functions--functionxy">Functions Returning Functions —
+                                    <code>function(x)(y)</code></a></li>
+                            <li><a href="#the-call-method--call-">The call method — <code>.call(' ')</code></a></li>
+                            <li><a href="#the-bind-method--bindthiskeyword">The bind method —
+                                    <code>.bind(this.keyword)</code></a>
+                                <ul>
+                                    <li><a href="#defaulting-additional-arguments">Defaulting additional arguments</a>
+                                    </li>
+                                    <li><a href="#bind-without-a-thiskeyword">.bind() without a this.keyword</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#immediately-invoked-function-expressions--iife">Immediately invoked function
+                                    expressions — <code>IIFE</code></a></li>
+                            <li><a href="#closures">Closures</a>
+                                <ul>
+                                    <li><a href="#another-example-of-closures">Another example of closures</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="content">
+
+            <h1 id="javascript---functions">JavaScript - <em>Functions</em></h1>
+
+            <h2 id="function-parameters">Function parameters</h2>
+            <h3 id="default-parameters">Default parameters</h3>
+            <p>Function parameters can have a default assigned to them, which will be used if not specifically
+                reassigned within
+                the method.</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> createBooking = <span class="hljs-function">(<span class="hljs-params">
+    flightNum,
+    numPassenger = <span class="hljs-number">1</span>,
+    price = <span class="hljs-number">199</span> * numPassenger</span>) =&gt;</span> {
+    <span class="hljs-comment">// ...</span>
+    };
+)
+</div></code></pre>
+            <h3 id="passing-arguments-value-v-reference">Passing arguments: <em>value v. reference</em></h3>
+            <p>Multi-content variables, such as objects, arrays, etc., can be further referenced and modified within a
+                function:
+            </p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> flight = <span class="hljs-string">&#x27;LH123&#x27;</span>
+<span class="hljs-keyword">const</span> passenger = { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Fred&#x27;</span>, <span class="hljs-attr">passport</span>: <span class="hljs-string">&#x27;123141312AG&#x27;</span>};
+
+<span class="hljs-comment">// Function using flight / fred variables:</span>
+<span class="hljs-keyword">const</span> checkIn = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">flightNum, passenger</span>) </span>{
+    passenger.name = <span class="hljs-string">&#x27;Mr.&#x27;</span> + passenger.name;
+
+    <span class="hljs-keyword">if</span> (passenger.passport === <span class="hljs-string">&#x27;123141312AG&#x27;</span>)
+        alert(<span class="hljs-string">&#x27;checked in&#x27;</span>);
+};
+</div></code></pre>
+            <h3 id="first-class-v-higher-order-functions">First-class v. higher-order functions</h3>
+            <p>A higher order function is able to have another 'callback' function as it's argument:</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> oneWord = <span class="hljs-function">(<span class="hljs-params">str</span>) =&gt;</span> { <span class="hljs-keyword">return</span> str.replace(<span class="hljs-regexp">/ /g</span>, <span class="hljs-string">&#x27;_&#x27;</span>).toLowerCase() };
+
+<span class="hljs-comment">// Higher-order function</span>
+<span class="hljs-keyword">const</span> transformer = <span class="hljs-function">(<span class="hljs-params">str, fn</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> fn(str);
+}
+
+transformer(<span class="hljs-string">&#x27;JavaScript Documents and Files&#x27;</span>, oneWord); <span class="hljs-comment">//=&gt; JavaScript_Documents_and_Files</span>
+</div></code></pre>
+            <p>Also:</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> high5 = <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;🙋‍♀️&#x27;</span>);
+
+[<span class="hljs-string">&#x27;Hi&#x27;</span>, <span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;Howdy&#x27;</span>].forEach(high5);
+</div></code></pre>
+            <hr>
+            <h3 id="functions-returning-functions--functionxy">Functions Returning Functions —
+                <code>function(x)(y)</code></h3>
+            <p>A function returning a function is possible:</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> greet = <span class="hljs-function">(<span class="hljs-params">greeting</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">name</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${greeting}</span> <span class="hljs-subst">${name}</span>`</span>)
+    }
+}
+
+greet(<span class="hljs-string">&#x27;Hey&#x27;</span>)(<span class="hljs-string">&#x27;Walter&#x27;</span>) <span class="hljs-comment">//==&gt; &#x27;Hey Walter&#x27;</span>
+</div></code></pre>
+            <p>The same can also be simplified with an arrow function:</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> greetArrow = <span class="hljs-function"><span class="hljs-params">greeting</span> =&gt;</span> <span class="hljs-function"><span class="hljs-params">name</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${greeting}</span> <span class="hljs-subst">${name}</span>`</span>);
+
+greetArrow(<span class="hljs-string">&#x27;Howdy&#x27;</span>)(<span class="hljs-string">&#x27;Gary&#x27;</span>); <span class="hljs-comment">//=&gt; Howdy Gary</span>
+</div></code></pre>
+            <h3 id="the-call-method--call-">The call method — <code>.call(' ')</code></h3>
+            <p>Consider an object that contains a method, like <code>airline.book()</code>:</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> airline = {
+    <span class="hljs-attr">iataCode</span>: <span class="hljs-string">&#x27;LH&#x27;</span>,
+    <span class="hljs-attr">bookings</span>: [],
+
+    book(flightNum, name) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${name}</span> booked a seat on flight <span class="hljs-subst">${<span class="hljs-built_in">this</span>.iataCode}</span><span class="hljs-subst">${flightNum}</span>`</span>);
+    }
+};
+</div></code></pre>
+            <p><code>airline</code> has a method <code>book()</code>, which can be called like
+                <code>airline.book()</code>.</p>
+            <p>But assume we want to reuse the structure of this method elsewhere by trying the copy the method to a new
+                variable:
+            </p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> book = airline.book;
+
+<span class="hljs-comment">// This does not work!</span>
+otherAirline.book(<span class="hljs-number">23</span>, <span class="hljs-string">&#x27;Steph Newman&#x27;</span>)
+</div></code></pre>
+            <p>Instead, using the <code>.call()</code> method makes it possible. It requires an additional argument to
+                be passed
+                as the new <code>this</code> keyword, followed by the initial arguments.</p>
+            <pre><code class="language-js"><div>book.call(airline, <span class="hljs-number">293</span>, <span class="hljs-string">&#x27;Steph Newman&#x27;</span>);
+</div></code></pre>
+            <h3 id="the-bind-method--bindthiskeyword">The bind method — <code>.bind(this.keyword)</code></h3>
+            <p>The <code>.bind()</code> method does the same as the <code>.call()</code> method, except that <em>it does
+                    not
+                    immediately call the function</em>.</p>
+            <p>Instead, it assigns it to a new function:</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> bookEW = book.bind(eurowings); 
+<span class="hljs-comment">//=&gt; Sets bookEW to a new function derived from airline.book()</span>
+
+bookEW(<span class="hljs-number">34</span>, <span class="hljs-string">&#x27;Yorha Molineux&#x27;</span>); <span class="hljs-comment">//=&gt; Works!</span>
+</div></code></pre>
+            <h4 id="defaulting-additional-arguments">Defaulting additional arguments</h4>
+            <p>With the bind method it is possible to assign defaults of other arguments:</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> bookEW23 = book.bind(eurowings, <span class="hljs-number">23</span>);
+
+bookEW23(<span class="hljs-string">&#x27;Mona Edlord&#x27;</span>);
+</div></code></pre>
+            <h4 id="bind-without-a-thiskeyword">.bind() without a this.keyword</h4>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> addVAT = addTax.bind(<span class="hljs-literal">null</span>, <span class="hljs-number">0.23</span>);
+<span class="hljs-comment">// Null leaves the this keyword unmodified</span>
+</div></code></pre>
+            <hr>
+            <h3 id="immediately-invoked-function-expressions--iife">Immediately invoked function expressions —
+                <code>IIFE</code>
+            </h3>
+            <p>As the name implies, IIFEs are executed on the spot, only once. It is done by calling a function right as
+                it's
+                being declared:</p>
+            <pre><code class="language-js"><div>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;this will only run once&#x27;</span>);
+})();
+</div></code></pre>
+            <p>IIFEs can also be an arrow function:</p>
+            <pre><code class="language-js"><div>(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;this will not run twice&#x27;</span>))();
+</div></code></pre>
+            <hr>
+            <h3 id="closures">Closures</h3>
+            <p>Consider:</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> secureBooking = <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-keyword">let</span> passengerCount = <span class="hljs-number">0</span>; <span class="hljs-comment">// Cannot be accessed externally</span>
+
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        passengerCount++;
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${passengerCount}</span> + passengers on board`</span>);
+    }
+}
+
+<span class="hljs-comment">// New function from secureBooking():</span>
+<span class="hljs-keyword">const</span> booker = secureBooking();
+
+booker(); <span class="hljs-comment">//=&gt; Increases the passengerCount!</span>
+</div></code></pre>
+            <p>Significant about the above example, is that while <code>secureBooking()</code> is no longer active,
+                <code>booker()</code> still has access to the variable within <code>secureBooking()</code>.</p>
+            <p>This is an example of a <em>closure</em>.</p>
+            <blockquote>
+                <p>A function has access to the <em>variable environment</em> of the execution context in which it was
+                    created.</p>
+                <p><strong>Closure</strong>: variable environment attached to the function, exactly as it was at the
+                    time and place
+                    as when the function was created.</p>
+            </blockquote>
+            <h4 id="another-example-of-closures">Another example of closures</h4>
+            <pre><code class="language-js"><div><span class="hljs-keyword">let</span> f;
+
+ <span class="hljs-keyword">const</span> g = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+     <span class="hljs-keyword">const</span> a = <span class="hljs-number">23</span>;
+     f = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+         <span class="hljs-built_in">console</span>.log(a * <span class="hljs-number">2</span>);
+     }
+ }
+
+ g();
+ f();
+</div></code></pre>
+            <p>Looking at <code>f()</code>, it receives its operation from the <code>g()</code> function, closing over
+                the gap and
+                accessing the scope of the <code>g()</code> environment.</p>
+            <p>This example only works if <code>f()</code> is defined prior to <code>g()</code>.</p>
+
+
+        </div>
+
+    </div>
+</body>
+
+</html>

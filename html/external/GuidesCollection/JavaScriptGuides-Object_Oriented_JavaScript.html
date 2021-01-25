@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - &midast;Object Oriented Programming&midast;</title>
+
+    <base href="https://www.velddier.com/">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+        integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+    <link rel="stylesheet" href="css/notebookStyle.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</head>
+
+<body class="vscode-body vscode-light">
+    <div class="navbar"><a href="javascript:history.back()" class="navbar__back">Back</a>
+        <div class="menu">
+            <a href="html/UX_Portfolio.html">UX Design</a>
+            <span>|</span>
+            <a href="html/UI_Portfolio.html">Web Services</a>
+            <span>|</span>
+            <a href="html/Coding_Portfolio.html">Coding</a>
+            <span>|</span>
+            <a href="html/Other_Portfolio.html">Etc.</a>
+        </div>
+        <a href="/" class="logo">Frederik DeVilder</a>
+    </div>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="window">
+
+        <ul class="index">
+            <li><a href="#javascript---object-oriented-programming">JavaScript - <em>Object Oriented
+                        Programming</em></a>
+                <ul>
+                    <li><a href="#what-is-oop">What is OOP?</a>
+                        <ul>
+                            <li><a href="#classes-and-instances---traditional-oop">Classes and instances -
+                                    (<em>traditional
+                                        OOP</em>)</a></li>
+                            <li><a href="#the-4-fundamental-oop-principles">The 4 fundamental OOP principles</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#oop-in-javascript">OOP in JavaScript</a>
+                        <ul>
+                            <li><a href="#prototypes">Prototypes</a>
+                                <ul>
+                                    <li><a href="#3-ways-of-implementing-prototypal-inheritance-in-js">3 Ways of
+                                            implementing prototypal
+                                            inheritance in JS</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#constructor-functions-and-the-new-operator">Constructor functions and the
+                                    <code>new</code>
+                                    operator</a>
+                                <ul>
+                                    <li><a href="#instanceof"><code>instanceof</code></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#more-on-prototypes">More on prototypes</a>
+                                <ul>
+                                    <li><a href="#declaring-methods-externally">Declaring methods externally</a></li>
+                                    <li><a href="#isprototypeof"><code>isPrototypeOf()</code></a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#prototypal-inheritance-and-the-prototype-chain">Prototypal inheritance and the
+                                    prototype
+                                    chain</a></li>
+                            <li><a href="#prototype-chain">Prototype chain</a>
+                                <ul>
+                                    <li><a href="#prototypal-inheritance-on-built-in-objects">Prototypal inheritance on
+                                            built-in objects</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#es6-classes">ES6 classes</a>
+                        <ul>
+                            <li><a href="#setting-up-a-class-in-javascript">Setting up a class in JavaScript</a></li>
+                            <li><a href="#setter-and-getter-methods">Setter and getter methods</a>
+                                <ul>
+                                    <li><a href="#setter-method--set-funcinput-">Setter method — <code>set func(input)
+                                                {...}</code></a></li>
+                                    <li><a href="#getter-method--get-func-">Getter method — <code>get func()
+                                                {...}</code></a></li>
+                                    <li><a href="#avoding-multiple-calls-with-setter-methods">Avoding multiple calls
+                                            with setter methods</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#static-methods--static-name--">Static methods — <code>static name ()
+                                        {...}</code></a></li>
+                            <li><a href="#objectcreate">Object.create</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#inheritance-between-classes">Inheritance between 'classes'</a>
+                        <ul>
+                            <li><a href="#objectcreate-to-link-class-and-sub-class">Object.create to link class and
+                                    sub-class</a></li>
+                            <li><a href="#inheritance-with-es6-classes">Inheritance with ES6 classes</a></li>
+                            <li><a href="#inheritance-between-classes--objectcreate">Inheritance between classes —
+                                    <code>Object.create</code></a></li>
+                            <li><a href="#es6-class-inheritance-privacy-and-encapsulation">ES6 Class inheritance,
+                                    privacy, and
+                                    encapsulation</a>
+                                <ul>
+                                    <li><a href="#encapsulation---avoiding-ineracting-directly-with-object-properties">Encapsulation
+                                            -
+                                            Avoiding ineracting directly with object properties</a></li>
+                                    <li><a href="#public-interface-api">Public interface (API)</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#data-privacy-and-encapsulation">Data privacy and encapsulation</a>
+                        <ul>
+                            <li><a href="#encapsulation---protected-properties-and-methods">Encapsulation -
+                                    <em>protected properties and
+                                        methods</em></a></li>
+                            <li><a href="#encapsulation---private-class-fields-and-methods">Encapsulation - <em>private
+                                        class fields and
+                                        methods</em></a>
+                                <ul>
+                                    <li><a href="#public-fields">Public fields</a></li>
+                                    <li><a href="#private-fields">Private fields</a></li>
+                                    <li><a href="#public-methods">Public methods</a></li>
+                                    <li><a href="#private-methods">Private methods</a></li>
+                                    <li><a href="#other-fields">Other fields</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#fully-encapsulated-account-object">Fully encapsulated <code>Account</code>
+                                    Object</a></li>
+                            <li><a href="#chaining-methods">Chaining methods</a>
+                                <ul>
+                                    <li><a href="#why-the-error">Why the error?</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#es6-classes-summary">ES6 Classes Summary</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="content">
+
+            <h1 id="javascript---object-oriented-programming">JavaScript - <em>Object Oriented Programming</em></h1>
+            <h2 id="what-is-oop">What is OOP?</h2>
+            <p>A programming paradigm based on the concept of <em>objects</em>, where objects are used to model
+                real-world
+                abstract features.</p>
+            <p>Objects are used to <em>pack data</em> (properties) and <em>code</em> (methods) into one block.</p>
+            <p>In OOP, objects are self-contained pieces/blocks of code; the <em>building blocks</em> of applications
+                that can
+                interacti with eachother.</p>
+            <p>Interaction happens through a public interface (<em>API</em>): methods that the code outside of the
+                object can
+                access and use to communicate with the object.</p>
+            <p>OOp was developed with the goal of organizing code, and to make it more flexible and easier to maintain.
+            </p>
+            <h3 id="classes-and-instances---traditional-oop">Classes and instances - (<em>traditional OOP</em>)</h3>
+            <p>A class functions as a fundamental blueprint from which many objects can be build.</p>
+            <p>The class is a plan describing the properties and methods of the actual object, and objects created from
+                a class
+                are called an <em>instance</em>.</p>
+            <h3 id="the-4-fundamental-oop-principles">The 4 fundamental OOP principles</h3>
+            <blockquote>
+                <p><strong>Abstraction</strong>
+                    Ignoring the details that don't matter, allowing a better perspective of the thing to be
+                    implemented, instead of
+                    messing with details that don't matter to the current implementation.</p>
+                <p><strong>Encapsulation</strong>
+                    Keeping some properties and methods inside the class <em>private</em>, so they are not accessible
+                    from outside of
+                    the class. Some methods can be exposed as a public interface (API).
+                    It prevents external code from accidentally manipulating internal properties/states.</p>
+                <p><strong>Inheritance</strong>
+                    Making all properties and methods of a certain class available to a child class, forming a
+                    hierarchical
+                    relationship between classes.
+                    This allows for the reuse of common logic and to model real-world relationships.</p>
+                <p><strong>Polymorphism</strong>
+                    A child clas can overwrite a method it inherited from a parent class, and more...</p>
+            </blockquote>
+            <hr>
+            <h2 id="oop-in-javascript">OOP in JavaScript</h2>
+            <h3 id="prototypes">Prototypes</h3>
+            <p>In JavaScript, objects are linked to a prototype object: <em>each object has a prototype it can use</em>.
+            </p>
+            <p><em>Prototypal inheritance</em> means the prototype contains methods that are accessible to all linked
+                objects,
+                while behavior is delagated to the linked prototype object.</p>
+            <h4 id="3-ways-of-implementing-prototypal-inheritance-in-js">3 Ways of implementing prototypal inheritance
+                in JS</h4>
+            <blockquote>
+                <p><strong>Constructor functions</strong>
+                    A technique to create objects from a function; this is how built-in objects like <em>Arrays</em>,
+                    <em>Maps</em> or
+                    <em>Sets</em> are actually implemented.</p>
+                <p><strong>ES6 classes</strong>
+                    Modern alternative to the <em>constructor function</em> syntax;
+                    'Syntatic sugar', behind the scenes ES6 classes work exactly like constructor functions. <em>They do
+                        not behave
+                        like classes in 'classical OOP'</em>.</p>
+                <p><strong>Object.create( );</strong>
+                    The easiest and most straightforward way of linking objects to a prototype object.</p>
+            </blockquote>
+            <h3 id="constructor-functions-and-the-new-operator">Constructor functions and the <code>new</code> operator
+            </h3>
+            <p>A constructor function is the blueprint for other objects. It is a simple function expression that passes
+                the
+                properties into itself with the <code>this.keyword</code>.</p>
+            <blockquote>
+                <p><strong>NEVER PLACE METHODS IN A FUNCTION CONSTRUCTOR!</strong>
+                    Doing this will cause bad performance, because it will create a copy of the method for every(!)
+                    object.</p>
+            </blockquote>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> Person = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">name, born</span>) </span>{
+    <span class="hljs-comment">// instance properties:</span>
+    <span class="hljs-built_in">this</span>.name = name;
+    <span class="hljs-built_in">this</span>.born = born;
+
+    <span class="hljs-comment">/* Never do this:
+    this.calcAge = function () {
+        console.log(2021 - born);
+    } */</span>
+}
+</div></code></pre>
+            <p>From the function constructor, a new 'person' (object) can be created:</p>
+            <pre><code class="language-js"><div>consts Marlotte = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&#x27;Marlotte&#x27;</span>, <span class="hljs-number">1992</span>);
+</div></code></pre>
+            <p>JavaScript:</p>
+            <ul>
+                <li>Creates a <code>new</code> object,</li>
+                <li>calls the function constructor,</li>
+                <li>links the new object to the prototype,</li>
+                <li>and the function returns the object properties.</li>
+            </ul>
+            <p>Another example:</p>
+            <pre><code class="language-js"><div><span class="hljs-comment">// Object constructor:</span>
+<span class="hljs-keyword">const</span> Dog = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">breed = <span class="hljs-string">&#x27;mutt&#x27;</span>, legs = <span class="hljs-number">4</span></span>) </span>{
+    <span class="hljs-built_in">this</span>.breed = breed;
+    <span class="hljs-built_in">this</span>.legs = legs;
+}
+
+<span class="hljs-comment">// New instances:</span>
+<span class="hljs-keyword">const</span> bulldog = <span class="hljs-keyword">new</span> Dog(<span class="hljs-string">&#x27;Bulldog&#x27;</span>, <span class="hljs-number">3</span>);
+<span class="hljs-keyword">const</span> terrier = <span class="hljs-keyword">new</span> Dog(<span class="hljs-string">&#x27;Terrier&#x27;</span>, <span class="hljs-number">4</span>);
+<span class="hljs-keyword">const</span> Stray = <span class="hljs-keyword">new</span> Dog(); <span class="hljs-comment">//=&gt; Creates a &#x27;default&#x27; mutt with 4 legs</span>
+</div></code></pre>
+            <pre><code class="language-js"><div><span class="hljs-comment">// Constructor with boolean var:</span>
+<span class="hljs-keyword">const</span> Bird = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">breed, doesFly</span>) </span>{
+    <span class="hljs-built_in">this</span>.breed = breed;
+    <span class="hljs-built_in">this</span>.doesFly = doesFly;
+}
+
+<span class="hljs-keyword">const</span> pidgeon = <span class="hljs-keyword">new</span> Bird(<span class="hljs-string">&#x27;Pidgeon&#x27;</span>, <span class="hljs-literal">true</span>); <span class="hljs-comment">//=&gt; A bird that flies</span>
+</div></code></pre>
+            <h4 id="instanceof"><code>instanceof</code></h4>
+            <p>Test if an object is an instance of the prototype object:</p>
+            <pre><code class="language-js"><div>bulldog <span class="hljs-keyword">instanceof</span> Dog ? <span class="hljs-string">&#x27;Bulldog is instance of dog&#x27;</span> : <span class="hljs-literal">false</span>;
+</div></code></pre>
+            <hr>
+            <h3 id="more-on-prototypes">More on prototypes</h3>
+            <p>Each function in JS has a prototype created from a constructor function which grants it global access.
+            </p>
+            <p>In the previous coding example, all objects within the file have access to the
+                <code>Person.prototype</code>
+                object.</p>
+            <h4 id="declaring-methods-externally">Declaring methods externally</h4>
+            <p>Declaring a new method outside of the prototype object ensures that the method only exists once:</p>
+            <pre><code class="language-js"><div>Person.prototype.calcAge = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2021</span> - <span class="hljs-built_in">this</span>.born);
+}
+
+Marlotte.calcAge() <span class="hljs-comment">//=&gt; returns Marlotte&#x27;s age</span>
+</div></code></pre>
+            <p>This adds the new method to the Person.prototype, allowing access for all other objects.</p>
+            <h4 id="isprototypeof"><code>isPrototypeOf()</code></h4>
+            <pre><code class="language-js"><div>Person.prototype.isPrototypeOf(Marlotte) <span class="hljs-comment">//=&gt; TRUE</span>
+</div></code></pre>
+            <hr>
+            <h3 id="prototypal-inheritance-and-the-prototype-chain">Prototypal inheritance and the prototype chain</h3>
+            <p>Considering the <code>Person</code> constructor function, which as an object prototype property refers
+                back to
+                person: the constructor.</p>
+            <p><code>Person.prototype</code> is a prototype of all objects created from <code>Person</code>, not the
+                object
+                itself.</p>
+            <p>The inheriting objects do not exactly contain a method, but instead inherit it from their prototype,
+                allowing many
+                inherited objects to use the same methods and properties.</p>
+            <h3 id="prototype-chain">Prototype chain</h3>
+            <p>Considering <code>Person.prototype</code>, to which a constructor <code>Person()</code> and
+                <code>Object</code>
+                prototype points. Like all objects in JavaScript, this one also has a prototype:
+                <code>Object.prototype</code>.</p>
+            <p>This is the prototype chain, of in which the <code>Object.prototype</code> sits on top. While in the
+                scope-chain
+                objects are hoisted, in a similar way the prototype-chain also looks upwards its hierarchy to find the
+                most relevant
+                method or link.</p>
+            <p>Example:</p>
+            <pre><code class="language-js"><div>Person.prototype.species = <span class="hljs-string">&#x27;Homo Sapien&#x27;</span>;
+
+<span class="hljs-built_in">console</span>.log(Marlotte.species); <span class="hljs-comment">//=&gt; Homo Sapien</span>
+<span class="hljs-built_in">console</span>.log(Marlotte.__proto__)
+<span class="hljs-built_in">console</span>.log(Marlotte.__proto__.__proto__)
+<span class="hljs-built_in">console</span>.log(Marlotte.__proto__.__proto__.__proto__) <span class="hljs-comment">//==&gt; Null, top of chain</span>
+
+<span class="hljs-keyword">const</span> arr = [<span class="hljs-number">3</span>, <span class="hljs-number">42</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>]
+<span class="hljs-built_in">console</span>.log(arr.__proto__);
+
+<span class="hljs-comment">/* Each array will inherit the properties that exist in the array prototype. */</span>
+
+
+<span class="hljs-comment">/* We can create new prototype properties, however it should be avoided as it is very personal: */</span>
+<span class="hljs-built_in">Array</span>.prototype.unique = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> [...new <span class="hljs-built_in">Set</span>(<span class="hljs-built_in">this</span>)];
+};
+
+<span class="hljs-built_in">console</span>.log(arr.unique());
+</div></code></pre>
+            <h4 id="prototypal-inheritance-on-built-in-objects">Prototypal inheritance on built-in objects</h4>
+            <p>Because every object in JavaScript has a prototype from it is derived, the built-in methods that can be
+                used on
+                elements such as arrays also possess an ancestral prototype that provides access to methods.</p>
+            <hr>
+            <h2 id="es6-classes">ES6 classes</h2>
+            <p>Unlike typical classes, the classes declared in JavaScript do <strong>not</strong> have all the same
+                functionalities as a full-fledged class system, like in C.</p>
+            <h3 id="setting-up-a-class-in-javascript">Setting up a class in JavaScript</h3>
+            <p>A class can be inititated with an <code>expression</code> or a <code>declaration</code>.</p>
+            <pre><code class="language-js"><div><span class="hljs-comment">// Class expression:</span>
+<span class="hljs-keyword">const</span> PersonCl = <span class="hljs-class"><span class="hljs-keyword">class</span> </span>{};
+</div></code></pre>
+            <pre><code class="language-js"><div><span class="hljs-comment">// Class declaration</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersonCl</span> </span>{
+    <span class="hljs-keyword">constructor</span>(name, born) {
+        <span class="hljs-built_in">this</span>.name = name;
+        <span class="hljs-built_in">this</span>.born = born;
+    }
+
+    calcAge() {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2021</span> - <span class="hljs-built_in">this</span>.born);
+    }
+
+    greet() {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hey <span class="hljs-subst">${<span class="hljs-built_in">this</span>.fullName}</span>`</span>);
+    }
+};
+</div></code></pre>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> jannette = <span class="hljs-keyword">new</span> PersonCl(<span class="hljs-string">&#x27;Jannette Avis&#x27;</span>, <span class="hljs-number">1989</span>);
+</div></code></pre>
+            <h3 id="setter-and-getter-methods">Setter and getter methods</h3>
+            <p>Setter and getter methods are special methods in ES6 classes. They are used to send and receive data from
+                a class
+                object.</p>
+            <h4 id="setter-method--set-funcinput-">Setter method — <code>set func(input) {...}</code></h4>
+            <p>Setter methods require an input argument and will insert new data into the object. It can be directly
+                assigned,
+                without a function expresssion.</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">set</span> <span class="hljs-title">fullName</span>(<span class="hljs-params">name</span>) {
+    <span class="hljs-keyword">if</span> (name.includes(<span class="hljs-string">&#x27; &#x27;</span>)) 
+        <span class="hljs-built_in">this</span>.fullName = name;
+}
+
+<span class="hljs-comment">//=&gt; Using set method:</span>
+jannette.fullName = <span class="hljs-string">&#x27;Jannette Avis&#x27;</span>
+</div></code></pre>
+            <h4 id="getter-method--get-func-">Getter method — <code>get func() {...}</code></h4>
+            <p>The getter method is used to retrieve data from an object. It does not require an argument, and when
+                called does
+                not require a function expression.</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">get</span> <span class="hljs-title">age</span>() {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">2021</span> = <span class="hljs-built_in">this</span>.born;
+}
+
+<span class="hljs-comment">//=&gt; Using get method:</span>
+<span class="hljs-built_in">console</span>.log(jannette.age) <span class="hljs-comment">//=&gt; Returns the age without `()`</span>
+</div></code></pre>
+            <h4 id="avoding-multiple-calls-with-setter-methods">Avoding multiple calls with setter methods</h4>
+            <p>In the previous <code>PersonCl</code> class example, using the <code>this.fullName = fullName;</code>, as
+                well as
+                the <code>set fullName()</code>-method resulted in a conflicting error from the same property being
+                handled multiple
+                times.</p>
+            <p>A solution for this is a convention to precede the properties gotten from setter methods with an
+                <code>_underscore</code>.</p>
+            <pre><code class="language-js"><div><span class="hljs-comment">// The underscore creates a temporal variable:</span>
+<span class="hljs-keyword">set</span> <span class="hljs-title">fullName</span>(<span class="hljs-params">name</span>) {
+    <span class="hljs-built_in">this</span>._fullName = name;
+}
+</div></code></pre>
+            <p>Remember that this creates a new variable. To fix this, a getter method needs to be created to return the
+                property
+                without the underscore.</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">get</span> <span class="hljs-title">fullName</span>() {
+    <span class="hljs-built_in">this</span>._fullName;
+}
+
+person.fullName <span class="hljs-comment">//=&gt; returns &#x27;Full Name&#x27;</span>
+</div></code></pre>
+            <h3 id="static-methods--static-name--">Static methods — <code>static name () {...}</code></h3>
+            <p>Methods declared with the <code>static</code> keyword are only accessible by the class itself, not its
+                instances.
+                They are generally used as utility functions for the class itself, like creating or cloning objects.</p>
+            <p>A good example of a static method is the <code>Array.from</code> method, which converts array like
+                objects to real
+                arrays. This only works with the Array.contructor and not with any array prototype, as it is only
+                attached to the
+                Array.constructure. Another example is the <code>Number.parseFloat(0)</code>.</p>
+            <hr>
+            <h3 id="objectcreate">Object.create</h3>
+            <p>Another way to implement prototypal inheritance is with the <code>Object.create</code>-method.</p>
+            <p>We can use it to manually set the prototype to any object from a simple object literal:</p>
+            <pre><code class="language-js"><div><span class="hljs-comment">// Prototype object</span>
+<span class="hljs-keyword">const</span> PersonProto = {
+    calcAge() { <span class="hljs-built_in">console</span>.log (<span class="hljs-number">2021</span> - <span class="hljs-built_in">this</span>.born)},
+    
+    init(name, born) {
+        <span class="hljs-built_in">this</span>.name = name;
+        <span class="hljs-built_in">this</span>.born = born;
+    }
+}
+
+<span class="hljs-comment">// new instance:</span>
+<span class="hljs-keyword">const</span> jeremy = <span class="hljs-built_in">Object</span>.create(PersonProto);
+</div></code></pre>
+            <p>The above creates a new object from <code>PersonProto</code>, to which new properties can be set:</p>
+            <pre><code class="language-js"><div>jeremy.name = <span class="hljs-string">&#x27;Jeremy&#x27;</span>;
+jeremy.born = <span class="hljs-number">1984</span>;
+</div></code></pre>
+            <p>Compared with constructor functions, which use a new operator to automatically set the prototype
+                instances to the
+                properties of the prototype, <code>Object.create</code> allows for manual setting of properties from a
+                prototype.
+            </p>
+            <p>The difference is that no constructor functions are needed, though it is not commonly done this way.</p>
+            <p>Another example:</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> josephine = <span class="hljs-built_in">Object</span>.create(PersonProto);
+josephine.init(<span class="hljs-string">&#x27;Josephine&#x27;</span>, <span class="hljs-number">1996</span>);
+josephine.calcAge();
+</div></code></pre>
+            <p>All in all, <code>Object.create</code> creates a new object from the prototype of the object
+                (<code>PersonProto</code>) it specifies, after which it is assigned to a new variable
+                (<code>josephine</code>).</p>
+            <hr>
+            <h2 id="inheritance-between-classes">Inheritance between 'classes'</h2>
+            <p>Classes can inherit properties from other classes, allowing the creation of <em>subtypes</em> of the
+                inherited
+                class. It allows for unique properties in objects that also inherit the core properties from an
+                ancestor.</p>
+            <p>Consider the previously defined <code>Person</code> constructor, from which a <code>Student</code>
+                sub-class can be
+                created:</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> Student = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">name, born, course</span>) </span>{
+    Person.call(<span class="hljs-built_in">this</span>, name, born);
+    <span class="hljs-built_in">this</span>.course = course;
+}
+</div></code></pre>
+            <p>The new object <code>Student</code> is a <em>subtype</em> of the <code>Person</code> class and gets the
+                same
+                properties, plus a unique one for <code>course</code>.</p>
+            <p>To inherit the properties it is best to use the <code>.call</code> method. Assigning properties using the
+                <code>this.keyword</code> is bad practice, as it repeats the same lines from the original class.</p>
+            <p>Instead, using <code>Person.call(this, name, born)</code> retrieves the properties from the original
+                object: the
+                first argument is used to specify that <code>name</code>, and <code>born</code> from <code>Person</code>
+                should be
+                assigned to the <code>this.keyword</code>.</p>
+            <p>Next, to add unique properties and methods to the new <code>Student</code> object, it needs to be
+                assigned it's
+                <em>unique prototype</em> with the <code>Object.create()</code> method:</p>
+            <pre><code class="language-js"><div><span class="hljs-comment">// Object.create sets the Student object as its unique object:</span>
+Student.prototype = <span class="hljs-built_in">Object</span>.create(Person.prototype);
+</div></code></pre>
+            <p>After <code>Student.prototype</code> is assigned it's unique prototype, seperate from
+                <code>Person.prototype</code>, new unique functions and properties can be added:</p>
+            <pre><code class="language-js"><div>Student.prototype.introduce = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`My name is <span class="hljs-subst">${<span class="hljs-built_in">this</span>.firstName}</span> and I study <span class="hljs-subst">${<span class="hljs-built_in">this</span>.course}</span>`</span>);
+};
+
+<span class="hljs-keyword">const</span> mike = <span class="hljs-keyword">new</span> Student(<span class="hljs-string">&#x27;Mike&#x27;</span>, <span class="hljs-number">1994</span>, <span class="hljs-string">&#x27;computer science&#x27;</span>);
+mike.introduce(); <span class="hljs-comment">//=&gt; My name is Mike and I study computer science.</span>
+
+<span class="hljs-comment">// mike can also inherit properties from objects in the prototype chain:</span>
+mike.calcAge(); <span class="hljs-comment">//=&gt; Returns the method from `Person` object</span>
+</div></code></pre>
+            <h4 id="objectcreate-to-link-class-and-sub-class">Object.create to link class and sub-class</h4>
+            <p>Why is it necessary to use <code>Object.create</code> to link classes? Wouldn't <code>student.prototype =
+                    person.prototype</code> work?</p>
+            <p>This does not work, as it would just directly assign the one object to another, not allowing polymorphism
+                and
+                inheritance.</p>
+            <h3 id="inheritance-with-es6-classes">Inheritance with ES6 classes</h3>
+            <p>The key ingredients for ES6 class-inheritance are:</p>
+            <ol>
+                <li><code>extends</code></li>
+                <li><code>constructor()</code></li>
+                <li><code>super()</code></li>
+            </ol>
+            <pre><code class="language-js"><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AnotherStudent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">PersonCl</span> </span>{
+    <span class="hljs-keyword">constructor</span>(name, born, course) {
+        <span class="hljs-built_in">super</span>(name, born); <span class="hljs-comment">//=&gt; Prexisting properties</span>
+        <span class="hljs-built_in">this</span>.course = course; <span class="hljs-comment">//=&gt; Unique property</span>
+    }
+
+    <span class="hljs-comment">// Unique method:</span>
+    introduce() {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hello, my name is <span class="hljs-subst">${<span class="hljs-built_in">this</span>.name}</span>`</span>);
+    }
+};
+
+<span class="hljs-comment">// New instance:</span>
+<span class="hljs-keyword">const</span> Marionne = <span class="hljs-keyword">new</span> AnotherStudent(<span class="hljs-string">&#x27;Marionne Fender&#x27;</span>, <span class="hljs-number">2005</span>, <span class="hljs-string">&#x27;mathematics&#x27;</span>);
+
+marionne.introduce
+</div></code></pre>
+            <p>The <code>extend</code> keyword is used to 'extend' the class <code>PersonCl</code> into a new sub-class
+                <code>AnotherStudent</code>, where inside a <code>constructor()</code>-function transports to
+                preexisting properties
+                from the original class.</p>
+            <p>Instead of using the <code>Object.call()</code> method, a simpler <code>super()</code> method is used,
+                passing the
+                same arguments to assign the object's <code>this.keyword</code>.</p>
+            <p>After this, new object inherits all properties from its original, as well as the unique ones from its
+                sub-class.
+            </p>
+            <h3 id="inheritance-between-classes--objectcreate">Inheritance between classes — <code>Object.create</code>
+            </h3>
+            <p><code>Object.create()</code> is another method to create inheritance between classes.</p>
+            <p>Consider parent object <code>PersonProto</code>:</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">const</span> PersonProto = {
+    init(name, born) {
+        <span class="hljs-built_in">this</span>.name = name;
+        <span class="hljs-built_in">this</span>.born = born;
+    },
+    calcAge() {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-number">2021</span> - <span class="hljs-built_in">this</span>.born);
+    },
+};
+</div></code></pre>
+            <p>Use <code>Object.create</code> to create an instance of <code>PersonProto</code> with an inheriting
+                prototype.</p>
+            <pre><code class="language-js"><div><span class="hljs-comment">// New instance of PersonProto:</span>
+<span class="hljs-keyword">const</span> Samir = <span class="hljs-built_in">Object</span>.create(PersonProto);
+</div></code></pre>
+            <p>Creating a child class, that inherits properties from the parent, but can have its own unique properties,
+                is done
+                like:</p>
+            <pre><code class="language-js"><div><span class="hljs-comment">// Child class:</span>
+<span class="hljs-keyword">const</span> StudentProto = <span class="hljs-built_in">Object</span>.create(PersonProto)
+<span class="hljs-comment">// Initiator + unique properties</span>
+StudentProto.init(name, born, course) {
+    PersonProto.call(<span class="hljs-built_in">this</span>, name, born);
+    <span class="hljs-built_in">this</span>.course = course;
+};
+
+<span class="hljs-comment">// Additional methods to StudentProto:</span>
+StudentProto.introduce = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hello my name is <span class="hljs-subst">${<span class="hljs-built_in">this</span>.name}</span> and I study <span class="hljs-subst">${course}</span>`</span>);
+};
+</div></code></pre>
+            <pre><code class="language-js"><div><span class="hljs-comment">// New instance of StudentProto:</span>
+<span class="hljs-keyword">const</span> zach = <span class="hljs-built_in">Object</span>.create(StudentProto); 
+<span class="hljs-comment">//=&gt; Creates an instance with all properties </span>
+<span class="hljs-comment">//=&gt; from both Person and Student.</span>
+</div></code></pre>
+            <p>At the origin is the <code>PersonProto</code> object, from which <code>StudentProto</code> inherits. The
+                new
+                student instance <code>zach</code> inherits both <code>StudentProto</code> and <code>PersonProto</code>.
+            </p>
+            <hr>
+            <h3 id="es6-class-inheritance-privacy-and-encapsulation">ES6 Class inheritance, privacy, and encapsulation
+            </h3>
+            <pre><code class="language-js"><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Account</span> </span>{
+    locale = navigator.language;
+    _movements = [];
+
+    <span class="hljs-keyword">constructor</span>(owner, currency, pin) {
+        <span class="hljs-built_in">this</span>.owner = owner;
+        <span class="hljs-built_in">this</span>.currency = currency;
+        <span class="hljs-built_in">this</span>.pin = pin
+        <span class="hljs-comment">/* Why require another argument?
+        this.movements = movements? NO!
+        instead: */</span>
+        <span class="hljs-built_in">this</span>.movements = [];
+        <span class="hljs-comment">// this.locale = navigator.language;</span>
+    }
+};
+
+<span class="hljs-keyword">const</span> acc1 = <span class="hljs-keyword">new</span> Account(<span class="hljs-string">&#x27;Harry&#x27;</span>, <span class="hljs-string">&#x27;EUR&#x27;</span>, <span class="hljs-number">1234</span>);
+</div></code></pre>
+            <p>Imagine we want to implement a movements array and locale property into the object...</p>
+            <p>Passing a default argument array into the constructor would create a pointless argument in every new
+                Account
+                instance.</p>
+            <p>Instead it is possible to assign an empty array for movements, which can be accessed from objects later
+                on.</p>
+            <h4 id="encapsulation---avoiding-ineracting-directly-with-object-properties">Encapsulation - Avoiding
+                ineracting
+                directly with object properties</h4>
+            <p>To avoid bugs and safety risks, it is best practice to use methods to interact with properties within an
+                object,
+                using proper encapsulation.</p>
+            <p>To process new movements we could do something like:</p>
+            <pre><code class="language-js"><div>acc1.movements.push(<span class="hljs-number">231</span>);
+acc1.movements.push(<span class="hljs-number">-120</span>);
+</div></code></pre>
+            <p>This is not great though, and instead there should be a method to complete the movement operations in a
+                more
+                encapsulated way.</p>
+            <p>The solution is to turn the operation into a class method, like so:</p>
+            <pre><code class="language-js"><div>Account.prototype.deposit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">movement</span>) </span>{
+    <span class="hljs-built_in">this</span>.movement.push(movement);
+};
+
+Account.prototype.withdraw = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">movement</span>) </span>{
+    <span class="hljs-built_in">this</span>.deposit(-movement); <span class="hljs-comment">//=&gt; Reusing the deposit method</span>
+};
+</div></code></pre>
+            <h4 id="public-interface-api">Public interface (API)</h4>
+            <p>The above is an example of a public interface. It abstracts the operation of making deposits or
+                withdrawals and
+                encapsulates the data involved.</p>
+            <hr>
+            <h2 id="data-privacy-and-encapsulation">Data privacy and encapsulation</h2>
+            <p>With important data, such as from a banking app, it is essential that certain information is not
+                accessible from
+                anywhere but within the object.</p>
+            <p>Data manipulation should be restricted and data requests and insertion should only work with specia
+                object methods.
+            </p>
+            <h3 id="encapsulation---protected-properties-and-methods">Encapsulation - <em>protected properties and
+                    methods</em>
+            </h3>
+            <p>Consider 2 new methods in <code>Account</code>:</p>
+            <pre><code class="language-js"><div><span class="hljs-comment">// Checks loan validity</span>
+Account.prototype.approveLoan = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">val</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <span class="hljs-comment">//=&gt; Always true for example</span>
+};
+
+<span class="hljs-comment">// Grants loan to movement</span>
+Account.prototype.requestLoan = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val</span>) </span>{
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>.approveLoan(val)) {
+        <span class="hljs-built_in">this</span>.deposit(val);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Loan of <span class="hljs-subst">${val}</span> approved.`</span>);
+    }
+};
+</div></code></pre>
+            <p>The method <code>approveLoan</code>, as well as movement properties and methods, should not be accessible
+                externally. Unfortunately there currently does not exist a truly private encapsulation method in
+                JavaScript.
+                Instead, privacy in JS relies on programmer morals.</p>
+            <blockquote>
+                <p><strong>The <code>_underscore</code> convention</strong>
+                    To signify a property as private and restricted for use inside the object, the variable should be
+                    preceded with an
+                    <code>_underscore</code>.</p>
+            </blockquote>
+            <p>For example:</p>
+            <pre><code class="language-js"><div>Account.prototype._movements = [];
+</div></code></pre>
+            <p>Now access to movements should be granted through a public method:</p>
+            <pre><code class="language-js"><div>Account.prototype.getMovements = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>._movements;
+}
+</div></code></pre>
+            <h3 id="encapsulation---private-class-fields-and-methods">Encapsulation - <em>private class fields and
+                    methods</em>
+            </h3>
+            <p><em>Private class fields</em> and <em>methods</em> are part of a new proposal for better JavaScript
+                classes.</p>
+            <p>This new implementation would add traditional class abilities to JS development.</p>
+            <p>In this context, <em>fields</em> refer to <em>properties</em>, as this is what they are called in some
+                languages.
+            </p>
+            <blockquote>
+                <p><strong>4 important fields</strong></p>
+                <ul>
+                    <li>public fields</li>
+                    <li>private fields</li>
+                    <li>public methods</li>
+                    <li>private methods</li>
+                </ul>
+            </blockquote>
+            <h4 id="public-fields">Public fields</h4>
+            <p><em>Public (instance) fields</em> are for properties that are accessible publically, like
+                <code>Account.locale</code> and <code>Account.movements</code>.</p>
+            <pre><code class="language-js"><div><span class="hljs-comment">// Public fields:</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Account</span> </span>{
+    locale = navigator.language;
+    _movements = [];
+
+    [...]
+};
+</div></code></pre>
+            <p>Notice the lack of a variable.keyword like <code>const</code>, and the need for a <code>semicolon;</code>
+                at the
+                end.</p>
+            <p>The important difference between fields and methods is that fields are present on all instances and are
+                not added
+                to the prototype.</p>
+            <p>The public instance fields are referenceable by and via the <code>this.keyword</code>.</p>
+            <h4 id="private-fields">Private fields</h4>
+            <p>Private fields can make it so that properties are truly externally inaccessible.</p>
+            <p>They follow the same syntax as public fields, but private fields are made private with a preceding
+                <code>#hash</code>-symbol like this:</p>
+            <pre><code class="language-js"><div>#movements = [];
+
+<span class="hljs-comment">/* When trying to access movements:
+console.log(acc1.#movements);
+--&gt; the browser returns a syntax error!!! */</span>
+</div></code></pre>
+            <p>While the properties are now private, internal methods can still access and provide data on request.</p>
+            <p>Private fields that need to be assigned with the constructor, like <code>Pin</code>, can still be
+                assigned from
+                within, like so:</p>
+            <pre><code class="language-js"><div><span class="hljs-comment">// Private field declaration:</span>
+#pin;
+
+<span class="hljs-keyword">constructor</span>(pin) {
+    <span class="hljs-built_in">this</span>.#pin = pin;
+}
+</div></code></pre>
+            <h4 id="public-methods">Public methods</h4>
+            <p>Public methods are the externally accessible methods used many times thusfar.</p>
+            <h4 id="private-methods">Private methods</h4>
+            <p>Private methods are useful to hide implementation details. The syntax is similar to private fields and
+                uses a
+                preceding <code>#hash</code>-symbol, like:</p>
+            <pre><code class="language-js"><div>#approveLoan = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{[...]};
+</div></code></pre>
+            <p>Note that browser support might still be scarce or non-existant.</p>
+            <h4 id="other-fields">Other fields</h4>
+            <p>The 4 other fields are static private and public fields, and statice private and public methods.</p>
+            <h3 id="fully-encapsulated-account-object">Fully encapsulated <code>Account</code> Object</h3>
+            <pre><code class="language-js"><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AccountPrivate</span> </span>{
+    <span class="hljs-comment">// 1) public fields (instances)</span>
+    locale = navigator.language;
+
+    <span class="hljs-comment">// 2) private fields (instances)</span>
+    #movements = [];
+    #pin;
+
+    <span class="hljs-keyword">constructor</span>(owner, currency, pin) {
+        <span class="hljs-built_in">this</span>.owner = owner;
+        <span class="hljs-built_in">this</span>.currency = currency;
+        <span class="hljs-built_in">this</span>.#pin = pin; <span class="hljs-comment">//=&gt; assignment to private property</span>
+
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Thank you for openening an account, <span class="hljs-subst">${<span class="hljs-built_in">this</span>.owner}</span>`</span>);
+    }
+
+    <span class="hljs-comment">// 3) public methods / public interface</span>
+    getMovements() {
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.#movements;
+    }
+
+    deposit(val) {
+        <span class="hljs-built_in">this</span>.#movements.push(val);
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>; <span class="hljs-comment">//=&gt; Allows for chaining methods</span>
+    }
+
+    withdraw(val) {
+        <span class="hljs-built_in">this</span>.deposit(-val);
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
+    }
+
+    requestLoan(val) {
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">this</span>._approveLoan()){
+            <span class="hljs-built_in">this</span>.deposit(val);
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Loan approved`</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
+        }
+    }
+
+    <span class="hljs-keyword">static</span> helper() { <span class="hljs-comment">//=&gt; Only exists on this class</span>
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Helper&#x27;</span>);
+    }
+
+    <span class="hljs-comment">// 4) private methods</span>
+    _approveLoan(check) {
+        check ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+    }
+};
+</div></code></pre>
+            <h3 id="chaining-methods">Chaining methods</h3>
+            <p>Just like array methods, it is possible to chain class methods in the same way.</p>
+            <p>However, there is one condition:</p>
+            <p><em>The object itself should be returned at the end of a method.</em></p>
+            <pre><code class="language-js"><div>acc1.deposit(<span class="hljs-number">300</span>).deposit(<span class="hljs-number">500</span>).withdraw(<span class="hljs-number">35</span>).requestLoan(<span class="hljs-number">24000</span>).withdraw(<span class="hljs-number">3999</span>); <span class="hljs-comment">//=&gt; Returns ERROR!</span>
+</div></code></pre>
+            <h4 id="why-the-error">Why the error?</h4>
+            <p>The above chain of methods does not work because once a method is completed it does not return the object
+                again.
+            </p>
+            <p>It would work if the methods returned its object, so following methods could work with it.</p>
+            <p>The solution is to have the object method return the object itself, using the <code>this.keyword</code>,
+                like so:
+            </p>
+            <pre><code class="language-js"><div><span class="hljs-comment">// in Account:</span>
+deposit(val) {
+    <span class="hljs-built_in">this</span>.movements.push(val);
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
+}
+
+withdraw(val) {
+    <span class="hljs-built_in">this</span>.deposit(-val);
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
+}
+
+_approveLoan(val) {
+    val = <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>;
+}
+
+<span class="hljs-comment">// etc...</span>
+</div></code></pre>
+            <hr>
+            <h2 id="es6-classes-summary">ES6 Classes Summary</h2>
+            <p><code>NewStudent</code> is a <em>child class</em> of <em>parent class</em> <code>Person</code>.</p>
+            <p>Using <code>extends</code> automatically sets the inheritance between the prototypes:</p>
+            <pre><code class="language-js"><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NewStudent</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Person</span> </span>{
+    <span class="hljs-comment">/* Public field ----
+    Similar to property, available to created object:*/</span>
+    university = <span class="hljs-string">&#x27;University of Manchester&#x27;</span>;
+
+    <span class="hljs-comment">/* Private field ----
+    Not accessible outside of class:*/</span>
+    #studyHours = <span class="hljs-number">0</span>;
+    #course;
+
+    <span class="hljs-comment">/* Both public and private fields create a unique 
+    property ONLY on the instances of NewStudent. */</span>
+
+    <span class="hljs-comment">/* Static field ----
+    Available only on class*/</span>
+    <span class="hljs-keyword">static</span> numSubjects = <span class="hljs-number">10</span>;
+
+    <span class="hljs-comment">/* Constructor method ----
+    Called by the new operator. Mandatory in regular class,
+    might be omitted in child class:*/</span>
+    <span class="hljs-keyword">constructor</span>(name, born, startYear, course) {
+        <span class="hljs-comment">/* Call to parent class (super) ----
+        Necessary with `extends`. Needs to 
+        happen before accessing `this.keyword`*/</span>
+        <span class="hljs-built_in">super</span>(name, born);
+
+        <span class="hljs-comment">/* Instance property ----
+        Available in created object:*/</span>
+        <span class="hljs-built_in">this</span>.startYear = startYear;
+
+        <span class="hljs-comment">// Redefining private field:</span>
+        <span class="hljs-built_in">this</span>.#course = course;
+    }
+
+    <span class="hljs-comment">// Public methods:</span>
+    introduce() {
+       <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`I study  <span class="hljs-subst">${<span class="hljs-built_in">this</span>.course}</span> at <span class="hljs-subst">${<span class="hljs-built_in">this</span>.university}</span>.`</span>);
+    }
+
+    study(h) {
+        <span class="hljs-comment">// Referencing private field and method:</span>
+        <span class="hljs-built_in">this</span>.#makeCoffee();
+        <span class="hljs-built_in">this</span>.#studyHours += h;
+    }
+
+    <span class="hljs-comment">/* Private methods ----
+    Might not be fully functional in all browsers. 
+    Alternatively use `_underscore`*/</span>
+    #makeCoffee() {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;A strong espresso&#x27;</span>;
+    }
+
+    <span class="hljs-comment">// Getter method:</span>
+    <span class="hljs-keyword">get</span> <span class="hljs-title">testScore</span>() {
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>._testScore;
+    }
+
+    <span class="hljs-comment">/* Setter method ----
+    Use `_underscore` to set property with same name as method, and also add getter:*/</span>
+    <span class="hljs-keyword">set</span> <span class="hljs-title">testScore</span>(<span class="hljs-params">score</span>) {
+        <span class="hljs-built_in">this</span>._testScore = score &lt;= <span class="hljs-number">20</span> ? score : <span class="hljs-number">0</span>;
+    }
+
+    <span class="hljs-comment">/* Static method ----
+    Available only on class, can NOT access instance properties nor methods, only static ones:*/</span>
+    <span class="hljs-keyword">static</span> printCurriculum() {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`There are <span class="hljs-subst">${<span class="hljs-built_in">this</span>.numSubjects}</span> subjects`</span>)
+    }
+};
+
+<span class="hljs-comment">// Creating an object with the new operator:</span>
+<span class="hljs-keyword">const</span> firstYears = <span class="hljs-keyword">new</span> NewStudent(<span class="hljs-string">&#x27;Marlin&#x27;</span>, <span class="hljs-number">2004</span>, <span class="hljs-number">2020</span>, <span class="hljs-string">&#x27;Medicine&#x27;</span>);
+</div></code></pre>
+            <blockquote>
+                <p><strong>Remember</strong>
+                    Classes are just <em>syntactic sugar</em> over constructor functions;
+                    Classes are NOT hoisted;
+                    Classes are <em>first-class citizens</em>;
+                    The class body is always executed in <em>strict</em> mode.</p>
+            </blockquote>
+
+
+        </div>
+
+    </div>
+</body>
+
+</html>

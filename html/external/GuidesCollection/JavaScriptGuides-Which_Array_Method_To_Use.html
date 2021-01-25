@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Which Array Method To Use</title>
+
+  <base href="https://www.velddier.com/">
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+    integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <link rel="stylesheet" href="css/notebookStyle.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <div class="navbar"><a href="javascript:history.back()" class="navbar__back">Back</a>
+    <div class="menu">
+      <a href="html/UX_Portfolio.html">UX Design</a>
+      <span>|</span>
+      <a href="html/UI_Portfolio.html">Web Services</a>
+      <span>|</span>
+      <a href="html/Coding_Portfolio.html">Coding</a>
+      <span>|</span>
+      <a href="html/Other_Portfolio.html">Etc.</a>
+    </div>
+    <a href="/" class="logo">Frederik DeVilder</a>
+  </div>
+
+
+  <!-- PAGE CONTENT -->
+  <div class="window">
+    <ul class="index">
+      <li><a href="#which-array-method-to-use">Which Array Method To Use</a>
+        <ul>
+          <li><a href="#which-array-method-is-best-for-what-situation">Which array method is best for what
+              situation?</a>
+            <ul>
+              <li><a href="#to-mutate-original-array">To mutate original array</a></li>
+              <li><a href="#a-new-array">A new array</a></li>
+              <li><a href="#an-array-index">An array index</a></li>
+              <li><a href="#know-if-array-includes">Know if array includes</a></li>
+              <li><a href="#to-transform-to-value">To transform to value</a></li>
+              <li><a href="#an-array-element">An array element</a></li>
+              <li><a href="#a-new-string">A new string</a></li>
+              <li><a href="#to-just-loop-array">To just loop array</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="content">
+      <h1 id="which-array-method-to-use">Which Array Method To Use</h1>
+      <h2 id="which-array-method-is-best-for-what-situation">Which array method is best for what situation?</h2>
+      <h3 id="to-mutate-original-array">To mutate original array</h3>
+      <p>👉 <em>Add to original:</em></p>
+      <ul>
+        <li><strong><code>.push</code></strong> (end)
+          <blockquote>
+            <p>Places a value at the end of an array.</p>
+          </blockquote>
+        </li>
+        <li><strong><code>.unshift</code></strong> (start)
+          <blockquote>
+            <p>Puts a value at the start of the array.</p>
+          </blockquote>
+        </li>
+      </ul>
+      <p>👉 <em>Remove from original:</em></p>
+      <ul>
+        <li><strong><code>.pop</code></strong> (end)
+          <blockquote>
+            <p>Removes a retrievable value from the end of the array.</p>
+          </blockquote>
+        </li>
+        <li><strong><code>.shift</code></strong> (start)
+          <blockquote>
+            <p>Removes a retrievable value from the start of the array.</p>
+          </blockquote>
+        </li>
+        <li><strong><code>splice</code></strong> (any) ► <em><code>.splice([startIndex],
+              [countFromIndex])</code></em>
+          <blockquote>
+            <p>Similar to slice, except that it MUTATES THE ORIGINAL ARRAY. It's second parameter counts the
+              elements to
+              delete.</p>
+          </blockquote>
+        </li>
+      </ul>
+      <p>👉 <em>Others:</em></p>
+      <ul>
+        <li><strong><code>.reverse</code></strong>
+          <blockquote>
+            <p>Reverses the array.</p>
+          </blockquote>
+        </li>
+        <li><strong><code>.sort</code></strong> ► <em><code>.sort(([current], [next]) =&gt; a - b))</code></em>
+          <blockquote>
+            <p>Sorts the array based on conditions comparing the current and the next element.</p>
+          </blockquote>
+        </li>
+        <li><strong><code>.fill</code></strong> ► <em><code>.fill([value], [start], [end])</code></em>
+          <blockquote>
+            <p>Fills an empty of occupied array according to the condition arguments.</p>
+          </blockquote>
+        </li>
+      </ul>
+      <h3 id="a-new-array">A new array</h3>
+      <p>👉 <em>Computed from original:</em></p>
+      <ul>
+        <li><strong><code>.map</code></strong> (loop) ► <em><code>.map(([current], [index], [array]) =&gt;
+              {-operation-})</code></em>
+          <blockquote>
+            <p>Iterates an existing array and creates a new array from the results.</p>
+          </blockquote>
+        </li>
+      </ul>
+      <p>👉 <em>Filtered using condition:</em></p>
+      <ul>
+        <li><strong><code>.filter</code></strong> ► <em><code>.filter(function([current], [index], [array])
+              =&gt;
+              {-operation})</code></em>
+          <blockquote>
+            <p>Returns the elements of an array that pass the conditions of the filter method.</p>
+          </blockquote>
+        </li>
+      </ul>
+      <p>👉 <em>Portion of original:</em></p>
+      <ul>
+        <li><strong><code>.slice</code></strong> ► <em><code>.slice([startIndex],[endIndex])</code></em>
+          <blockquote>
+            <p>Removes a retrievable part of the array.</p>
+          </blockquote>
+        </li>
+      </ul>
+      <p>👉 <em>Adding original to other:</em></p>
+      <ul>
+        <li><strong><code>.concat</code></strong> ► <em><code>.concat([arrayToAdd])</code></em>
+          <blockquote>
+            <p>Adds all items from one array to another array.</p>
+          </blockquote>
+        </li>
+      </ul>
+      <p>👉 <em>Flattening the original:</em></p>
+      <ul>
+        <li><strong><code>.flat</code></strong> ► <em><code>Array.flat([depth])</code></em>
+          <blockquote>
+            <p>Flattens arrays with multiple levels into a 1-level array. The function argument defines the
+              max depth it
+              should look in.</p>
+          </blockquote>
+        </li>
+        <li><strong><code>.flatMap</code></strong> ► <em><code>.flatMap([current] =&gt;
+              {-operation-})</code></em>
+          <blockquote>
+            <p>Returns items from a map that fulfil a condition and places these into a flat array.</p>
+          </blockquote>
+        </li>
+      </ul>
+      <h3 id="an-array-index">An array index</h3>
+      <p>👉 <em>Based on value:</em></p>
+      <ul>
+        <li><strong><code>indexOf</code></strong>
+          <blockquote>
+            <p>Returns the index of the element within the array (0-based).</p>
+          </blockquote>
+        </li>
+      </ul>
+      <p>👉 <em>Based on test condition:</em></p>
+      <ul>
+        <li><strong><code>findIndex</code></strong> ► <em><code>.findIndex([current] =&gt;
+              {-condition-})</code></em>
+          <blockquote>
+            <p>Finds the index of an item that fulfils the conditions.</p>
+          </blockquote>
+        </li>
+      </ul>
+      <h3 id="know-if-array-includes">Know if array includes</h3>
+      <p>👉 <em>Based on values:</em></p>
+      <ul>
+        <li><strong><code>.includes</code></strong> ► <em><code>.includes([value])</code></em>
+          <blockquote>
+            <p>Results in a boolean based on wether a value exists within an array.</p>
+          </blockquote>
+        </li>
+      </ul>
+      <p>👉 <em>Based on test conditions:</em></p>
+      <ul>
+        <li><strong><code>.some</code></strong> ► <em><code>.some([current] =&gt; {-conditions-})</code></em>
+          <blockquote>
+            <p>Checks an array for any items that fulfil the conditions.</p>
+          </blockquote>
+        </li>
+        <li><strong><code>.every</code></strong> ► <em><code>.every([current] =&gt; {-conditions-})</code></em>
+          <blockquote>
+            <p>Checks if ALL array items fulfil the conditions.</p>
+          </blockquote>
+        </li>
+      </ul>
+      <h3 id="to-transform-to-value">To transform to value</h3>
+      <p>👉 <em>Based on accumulator:</em></p>
+      <ul>
+        <li><strong><code>.reduce</code></strong> ► <em><code>.reduce(([accumulator], [current], [index],
+              [array]) =&gt;
+              {-operation-}, [startingValue])</code></em>
+          <blockquote>
+            <p>Reduces all items of an array to a single value.</p>
+          </blockquote>
+        </li>
+      </ul>
+      <h3 id="an-array-element">An array element</h3>
+      <p>👉 <em>Based on test conditions:</em></p>
+      <ul>
+        <li><strong><code>.find</code></strong> ► <em><code>.find([current] =&gt; {-condition-})</code></em>
+          <blockquote>
+            <p>Retrieves a value from an array based on a condition.</p>
+          </blockquote>
+        </li>
+      </ul>
+      <h3 id="a-new-string">A new string</h3>
+      <p>👉 <em>Based on separator string:</em></p>
+      <ul>
+        <li><strong><code>join</code></strong> ► <em><code>.join(['separator'])</code></em>
+          <blockquote>
+            <p>Joins all elements of an array into a string, mended by a separating character.</p>
+          </blockquote>
+        </li>
+      </ul>
+      <h3 id="to-just-loop-array">To just loop array</h3>
+      <p>👉 <em>Based on callback:</em></p>
+      <ul>
+        <li><strong><code>.forEach</code></strong> (iterates existing array) ► <em><code>.forEach([callback]
+              ([currentItem],
+              [currentIndex], [entireArray]) =&gt; {-operation-})</code></em>
+          <blockquote>
+            <p>Iterates an existing array, computing an operation at every element.</p>
+          </blockquote>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+
+</html>

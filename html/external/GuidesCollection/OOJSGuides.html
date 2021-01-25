@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Object-Oriented JavaScript</title>
+
+    <base href="https://www.velddier.com/">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+        integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+        type="text/css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+    <link rel="stylesheet" href="css/notebookStyle.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</head>
+
+<body class="vscode-body vscode-light">
+    <div class="navbar"><a href="javascript:history.back()" class="navbar__back">Back</a>
+        <div class="menu">
+            <a href="html/UX_Portfolio.html">UX Design</a>
+            <span>|</span>
+            <a href="html/UI_Portfolio.html">Web Services</a>
+            <span>|</span>
+            <a href="html/Coding_Portfolio.html">Coding</a>
+            <span>|</span>
+            <a href="html/Other_Portfolio.html">Etc.</a>
+        </div>
+        <a href="/" class="logo">Frederik DeVilder</a>
+    </div>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="window">
+
+        <ul class="index">
+            <li><a href="#object-oriented-javascript">Object Oriented JavaScript</a>
+                <ul>
+                    <li><a href="#ooj-intro">OOJ Intro</a>
+                        <ul>
+                            <li><a href="#basis-javascript-object">Basis JavaScript Object</a></li>
+                            <li><a href="#methods-on-an-object">Methods on an object</a></li>
+                            <li><a href="#create-a-new-object">Create a new object</a></li>
+                            <li><a href="#verify-if-an-object-and-a-contructor-are-related-instanceof">Verify if an
+                                    object and a
+                                    contructor are related <em>→instanceof</em></a></li>
+                            <li><a href="#references-to-an-objects-own-properties-thisname--name">References to an
+                                    object's own
+                                    properties <em>→this.name = name;</em></a></li>
+                            <li><a href="#prototype-properties-selfprototypename--name">Prototype properties
+                                    <em>→Self.prototype.name =
+                                        name;</em></a></li>
+                            <li><a href="#add-a-method-after-inheritance">Add a method after inheritance</a></li>
+                            <li><a href="#override-inheritance-methods">Override inheritance methods</a></li>
+                            <li><a href="#use-a-mixin-to-add-common-behaviours-between-unrelated-objects">Use a
+                                    <em>Mixin</em> to add
+                                    common behaviours between unrelated objects</a></li>
+                            <li><a href="#use-closure-to-protect-properties-within-an-object">Use <em>closure</em> to
+                                    protect properties
+                                    within an object</a></li>
+                            <li><a href="#immediately-invoked-function-expression-iife">Immediately invoked function
+                                    expression
+                                    <em>→IIFE</em></a></li>
+                            <li><a href="#using-iife-to-create-a-module">Using IIFE to create a module</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="content">
+
+            <h1 id="object-oriented-javascript">Object Oriented JavaScript</h1>
+            <h2 id="ooj-intro">OOJ Intro</h2>
+            <p>Object oriented JavaScript is an implementation of object-oriented programming in JS.</p>
+            <hr>
+            <h3 id="basis-javascript-object">Basis JavaScript Object</h3>
+            <pre><code class="language-js"><div><span class="hljs-keyword">let</span> duck = {
+    <span class="hljs-attr">name</span> : <span class="hljs-string">&quot;Affleck&quot;</span>,
+    <span class="hljs-attr">numLegs</span> : <span class="hljs-number">2</span>
+}; <span class="hljs-comment">//A simple object that describes a duck named &quot;Affleck&quot;.</span>
+</div></code></pre>
+            <h3 id="methods-on-an-object">Methods on an object</h3>
+            <pre><code class="language-js"><div><span class="hljs-keyword">let</span> dog = {
+    <span class="hljs-built_in">this</span>.name : <span class="hljs-string">&quot;Benno&quot;</span>,
+    <span class="hljs-attr">sayName</span> : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-attr">return</span>: <span class="hljs-string">&quot;The name of this dog is &quot;</span> + <span class="hljs-built_in">this</span>.name + <span class="hljs-string">&quot; .&quot;</span>;
+    }
+}; <span class="hljs-comment">//Methods and functions can be placed within an object and be called from within or outside.</span>
+</div></code></pre>
+            <h3 id="create-a-new-object">Create a new object</h3>
+            <pre><code class="language-js"><div><span class="hljs-keyword">let</span> Bird = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">name, color</span>) </span>{
+    <span class="hljs-built_in">this</span>.name = name;
+} <span class="hljs-comment">//Creating an object constructor called Bird (capitalized!)...</span>
+
+<span class="hljs-keyword">let</span> crow = <span class="hljs-keyword">new</span> Bird (<span class="hljs-string">&quot;Jim&quot;</span>, <span class="hljs-string">&quot;black&quot;</span>);
+<span class="hljs-comment">//Allows sub-objects to be created from the bird prototype.</span>
+</div></code></pre>
+            <h3 id="verify-if-an-object-and-a-contructor-are-related-instanceof">Verify if an object and a contructor
+                are related
+                <em>→instanceof</em></h3>
+            <pre><code class="language-js"><div><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">House</span> (<span class="hljs-params">numRooms</span>) </span>{
+    <span class="hljs-built_in">this</span>.numRooms = numRooms;
+} <span class="hljs-comment">//Object constructor &#x27;House&#x27;, with variable &#x27;numRooms&#x27;.</span>
+
+<span class="hljs-comment">//New Object &#x27;myHouse&#x27; with 3 rooms:</span>
+<span class="hljs-keyword">let</span> myHouse = <span class="hljs-keyword">new</span> House (<span class="hljs-number">3</span>);
+
+<span class="hljs-comment">//Verify relation</span>
+myHouse <span class="hljs-keyword">instanceof</span> House; <span class="hljs-comment">//Returns `TRUE`.</span>
+</div></code></pre>
+            <hr>
+            <h3 id="references-to-an-objects-own-properties-thisname--name">References to an object's own properties
+                <em><a href="http://xn--this-pt8a.name">→this.name</a> = name;</em></h3>
+            <pre><code class="language-js"><div><span class="hljs-keyword">let</span> Self = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">name, age</span>) </span>{
+    <span class="hljs-built_in">this</span>.name = name
+    <span class="hljs-built_in">this</span>.age = age,
+} <span class="hljs-comment">//To refer to an objects own property &#x27;this.property&#x27; is used.</span>
+</div></code></pre>
+            <h3 id="prototype-properties-selfprototypename--name">Prototype properties <em><a
+                        href="http://xn--Self-pt8a.prototype.name">→Self.prototype.name</a> = name;</em></h3>
+            <pre><code class="language-js"><div>Dog.prototype.numLegs = <span class="hljs-number">2</span>;
+<span class="hljs-comment">// Assigns `numLegs = 2` to the object `Dog`.</span>
+</div></code></pre>
+            <hr>
+            <h3 id="add-a-method-after-inheritance">Add a method after inheritance</h3>
+            <blockquote>
+                <p><strong>Inheritance:</strong>
+                    Objects are the core- and only contructs in JavaScript. Every working object in JS is part of the
+                    <em>prototype
+                        chain</em> and <em>inherits</em> its properties from an anchestor object.</p>
+            </blockquote>
+            <p>Objects that inherit their prototype from an ancestor object can have their own exclusive methods and
+                properties.
+                Adding them to the descendant does not affect the ancestor.</p>
+            <pre><code class="language-js"><div><span class="hljs-comment">//1. Define the parent group contructor:</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Animal</span> (<span class="hljs-params"></span>) </span>{}
+
+<span class="hljs-comment">//2. Add a new method to the parent group:</span>
+Animal.prototype.eat = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;nom nom nom&quot;</span>);
+};
+
+<span class="hljs-comment">//3. Define a new animal `Dog`:</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Dog</span> (<span class="hljs-params"></span>) </span>{}
+
+<span class="hljs-comment">//4. Let `Dog` inherit all properties from animal:</span>
+Dog.prototype = <span class="hljs-built_in">Object</span>.create(Animal.prototype);
+
+<span class="hljs-comment">//5. Convert `Dog` to a constructor:</span>
+Dog.prototype.constructor = Dog;
+
+<span class="hljs-comment">//6. Add an exclusive method to `Dog` object constructor</span>
+Dog.prototype.bark = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Woof!&quot;</span>);
+};
+</div></code></pre>
+            <h3 id="override-inheritance-methods">Override inheritance methods</h3>
+            <p>It is possible to change properties and methods of an inheriting object, shown in the steps below.</p>
+            <pre><code class="language-js"><div><span class="hljs-comment">//1. Define animal object;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Animal</span>(<span class="hljs-params"></span>)</span>{}
+
+<span class="hljs-comment">//2. Add a method:</span>
+Animal.prototype.eat = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;nom nom nom&quot;</span>);
+};
+
+<span class="hljs-comment">//3. Define a new object `Bird`:</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Bird</span>(<span class="hljs-params"></span>)</span>{}
+
+<span class="hljs-comment">//4. Apply Animal methods to Bird:</span>
+Bird.prototype = <span class="hljs-built_in">Object</span>.create(Animal.prototype);
+
+<span class="hljs-comment">//5. Override `Animal.eat()` for `Bird`:</span>
+Bird.prototype.eat = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;peck peck&quot;</span>);
+};
+</div></code></pre>
+            <h3 id="use-a-mixin-to-add-common-behaviours-between-unrelated-objects">Use a <em>Mixin</em> to add common
+                behaviours
+                between unrelated objects</h3>
+            <pre><code class="language-js"><div><span class="hljs-keyword">let</span> flyMixin = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>) </span>{
+    obj.fly = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-built_in">this</span>.fly = <span class="hljs-literal">true</span>;
+    };
+} <span class="hljs-comment">//Creates a method which adds the property of `fly` to the variable obj.</span>
+
+<span class="hljs-comment">//Two different objects</span>
+<span class="hljs-keyword">let</span> bird = { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Donald&quot;</span>, <span class="hljs-attr">numLegs</span>: <span class="hljs-number">2</span> }
+
+<span class="hljs-keyword">let</span> plane = { <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Boeing-737&quot;</span>, <span class="hljs-attr">passengers</span>: <span class="hljs-number">524</span>}
+
+<span class="hljs-comment">//Both receive the same property by the `flyMixin()` method.</span>
+flyMixin(bird);
+flyMixin(plane);
+</div></code></pre>
+            <hr>
+            <h3 id="use-closure-to-protect-properties-within-an-object">Use <em>closure</em> to protect properties
+                within an
+                object</h3>
+            <p>Using closures in your code prevents properties within an object from being modified from outside.</p>
+            <p>An additional method within the object containing the closure makes it possible for the private variable
+                value to
+                be made public.</p>
+            <pre><code class="language-js"><div><span class="hljs-comment">//Define object `Bird`</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Bird</span>(<span class="hljs-params"></span>)</span>{
+
+    <span class="hljs-comment">//Define a PRIVATE VARIABLE</span>
+    <span class="hljs-keyword">let</span> hatchedEggs = <span class="hljs-number">10</span>;
+
+    <span class="hljs-comment">//Method to make `hatchedEggs` PUBLIC:</span>
+    <span class="hljs-built_in">this</span>.getHatchedCount = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> hatchedEggs; <span class="hljs-comment">//returns a public variable</span>
+    }
+}
+</div></code></pre>
+            <hr>
+            <h3 id="immediately-invoked-function-expression-iife">Immediately invoked function expression <em>→IIFE</em>
+            </h3>
+            <p>An <em>IIFE</em> declares and immediately executes a function or method. The trick is to wrap the
+                function
+                declaration within parenthesis and then call it, like so:</p>
+            <blockquote>
+                <p><strong>(</strong> function + definition <strong>)( );</strong></p>
+            </blockquote>
+            <pre><code class="language-js"><div>( <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Action&quot;</span>);
+})();
+</div></code></pre>
+            <h3 id="using-iife-to-create-a-module">Using IIFE to create a module</h3>
+            <p>Using an <em>IIFE</em> the method below is immediately executed as soon as it is defined.</p>
+            <pre><code class="language-js"><div><span class="hljs-keyword">let</span> motionModule = ( <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span>
+        glideMixin: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>) </span>{
+            obj.glide = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Gliding!&quot;</span>);
+            };
+        },
+        <span class="hljs-attr">flyMixin</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>) </span>{
+            obj.fly = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Flying!&quot;</span>);
+            }
+        }
+})();
+</div></code></pre>
+
+
+        </div>
+
+    </div>
+</body>
+
+</html>

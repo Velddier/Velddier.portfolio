@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery</title>
+
+  <base href="https://www.velddier.com/">
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+    integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <link rel="stylesheet" href="css/notebookStyle.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <div class="navbar"><a href="javascript:history.back()" class="navbar__back">Back</a>
+    <div class="menu">
+      <a href="html/UX_Portfolio.html">UX Design</a>
+      <span>|</span>
+      <a href="html/UI_Portfolio.html">Web Services</a>
+      <span>|</span>
+      <a href="html/Coding_Portfolio.html">Coding</a>
+      <span>|</span>
+      <a href="html/Other_Portfolio.html">Etc.</a>
+    </div>
+    <a href="/" class="logo">Frederik DeVilder</a>
+  </div>
+
+
+  <!-- PAGE CONTENT -->
+  <div class="window">
+
+    <ul class="index">
+      <li><a href="#jQuery">jQuery</a>
+        <ul>
+          <li><a href="#quick-reference">Quick reference</a>
+            <ul>
+              <li><a href="#jQuery-targetting">jQuery targetting</a></li>
+              <li><a href="#jQuery-methods">jQuery Methods</a></li>
+            </ul>
+          </li>
+          <li><a href="#script-tag--document-ready">Script Tag &amp; Document ready</a></li>
+          <li><a href="#jQuery-selectors">jQuery Selectors</a>
+            <ul>
+              <li><a href="#targeting-html-elements">Targeting HTML elements</a>
+                <ul>
+                  <li><a href="#target-element-by-class">Target element by class</a></li>
+                  <li><a href="#target-element-by-id">Target element by id</a></li>
+                </ul>
+              </li>
+              <li><a href="#targetting-the-same-element-with-multiple-selectors">Targetting the same
+                  element with multiple
+                  selectors</a></li>
+              <li><a href="#remove-classes-from-an-element-remove">Remove classes from an element
+                  <strong>→.remove()</strong></a></li>
+              <li><a href="#change-the-css-of-an-element-css">Change the CSS of an element
+                  <strong>→.css()</strong></a>
+              </li>
+              <li><a href="#disable-elements-with-jQuery-prop">Disable elements with jQuery
+                  <strong>→.prop()</strong></a>
+              </li>
+              <li><a href="#change-text-inside-an-element-htmltext">Change text inside an element
+                  <strong>→.html()/.text()</strong></a></li>
+              <li><a href="#move-elements-appendto">Move elements <strong>→.appendTo()</strong></a></li>
+              <li><a href="#clone-elements-clone">Clone elements <strong>→.clone()</strong></a></li>
+              <li><a href="#targetting-an-elements-parents-parent">Targetting an element's parents
+                  <strong>→.parent()</strong></a></li>
+              <li><a href="#targetting-children-of-an-element-nth-childn">Targetting children of an
+                  element
+                  <strong>→:nth-child(n)</strong></a></li>
+              <li><a href="#target-even-or-odd-elements-evenodd">Target even or odd elements
+                  <strong>→:even/:odd</strong></a></li>
+              <li><a href="#modify-the-entire-page-body">Modify the entire page
+                  <strong>→$(&quot;body&quot;)</strong></a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="content">
+
+      <h1 id="jQuery">jQuery</h1>
+      <hr>
+      <h2 id="quick-reference">Quick reference</h2>
+      <h3 id="jQuery-targetting">jQuery targetting</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>object</th>
+            <th style="text-align:center">command</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Type</td>
+            <td style="text-align:center"><strong>$(&quot;button&quot;)</strong></td>
+          </tr>
+          <tr>
+            <td>Class</td>
+            <td style="text-align:center"><strong>$(&quot;.btn&quot;)</strong></td>
+          </tr>
+          <tr>
+            <td>Id</td>
+            <td style="text-align:center"><strong>$(&quot;#target4&quot;)</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 id="jQuery-methods">jQuery Methods</h3>
+      <table>
+        <thead>
+          <tr>
+            <th style="text-align:center"></th>
+            <th style="text-align:center"></th>
+            <th style="text-align:center"></th>
+            <th style="text-align:center"></th>
+            <th style="text-align:center"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align:center"><strong>.addClass()</strong>
+              <hr> Adds a <em>class</em> to the element.</td>
+            <td style="text-align:center"><strong>.remove()</strong>
+              <hr> Removes an element.</td>
+            <td style="text-align:center"><strong>.appendTo()</strong>
+              <hr> Moves an element elsewhere.</td>
+            <td style="text-align:center"><strong>:nth-child(#)</strong>
+              <hr> Selects a specific child.</td>
+            <td style="text-align:center"><strong>:odd/:even</strong>
+              <hr> Targets all odd or even elements.</td>
+          </tr>
+          <tr>
+            <td style="text-align:center"><strong>.removeClass()</strong>
+              <hr> Removes a <em>class</em> from an element</td>
+            <td style="text-align:center"><strong>.clone()</strong>
+              <hr> Duplicates an element.</td>
+            <td style="text-align:center"><strong>.css()</strong>
+              <hr> Alters the CSS of an element.</td>
+            <td style="text-align:center"><strong>.prop()</strong>
+              <hr> Alters the HTML properties of an element.</td>
+            <td style="text-align:center"><strong>.html()</strong>
+              <hr> Adds HTML (incl. tags) to an element</td>
+          </tr>
+          <tr>
+            <td style="text-align:center"><strong>.text()</strong>
+              <hr> Adds text to an element (no formatting).</td>
+            <td style="text-align:center"><strong>.parent()</strong>
+              <hr> Targets an element's parent.</td>
+            <td style="text-align:center"><strong>.children()</strong>
+              <hr> Targets all children of an element.</td>
+            <td style="text-align:center"><strong>$(&quot;body&quot;)</strong>
+              <hr> Selects the whole HTML body element.</td>
+            <td style="text-align:center"></td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <h2 id="script-tag--document-ready">Script Tag &amp; Document ready</h2>
+      <pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ ... });</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div></code></pre>
+      <p>→ Avoids code from being ran <em>before the page is finished loading</em>.</p>
+      <hr>
+      <h2 id="jQuery-selectors">jQuery Selectors</h2>
+      <blockquote>
+        <p>All jQuery selectors start with <em><strong>$</strong></em>.</p>
+      </blockquote>
+      <p>→ Example: <code>$(&quot;button&quot;).addClass(&quot;animatedBounce&quot;);</code></p>
+      <h3 id="targeting-html-elements">Targeting HTML elements</h3>
+      <h4 id="target-element-by-class">Target element by class</h4>
+      <pre><code class="language-js"><div>$(<span class="hljs-string">&quot;.well&quot;</span>).addClass(<span class="hljs-string">&quot;animated&quot;</span>);
+
+<span class="hljs-comment">//Selects elements with class *well* and adds additional classes to the element.</span>
+</div></code></pre>
+      <h4 id="target-element-by-id">Target element by id</h4>
+      <pre><code class="language-js"><div>$(<span class="hljs-string">&quot;#target4&quot;</span>).addClass(<span class="hljs-string">&quot;fadeOut&quot;</span>);
+<span class="hljs-comment">//Selects elements by id with #, much like in CSS.</span>
+</div></code></pre>
+      <h3 id="targetting-the-same-element-with-multiple-selectors">Targetting the same element with multiple
+        selectors</h3>
+      <p>Using inheritable objects, selecting multiple elements is also inherited:</p>
+      <pre><code class="language-js"><div>$(<span class="hljs-string">&quot;button.btn#target-btn&quot;</span>).text(<span class="hljs-string">&quot;click here&quot;</span>);
+</div></code></pre>
+      <hr>
+      <h3 id="remove-classes-from-an-element-remove">Remove classes from an element <strong>→.remove()</strong>
+      </h3>
+      <pre><code class="language-js"><div>$(<span class="hljs-string">&quot;button&quot;</span>).removeClass(<span class="hljs-string">&quot;animated&quot;</span>);
+<span class="hljs-comment">//Removes &quot;animated&quot; from the &quot;button&quot; objects.</span>
+</div></code></pre>
+      <h3 id="change-the-css-of-an-element-css">Change the CSS of an element <strong>→.css()</strong></h3>
+      <pre><code class="language-js"><div>$(<span class="hljs-string">&quot;#target&quot;</span>).css(<span class="hljs-string">&quot;color&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>);
+<span class="hljs-comment">//Pay attention to the different notation from normal css =&gt; (#property: #value)</span>
+</div></code></pre>
+      <h3 id="disable-elements-with-jQuery-prop">Disable elements with jQuery <strong>→.prop()</strong></h3>
+      <pre><code class="language-js"><div>$(<span class="hljs-string">&quot;button&quot;</span>).prop(<span class="hljs-string">&quot;disabled&quot;</span>, <span class="hljs-literal">true</span>);
+<span class="hljs-comment">//.prop() alters the HTML element properties.</span>
+</div></code></pre>
+      <h3 id="change-text-inside-an-element-htmltext">Change text inside an element
+        <strong>→.html()/.text()</strong></h3>
+      <pre><code class="language-js"><div>$(<span class="hljs-string">&quot;h3&quot;</span>).html(<span class="hljs-string">&quot;&lt;em&gt;jQuery&lt;/em&gt;&quot;</span>);
+<span class="hljs-comment">//Adds text and tags!</span>
+
+$(<span class="hljs-string">&quot;p&quot;</span>).text(<span class="hljs-string">&quot;Hello world!&quot;</span>);
+<span class="hljs-comment">//Adds only text to the element.</span>
+</div></code></pre>
+      <hr>
+      <h3 id="move-elements-appendto">Move elements <strong>→.appendTo()</strong></h3>
+      <pre><code class="language-js"><div>$(<span class="hljs-string">&quot;#target2&quot;</span>).appendTo(<span class="hljs-string">&quot;#right-well&quot;</span>);
+<span class="hljs-comment">//Moves element#target2 to #right-well.</span>
+</div></code></pre>
+      <h3 id="clone-elements-clone">Clone elements <strong>→.clone()</strong></h3>
+      <pre><code class="language-js"><div>$(<span class="hljs-string">&quot;#target5&quot;</span>).clone().appendTo(<span class="hljs-string">&quot;#left&quot;</span>);
+<span class="hljs-comment">//Remember to combine .clone() with .appendTo()!</span>
+</div></code></pre>
+      <hr>
+      <h3 id="targetting-an-elements-parents-parent">Targetting an element's parents <strong>→.parent()</strong>
+      </h3>
+      <pre><code class="language-js"><div>$(<span class="hljs-string">&quot;#target3&quot;</span>).parent().css(<span class="hljs-string">&quot;color&quot;</span>, <span class="hljs-string">&quot;green&quot;</span>);
+<span class="hljs-comment">//Selects the parent element of #target3.</span>
+</div></code></pre>
+      <h3 id="targetting-children-of-an-element-nth-childn">Targetting children of an element
+        <strong>→:nth-child(n)</strong></h3>
+      <pre><code class="language-js"><div>$(<span class="hljs-string">&quot;.target:nth-child(3)&quot;</span>).addClass(<span class="hljs-string">&quot;animated&quot;</span>);
+<span class="hljs-comment">//Within the $selector, using :nth-childr(n), n being the selected child.</span>
+</div></code></pre>
+      <h3 id="target-even-or-odd-elements-evenodd">Target even or odd elements <strong>→:even/:odd</strong></h3>
+      <pre><code class="language-js"><div>$(<span class="hljs-string">&quot;.target:odd&quot;</span>).addClass(<span class="hljs-string">&quot;animated bounce&quot;</span>);
+<span class="hljs-comment">//Adds a new class to all odd items with class of target.</span>
+</div></code></pre>
+      <h3 id="modify-the-entire-page-body">Modify the entire page <strong>→$(&quot;body&quot;)</strong></h3>
+      <pre><code class="language-js"><div>$(<span class="hljs-string">&quot;body&quot;</span>)
+<span class="hljs-comment">//Selects the entire HTML body element.</span>
+</div></code></pre>
+
+
+    </div>
+
+  </div>
+</body>
+
+</html>

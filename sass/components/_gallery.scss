@@ -1,52 +1,3 @@
-/* 
-.galleryHero {
-  clip-path: polygon(0 0, 100% 0%, 100% 88%, 0% 100%);
-  width: 100%;
-  height: 44vh;
-  overflow: hidden;
-  background-color: $color-gray-dark;
-  & img {
-    transform: translateY(-70rem);
-    width: auto;
-    filter: grayscale(1);
-    opacity: 0.15;
-  }
-}
-
-.pageHeader {
-  margin: 12rem auto 3rem;
-  margin-top: -32vh;
-  & h1 {
-    font-size: 28rem;
-    opacity: 0.6;
-    letter-spacing: -2rem;
-    text-align: center;
-    margin-left: -3rem;
-    color: $color-white;
-  }
-  @media screen and (max-width: $mobile-large) {
-    & h1 {
-      font-size: 16rem;
-      margin: 4.4rem 0;
-      text-align: center;
-    }
-  }
-}
-
-.pageDescription {
-  margin: 0 auto;
-  text-align: center;
-  background-color: black;
-
-  & p {
-    margin: -4rem auto 12rem auto;
-    width: 32rem;
-    font-size: 1.8rem;
-    color: $color-white;
-  }
-}
- */
-
 .galleryHero {
   margin: 0 -8rem;
   margin-bottom: -24rem;
@@ -80,7 +31,7 @@
 
     &__copy {
       position: absolute;
-      top: 8rem;
+      top: 10rem;
       left: 6rem;
       display: flex;
       justify-content: flex-start;
@@ -133,14 +84,6 @@
 }
 
 .portfolio {
-  background: linear-gradient(
-    358deg,
-    $shadow20 0%,
-    $color-white 5%,
-    $color-white 93%,
-    $shadow20 100%
-  );
-
   display: flex;
   flex-direction: column;
   padding: 16rem 4rem 20rem 4rem;
@@ -164,9 +107,10 @@
     margin: 0rem -4rem;
     margin-bottom: 4rem;
     color: white;
-    padding: 4rem 8rem;
-    padding-top: 12rem;
-    background-color: $color-primary;
+    padding: 2rem 8rem;
+    padding-top: 10rem;
+    background-color: #1e91dd;
+    box-shadow: 0 -1rem 2rem $shadow20;
     &::after {
       display: none;
     }
@@ -338,6 +282,100 @@
     left: 0;
     object-fit: cover;
     object-position: top;
+  }
+}
+
+.contentGrid-small {
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  width: 100%;
+  gap: 3.2rem;
+  margin: 12rem auto;
+  margin-bottom: 16rem;
+  justify-content: center;
+
+  @media screen and (max-width: $bp-medium) {
+    grid-template-columns: repeat(3, auto);
+  }
+  @media screen and (max-width: $bp-small) {
+    grid-template-columns: repeat(2, auto);
+    gap: 2rem;
+    width: 90%;
+  }
+  @media screen and (max-width: $mobile-large) {
+    grid-template-columns: repeat(1, auto);
+  }
+
+  & p {
+    color: $color-black;
+    opacity: 1;
+    z-index: 10;
+  }
+}
+
+.contentCopy-small {
+  color: $color-black;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 2rem;
+  width: 20rem;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 1.6rem;
+  font-weight: bold;
+
+  @media screen and (max-width: $bp-small) {
+    z-index: 20;
+    opacity: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+  }
+}
+
+.content-small {
+  height: 36rem;
+  width: 26rem;
+
+  &__img img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  &:hover {
+    color: $color-white;
+    cursor: pointer;
+    transform: translate(0, -3.4rem);
+    box-shadow: -1rem 2.5rem 15px -8px $shadow20;
+  }
+
+  &:active {
+    transition: none;
+    transform: translate(0, -2.9rem);
+    box-shadow: -1rem 2rem 15px -10px $shadow20;
+  }
+
+  &:hover > .contentCopy-small p {
+    z-index: 20;
+    color: $color-white;
+    transition: all 0.2s;
+    opacity: 1;
+    transform: none;
+  }
+
+  &:hover > &__img {
+    opacity: 0.2;
+    transition: all 0.4s;
   }
 }
 

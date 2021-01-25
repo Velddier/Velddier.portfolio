@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap</title>
+
+  <base href="https://www.velddier.com/">
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+    integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <link rel="stylesheet" href="css/notebookStyle.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <div class="navbar"><a href="javascript:history.back()" class="navbar__back">Back</a>
+    <div class="menu">
+      <a href="html/UX_Portfolio.html">UX Design</a>
+      <span>|</span>
+      <a href="html/UI_Portfolio.html">Web Services</a>
+      <span>|</span>
+      <a href="html/Coding_Portfolio.html">Coding</a>
+      <span>|</span>
+      <a href="html/Other_Portfolio.html">Etc.</a>
+    </div>
+    <a href="/" class="logo">Frederik DeVilder</a>
+  </div>
+
+
+  <!-- PAGE CONTENT -->
+  <div class="window">
+
+    <ul class="index">
+      <li><a href="#bootstrap">Bootstrap</a>
+        <ul>
+          <li><a href="#introduction">Introduction</a>
+            <ul>
+              <li><a href="#use-responsive-design-with-bootstrap-fluid-containers">Use responsive design
+                  with Bootstrap
+                  <code>Fluid Containers</code></a>
+                <ul>
+                  <li><a href="#adding-bootstrap-to-a-website">Adding bootstrap to a website</a></li>
+                  <li><a href="#container-fluid"><code>container-fluid</code></a></li>
+                </ul>
+              </li>
+              <li><a href="#make-images-mobile-responsive">Make images mobile responsive</a></li>
+              <li><a href="#center-text-with-bootstrap">Center text with Bootstrap</a></li>
+              <li><a href="#create-a-bootstrap-button">Create a Bootstrap <code>button</code></a></li>
+              <li><a href="#create-a-block-element-bootstrap-button">Create a <code>block element</code>
+                  Bootstrap
+                  button</a></li>
+              <li><a href="#change-bootstrap-button-colors">Change bootstrap button colors</a></li>
+              <li><a href="#call-out-optional-actions-with-btn-info">Call out optional actions with
+                  <code>btn-info</code></a></li>
+              <li><a href="#warn-the-user-of-a-dangerous-action-with-btn-danger">Warn the user of a
+                  dangerous action with
+                  <code>btn-danger</code></a></li>
+              <li><a href="#use-the-bootstrap-grid-to-put-elements-side-by-side">Use the Bootstrap
+                  <code>grid</code> to
+                  put elements side by side</a></li>
+              <li><a href="#use-a-span-to-target-inline-elements">Use a <code>span</code> to target inline
+                  elements</a>
+              </li>
+              <li><a href="#add-font-awesome-icons-to-buttons">Add <code>Font Awesome</code> icons to
+                  buttons</a></li>
+              <li><a href="#"></a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="content">
+
+      <h1 id="bootstrap">Bootstrap</h1>
+      <p><em>Source: <a href="https://www.freecodecamp.org/learn/front-end-libraries/bootstrap/">freecodecamp</a></em>
+      </p>
+      <h2 id="introduction">Introduction</h2>
+      <p><code>Bootstrap</code> is a front-end framework used to design reponsive web pages and web applications.
+        It takes a
+        <em>mobile-first</em> approach to web development.</p>
+      <p>Bootstrap includes pre-built CSS styles and classes, plus some JavaScript functionality, and uses a
+        reponsive
+        <em>12 column grid layout</em>.</p>
+      <p><em>It has design templates for</em>:</p>
+      <ul>
+        <li><code>buttons</code>,</li>
+        <li><code>images</code>,</li>
+        <li><code>tables</code>,</li>
+        <li><code>forms</code>,</li>
+        <li><code>navigation</code>.</li>
+      </ul>
+      <h3 id="use-responsive-design-with-bootstrap-fluid-containers">Use responsive design with Bootstrap
+        <code>Fluid
+          Containers</code></h3>
+      <p>Bootstrap figures out how wide the currentr scren is and resize HTML elements accordingly.</p>
+      <h4 id="adding-bootstrap-to-a-website">Adding bootstrap to a website</h4>
+      <p><em>Place this into the HTML-file</em>:</p>
+      <pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">&quot;sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u&quot;</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">&quot;anonymous&quot;</span>/&gt;</span>
+</div></code></pre>
+      <h4 id="container-fluid"><code>container-fluid</code></h4>
+      <p>To use Bootstrap, <em>place all HTML page content in a `<div class="container-fluid"></div></em>.</p>
+      <h3 id="make-images-mobile-responsive">Make images mobile responsive</h3>
+      <p>In Bootstrap, all you need to do to make images <em>responsive to the width of the mobile screen</em>, is
+        to add a
+        class named <code>img-responsive</code> to the particular image.</p>
+      <p><em>Example</em>:</p>
+      <pre><code class="language-html"><div>  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;img-responsive&quot;</span>; <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://bit.ly/fcc-running-cats&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;cats running&quot;</span>&gt;</span>
+</div></code></pre>
+      <h3 id="center-text-with-bootstrap">Center text with Bootstrap</h3>
+      <p>Centering text is done by adding the class <code>text-center</code> to a text element.</p>
+      <p><em>Example</em>:</p>
+      <pre><code class="language-html"><div>h2 class=&quot;red-text text-center&quot;&gt;Your text<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+</div></code></pre>
+      <h3 id="create-a-bootstrap-button">Create a Bootstrap <code>button</code></h3>
+      <p>Bootstrap has its own styles for <code>button</code> elements.</p>
+      <p>Add the classes <code>btn</code> and <code>btn-default</code> to use the Bootstrap styles.</p>
+      <h3 id="create-a-block-element-bootstrap-button">Create a <code>block element</code> Bootstrap button</h3>
+      <p>Besides adding <code>btn</code> and <code>btn-default</code> to a button element, <em>add
+          <code>btn-block</code> to
+          make the width fit the maximum available space</em>.</p>
+      <pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-default btn-block&quot;</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div></code></pre>
+      <h3 id="change-bootstrap-button-colors">Change bootstrap button colors</h3>
+      <p>The <code>btn-primary</code> class is the main color of the app, useful to highlight most important
+        actions.</p>
+      <p>It can be used in place of <code>btn-default</code>.</p>
+      <h3 id="call-out-optional-actions-with-btn-info">Call out optional actions with <code>btn-info</code></h3>
+      <p>Bootstrap comes with several pre-defined colors for buttons. The <code>btn-info</code> class is used to
+        call
+        attention to optional actions the user can take.</p>
+      <p><em>Example</em>:</p>
+      <pre><code class="language-html"><div>  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-block btn-info&quot;</span>&gt;</span>Info<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div></code></pre>
+      <h3 id="warn-the-user-of-a-dangerous-action-with-btn-danger">Warn the user of a dangerous action with
+        <code>btn-danger</code></h3>
+      <p>The <code>btn-danger</code> class is the button color you'll use to notify that the button performs a
+        destructuve
+        actions, such as deleting an item.</p>
+      <p><em>Example</em>:</p>
+      <pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-block btn-danger&quot;</span>&gt;</span>Delete<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div></code></pre>
+      <h3 id="use-the-bootstrap-grid-to-put-elements-side-by-side">Use the Bootstrap <code>grid</code> to put
+        elements side
+        by side</h3>
+      <p>Bootstrap uses a <em>12-column grid system</em>, making it easy to put elements into rows and <em>specify
+          each
+          element's relative width</em>.</p>
+      <p><em>Most of Bootstrap's classes can be applied to a grid element</em>.</p>
+      <p>Bootstrap has different column width attributes that it uses <em>depending on how wide the user's screen
+          is</em>.
+      </p>
+      <p>For example, take Bootstrap's <code>col-md-*</code> class. Here <code>md</code> means <em>medium</em>,
+        and
+        <code>*</code> is a <em>number specifying how many columns wide the element should be</em>.</p>
+      <p><em>In this case, the column width of an element on a medium-sized screen, such as a laptop is being
+          specified</em>.</p>
+      <p>The row class is applied to a div, and the buttons themselves can be nested within it.</p>
+      <p><em>Example</em>:</p>
+      <pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-xs-4&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-block btn-primary&quot;</span>&gt;</span>Like<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-xs-4&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-block btn-info&quot;</span>&gt;</span>Info<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-xs-4&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-block btn-danger&quot;</span>&gt;</span>Delete<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div></code></pre>
+      <h3 id="use-a-span-to-target-inline-elements">Use a <code>span</code> to target inline elements</h3>
+      <p>You can use spans to create inline elements.</p>
+      <p>By using the inline <code>span</code> element, you can put several elements on the same line, and even
+        style
+        different parts of the same line differently.</p>
+      <p><em>Example</em>:</p>
+      <pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Things cats <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;text-danger&quot;</span>&gt;</span>love<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div></code></pre>
+      <h3 id="add-font-awesome-icons-to-buttons">Add <code>Font Awesome</code> icons to buttons</h3>
+      <p><code>Font Awesome</code> is a convenient library for icons.</p>
+      <p>Include the Font Awesome library by adding:</p>
+      <pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://use.fontawesome.com/releases/v5.8.1/css/all.css&quot;</span> <span class="hljs-attr">integrity</span>=<span class="hljs-string">&quot;sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf&quot;</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">&quot;anonymous&quot;</span>&gt;</span>
+</div></code></pre>
+      <p>The <code>i</code> element was originally used to make elements italic, but is now commonly used for
+        icons. Using
+        the for example:</p>
+      <pre><code class="language-html"><div><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fas fa-info-circle&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+</div></code></pre>
+      <p><em>Note - the <code>span</code> element is also acceptable for use with icons.</em></p>
+      <h3 id=""></h3>
+
+
+    </div>
+
+  </div>
+</body>
+
+</html>
