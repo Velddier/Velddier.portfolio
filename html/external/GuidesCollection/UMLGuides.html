@@ -2,1053 +2,1076 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>UML</title>
+  <meta charset="UTF-8">
+  <title>UML</title>
 
-    <base href="https://www.velddier.com/">
+  <base href="https://www.velddier.com/">
 
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
-        integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
-        type="text/css">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-    <link rel="stylesheet" href="css/notebookStyle.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+    integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <link rel="stylesheet" href="./css/notebookStyle.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
 
 </head>
 
 <body class="vscode-body vscode-light">
-    <div class="navbar"><a href="javascript:history.back()" class="navbar__back">Back</a>
-        <div class="menu">
-            <a href="html/UX_Portfolio.html">UX Design</a>
-            <span>|</span>
-            <a href="html/UI_Portfolio.html">Web Services</a>
-            <span>|</span>
-            <a href="html/Coding_Portfolio.html">Coding</a>
-            <span>|</span>
-            <a href="html/Other_Portfolio.html">Etc.</a>
-        </div>
-        <a href="/" class="logo">Frederik DeVilder</a>
+  <div class="navbar"><a href="javascript:history.back()" class="navbar__back">Back</a>
+    <div class="menu">
+      <a href="html/UX_Portfolio.html">UX Design</a>
+      <span>|</span>
+      <a href="html/UI_Portfolio.html">Web Services</a>
+      <span>|</span>
+      <a href="html/Coding_Portfolio.html">Coding</a>
+      <span>|</span>
+      <a href="html/Other_Portfolio.html">Etc.</a>
     </div>
+    <a href="/" class="logo">Frederik DeVilder</a>
+  </div>
 
 
-    <!-- PAGE CONTENT -->
-    <div class="window">
+  <!-- PAGE CONTENT -->
+  <div class="window">
 
-        <ul class="index">
-            <li><a href="#uml">UML</a>
+    <ul class="index">
+      <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml">UML</a>
+        <ul>
+          <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml---overview">UML - Overview</a>
+            <ul>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#goals-of-uml">Goals of <code>UML</code></a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#a-conceptual-model-of-uml">A conceptual model of
+                  <code>UML</code></a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#object-oriented-concepts">Object-oriented concepts</a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#oo-analysis-and-design">OO analysis and design</a>
                 <ul>
-                    <li><a href="#uml---overview">UML - Overview</a>
-                        <ul>
-                            <li><a href="#goals-of-uml">Goals of <code>UML</code></a></li>
-                            <li><a href="#a-conceptual-model-of-uml">A conceptual model of <code>UML</code></a></li>
-                            <li><a href="#object-oriented-concepts">Object-oriented concepts</a></li>
-                            <li><a href="#oo-analysis-and-design">OO analysis and design</a>
-                                <ul>
-                                    <li><a
-                                            href="#the-three-basic-steps-where-the-oo-concepts-are-applied-and-implemented">The
-                                            three basic
-                                            steps where the OO concepts are applied and implemented:</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#role-of-uml-in-oo-design">Role of <code>UML</code> in <code>OO
-                                        Design</code></a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#uml---building-blocks">UML - <code>Building Blocks</code></a>
-                        <ul>
-                            <li><a href="#elements">Elements</a>
-                                <ul>
-                                    <li><a href="#structural-elements">Structural elements</a></li>
-                                    <li><a href="#behavioral-elements">Behavioral elements</a></li>
-                                    <li><a href="#grouping-elements">Grouping elements</a></li>
-                                    <li><a href="#annotational-elements">Annotational elements</a></li>
-                                    <li><a href="#relationship">Relationship</a></li>
-                                    <li><a href="#uml-diagrams">UML diagrams</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="#uml---architecture">UML - <code>Architecture</code></a></li>
-                    <li><a href="#uml---modeling-types">UML - <code>Modeling Types</code></a>
-                        <ul>
-                            <li><a href="#structural-modeling">Structural modeling</a></li>
-                            <li><a href="#behavioral-modeing">Behavioral modeing</a></li>
-                            <li><a href="#architectural-modeling">Architectural modeling</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#uml---basic-notation">UML - <code>Basic Notation</code></a>
-                        <ul>
-                            <li><a href="#notation-of-structural-elements">Notation of <code>structural
-                                        elements</code></a>
-                                <ul>
-                                    <li><a href="#class-notation">Class notation</a></li>
-                                    <li><a href="#object-notation">Object notation</a></li>
-                                    <li><a href="#interface-notation">Interface notation</a></li>
-                                    <li><a href="#collaboration-notation">Collaboration notation</a></li>
-                                    <li><a href="#use-case-notation">Use case notation</a></li>
-                                    <li><a href="#actor-notation">Actor notation</a></li>
-                                    <li><a href="#initial-state-notation">Initial state notation</a></li>
-                                    <li><a href="#final-state-notation">Final state notation</a></li>
-                                    <li><a href="#active-class-notation">Active class notation</a></li>
-                                    <li><a href="#component-notation">Component notation</a></li>
-                                    <li><a href="#node-notation">Node notation</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#notation-of-behavioral-elements">Notation of <code>behavioral
-                                        elements</code></a>
-                                <ul>
-                                    <li><a href="#interaction-notation">Interaction notation</a></li>
-                                    <li><a href="#state-machine-notation">State machine notation</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#grouping-elements---package-notation">Grouping elements - <code>package
-                                        notation</code></a>
-                            </li>
-                            <li><a href="#annotating-elements---note-notation">Annotating elements - <code>note
-                                        notation</code></a></li>
-                            <li><a href="#relationships">Relationships</a>
-                                <ul>
-                                    <li><a href="#dependancy-notation">Dependancy notation</a></li>
-                                    <li><a href="#association-notation">Association notation</a></li>
-                                    <li><a href="#generalization-notation">Generalization notation</a></li>
-                                    <li><a href="#extensibility-notation">Extensibility notation</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="#uml---standard-diagrams">UML - <code>Standard Diagrams</code></a>
-                        <ul>
-                            <li><a href="#structural-diagrams">Structural diagrams</a></li>
-                            <li><a href="#behavioral-diagrams">Behavioral diagrams</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#uml---class-diagram">UML - <code>Class Diagram</code></a>
-                        <ul>
-                            <li><a href="#purpose-of-class-diagrams">Purpose of class diagrams</a></li>
-                            <li><a href="#drawing-a-class-diagram">Drawing a class diagram</a></li>
-                            <li><a href="#where-to-use-class-diagrams">Where to use class diagrams</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#uml---object-diagrams">UML - <code>Object Diagrams</code></a>
-                        <ul>
-                            <li><a href="#purpose-of-object-diagrams">Purpose of object diagrams</a></li>
-                            <li><a href="#drawing-an-object-diagram">Drawing an object diagram</a></li>
-                            <li><a href="#where-to-use-object-diagrams">Where to use object diagrams</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#uml---component-diagrams">UML - <code>Component Diagrams</code></a>
-                        <ul>
-                            <li><a href="#purpose-of-component-diagrams">Purpose of component diagrams</a></li>
-                            <li><a href="#drawing-a-component-diagram">Drawing a component diagram</a></li>
-                            <li><a href="#where-to-use-component-diagrams">Where to use component diagrams</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#uml---deployment-diagrams">UML - <code>Deployment Diagrams</code></a>
-                        <ul>
-                            <li><a href="#purpose-of-a-deployment-diagram">Purpose of a deployment diagram</a></li>
-                            <li><a href="#drawing-a-deployment-diagram">Drawing a deployment diagram</a></li>
-                            <li><a href="#where-to-use-deployment-diagrams">Where to use deployment diagrams</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#uml---use-case-diagrams">UML - <code>Use Case Diagrams</code></a>
-                        <ul>
-                            <li><a href="#purpose-of-a-use-case-diagram">Purpose of a use case diagram</a></li>
-                            <li><a href="#drawing-a-use-case-diagram">Drawing a use case diagram</a>
-                                <ul>
-                                    <li><a href="#include--extend"><code>&lt;&lt;Include&gt;&gt;</code> &amp;
-                                            <code>&lt;&lt;Extend&gt;&gt;</code></a></li>
-                                    <li><a href="#specialized-use-cases">Specialized use cases</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#where-to-use-a-use-case-diagram">Where to use a use case diagram</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#uml---interaction-diagram">UML - <code>Interaction Diagram</code></a>
-                        <ul>
-                            <li><a href="#purpose-of-interaction-diagrams">Purpose of interaction diagrams</a></li>
-                            <li><a href="#drawing-an-interaction-diagram">Drawing an interaction diagram</a>
-                                <ul>
-                                    <li><a href="#sequence-diagrams">Sequence diagrams</a></li>
-                                    <li><a href="#collaboration-diagram">Collaboration diagram</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#where-to-use-interaction-diagrams">Where to use interaction diagrams</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#uml---statechart-diagrams">UML - <code>Statechart Diagrams</code></a>
-                        <ul>
-                            <li><a href="#drawing-a-statemachine-diagram">Drawing a statemachine diagram</a></li>
-                            <li><a href="#where-to-use-statechart-diagrams">Where to use statechart diagrams:</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#uml---activity-diagrams">UML - <code>Activity Diagrams</code></a>
-                        <ul>
-                            <li><a href="#purpose-of-activity-diagrams">Purpose of activity diagrams</a></li>
-                            <li><a href="#drawing-an-activity-diagram">Drawing an activity diagram</a></li>
-                            <li><a href="#where-to-use-activity-diagrams">Where to use activity diagrams</a></li>
-                        </ul>
-                    </li>
+                  <li><a href="#the-three-basic-steps-where-the-oo-concepts-are-applied-and-implemented">The
+                      three basic
+                      steps where the OO concepts are applied and implemented:</a></li>
                 </ul>
-            </li>
+              </li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#role-of-uml-in-oo-design">Role of <code>UML</code> in
+                  <code>OO
+                    Design</code></a></li>
+            </ul>
+          </li>
+          <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml---building-blocks">UML - <code>Building Blocks</code></a>
+            <ul>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#elements">Elements</a>
+                <ul>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#structural-elements">Structural elements</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#behavioral-elements">Behavioral elements</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#grouping-elements">Grouping elements</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#annotational-elements">Annotational elements</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#relationship">Relationship</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml-diagrams">UML diagrams</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml---architecture">UML - <code>Architecture</code></a></li>
+          <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml---modeling-types">UML - <code>Modeling Types</code></a>
+            <ul>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#structural-modeling">Structural modeling</a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#behavioral-modeing">Behavioral modeing</a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#architectural-modeling">Architectural modeling</a></li>
+            </ul>
+          </li>
+          <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml---basic-notation">UML - <code>Basic Notation</code></a>
+            <ul>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#notation-of-structural-elements">Notation of <code>structural
+                    elements</code></a>
+                <ul>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#class-notation">Class notation</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#object-notation">Object notation</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#interface-notation">Interface notation</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#collaboration-notation">Collaboration notation</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#use-case-notation">Use case notation</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#actor-notation">Actor notation</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#initial-state-notation">Initial state notation</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#final-state-notation">Final state notation</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#active-class-notation">Active class notation</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#component-notation">Component notation</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#node-notation">Node notation</a></li>
+                </ul>
+              </li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#notation-of-behavioral-elements">Notation of <code>behavioral
+                    elements</code></a>
+                <ul>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#interaction-notation">Interaction notation</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#state-machine-notation">State machine notation</a></li>
+                </ul>
+              </li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#grouping-elements---package-notation">Grouping elements -
+                  <code>package
+                    notation</code></a>
+              </li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#annotating-elements---note-notation">Annotating elements -
+                  <code>note
+                    notation</code></a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#relationships">Relationships</a>
+                <ul>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#dependancy-notation">Dependancy notation</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#association-notation">Association notation</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#generalization-notation">Generalization notation</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#extensibility-notation">Extensibility notation</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml---standard-diagrams">UML - <code>Standard Diagrams</code></a>
+            <ul>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#structural-diagrams">Structural diagrams</a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#behavioral-diagrams">Behavioral diagrams</a></li>
+            </ul>
+          </li>
+          <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml---class-diagram">UML - <code>Class Diagram</code></a>
+            <ul>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#purpose-of-class-diagrams">Purpose of class diagrams</a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#drawing-a-class-diagram">Drawing a class diagram</a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#where-to-use-class-diagrams">Where to use class diagrams</a>
+              </li>
+            </ul>
+          </li>
+          <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml---object-diagrams">UML - <code>Object Diagrams</code></a>
+            <ul>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#purpose-of-object-diagrams">Purpose of object diagrams</a>
+              </li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#drawing-an-object-diagram">Drawing an object diagram</a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#where-to-use-object-diagrams">Where to use object
+                  diagrams</a></li>
+            </ul>
+          </li>
+          <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml---component-diagrams">UML - <code>Component
+                Diagrams</code></a>
+            <ul>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#purpose-of-component-diagrams">Purpose of component
+                  diagrams</a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#drawing-a-component-diagram">Drawing a component diagram</a>
+              </li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#where-to-use-component-diagrams">Where to use component
+                  diagrams</a></li>
+            </ul>
+          </li>
+          <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml---deployment-diagrams">UML - <code>Deployment
+                Diagrams</code></a>
+            <ul>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#purpose-of-a-deployment-diagram">Purpose of a deployment
+                  diagram</a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#drawing-a-deployment-diagram">Drawing a deployment
+                  diagram</a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#where-to-use-deployment-diagrams">Where to use deployment
+                  diagrams</a></li>
+            </ul>
+          </li>
+          <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml---use-case-diagrams">UML - <code>Use Case Diagrams</code></a>
+            <ul>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#purpose-of-a-use-case-diagram">Purpose of a use case
+                  diagram</a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#drawing-a-use-case-diagram">Drawing a use case diagram</a>
+                <ul>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#include--extend"><code>&lt;&lt;Include&gt;&gt;</code>
+                      &amp;
+                      <code>&lt;&lt;Extend&gt;&gt;</code></a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#specialized-use-cases">Specialized use cases</a></li>
+                </ul>
+              </li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#where-to-use-a-use-case-diagram">Where to use a use case
+                  diagram</a></li>
+            </ul>
+          </li>
+          <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml---interaction-diagram">UML - <code>Interaction
+                Diagram</code></a>
+            <ul>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#purpose-of-interaction-diagrams">Purpose of interaction
+                  diagrams</a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#drawing-an-interaction-diagram">Drawing an interaction
+                  diagram</a>
+                <ul>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#sequence-diagrams">Sequence diagrams</a></li>
+                  <li><a href="/html/external/GuidesCollection/UMLGuides.html#collaboration-diagram">Collaboration diagram</a></li>
+                </ul>
+              </li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#where-to-use-interaction-diagrams">Where to use interaction
+                  diagrams</a></li>
+            </ul>
+          </li>
+          <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml---statechart-diagrams">UML - <code>Statechart
+                Diagrams</code></a>
+            <ul>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#drawing-a-statemachine-diagram">Drawing a statemachine
+                  diagram</a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#where-to-use-statechart-diagrams">Where to use statechart
+                  diagrams:</a></li>
+            </ul>
+          </li>
+          <li><a href="/html/external/GuidesCollection/UMLGuides.html#uml---activity-diagrams">UML - <code>Activity Diagrams</code></a>
+            <ul>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#purpose-of-activity-diagrams">Purpose of activity
+                  diagrams</a></li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#drawing-an-activity-diagram">Drawing an activity diagram</a>
+              </li>
+              <li><a href="/html/external/GuidesCollection/UMLGuides.html#where-to-use-activity-diagrams">Where to use activity
+                  diagrams</a></li>
+            </ul>
+          </li>
         </ul>
+      </li>
+    </ul>
 
-        <div class="content">
+    <div class="content">
 
-            <h1 id="uml">UML</h1>
-            <p><em>source: <a href="https://www.tutorialspoint.com/uml/uml_2_overview.htm">Tutorials Point</a></em></p>
-            <p><code>UML</code> (Unified Modeling Language) is a standard language for specifying, visualizing,
-                constructing, and
-                documenting software systems.</p>
-            <h2 id="uml---overview">UML - Overview</h2>
-            <h3 id="goals-of-uml">Goals of <code>UML</code></h3>
-            <ul>
-                <li>To help the conceptualization of <code>OOP</code> development;</li>
-                <li>provides a general purpose modeling language;</li>
-                <li><code>UML</code> is easy to understand for not just developers, but business users and common users.
-                    It
-                    descripes what is happening in the development of a project.</li>
-            </ul>
-            <h3 id="a-conceptual-model-of-uml">A conceptual model of <code>UML</code></h3>
-            <p>Consider a <em>conceptual model</em> as the following:</p>
-            <ul>
-                <li>A <em>conceptual model</em> can be defined as <strong>a model which is made of concepts and their
-                        relationships</strong>;</li>
-                <li>such models are the step <em>before</em> UML diagrams, helping to understand entities and how they
-                    interact with
-                    one and other.</li>
-            </ul>
-            <p>It is important to have a conceptual model of your project, before trying to work out all the details in
-                a UML
-                diagram. <em>The conceptual model of UML can be mastered by the following three elements</em>:</p>
-            <ul>
-                <li>UML building blocks,</li>
-                <li>Rules to connect the building blocks,</li>
-                <li>Common mechanisms of UML.</li>
-            </ul>
-            <h3 id="object-oriented-concepts">Object-oriented concepts</h3>
-            <p>In <code>object-oriented</code> processes, <code>an object</code> contains both <code>data</code> and
-                <code>methods</code> that control the data, which represents the <em>state of the object</em>. A
-                <code>class</code>
-                describes an object and they also form a hierarchy* to represent the real-world system. The hierarchy
-                follows a
-                strict <code>inheritance system</code>.</p>
-            <p>UML is able to represent all concepts that exist in <code>object-oriented</code> analysis and design.
-                Following are
-                some fundamental concepts of the object-oriented world:</p>
-            <ul>
-                <li><code>Objects</code> →objects represent an entity and the basic building block;</li>
-                <li><code>Class</code> →a class is the blueprint of an object;</li>
-                <li><code>Abstraction</code> →represents the behaviour of a real-world entity;</li>
-                <li><code>Encapsulation</code> →encapsulation is the mechanism of binding the data together and hiding
-                    them from
-                    outsider parties;</li>
-                <li><code>Inheritance</code> →the mechanism of making new classes from existing ones;</li>
-                <li><code>Polymorphism</code> →defines the mechanism to exist in different forms.</li>
-            </ul>
-            <h3 id="oo-analysis-and-design">OO analysis and design</h3>
-            <p>The most important purpose of OO analysis <em>is to identify objects of a system to be designed</em>.</p>
-            <p>An efficient analysis is only possible when we are able to start thinking in a way where <em>objects can
-                    be
-                    identified</em>, whereafter the objects and their relationships are identified and the design is
-                produced.</p>
-            <p>The purpose of OO analysis and design can be described as:</p>
-            <ul>
-                <li>Identifying the <code>objects of a system</code>;</li>
-                <li>identifying their <code>relationships</code>;</li>
-                <li>making a design to be converted to <code>executables</code> using OO languages.</li>
-            </ul>
-            <h4 id="the-three-basic-steps-where-the-oo-concepts-are-applied-and-implemented">The three basic steps where
-                the OO
-                concepts are applied and implemented:</h4>
-            <blockquote>
-                <p><code>OO analysis</code> → <code>OO design</code> → <code>OO implementation using OO languages</code>
-                </p>
-            </blockquote>
-            <ul>
-                <li>During <code>OO analysis</code>, the most important step is to <em>identify objects and describe
-                        them
-                        correctly</em>, providing clarity in later stages. Objects should be identified with
-                    <code>responsibilities</code>—the <code>functions</code> performed by an object. All
-                    responsibilities collaborated
-                    fulfills the purpose of the system.</li>
-                <li>During the second phase, <code>OO Design</code>, focus is on <em>the requirements and their
-                        fulfillments</em>.
-                    The objects collaborate according to their intended association, finishing the design.</li>
-                <li>The third phase, <code>OO implementation</code>, <em>the design is implemented using OO languages
-                        such as
-                        <code>Java</code>, <code>C++</code>, etc</em>.</li>
-            </ul>
-            <h3 id="role-of-uml-in-oo-design">Role of <code>UML</code> in <code>OO Design</code></h3>
-            <p>As a modeling language, UML is used to model (non-)software systems. The emphasised use of UML is with
-                modeling OO
-                software applications. Most of the UML diagrams discussed so far are used to model different aspects
-                such as static,
-                dynamic, etc. Now whatever be the aspect, the artifacts are nothing but objects.</p>
-            <p>It is important to understand the relation between OO design and UML; <em>the OO design is transformed
-                    into UML
-                    diagrams according to requirement</em>. The input from OO analysis and design is the input to UML
-                diagrams.</p>
-            <hr>
-            <h2 id="uml---building-blocks">UML - <code>Building Blocks</code></h2>
-            <p>The building blocks of UML consist of 3 main categories: <code>Elements</code>,
-                <code>Relationships</code>, and
-                <code>Diagrams</code>.</p>
-            <h3 id="elements">Elements</h3>
-            <p><code>Elements</code> are the most important building blocks of UML. They can be...</p>
-            <ul>
-                <li>structural,</li>
-                <li>behavioral,</li>
-                <li>grouping,</li>
-                <li>annotational.</li>
-            </ul>
-            <h4 id="structural-elements">Structural elements</h4>
-            <p><code>Structural elements</code> define the <em>static</em> part of the model. They represent the
-                <em>physical</em>
-                and <em>conceptual elements</em>. They are:</p>
-            <ul>
-                <li><code>class</code> →represents a set of objects having similar responsibilities;<br><img
-                        src="https://www.tutorialspoint.com/uml/images/uml_class.jpg" alt="UML class"></li>
-                <li><code>interface</code> →defines a set of operations, which specify the responsibility of a
-                    class;<br><img src="https://www.tutorialspoint.com/uml/images/uml_interface.jpg"
-                        alt="UML interface"></li>
-                <li><code>collaboration</code> →defines an interaction between elements;<br><img
-                        src="https://www.tutorialspoint.com/uml/images/uml_collaboration.jpg" alt="UML collaboration">
-                </li>
-                <li><code>use case</code> →represents a set of actions performed by a system for a specific
-                    goal;<br><img src="https://www.tutorialspoint.com/uml/images/uml_usecase.jpg" alt="UML use case">
-                </li>
-                <li><code>components</code> →describes the physical part of a system;<br><img
-                        src="https://www.tutorialspoint.com/uml/images/uml_component.jpg" alt="UML components"></li>
-                <li><code>node</code> →can be defined as a physiscal element that exists at run time.<br><img
-                        src="https://www.tutorialspoint.com/uml/images/uml_node.jpg" alt="UML node"></li>
-            </ul>
-            <h4 id="behavioral-elements">Behavioral elements</h4>
-            <p><code>Behavioral elements</code> consists of the <em>dynamic</em> parts of an UML model. They are:</p>
-            <ul>
-                <li><code>interaction</code> →defined as a behaviour that consists of a group of messages exchanged
-                    between elements
-                    to accomplish a specific task;<br><img
-                        src="https://www.tutorialspoint.com/uml/images/uml_message.jpg" alt="UML interaction"></li>
-                <li><code>state machine</code> →is useful when the state of an object in its life cycle is important,
-                    defining the
-                    sequence of state an object goes through in response to <code>events</code> (<em>external factors
-                        responsible for
-                        change</em>).<br><img src="https://www.tutorialspoint.com/uml/images/uml_state.jpg"
-                        alt="UML state maching">
-                </li>
-            </ul>
-            <h4 id="grouping-elements">Grouping elements</h4>
-            <p><code>Grouping elements</code> can be defined as a mechanism to group elements of a UML model together.
-                There is
-                only one grouping thing available:</p>
-            <ul>
-                <li><code>package</code> →gathers structural and behavioral elements.<br><img
-                        src="https://www.tutorialspoint.com/uml/images/uml_package.jpg" alt="UML package"></li>
-            </ul>
-            <h4 id="annotational-elements">Annotational elements</h4>
-            <p><code>Annotational elements</code> help to capture remarks, descriptions, and comments of UML model
-                elements.
-                <em>It should be the only thing used to render comments, constrants, etc. of an UML elements</em>.</p>
-            <p><img src="https://www.tutorialspoint.com/uml/images/uml_note.jpg" alt="UML note"></p>
-            <h4 id="relationship">Relationship</h4>
-            <p><code>Relationship</code> is one of the most important UML building blocks. It shows how elements are
-                associated
-                with each other, ultimately describing the functionality of an application. <em>There are 4 types of
-                    relationships</em>:</p>
-            <ul>
-                <li><code>dependancy</code> →a relationship between two elements in which <em>change in one element also
-                        affects the
-                        other;</em><br><img src="https://www.tutorialspoint.com/uml/images/uml_dependency.jpg"
-                        alt="UML dependancy">
-                </li>
-                <li><code>association</code> →a set of links that connects the elements of a UML model. It also
-                    describes how many
-                    objects are taking part in that relationship.<br><img
-                        src="https://www.tutorialspoint.com/uml/images/uml_association.jpg" alt="UML association"></li>
-                <li><code>generalization</code> →can be defined as a relationship which connects a specialized element
-                    with a
-                    generalized element. It basically describes the inheritance relationship in the world of
-                    objects.<br><img src="https://www.tutorialspoint.com/uml/images/uml_generalization.jpg"
-                        alt="UML generalization"></li>
-                <li><code>realizations</code> →can be defined as a relationship in which two elements are connected. One
-                    element
-                    describies some responsibility, which is not implemented and the other one implements them.<br><img
-                        src="https://www.tutorialspoint.com/uml/images/uml_realization.jpg" alt="UML"></li>
-            </ul>
-            <h4 id="uml-diagrams">UML diagrams</h4>
-            <p><code>UML diagrams</code> are the ultimate output: all element and relationships are used to make a
-                complete UML
-                diagram to represent a system.</p>
-            <p>UML includes the following 9 diagrams:</p>
-            <ul>
-                <li><code>class diagrams</code>,</li>
-                <li><code>object diagrams</code>,</li>
-                <li><code>use case diagrams</code>,</li>
-                <li><code>sequence diagrams</code>,</li>
-                <li><code>collaboration diagrams</code>,</li>
-                <li><code>activity diagrams</code>,</li>
-                <li><code>statechart diagrams</code>,</li>
-                <li><code>deployment diagrams</code>,</li>
-                <li><code>component diagrams</code>.</li>
-            </ul>
-            <hr>
-            <h2 id="uml---architecture">UML - <code>Architecture</code></h2>
-            <p>A real-world system will be used by many different users, each with different perspectives and goals in
-                mind. It is
-                important to visualize this difference in perspective, which helps to build a better system in the end.
-            </p>
-            <p><em>The core perspectives are</em>:</p>
-            <ul>
-                <li><code>design</code> →consists of classes, interfaces, and collaboration. <em>They are UML class- and
-                        object
-                        diagrams</em>.</li>
-                <li><code>implementation</code> →defines the components assempled together to make a complete physical
-                    system.
-                    <em>They are UML component diagrams</em>.</li>
-                <li><code>process</code> →defines the flow of the system.</li>
-                <li><code>deployment</code> →represents the physical nodes of the system that forms the hardware.
-                    <em>UML deployment
-                        diagrams is used to support this perspective.</em></li>
-            </ul>
-            <p>In the center of these perspectives is the <code>use case</code>, which <em>connects all 4 and represents
-                    the
-                    functionality of the system</em>. Hence, other perspectives are connected with use cases.</p>
-            <hr>
-            <h2 id="uml---modeling-types">UML - <code>Modeling Types</code></h2>
-            <p>It is <em>very</em> important to distinguish between the UML Models. <em>Different diagrams are used for
-                    different
-                    types of UML modeling</em>.</p>
-            <h3 id="structural-modeling">Structural modeling</h3>
-            <p><code>Structural modeling</code> captures the static features of a system. They consist of:</p>
-            <ul>
-                <li><code>classes diagrams</code>,</li>
-                <li><code>objects diagrams</code>,</li>
-                <li><code>deployment diagrams</code>,</li>
-                <li><code>package diagrams</code>,</li>
-                <li><code>composite structure diagrams</code>,</li>
-                <li><code>component diagrams</code>.</li>
-            </ul>
-            <p>Structural models represent the <code>framework</code> for the system and <em>is where all components
-                    exist</em>.
-                Hence, the <code>class diagram</code>, <code>component diagram</code>, and <code>deployment
-                    diagrams</code> are part
-                of <code>structural modeling</code>. <em>They all represent the elements and mechanisms to assemble
-                    them</em>.</p>
-            <p>The structural model does not describe the system's <code>dynamic behaviour</code>.</p>
-            <h3 id="behavioral-modeing">Behavioral modeing</h3>
-            <p><code>Behavioral models</code> describe the interaction in the system. It represents the interaction
-                between the
-                structural diagrams and they show the dynamic sequence of flow in a system. They consist of:</p>
-            <ul>
-                <li><code>activity diagrams</code>,</li>
-                <li><code>interaction diagrams</code>,</li>
-                <li><code>use case diagrams</code>.</li>
-            </ul>
-            <h3 id="architectural-modeling">Architectural modeling</h3>
-            <p><code>Architectural models</code> represent the <code>overall framework</code> of the system. It contains
-                both
-                <em>structural</em> and <em>behavioral</em> elements of the system. <em>Architectural models can be
-                    defined as the
-                    blueprint of the entire system</em>. It includes <code>package diagrams</code>.</p>
-            <hr>
-            <h2 id="uml---basic-notation">UML - <code>Basic Notation</code></h2>
-            <p>UML notations are the most important element in modeling. Efficient and appropriate use is very important
-                for
-                making a complete and meaningful model.</p>
-            <p>Notations are a key part of understanding UML. UML diagrams are made using the notation of elements and
-                relationships.</p>
-            <p>Each of the aforementioned UML building blocks has a specific notation.</p>
-            <h3 id="notation-of-structural-elements">Notation of <code>structural elements</code></h3>
-            <p>Graphical notations used in structural elements are most common in UML. <em>These are considered as the
-                    <code>nouns</code> of UML models</em>.</p>
-            <h4 id="class-notation">Class notation</h4>
-            <p><img src="https://sparxsystems.com/enterprise_architect_user_guide/15.1/images/exampleofaclassdiagram.png"
-                    alt="Example class diagram"></p>
-            <p>UML <code>class</code> is divided into <em>4 parts</em>:</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>1. name of class</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2. attributes of class</td>
-                    </tr>
-                    <tr>
-                        <td>3. operations performed by class</td>
-                    </tr>
-                    <tr>
-                        <td>4. any additional components</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_class.jpg" alt="Class notation"></p>
-            <h4 id="object-notation">Object notation</h4>
-            <p>The <code>object</code> is usually a subitem of a class is represented the same way, <em>with the only
-                    difference
-                    is that the name is <strong>underlined</strong>.</em></p>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_object.jpg" alt="Object notation"></p>
-            <h4 id="interface-notation">Interface notation</h4>
-            <p><code>Interface</code> is represented by a circle. It has as name which is generally written below.</p>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_interface.jpg"
-                    alt="Interface circle notation"></p>
-            <p><code>Interface</code> is used to describe the functionality <em>without implementation</em>. It is just
-                a template
-                where you define different functions, not implementations. When a class implements the interface, it
-                also implements
-                the functionality as per requirement.</p>
-            <h4 id="collaboration-notation">Collaboration notation</h4>
-            <p><code>Collaboration</code> represents responsibilites. Generally, responsibilities are grouped.</p>
-            <p>They are represented by a dotted eclipse with a nmae on the inside.</p>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_collaboration.jpg"
-                    alt="A collaboration notation"></p>
-            <h4 id="use-case-notation">Use case notation</h4>
-            <p><code>Use case</code> is used to capture high level functionality of a system.</p>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_usecase.jpg" alt="Use case notation"></p>
-            <p>They are represented by an eclipse with a name inside and may contain additional responsibilities.</p>
-            <h4 id="actor-notation">Actor notation</h4>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_actor.jpg" alt="Actor notation"></p>
-            <p>An actor can be an <em>external-</em> or <em>internal entity</em> that <em>interacts</em> with the
-                system.</p>
-            <h4 id="initial-state-notation">Initial state notation</h4>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_initialstate.jpg"
-                    alt="initial state notation"></p>
-            <p>Defines the <code>start</code> of a process and <em>found in nearly all diagrams</em>.</p>
-            <h4 id="final-state-notation">Final state notation</h4>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_finalstate.jpg" alt="Final state notation">
-            </p>
-            <p>Describes the end of a process, and used to show the termination point of a process.</p>
-            <h4 id="active-class-notation">Active class notation</h4>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_activeclass.jpg"
-                    alt="Active class notation"></p>
-            <p>Similar to a class, but with a solid border. Active class usually describes the concurrent behaviour of a
-                system.
-            </p>
-            <h4 id="component-notation">Component notation</h4>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_component.jpg" alt="Component notation"></p>
-            <p>A component in UML is used to represent part of a system for which UML diagrams are made.</p>
-            <h4 id="node-notation">Node notation</h4>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_node.jpg" alt="Node notation"></p>
-            <p>Represented by a square box with a name. It represents the physical components of the system, such as
-                server,
-                network, etc.</p>
-            <hr>
-            <h3 id="notation-of-behavioral-elements">Notation of <code>behavioral elements</code></h3>
-            <p>One of the most important elements of UML are <code>dynamic parts</code>. Out of the powerful features
-                UML has to
-                represent the dynamic part of systems, 2 important features are <code>interaction</code> and <code>state
-                    machines</code>.</p>
-            <h4 id="interaction-notation">Interaction notation</h4>
-            <p>There are 2 types of <code>interactions</code>:</p>
-            <ul>
-                <li><code>sequential</code>, <em>represented by the sequence diagram;</em></li>
-                <li><code>collaborative</code>, <em>represented by the collaboration diagram</em>.</li>
-            </ul>
-            <p><code>Interaction notation</code> is basically a message exchange between two UML components.</p>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_interaction.jpg"
-                    alt="Representation of different notations used in an interaction"></p>
-            <p>Interaction is used to represent the communication between the components of a system.</p>
-            <h4 id="state-machine-notation">State machine notation</h4>
-            <p><code>State machine</code> describes the different states of a component in its life cycle.</p>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_statemachine.jpg"
-                    alt="State machine notation"></p>
-            <p>It is used to describe different states of a system component. The state can be <code>active</code>,
-                <code>idle</code>, or any other depending on context.</p>
-            <h3 id="grouping-elements---package-notation">Grouping elements - <code>package notation</code></h3>
-            <p><code>Package notation</code> is the only element in UML to group elements together. It is used to wrap
-                the
-                components of a system.</p>
-            <p><img src="https://sparxsystems.com/enterprise_architect_user_guide/15.1/images/package-diagram-8220.png"
-                    alt="package"></p>
-            <h3 id="annotating-elements---note-notation">Annotating elements - <code>note notation</code></h3>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_note.jpg" alt="Note"></p>
-            <p>Used to provide necessary information in a system.</p>
-            <h3 id="relationships">Relationships</h3>
-            <p>There are 4 types of relationships in UML:</p>
-            <ul>
-                <li><code>dependancy</code>,</li>
-                <li><code>association</code>,</li>
-                <li><code>generalization</code>,</li>
-                <li><code>extensibility</code>.</li>
-            </ul>
-            <h4 id="dependancy-notation">Dependancy notation</h4>
-            <p>Describes the <code>dependant element</code> and the direction of dependancy.</p>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_dependency.jpg"
-                    alt="Dependency is represented by a dotted arrow as shown in the following figure. The arrow head represents the independent element and the other end represents the dependent element.">
-            </p>
-            <h4 id="association-notation">Association notation</h4>
-            <p>Describes how elements in an UML diagram are associated, showing <em>how many elements take part in an
-                    interaction</em>.</p>
-            <p>Association is represented by a dotted line with (without) arrows on both sides. The two ends represent
-                two
-                associated elements as shown in the following figure. The multiplicity is also mentioned at the ends (1,
-                *, etc.) to
-                show how many objects are associated.</p>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_association.jpg"
-                    alt="Association is represented by a dotted line with (without) arrows on both sides. The two ends represent two associated elements as shown in the following figure. The multiplicity is also mentioned at the ends (1, *, etc.) to show how many objects are associated.">
-            </p>
-            <h4 id="generalization-notation">Generalization notation</h4>
-            <p>Describes the inheritance relationship of the object-oriented world.</p>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_generalization.jpg"
-                    alt="Generalization is represented by an arrow with a hollow arrow head as shown in the following figure. One end represents the parent element and the other end represents the child element.">
-            </p>
-            <h4 id="extensibility-notation">Extensibility notation</h4>
-            <p>All languages (programming or modeling) have some mechanism to extend its capabilities, such as syntax or
-                semantics. UML has the following mechanisms to provide extensibility:</p>
-            <ul>
-                <li><code>stereotype</code>, <em>represent new elements</em>;</li>
-                <li><code>tagged values</code>, <em>represent new attriutes</em>;</li>
-                <li><code>constraints</code>, <em>represent boundaries</em>.</li>
-            </ul>
-            <p><img src="https://www.tutorialspoint.com/uml/images/notation_extensibility.jpg"
-                    alt="extensibility notation"></p>
-            <p>They are used to <em>enhance the power of the language</em>. Basically, it's an additional element
-                <em>used to
-                    represent some extra behaviour of the system</em>. These extra behaviours are not covered by the
-                standard
-                available notations.</p>
-            <hr>
-            <h2 id="uml---standard-diagrams">UML - <code>Standard Diagrams</code></h2>
-            <p><em>Understanding where and how certain elements are used</em>.</p>
-            <p>Diagrams and pictures are most efficient to explain complex systems. UML diagrams help to explain a
-                system, <em>but
-                    a single diagram is often not enough to describe a whole system</em>.</p>
-            <p>UML diagrams are usually made in an <em>incremental</em> and <em>iterative</em> way and can be
-                categorized in two
-                main categories:</p>
-            <h3 id="structural-diagrams">Structural diagrams</h3>
-            <p><em>Consists of</em>:</p>
-            <ul>
-                <li><code>Class diagram</code>:
-                    <ul>
-                        <li>Most common element in UML;</li>
-                        <li>Classes, interfaces, associations, and collaborations;</li>
-                        <li>Static of nature;</li>
-                        <li>Represents an object-oriented view of the system.</li>
-                    </ul>
-                </li>
-                <li><code>Object diagram</code>:
-                    <ul>
-                        <li>Instance of a class diagram;</li>
-                        <li>A set of objects like class diagrams;</li>
-                        <li>Used to build prototypes of a system from a practical perspective.</li>
-                    </ul>
-                </li>
-                <li><code>Component diagram</code>:
-                    <ul>
-                        <li>Set of nodes and their relationships;</li>
-                        <li>Consists of <em>classes</em>, <em>interfaces</em>, or <em>collaborations</em>.</li>
-                        <li>Used to visualize implementation.</li>
-                    </ul>
-                </li>
-                <li><code>Deployment diagram</code>:
-                    <ul>
-                        <li>Visualizes the deployment of a system;</li>
-                        <li>Generally used by deployment teams.</li>
-                    </ul>
-                </li>
-            </ul>
-            <p>The above described diagrams have common relationships with each other. Component diagrams depend on
-                classes,
-                interfaces, etc. which are part of class/object diagram. Again, the deployment diagram is dependent on
-                the
-                components, which are used to make component diagrams.</p>
-            <h3 id="behavioral-diagrams">Behavioral diagrams</h3>
-            <p><em>Consists of</em>:</p>
-            <ul>
-                <li><code>Use case diagram</code>:
-                    <ul>
-                        <li>Use cases, actors, and their relationships;</li>
-                        <li>Represents a particular functionality of a system;</li>
-                        <li>Used to describe functionality and internal/external controllers;</li>
-                        <li>These controllers are known as <em>actors</em>.</li>
-                    </ul>
-                </li>
-                <li><code>Sequence diagram</code>:
-                    <ul>
-                        <li>An interaction diagram;</li>
-                        <li>Sequence of messages flowing from one object to another;</li>
-                        <li>Essential from the implementation and execution perspective;</li>
-                        <li>Visualizes the sequence of calls in a system to perform functions.</li>
-                    </ul>
-                </li>
-                <li><code>Collaboration diagram</code>:
-                    <ul>
-                        <li>Another form of interaction diagram;</li>
-                        <li>Represents structural organization of a system and the messages sent/received;</li>
-                        <li>Consists of <em>objects</em> and <em>links</em>;</li>
-                        <li>Visualizes the organization of objects and their interactions.</li>
-                    </ul>
-                </li>
-                <li><code>Statechart diagram</code>:
-                    <ul>
-                        <li>Internal/external events responsible for state change of the system;</li>
-                        <li>represents the event driven state change of a system, classes, interface, etc.</li>
-                    </ul>
-                </li>
-                <li><code>Activity diagram</code>:
-                    <ul>
-                        <li>Describes the flow of control in a system;</li>
-                        <li>Consists of <em>activities</em> and <em>links</em>.</li>
-                        <li>Can be <em>sequential</em>, <em>concurrent</em> or <em>branched</em>;</li>
-                        <li>They are the functions of a system;</li>
-                        <li>Used to visualize the flow of controls in a system and give an idea of the system execution.
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <hr>
-            <h2 id="uml---class-diagram">UML - <code>Class Diagram</code></h2>
-            <p>Class diagram is a <em>static diagram</em> reptresenting the static view of an application. They help
-                visualize,
-                describe, and document different aspects of a system, but also help with constructing executable code.
-            </p>
-            <p>Also known as <code>structural diagrams</code>, they show a collection of <em>classes</em>,
-                <em>interfaces</em>,
-                <em>associations</em>, <em>collaborations</em>, and <em>constraints</em>.</p>
-            <h3 id="purpose-of-class-diagrams">Purpose of class diagrams</h3>
-            <ul>
-                <li>Analyze and design the <em>static</em> view of an application;</li>
-                <li>Describes the <em>responsibilities</em> of a system;</li>
-                <li>Base for <em>components</em> and <em>deployment</em> diagrams;</li>
-                <li><em>Forward</em> and <em>reverse</em> engineering.</li>
-            </ul>
-            <h3 id="drawing-a-class-diagram">Drawing a class diagram</h3>
-            <ul>
-                <li>The name of the class diagram should be meaningful to describe the aspect of the system;</li>
-                <li>Each element and their relationship should be identified in advanced;</li>
-                <li>Responsibilities (<code>attributes</code> &amp; <code>methods</code>) of each class should be
-                    clearly
-                    identified;</li>
-                <li>Each class should have properties, but avoid bloating by unneccesary additions;</li>
-                <li>Use annotation where needed;</li>
-                <li>Create drafts.</li>
-            </ul>
-            <p><img src="https://www.tutorialspoint.com/uml/images/uml_class_diagram.jpg" alt="Sample class diagram">
-            </p>
-            <p>The above diagram is an example of an <em>order system</em> of an application, describing a section of
-                the
-                application.</p>
-            <p>In the order system diagram...</p>
-            <ul>
-                <li><code>Order</code> and <code>Customer</code> are the system's <em>elements</em> with a
-                    <em>one-to-many</em>
-                    relationship, because a customer can have multiple orders;</li>
-                <li>The <code>Order</code> class is an <em>abstract class</em>, with two inheriting <em>concrete
-                        classes</em>,
-                    <code>SpecialOrder</code> and <code>NormalOrder</code>;</li>
-                <li>As inheriting classes, <code>SpecialOrder</code> and <code>NormalOrder</code> share the same
-                    properties and
-                    methods as <code>Order</code> but with their individual mutations.</li>
-            </ul>
-            <h3 id="where-to-use-class-diagrams">Where to use class diagrams</h3>
-            <p>Class diagrams are used for:</p>
-            <ul>
-                <li>describing the static view of a system;</li>
-                <li>showing the collaboration between elements of the system;</li>
-                <li>describing the functionalities performed by the system;</li>
-                <li>construction of software applications using object-oriented languages.</li>
-            </ul>
-            <hr>
-            <h2 id="uml---object-diagrams">UML - <code>Object Diagrams</code></h2>
-            <p><code>Object diagrams</code> are derived from and dependent on class diagrams.</p>
-            <p>They represent an <em>instance</em> of a class diagram, sharing similar concepts.</p>
-            <p>Like class diagrams, <code>object diagrams</code> share a static view of the system, <em>but at a
-                    particular moment
-                    of the system operation</em>.</p>
-            <p>They are used to render a set of objects and their relationships as an instance.</p>
-            <h3 id="purpose-of-object-diagrams">Purpose of object diagrams</h3>
-            <ul>
-                <li>Forward and reverse engineering;</li>
-                <li>Object relationships in a system;</li>
-                <li>Static view of an interaction;</li>
-                <li>Understanding object behaviour and their releationship from a practical perspective.</li>
-            </ul>
-            <h3 id="drawing-an-object-diagram">Drawing an object diagram</h3>
-            <p>When drawing object diagrams, remember:</p>
-            <ul>
-                <li>The object diagram requires a meaningful and intendful name;</li>
-                <li>its most important elements should be identified;</li>
-                <li>the associations between objects should be clarified;</li>
-                <li>values of different elements need to be captured to include the object diagram;</li>
-                <li>proper annotation is important for diagram clarity.</li>
-            </ul>
-            <p><img src="https://www.tutorialspoint.com/uml/images/uml_object_diagram.jpg"
-                    alt="Object diagram of order management system"></p>
-            <p>The above example of an object diagram describes the <code>order management system</code>, from the same
-                application used in the class section. It contains the objects:</p>
-            <ul>
-                <li><code>Customer</code>,</li>
-                <li><code>Order</code>,</li>
-                <li><code>SpecialOrder</code>,</li>
-                <li><code>NormalOrder</code>.</li>
-            </ul>
-            <p>The difference in this diagram with the previous class diagram, <em>is that this time it depicts the
-                    system
-                    interactions of a single customer</em>.</p>
-            <h3 id="where-to-use-object-diagrams">Where to use object diagrams</h3>
-            <p>Object diagrams are most effectively used for:</p>
-            <ul>
-                <li>making the prototype of a system;</li>
-                <li>reverse engineering;</li>
-                <li>modeling complex data structures;</li>
-                <li>understanding the system from a practical perspective.</li>
-            </ul>
-            <hr>
-            <h2 id="uml---component-diagrams">UML - <code>Component Diagrams</code></h2>
-            <p><code>Component diagrams</code> help with describing the physical aspects of a system. Physical aspects
-                are
-                elements such as <code>executables</code>, <code>libraries</code>, <code>files</code>,
-                <code>documents</code>, etc.
-                which reside in a <em>node</em>.</p>
-            <p>They are used to visualize organization and relationships between a system's components and are used to
-                make it
-                executable.</p>
-            <h3 id="purpose-of-component-diagrams">Purpose of component diagrams</h3>
-            <p>Component diagrams:</p>
-            <ul>
-                <li>visualize components of a system (libraries, files, executables, documents, etc.);</li>
-                <li>they construct executables by using forward and reverse engineering;</li>
-                <li>describe the organization and relationships of the components.</li>
-            </ul>
-            <h3 id="drawing-a-component-diagram">Drawing a component diagram</h3>
-            <p>When drawing a component diagram, it is essential to identify the following:</p>
-            <ul>
-                <li>files used in the system,</li>
-                <li>libraries and other artifacts relevant to the application,</li>
-                <li>relationships between artifacts,</li>
-                <li>a meaningful name,</li>
-                <li>annotation where necessary.</li>
-            </ul>
-            <p><img src="https://www.tutorialspoint.com/uml/images/uml_component_diagram.jpg"
-                    alt="Component diagram of an order management system"></p>
-            <p>Returning to the previous <code>order system</code>, the diagram above shows the component diagram of the
-                system.
-            </p>
-            <h3 id="where-to-use-component-diagrams">Where to use component diagrams</h3>
-            <p>Component diagrams can be used to:</p>
-            <ul>
-                <li>Model the components of a system;</li>
-                <li>Model the database schema;</li>
-                <li>model the executables of an application;</li>
-                <li>model the system's source code.</li>
-            </ul>
-            <hr>
-            <h2 id="uml---deployment-diagrams">UML - <code>Deployment Diagrams</code></h2>
-            <p><code>Deployment diagrams</code> visualize the topology of the physical components of a system,
-                consisting of nodes
-                and their relationships.</p>
-            <h3 id="purpose-of-a-deployment-diagram">Purpose of a deployment diagram</h3>
-            <p>The main purpose of a deployment diagram are:</p>
-            <ul>
-                <li>visualize the <em>hardware topology</em> of a system;</li>
-                <li>describe the hardware components used to <em>deploy software components</em>;</li>
-                <li>describe the runtime processing nodes.</li>
-            </ul>
-            <h3 id="drawing-a-deployment-diagram">Drawing a deployment diagram</h3>
-            <p>Nodes are the core part of a deployment diagram—they are the physical hardware used to deploy a system.
-            </p>
-            <p><em>An efficient deployment diagram controls the following parameters</em>:</p>
-            <ul>
-                <li>performance,</li>
-                <li>scalability,</li>
-                <li>maintainability,</li>
-                <li>portability.</li>
-            </ul>
-            <p><em>Important parts</em>:</p>
-            <ul>
-                <li>nodes,</li>
-                <li>relationships among nodes.</li>
-            </ul>
-            <p><img src="https://www.tutorialspoint.com/uml/images/uml_deployment_diagram.jpg" alt="component diagram">
-            </p>
-            <p>The above deployment diagram consists of: <code>monitor</code>, <code>modem</code>, <code>caching
-                    server</code> and
-                <code>servers</code>. It shows the nodes of a system and its <em>flow of control throughout</em>.</p>
-            <h3 id="where-to-use-deployment-diagrams">Where to use deployment diagrams</h3>
-            <p><em>Deployment diagrams can be used</em>:</p>
-            <ul>
-                <li>to model the hardware of a topology system;</li>
-                <li>to model the embedded system;</li>
-                <li>to model the hardware details for a client/server system;</li>
-                <li>to model the hardware details of a distributed application;</li>
-                <li>for forward and reverse engineering.</li>
-            </ul>
-            <hr>
-            <h2 id="uml---use-case-diagrams">UML - <code>Use Case Diagrams</code></h2>
-            <p><code>Use case diagrams</code> is one type of diagram to describe the <code>dynamic nature</code> of a
-                system. A
-                single use case diagram captures a particular functionality of a system.</p>
-            <h3 id="purpose-of-a-use-case-diagram">Purpose of a use case diagram</h3>
-            <p><em>Use case diagrams are most commonly used to</em>:</p>
-            <ul>
-                <li>gather the requirements of a system;</li>
-                <li>get an outside view of the system;</li>
-                <li>identify the external and internal factors influencing the system;</li>
-                <li>show the interaction amonst the requirements and actors.</li>
-            </ul>
-            <h3 id="drawing-a-use-case-diagram">Drawing a use case diagram</h3>
-            <p><em>These are the most important items to consider when drawing a use case diagram</em>:</p>
-            <ul>
-                <li>functionalities to be presented as a use case;</li>
-                <li>actors (<em>elements/users that interact with the system</em>);</li>
-                <li>Relationships between the use cases and actors.</li>
-            </ul>
-            <p><em>Remember</em>:</p>
-            <ul>
-                <li>A meaningful name is important;</li>
-                <li>Give actors suitable names;</li>
-                <li>Clearly show relationships and dependancies;</li>
-                <li>Focus on the most essential relationships <em>that most define the system requirement</em>;</li>
-                <li>Annotate where needed.</li>
-            </ul>
-            <p><img src="https://www.tutorialspoint.com/uml/images/uml_use_case_diagram.jpg" alt="use case diagram"></p>
-            <p>The above diagram describes the interaction of an outside actor (<code>Customer</code>) with the order
-                management
-                system.</p>
-            <h4 id="include--extend"><code>&lt;&lt;Include&gt;&gt;</code> &amp; <code>&lt;&lt;Extend&gt;&gt;</code></h4>
-            <p><code>Include-</code> and <code>extend</code> use cases are connected to the <code>base use case</code>.
-            </p>
-            <p>The <code>include case</code> will happen simultaniously when the base case is called (depicted with a
-                dashed arrow
-                from base to include).</p>
-            <p>The extend use case will only happen when conditions are met (depicted with a dashed arrow from extend to
-                base).
-            </p>
-            <h4 id="specialized-use-cases">Specialized use cases</h4>
-            <p><code>Specialized use cases</code> (children) are cases that inherit their base properties from a
-                <code>general use
-                    case</code> (parent), and have their own unique properties.</p>
-            <p>Specialized use cases are connected to their parent case with a <em>solid line with a outlined
-                    arrow</em>.</p>
-            <h3 id="where-to-use-a-use-case-diagram">Where to use a use case diagram</h3>
-            <p>Use case diagrams can be used for:</p>
-            <ul>
-                <li>requirement analysis and high level design;</li>
-                <li>model of the context of a system;</li>
-                <li>reverse/forward engineering.</li>
-            </ul>
-            <hr>
-            <h2 id="uml---interaction-diagram">UML - <code>Interaction Diagram</code></h2>
-            <p>To describe the interactions between elements of a system, there are <em>two types of interaction
-                    diagrams</em>:
-                <code>sequence diagram</code> and <code>collaboration diagrams</code>.</p>
-            <p>Sequence diagrams emphasize on flow of time in a system, while collaboration diagrams focus on the
-                structural
-                organization of the elements of that system.</p>
-            <h3 id="purpose-of-interaction-diagrams">Purpose of interaction diagrams</h3>
-            <p><em>The key purpose of interaction diagrams are</em>:</p>
-            <ul>
-                <li>to capture the dynamic behaviour of a system;</li>
-                <li>to describe the message flow in the system;</li>
-                <li>to describe the structural organization of the objects;</li>
-                <li>to describe the interaction between objects.</li>
-            </ul>
-            <h3 id="drawing-an-interaction-diagram">Drawing an interaction diagram</h3>
-            <p>Interactions show snapshots of a running system, capturing an instance of a dynamic system.</p>
-            <p><em>The following should be considered when drawing an interaction diagram</em>:</p>
-            <ul>
-                <li>objects taking part in the interaction;</li>
-                <li>message flow between objects;</li>
-                <li>the sequence in which the messages are flowing;</li>
-                <li>object organization.</li>
-            </ul>
-            <h4 id="sequence-diagrams">Sequence diagrams</h4>
-            <p><img src="https://www.tutorialspoint.com/uml/images/uml_sequence_diagram.jpg" alt="sequence diagram"></p>
-            <p>The above diagram, consisting of <code>Customer</code>, <code>Order</code>, <code>SpecialOrder</code>,
-                and
-                <code>NormalOrder</code> shows the sequence of messages. It shows the method calls between objects.</p>
-            <h4 id="collaboration-diagram">Collaboration diagram</h4>
-            <p><img src="https://www.tutorialspoint.com/uml/images/uml_collaboration_diagram.jpg"
-                    alt="collaboration diagram"></p>
-            <p>Collaboration diagrams focus more on order and organization of a system, when timing is less important.
-            </p>
-            <h3 id="where-to-use-interaction-diagrams">Where to use interaction diagrams</h3>
-            <p><em>Interaction diagrams can be used to</em>:</p>
-            <ul>
-                <li>model the flow of control by time sequence;</li>
-                <li>model the flow of control by a structural organization;</li>
-                <li>forward/reverse engineering.</li>
-            </ul>
-            <hr>
-            <h2 id="uml---statechart-diagrams">UML - <code>Statechart Diagrams</code></h2>
-            <p><code>Statechart diagrams</code> depict the different states that a system can have, which are controlled
-                by
-                internal or external events.</p>
-            <p><em>The main purposes of a statechart diagram are</em>:</p>
-            <ul>
-                <li>to model the dynamic aspect of a system;</li>
-                <li>to model the lifetime of a reactive system;</li>
-                <li>to describe different sates of an object during its lifetime;</li>
-                <li>to define a state machine to model the states of an object.</li>
-            </ul>
-            <h3 id="drawing-a-statemachine-diagram">Drawing a statemachine diagram</h3>
-            <p><em>Consider</em>:</p>
-            <ul>
-                <li>the identities of important objects to be analyzed;</li>
-                <li>the identity of states;</li>
-                <li>the identity of events.</li>
-            </ul>
-            <p><img src="https://www.tutorialspoint.com/uml/images/uml_statechart_diagram.jpg" alt="statechart diagram">
-            </p>
-            <p>The above diagram depicts the details of state changes in an <code>Order</code> object.</p>
-            <h3 id="where-to-use-statechart-diagrams">Where to use statechart diagrams:</h3>
-            <p>Statechart diagrams are commonly used:</p>
-            <ul>
-                <li>to model the object states of a system;</li>
-                <li>to model the reactive system, which consist of reactive objects;</li>
-                <li>to identify the events responsible for state changes;</li>
-                <li>forward/reverse engineering.</li>
-            </ul>
-            <hr>
-            <h2 id="uml---activity-diagrams">UML - <code>Activity Diagrams</code></h2>
-            <p>Like statemachine diagrams, <code>activity diagrams</code> also describe the dynamic aspects of a system.
-                It is a
-                flowchart to represent the flow from one activity to another.</p>
-            <p>Flow between operations can be sequential, branched, or concurrent; using different elements such as
-                fork, join,
-                etc.</p>
-            <h3 id="purpose-of-activity-diagrams">Purpose of activity diagrams</h3>
-            <p><em>Activity diagrams</em>:</p>
-            <ul>
-                <li>draw the activity flow of a system;</li>
-                <li>describe the sequence from one activity to another;</li>
-                <li>describe the parallel, branched and concurrent flow of the system.</li>
-            </ul>
-            <h3 id="drawing-an-activity-diagram">Drawing an activity diagram</h3>
-            <p>While creating an activity diagram, <em>focus on</em>:</p>
-            <ul>
-                <li>activities,</li>
-                <li>associations,</li>
-                <li>conditions,</li>
-                <li>constraints.</li>
-            </ul>
-            <p><img src="https://www.tutorialspoint.com/uml/images/uml_activity_diagram.jpg" alt="activity diagram"></p>
-            <p>The above diagram of an order management system shows <em>four activities</em> of a system, from
-                <code>order
-                    request</code> to <code>dispatch</code>.</p>
-            <p><em>Note: activity diagrams cannot exactly match code, thus are mainly used by the business users</em>.
-            </p>
-            <h3 id="where-to-use-activity-diagrams">Where to use activity diagrams</h3>
-            <p>Activity diagrams are best used for:</p>
-            <ul>
-                <li>modeling workflow by using activities;</li>
-                <li>modeling business requirements;</li>
-                <li>high level understanding of the system's functionalities;</li>
-                <li>investigating business requirements at a later stage.</li>
-            </ul>
+      <h1 id="uml">UML</h1>
+      <p><em>source: <a href="https://www.tutorialspoint.com/uml/uml_2_overview.htm">Tutorials Point</a></em></p>
+      <p><code>UML</code> (Unified Modeling Language) is a standard language for specifying, visualizing,
+        constructing, and
+        documenting software systems.</p>
+      <h2 id="uml---overview">UML - Overview</h2>
+      <h3 id="goals-of-uml">Goals of <code>UML</code></h3>
+      <ul>
+        <li>To help the conceptualization of <code>OOP</code> development;</li>
+        <li>provides a general purpose modeling language;</li>
+        <li><code>UML</code> is easy to understand for not just developers, but business users and common users.
+          It
+          descripes what is happening in the development of a project.</li>
+      </ul>
+      <h3 id="a-conceptual-model-of-uml">A conceptual model of <code>UML</code></h3>
+      <p>Consider a <em>conceptual model</em> as the following:</p>
+      <ul>
+        <li>A <em>conceptual model</em> can be defined as <strong>a model which is made of concepts and their
+            relationships</strong>;</li>
+        <li>such models are the step <em>before</em> UML diagrams, helping to understand entities and how they
+          interact with
+          one and other.</li>
+      </ul>
+      <p>It is important to have a conceptual model of your project, before trying to work out all the details in
+        a UML
+        diagram. <em>The conceptual model of UML can be mastered by the following three elements</em>:</p>
+      <ul>
+        <li>UML building blocks,</li>
+        <li>Rules to connect the building blocks,</li>
+        <li>Common mechanisms of UML.</li>
+      </ul>
+      <h3 id="object-oriented-concepts">Object-oriented concepts</h3>
+      <p>In <code>object-oriented</code> processes, <code>an object</code> contains both <code>data</code> and
+        <code>methods</code> that control the data, which represents the <em>state of the object</em>. A
+        <code>class</code>
+        describes an object and they also form a hierarchy* to represent the real-world system. The hierarchy
+        follows a
+        strict <code>inheritance system</code>.</p>
+      <p>UML is able to represent all concepts that exist in <code>object-oriented</code> analysis and design.
+        Following are
+        some fundamental concepts of the object-oriented world:</p>
+      <ul>
+        <li><code>Objects</code> →objects represent an entity and the basic building block;</li>
+        <li><code>Class</code> →a class is the blueprint of an object;</li>
+        <li><code>Abstraction</code> →represents the behaviour of a real-world entity;</li>
+        <li><code>Encapsulation</code> →encapsulation is the mechanism of binding the data together and hiding
+          them from
+          outsider parties;</li>
+        <li><code>Inheritance</code> →the mechanism of making new classes from existing ones;</li>
+        <li><code>Polymorphism</code> →defines the mechanism to exist in different forms.</li>
+      </ul>
+      <h3 id="oo-analysis-and-design">OO analysis and design</h3>
+      <p>The most important purpose of OO analysis <em>is to identify objects of a system to be designed</em>.</p>
+      <p>An efficient analysis is only possible when we are able to start thinking in a way where <em>objects can
+          be
+          identified</em>, whereafter the objects and their relationships are identified and the design is
+        produced.</p>
+      <p>The purpose of OO analysis and design can be described as:</p>
+      <ul>
+        <li>Identifying the <code>objects of a system</code>;</li>
+        <li>identifying their <code>relationships</code>;</li>
+        <li>making a design to be converted to <code>executables</code> using OO languages.</li>
+      </ul>
+      <h4 id="the-three-basic-steps-where-the-oo-concepts-are-applied-and-implemented">The three basic steps where
+        the OO
+        concepts are applied and implemented:</h4>
+      <blockquote>
+        <p><code>OO analysis</code> → <code>OO design</code> → <code>OO implementation using OO languages</code>
+        </p>
+      </blockquote>
+      <ul>
+        <li>During <code>OO analysis</code>, the most important step is to <em>identify objects and describe
+            them
+            correctly</em>, providing clarity in later stages. Objects should be identified with
+          <code>responsibilities</code>—the <code>functions</code> performed by an object. All
+          responsibilities collaborated
+          fulfills the purpose of the system.</li>
+        <li>During the second phase, <code>OO Design</code>, focus is on <em>the requirements and their
+            fulfillments</em>.
+          The objects collaborate according to their intended association, finishing the design.</li>
+        <li>The third phase, <code>OO implementation</code>, <em>the design is implemented using OO languages
+            such as
+            <code>Java</code>, <code>C++</code>, etc</em>.</li>
+      </ul>
+      <h3 id="role-of-uml-in-oo-design">Role of <code>UML</code> in <code>OO Design</code></h3>
+      <p>As a modeling language, UML is used to model (non-)software systems. The emphasised use of UML is with
+        modeling OO
+        software applications. Most of the UML diagrams discussed so far are used to model different aspects
+        such as static,
+        dynamic, etc. Now whatever be the aspect, the artifacts are nothing but objects.</p>
+      <p>It is important to understand the relation between OO design and UML; <em>the OO design is transformed
+          into UML
+          diagrams according to requirement</em>. The input from OO analysis and design is the input to UML
+        diagrams.</p>
+      <hr>
+      <h2 id="uml---building-blocks">UML - <code>Building Blocks</code></h2>
+      <p>The building blocks of UML consist of 3 main categories: <code>Elements</code>,
+        <code>Relationships</code>, and
+        <code>Diagrams</code>.</p>
+      <h3 id="elements">Elements</h3>
+      <p><code>Elements</code> are the most important building blocks of UML. They can be...</p>
+      <ul>
+        <li>structural,</li>
+        <li>behavioral,</li>
+        <li>grouping,</li>
+        <li>annotational.</li>
+      </ul>
+      <h4 id="structural-elements">Structural elements</h4>
+      <p><code>Structural elements</code> define the <em>static</em> part of the model. They represent the
+        <em>physical</em>
+        and <em>conceptual elements</em>. They are:</p>
+      <ul>
+        <li><code>class</code> →represents a set of objects having similar responsibilities;<br><img
+            src="https://www.tutorialspoint.com/uml/images/uml_class.jpg" alt="UML class"></li>
+        <li><code>interface</code> →defines a set of operations, which specify the responsibility of a
+          class;<br><img src="https://www.tutorialspoint.com/uml/images/uml_interface.jpg" alt="UML interface"></li>
+        <li><code>collaboration</code> →defines an interaction between elements;<br><img
+            src="https://www.tutorialspoint.com/uml/images/uml_collaboration.jpg" alt="UML collaboration">
+        </li>
+        <li><code>use case</code> →represents a set of actions performed by a system for a specific
+          goal;<br><img src="https://www.tutorialspoint.com/uml/images/uml_usecase.jpg" alt="UML use case">
+        </li>
+        <li><code>components</code> →describes the physical part of a system;<br><img
+            src="https://www.tutorialspoint.com/uml/images/uml_component.jpg" alt="UML components"></li>
+        <li><code>node</code> →can be defined as a physiscal element that exists at run time.<br><img
+            src="https://www.tutorialspoint.com/uml/images/uml_node.jpg" alt="UML node"></li>
+      </ul>
+      <h4 id="behavioral-elements">Behavioral elements</h4>
+      <p><code>Behavioral elements</code> consists of the <em>dynamic</em> parts of an UML model. They are:</p>
+      <ul>
+        <li><code>interaction</code> →defined as a behaviour that consists of a group of messages exchanged
+          between elements
+          to accomplish a specific task;<br><img src="https://www.tutorialspoint.com/uml/images/uml_message.jpg"
+            alt="UML interaction"></li>
+        <li><code>state machine</code> →is useful when the state of an object in its life cycle is important,
+          defining the
+          sequence of state an object goes through in response to <code>events</code> (<em>external factors
+            responsible for
+            change</em>).<br><img src="https://www.tutorialspoint.com/uml/images/uml_state.jpg" alt="UML state maching">
+        </li>
+      </ul>
+      <h4 id="grouping-elements">Grouping elements</h4>
+      <p><code>Grouping elements</code> can be defined as a mechanism to group elements of a UML model together.
+        There is
+        only one grouping thing available:</p>
+      <ul>
+        <li><code>package</code> →gathers structural and behavioral elements.<br><img
+            src="https://www.tutorialspoint.com/uml/images/uml_package.jpg" alt="UML package"></li>
+      </ul>
+      <h4 id="annotational-elements">Annotational elements</h4>
+      <p><code>Annotational elements</code> help to capture remarks, descriptions, and comments of UML model
+        elements.
+        <em>It should be the only thing used to render comments, constrants, etc. of an UML elements</em>.</p>
+      <p><img src="https://www.tutorialspoint.com/uml/images/uml_note.jpg" alt="UML note"></p>
+      <h4 id="relationship">Relationship</h4>
+      <p><code>Relationship</code> is one of the most important UML building blocks. It shows how elements are
+        associated
+        with each other, ultimately describing the functionality of an application. <em>There are 4 types of
+          relationships</em>:</p>
+      <ul>
+        <li><code>dependancy</code> →a relationship between two elements in which <em>change in one element also
+            affects the
+            other;</em><br><img src="https://www.tutorialspoint.com/uml/images/uml_dependency.jpg" alt="UML dependancy">
+        </li>
+        <li><code>association</code> →a set of links that connects the elements of a UML model. It also
+          describes how many
+          objects are taking part in that relationship.<br><img
+            src="https://www.tutorialspoint.com/uml/images/uml_association.jpg" alt="UML association"></li>
+        <li><code>generalization</code> →can be defined as a relationship which connects a specialized element
+          with a
+          generalized element. It basically describes the inheritance relationship in the world of
+          objects.<br><img src="https://www.tutorialspoint.com/uml/images/uml_generalization.jpg"
+            alt="UML generalization"></li>
+        <li><code>realizations</code> →can be defined as a relationship in which two elements are connected. One
+          element
+          describies some responsibility, which is not implemented and the other one implements them.<br><img
+            src="https://www.tutorialspoint.com/uml/images/uml_realization.jpg" alt="UML"></li>
+      </ul>
+      <h4 id="uml-diagrams">UML diagrams</h4>
+      <p><code>UML diagrams</code> are the ultimate output: all element and relationships are used to make a
+        complete UML
+        diagram to represent a system.</p>
+      <p>UML includes the following 9 diagrams:</p>
+      <ul>
+        <li><code>class diagrams</code>,</li>
+        <li><code>object diagrams</code>,</li>
+        <li><code>use case diagrams</code>,</li>
+        <li><code>sequence diagrams</code>,</li>
+        <li><code>collaboration diagrams</code>,</li>
+        <li><code>activity diagrams</code>,</li>
+        <li><code>statechart diagrams</code>,</li>
+        <li><code>deployment diagrams</code>,</li>
+        <li><code>component diagrams</code>.</li>
+      </ul>
+      <hr>
+      <h2 id="uml---architecture">UML - <code>Architecture</code></h2>
+      <p>A real-world system will be used by many different users, each with different perspectives and goals in
+        mind. It is
+        important to visualize this difference in perspective, which helps to build a better system in the end.
+      </p>
+      <p><em>The core perspectives are</em>:</p>
+      <ul>
+        <li><code>design</code> →consists of classes, interfaces, and collaboration. <em>They are UML class- and
+            object
+            diagrams</em>.</li>
+        <li><code>implementation</code> →defines the components assempled together to make a complete physical
+          system.
+          <em>They are UML component diagrams</em>.</li>
+        <li><code>process</code> →defines the flow of the system.</li>
+        <li><code>deployment</code> →represents the physical nodes of the system that forms the hardware.
+          <em>UML deployment
+            diagrams is used to support this perspective.</em></li>
+      </ul>
+      <p>In the center of these perspectives is the <code>use case</code>, which <em>connects all 4 and represents
+          the
+          functionality of the system</em>. Hence, other perspectives are connected with use cases.</p>
+      <hr>
+      <h2 id="uml---modeling-types">UML - <code>Modeling Types</code></h2>
+      <p>It is <em>very</em> important to distinguish between the UML Models. <em>Different diagrams are used for
+          different
+          types of UML modeling</em>.</p>
+      <h3 id="structural-modeling">Structural modeling</h3>
+      <p><code>Structural modeling</code> captures the static features of a system. They consist of:</p>
+      <ul>
+        <li><code>classes diagrams</code>,</li>
+        <li><code>objects diagrams</code>,</li>
+        <li><code>deployment diagrams</code>,</li>
+        <li><code>package diagrams</code>,</li>
+        <li><code>composite structure diagrams</code>,</li>
+        <li><code>component diagrams</code>.</li>
+      </ul>
+      <p>Structural models represent the <code>framework</code> for the system and <em>is where all components
+          exist</em>.
+        Hence, the <code>class diagram</code>, <code>component diagram</code>, and <code>deployment
+          diagrams</code> are part
+        of <code>structural modeling</code>. <em>They all represent the elements and mechanisms to assemble
+          them</em>.</p>
+      <p>The structural model does not describe the system's <code>dynamic behaviour</code>.</p>
+      <h3 id="behavioral-modeing">Behavioral modeing</h3>
+      <p><code>Behavioral models</code> describe the interaction in the system. It represents the interaction
+        between the
+        structural diagrams and they show the dynamic sequence of flow in a system. They consist of:</p>
+      <ul>
+        <li><code>activity diagrams</code>,</li>
+        <li><code>interaction diagrams</code>,</li>
+        <li><code>use case diagrams</code>.</li>
+      </ul>
+      <h3 id="architectural-modeling">Architectural modeling</h3>
+      <p><code>Architectural models</code> represent the <code>overall framework</code> of the system. It contains
+        both
+        <em>structural</em> and <em>behavioral</em> elements of the system. <em>Architectural models can be
+          defined as the
+          blueprint of the entire system</em>. It includes <code>package diagrams</code>.</p>
+      <hr>
+      <h2 id="uml---basic-notation">UML - <code>Basic Notation</code></h2>
+      <p>UML notations are the most important element in modeling. Efficient and appropriate use is very important
+        for
+        making a complete and meaningful model.</p>
+      <p>Notations are a key part of understanding UML. UML diagrams are made using the notation of elements and
+        relationships.</p>
+      <p>Each of the aforementioned UML building blocks has a specific notation.</p>
+      <h3 id="notation-of-structural-elements">Notation of <code>structural elements</code></h3>
+      <p>Graphical notations used in structural elements are most common in UML. <em>These are considered as the
+          <code>nouns</code> of UML models</em>.</p>
+      <h4 id="class-notation">Class notation</h4>
+      <p><img src="https://sparxsystems.com/enterprise_architect_user_guide/15.1/images/exampleofaclassdiagram.png"
+          alt="Example class diagram"></p>
+      <p>UML <code>class</code> is divided into <em>4 parts</em>:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>1. name of class</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2. attributes of class</td>
+          </tr>
+          <tr>
+            <td>3. operations performed by class</td>
+          </tr>
+          <tr>
+            <td>4. any additional components</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_class.jpg" alt="Class notation"></p>
+      <h4 id="object-notation">Object notation</h4>
+      <p>The <code>object</code> is usually a subitem of a class is represented the same way, <em>with the only
+          difference
+          is that the name is <strong>underlined</strong>.</em></p>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_object.jpg" alt="Object notation"></p>
+      <h4 id="interface-notation">Interface notation</h4>
+      <p><code>Interface</code> is represented by a circle. It has as name which is generally written below.</p>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_interface.jpg" alt="Interface circle notation">
+      </p>
+      <p><code>Interface</code> is used to describe the functionality <em>without implementation</em>. It is just
+        a template
+        where you define different functions, not implementations. When a class implements the interface, it
+        also implements
+        the functionality as per requirement.</p>
+      <h4 id="collaboration-notation">Collaboration notation</h4>
+      <p><code>Collaboration</code> represents responsibilites. Generally, responsibilities are grouped.</p>
+      <p>They are represented by a dotted eclipse with a nmae on the inside.</p>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_collaboration.jpg" alt="A collaboration notation">
+      </p>
+      <h4 id="use-case-notation">Use case notation</h4>
+      <p><code>Use case</code> is used to capture high level functionality of a system.</p>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_usecase.jpg" alt="Use case notation"></p>
+      <p>They are represented by an eclipse with a name inside and may contain additional responsibilities.</p>
+      <h4 id="actor-notation">Actor notation</h4>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_actor.jpg" alt="Actor notation"></p>
+      <p>An actor can be an <em>external-</em> or <em>internal entity</em> that <em>interacts</em> with the
+        system.</p>
+      <h4 id="initial-state-notation">Initial state notation</h4>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_initialstate.jpg" alt="initial state notation">
+      </p>
+      <p>Defines the <code>start</code> of a process and <em>found in nearly all diagrams</em>.</p>
+      <h4 id="final-state-notation">Final state notation</h4>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_finalstate.jpg" alt="Final state notation">
+      </p>
+      <p>Describes the end of a process, and used to show the termination point of a process.</p>
+      <h4 id="active-class-notation">Active class notation</h4>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_activeclass.jpg" alt="Active class notation"></p>
+      <p>Similar to a class, but with a solid border. Active class usually describes the concurrent behaviour of a
+        system.
+      </p>
+      <h4 id="component-notation">Component notation</h4>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_component.jpg" alt="Component notation"></p>
+      <p>A component in UML is used to represent part of a system for which UML diagrams are made.</p>
+      <h4 id="node-notation">Node notation</h4>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_node.jpg" alt="Node notation"></p>
+      <p>Represented by a square box with a name. It represents the physical components of the system, such as
+        server,
+        network, etc.</p>
+      <hr>
+      <h3 id="notation-of-behavioral-elements">Notation of <code>behavioral elements</code></h3>
+      <p>One of the most important elements of UML are <code>dynamic parts</code>. Out of the powerful features
+        UML has to
+        represent the dynamic part of systems, 2 important features are <code>interaction</code> and <code>state
+          machines</code>.</p>
+      <h4 id="interaction-notation">Interaction notation</h4>
+      <p>There are 2 types of <code>interactions</code>:</p>
+      <ul>
+        <li><code>sequential</code>, <em>represented by the sequence diagram;</em></li>
+        <li><code>collaborative</code>, <em>represented by the collaboration diagram</em>.</li>
+      </ul>
+      <p><code>Interaction notation</code> is basically a message exchange between two UML components.</p>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_interaction.jpg"
+          alt="Representation of different notations used in an interaction"></p>
+      <p>Interaction is used to represent the communication between the components of a system.</p>
+      <h4 id="state-machine-notation">State machine notation</h4>
+      <p><code>State machine</code> describes the different states of a component in its life cycle.</p>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_statemachine.jpg" alt="State machine notation">
+      </p>
+      <p>It is used to describe different states of a system component. The state can be <code>active</code>,
+        <code>idle</code>, or any other depending on context.</p>
+      <h3 id="grouping-elements---package-notation">Grouping elements - <code>package notation</code></h3>
+      <p><code>Package notation</code> is the only element in UML to group elements together. It is used to wrap
+        the
+        components of a system.</p>
+      <p><img src="https://sparxsystems.com/enterprise_architect_user_guide/15.1/images/package-diagram-8220.png"
+          alt="package"></p>
+      <h3 id="annotating-elements---note-notation">Annotating elements - <code>note notation</code></h3>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_note.jpg" alt="Note"></p>
+      <p>Used to provide necessary information in a system.</p>
+      <h3 id="relationships">Relationships</h3>
+      <p>There are 4 types of relationships in UML:</p>
+      <ul>
+        <li><code>dependancy</code>,</li>
+        <li><code>association</code>,</li>
+        <li><code>generalization</code>,</li>
+        <li><code>extensibility</code>.</li>
+      </ul>
+      <h4 id="dependancy-notation">Dependancy notation</h4>
+      <p>Describes the <code>dependant element</code> and the direction of dependancy.</p>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_dependency.jpg"
+          alt="Dependency is represented by a dotted arrow as shown in the following figure. The arrow head represents the independent element and the other end represents the dependent element.">
+      </p>
+      <h4 id="association-notation">Association notation</h4>
+      <p>Describes how elements in an UML diagram are associated, showing <em>how many elements take part in an
+          interaction</em>.</p>
+      <p>Association is represented by a dotted line with (without) arrows on both sides. The two ends represent
+        two
+        associated elements as shown in the following figure. The multiplicity is also mentioned at the ends (1,
+        *, etc.) to
+        show how many objects are associated.</p>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_association.jpg"
+          alt="Association is represented by a dotted line with (without) arrows on both sides. The two ends represent two associated elements as shown in the following figure. The multiplicity is also mentioned at the ends (1, *, etc.) to show how many objects are associated.">
+      </p>
+      <h4 id="generalization-notation">Generalization notation</h4>
+      <p>Describes the inheritance relationship of the object-oriented world.</p>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_generalization.jpg"
+          alt="Generalization is represented by an arrow with a hollow arrow head as shown in the following figure. One end represents the parent element and the other end represents the child element.">
+      </p>
+      <h4 id="extensibility-notation">Extensibility notation</h4>
+      <p>All languages (programming or modeling) have some mechanism to extend its capabilities, such as syntax or
+        semantics. UML has the following mechanisms to provide extensibility:</p>
+      <ul>
+        <li><code>stereotype</code>, <em>represent new elements</em>;</li>
+        <li><code>tagged values</code>, <em>represent new attriutes</em>;</li>
+        <li><code>constraints</code>, <em>represent boundaries</em>.</li>
+      </ul>
+      <p><img src="https://www.tutorialspoint.com/uml/images/notation_extensibility.jpg" alt="extensibility notation">
+      </p>
+      <p>They are used to <em>enhance the power of the language</em>. Basically, it's an additional element
+        <em>used to
+          represent some extra behaviour of the system</em>. These extra behaviours are not covered by the
+        standard
+        available notations.</p>
+      <hr>
+      <h2 id="uml---standard-diagrams">UML - <code>Standard Diagrams</code></h2>
+      <p><em>Understanding where and how certain elements are used</em>.</p>
+      <p>Diagrams and pictures are most efficient to explain complex systems. UML diagrams help to explain a
+        system, <em>but
+          a single diagram is often not enough to describe a whole system</em>.</p>
+      <p>UML diagrams are usually made in an <em>incremental</em> and <em>iterative</em> way and can be
+        categorized in two
+        main categories:</p>
+      <h3 id="structural-diagrams">Structural diagrams</h3>
+      <p><em>Consists of</em>:</p>
+      <ul>
+        <li><code>Class diagram</code>:
+          <ul>
+            <li>Most common element in UML;</li>
+            <li>Classes, interfaces, associations, and collaborations;</li>
+            <li>Static of nature;</li>
+            <li>Represents an object-oriented view of the system.</li>
+          </ul>
+        </li>
+        <li><code>Object diagram</code>:
+          <ul>
+            <li>Instance of a class diagram;</li>
+            <li>A set of objects like class diagrams;</li>
+            <li>Used to build prototypes of a system from a practical perspective.</li>
+          </ul>
+        </li>
+        <li><code>Component diagram</code>:
+          <ul>
+            <li>Set of nodes and their relationships;</li>
+            <li>Consists of <em>classes</em>, <em>interfaces</em>, or <em>collaborations</em>.</li>
+            <li>Used to visualize implementation.</li>
+          </ul>
+        </li>
+        <li><code>Deployment diagram</code>:
+          <ul>
+            <li>Visualizes the deployment of a system;</li>
+            <li>Generally used by deployment teams.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>The above described diagrams have common relationships with each other. Component diagrams depend on
+        classes,
+        interfaces, etc. which are part of class/object diagram. Again, the deployment diagram is dependent on
+        the
+        components, which are used to make component diagrams.</p>
+      <h3 id="behavioral-diagrams">Behavioral diagrams</h3>
+      <p><em>Consists of</em>:</p>
+      <ul>
+        <li><code>Use case diagram</code>:
+          <ul>
+            <li>Use cases, actors, and their relationships;</li>
+            <li>Represents a particular functionality of a system;</li>
+            <li>Used to describe functionality and internal/external controllers;</li>
+            <li>These controllers are known as <em>actors</em>.</li>
+          </ul>
+        </li>
+        <li><code>Sequence diagram</code>:
+          <ul>
+            <li>An interaction diagram;</li>
+            <li>Sequence of messages flowing from one object to another;</li>
+            <li>Essential from the implementation and execution perspective;</li>
+            <li>Visualizes the sequence of calls in a system to perform functions.</li>
+          </ul>
+        </li>
+        <li><code>Collaboration diagram</code>:
+          <ul>
+            <li>Another form of interaction diagram;</li>
+            <li>Represents structural organization of a system and the messages sent/received;</li>
+            <li>Consists of <em>objects</em> and <em>links</em>;</li>
+            <li>Visualizes the organization of objects and their interactions.</li>
+          </ul>
+        </li>
+        <li><code>Statechart diagram</code>:
+          <ul>
+            <li>Internal/external events responsible for state change of the system;</li>
+            <li>represents the event driven state change of a system, classes, interface, etc.</li>
+          </ul>
+        </li>
+        <li><code>Activity diagram</code>:
+          <ul>
+            <li>Describes the flow of control in a system;</li>
+            <li>Consists of <em>activities</em> and <em>links</em>.</li>
+            <li>Can be <em>sequential</em>, <em>concurrent</em> or <em>branched</em>;</li>
+            <li>They are the functions of a system;</li>
+            <li>Used to visualize the flow of controls in a system and give an idea of the system execution.
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <hr>
+      <h2 id="uml---class-diagram">UML - <code>Class Diagram</code></h2>
+      <p>Class diagram is a <em>static diagram</em> reptresenting the static view of an application. They help
+        visualize,
+        describe, and document different aspects of a system, but also help with constructing executable code.
+      </p>
+      <p>Also known as <code>structural diagrams</code>, they show a collection of <em>classes</em>,
+        <em>interfaces</em>,
+        <em>associations</em>, <em>collaborations</em>, and <em>constraints</em>.</p>
+      <h3 id="purpose-of-class-diagrams">Purpose of class diagrams</h3>
+      <ul>
+        <li>Analyze and design the <em>static</em> view of an application;</li>
+        <li>Describes the <em>responsibilities</em> of a system;</li>
+        <li>Base for <em>components</em> and <em>deployment</em> diagrams;</li>
+        <li><em>Forward</em> and <em>reverse</em> engineering.</li>
+      </ul>
+      <h3 id="drawing-a-class-diagram">Drawing a class diagram</h3>
+      <ul>
+        <li>The name of the class diagram should be meaningful to describe the aspect of the system;</li>
+        <li>Each element and their relationship should be identified in advanced;</li>
+        <li>Responsibilities (<code>attributes</code> &amp; <code>methods</code>) of each class should be
+          clearly
+          identified;</li>
+        <li>Each class should have properties, but avoid bloating by unneccesary additions;</li>
+        <li>Use annotation where needed;</li>
+        <li>Create drafts.</li>
+      </ul>
+      <p><img src="https://www.tutorialspoint.com/uml/images/uml_class_diagram.jpg" alt="Sample class diagram">
+      </p>
+      <p>The above diagram is an example of an <em>order system</em> of an application, describing a section of
+        the
+        application.</p>
+      <p>In the order system diagram...</p>
+      <ul>
+        <li><code>Order</code> and <code>Customer</code> are the system's <em>elements</em> with a
+          <em>one-to-many</em>
+          relationship, because a customer can have multiple orders;</li>
+        <li>The <code>Order</code> class is an <em>abstract class</em>, with two inheriting <em>concrete
+            classes</em>,
+          <code>SpecialOrder</code> and <code>NormalOrder</code>;</li>
+        <li>As inheriting classes, <code>SpecialOrder</code> and <code>NormalOrder</code> share the same
+          properties and
+          methods as <code>Order</code> but with their individual mutations.</li>
+      </ul>
+      <h3 id="where-to-use-class-diagrams">Where to use class diagrams</h3>
+      <p>Class diagrams are used for:</p>
+      <ul>
+        <li>describing the static view of a system;</li>
+        <li>showing the collaboration between elements of the system;</li>
+        <li>describing the functionalities performed by the system;</li>
+        <li>construction of software applications using object-oriented languages.</li>
+      </ul>
+      <hr>
+      <h2 id="uml---object-diagrams">UML - <code>Object Diagrams</code></h2>
+      <p><code>Object diagrams</code> are derived from and dependent on class diagrams.</p>
+      <p>They represent an <em>instance</em> of a class diagram, sharing similar concepts.</p>
+      <p>Like class diagrams, <code>object diagrams</code> share a static view of the system, <em>but at a
+          particular moment
+          of the system operation</em>.</p>
+      <p>They are used to render a set of objects and their relationships as an instance.</p>
+      <h3 id="purpose-of-object-diagrams">Purpose of object diagrams</h3>
+      <ul>
+        <li>Forward and reverse engineering;</li>
+        <li>Object relationships in a system;</li>
+        <li>Static view of an interaction;</li>
+        <li>Understanding object behaviour and their releationship from a practical perspective.</li>
+      </ul>
+      <h3 id="drawing-an-object-diagram">Drawing an object diagram</h3>
+      <p>When drawing object diagrams, remember:</p>
+      <ul>
+        <li>The object diagram requires a meaningful and intendful name;</li>
+        <li>its most important elements should be identified;</li>
+        <li>the associations between objects should be clarified;</li>
+        <li>values of different elements need to be captured to include the object diagram;</li>
+        <li>proper annotation is important for diagram clarity.</li>
+      </ul>
+      <p><img src="https://www.tutorialspoint.com/uml/images/uml_object_diagram.jpg"
+          alt="Object diagram of order management system"></p>
+      <p>The above example of an object diagram describes the <code>order management system</code>, from the same
+        application used in the class section. It contains the objects:</p>
+      <ul>
+        <li><code>Customer</code>,</li>
+        <li><code>Order</code>,</li>
+        <li><code>SpecialOrder</code>,</li>
+        <li><code>NormalOrder</code>.</li>
+      </ul>
+      <p>The difference in this diagram with the previous class diagram, <em>is that this time it depicts the
+          system
+          interactions of a single customer</em>.</p>
+      <h3 id="where-to-use-object-diagrams">Where to use object diagrams</h3>
+      <p>Object diagrams are most effectively used for:</p>
+      <ul>
+        <li>making the prototype of a system;</li>
+        <li>reverse engineering;</li>
+        <li>modeling complex data structures;</li>
+        <li>understanding the system from a practical perspective.</li>
+      </ul>
+      <hr>
+      <h2 id="uml---component-diagrams">UML - <code>Component Diagrams</code></h2>
+      <p><code>Component diagrams</code> help with describing the physical aspects of a system. Physical aspects
+        are
+        elements such as <code>executables</code>, <code>libraries</code>, <code>files</code>,
+        <code>documents</code>, etc.
+        which reside in a <em>node</em>.</p>
+      <p>They are used to visualize organization and relationships between a system's components and are used to
+        make it
+        executable.</p>
+      <h3 id="purpose-of-component-diagrams">Purpose of component diagrams</h3>
+      <p>Component diagrams:</p>
+      <ul>
+        <li>visualize components of a system (libraries, files, executables, documents, etc.);</li>
+        <li>they construct executables by using forward and reverse engineering;</li>
+        <li>describe the organization and relationships of the components.</li>
+      </ul>
+      <h3 id="drawing-a-component-diagram">Drawing a component diagram</h3>
+      <p>When drawing a component diagram, it is essential to identify the following:</p>
+      <ul>
+        <li>files used in the system,</li>
+        <li>libraries and other artifacts relevant to the application,</li>
+        <li>relationships between artifacts,</li>
+        <li>a meaningful name,</li>
+        <li>annotation where necessary.</li>
+      </ul>
+      <p><img src="https://www.tutorialspoint.com/uml/images/uml_component_diagram.jpg"
+          alt="Component diagram of an order management system"></p>
+      <p>Returning to the previous <code>order system</code>, the diagram above shows the component diagram of the
+        system.
+      </p>
+      <h3 id="where-to-use-component-diagrams">Where to use component diagrams</h3>
+      <p>Component diagrams can be used to:</p>
+      <ul>
+        <li>Model the components of a system;</li>
+        <li>Model the database schema;</li>
+        <li>model the executables of an application;</li>
+        <li>model the system's source code.</li>
+      </ul>
+      <hr>
+      <h2 id="uml---deployment-diagrams">UML - <code>Deployment Diagrams</code></h2>
+      <p><code>Deployment diagrams</code> visualize the topology of the physical components of a system,
+        consisting of nodes
+        and their relationships.</p>
+      <h3 id="purpose-of-a-deployment-diagram">Purpose of a deployment diagram</h3>
+      <p>The main purpose of a deployment diagram are:</p>
+      <ul>
+        <li>visualize the <em>hardware topology</em> of a system;</li>
+        <li>describe the hardware components used to <em>deploy software components</em>;</li>
+        <li>describe the runtime processing nodes.</li>
+      </ul>
+      <h3 id="drawing-a-deployment-diagram">Drawing a deployment diagram</h3>
+      <p>Nodes are the core part of a deployment diagram—they are the physical hardware used to deploy a system.
+      </p>
+      <p><em>An efficient deployment diagram controls the following parameters</em>:</p>
+      <ul>
+        <li>performance,</li>
+        <li>scalability,</li>
+        <li>maintainability,</li>
+        <li>portability.</li>
+      </ul>
+      <p><em>Important parts</em>:</p>
+      <ul>
+        <li>nodes,</li>
+        <li>relationships among nodes.</li>
+      </ul>
+      <p><img src="https://www.tutorialspoint.com/uml/images/uml_deployment_diagram.jpg" alt="component diagram">
+      </p>
+      <p>The above deployment diagram consists of: <code>monitor</code>, <code>modem</code>, <code>caching
+          server</code> and
+        <code>servers</code>. It shows the nodes of a system and its <em>flow of control throughout</em>.</p>
+      <h3 id="where-to-use-deployment-diagrams">Where to use deployment diagrams</h3>
+      <p><em>Deployment diagrams can be used</em>:</p>
+      <ul>
+        <li>to model the hardware of a topology system;</li>
+        <li>to model the embedded system;</li>
+        <li>to model the hardware details for a client/server system;</li>
+        <li>to model the hardware details of a distributed application;</li>
+        <li>for forward and reverse engineering.</li>
+      </ul>
+      <hr>
+      <h2 id="uml---use-case-diagrams">UML - <code>Use Case Diagrams</code></h2>
+      <p><code>Use case diagrams</code> is one type of diagram to describe the <code>dynamic nature</code> of a
+        system. A
+        single use case diagram captures a particular functionality of a system.</p>
+      <h3 id="purpose-of-a-use-case-diagram">Purpose of a use case diagram</h3>
+      <p><em>Use case diagrams are most commonly used to</em>:</p>
+      <ul>
+        <li>gather the requirements of a system;</li>
+        <li>get an outside view of the system;</li>
+        <li>identify the external and internal factors influencing the system;</li>
+        <li>show the interaction amonst the requirements and actors.</li>
+      </ul>
+      <h3 id="drawing-a-use-case-diagram">Drawing a use case diagram</h3>
+      <p><em>These are the most important items to consider when drawing a use case diagram</em>:</p>
+      <ul>
+        <li>functionalities to be presented as a use case;</li>
+        <li>actors (<em>elements/users that interact with the system</em>);</li>
+        <li>Relationships between the use cases and actors.</li>
+      </ul>
+      <p><em>Remember</em>:</p>
+      <ul>
+        <li>A meaningful name is important;</li>
+        <li>Give actors suitable names;</li>
+        <li>Clearly show relationships and dependancies;</li>
+        <li>Focus on the most essential relationships <em>that most define the system requirement</em>;</li>
+        <li>Annotate where needed.</li>
+      </ul>
+      <p><img src="https://www.tutorialspoint.com/uml/images/uml_use_case_diagram.jpg" alt="use case diagram"></p>
+      <p>The above diagram describes the interaction of an outside actor (<code>Customer</code>) with the order
+        management
+        system.</p>
+      <h4 id="include--extend"><code>&lt;&lt;Include&gt;&gt;</code> &amp; <code>&lt;&lt;Extend&gt;&gt;</code></h4>
+      <p><code>Include-</code> and <code>extend</code> use cases are connected to the <code>base use case</code>.
+      </p>
+      <p>The <code>include case</code> will happen simultaniously when the base case is called (depicted with a
+        dashed arrow
+        from base to include).</p>
+      <p>The extend use case will only happen when conditions are met (depicted with a dashed arrow from extend to
+        base).
+      </p>
+      <h4 id="specialized-use-cases">Specialized use cases</h4>
+      <p><code>Specialized use cases</code> (children) are cases that inherit their base properties from a
+        <code>general use
+          case</code> (parent), and have their own unique properties.</p>
+      <p>Specialized use cases are connected to their parent case with a <em>solid line with a outlined
+          arrow</em>.</p>
+      <h3 id="where-to-use-a-use-case-diagram">Where to use a use case diagram</h3>
+      <p>Use case diagrams can be used for:</p>
+      <ul>
+        <li>requirement analysis and high level design;</li>
+        <li>model of the context of a system;</li>
+        <li>reverse/forward engineering.</li>
+      </ul>
+      <hr>
+      <h2 id="uml---interaction-diagram">UML - <code>Interaction Diagram</code></h2>
+      <p>To describe the interactions between elements of a system, there are <em>two types of interaction
+          diagrams</em>:
+        <code>sequence diagram</code> and <code>collaboration diagrams</code>.</p>
+      <p>Sequence diagrams emphasize on flow of time in a system, while collaboration diagrams focus on the
+        structural
+        organization of the elements of that system.</p>
+      <h3 id="purpose-of-interaction-diagrams">Purpose of interaction diagrams</h3>
+      <p><em>The key purpose of interaction diagrams are</em>:</p>
+      <ul>
+        <li>to capture the dynamic behaviour of a system;</li>
+        <li>to describe the message flow in the system;</li>
+        <li>to describe the structural organization of the objects;</li>
+        <li>to describe the interaction between objects.</li>
+      </ul>
+      <h3 id="drawing-an-interaction-diagram">Drawing an interaction diagram</h3>
+      <p>Interactions show snapshots of a running system, capturing an instance of a dynamic system.</p>
+      <p><em>The following should be considered when drawing an interaction diagram</em>:</p>
+      <ul>
+        <li>objects taking part in the interaction;</li>
+        <li>message flow between objects;</li>
+        <li>the sequence in which the messages are flowing;</li>
+        <li>object organization.</li>
+      </ul>
+      <h4 id="sequence-diagrams">Sequence diagrams</h4>
+      <p><img src="https://www.tutorialspoint.com/uml/images/uml_sequence_diagram.jpg" alt="sequence diagram"></p>
+      <p>The above diagram, consisting of <code>Customer</code>, <code>Order</code>, <code>SpecialOrder</code>,
+        and
+        <code>NormalOrder</code> shows the sequence of messages. It shows the method calls between objects.</p>
+      <h4 id="collaboration-diagram">Collaboration diagram</h4>
+      <p><img src="https://www.tutorialspoint.com/uml/images/uml_collaboration_diagram.jpg" alt="collaboration diagram">
+      </p>
+      <p>Collaboration diagrams focus more on order and organization of a system, when timing is less important.
+      </p>
+      <h3 id="where-to-use-interaction-diagrams">Where to use interaction diagrams</h3>
+      <p><em>Interaction diagrams can be used to</em>:</p>
+      <ul>
+        <li>model the flow of control by time sequence;</li>
+        <li>model the flow of control by a structural organization;</li>
+        <li>forward/reverse engineering.</li>
+      </ul>
+      <hr>
+      <h2 id="uml---statechart-diagrams">UML - <code>Statechart Diagrams</code></h2>
+      <p><code>Statechart diagrams</code> depict the different states that a system can have, which are controlled
+        by
+        internal or external events.</p>
+      <p><em>The main purposes of a statechart diagram are</em>:</p>
+      <ul>
+        <li>to model the dynamic aspect of a system;</li>
+        <li>to model the lifetime of a reactive system;</li>
+        <li>to describe different sates of an object during its lifetime;</li>
+        <li>to define a state machine to model the states of an object.</li>
+      </ul>
+      <h3 id="drawing-a-statemachine-diagram">Drawing a statemachine diagram</h3>
+      <p><em>Consider</em>:</p>
+      <ul>
+        <li>the identities of important objects to be analyzed;</li>
+        <li>the identity of states;</li>
+        <li>the identity of events.</li>
+      </ul>
+      <p><img src="https://www.tutorialspoint.com/uml/images/uml_statechart_diagram.jpg" alt="statechart diagram">
+      </p>
+      <p>The above diagram depicts the details of state changes in an <code>Order</code> object.</p>
+      <h3 id="where-to-use-statechart-diagrams">Where to use statechart diagrams:</h3>
+      <p>Statechart diagrams are commonly used:</p>
+      <ul>
+        <li>to model the object states of a system;</li>
+        <li>to model the reactive system, which consist of reactive objects;</li>
+        <li>to identify the events responsible for state changes;</li>
+        <li>forward/reverse engineering.</li>
+      </ul>
+      <hr>
+      <h2 id="uml---activity-diagrams">UML - <code>Activity Diagrams</code></h2>
+      <p>Like statemachine diagrams, <code>activity diagrams</code> also describe the dynamic aspects of a system.
+        It is a
+        flowchart to represent the flow from one activity to another.</p>
+      <p>Flow between operations can be sequential, branched, or concurrent; using different elements such as
+        fork, join,
+        etc.</p>
+      <h3 id="purpose-of-activity-diagrams">Purpose of activity diagrams</h3>
+      <p><em>Activity diagrams</em>:</p>
+      <ul>
+        <li>draw the activity flow of a system;</li>
+        <li>describe the sequence from one activity to another;</li>
+        <li>describe the parallel, branched and concurrent flow of the system.</li>
+      </ul>
+      <h3 id="drawing-an-activity-diagram">Drawing an activity diagram</h3>
+      <p>While creating an activity diagram, <em>focus on</em>:</p>
+      <ul>
+        <li>activities,</li>
+        <li>associations,</li>
+        <li>conditions,</li>
+        <li>constraints.</li>
+      </ul>
+      <p><img src="https://www.tutorialspoint.com/uml/images/uml_activity_diagram.jpg" alt="activity diagram"></p>
+      <p>The above diagram of an order management system shows <em>four activities</em> of a system, from
+        <code>order
+          request</code> to <code>dispatch</code>.</p>
+      <p><em>Note: activity diagrams cannot exactly match code, thus are mainly used by the business users</em>.
+      </p>
+      <h3 id="where-to-use-activity-diagrams">Where to use activity diagrams</h3>
+      <p>Activity diagrams are best used for:</p>
+      <ul>
+        <li>modeling workflow by using activities;</li>
+        <li>modeling business requirements;</li>
+        <li>high level understanding of the system's functionalities;</li>
+        <li>investigating business requirements at a later stage.</li>
+      </ul>
 
-
-        </div>
 
     </div>
+
+  </div>
 </body>
 
 </html>
