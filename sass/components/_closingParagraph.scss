@@ -32,9 +32,9 @@
     &-img {
       border-radius: 100rem;
       box-shadow: 1rem 1rem 4rem $shadow20;
-      width: 20rem;
+      width: 14rem;
       height: auto;
-      transform: rotate(5.5deg);
+      transform: rotate(3deg);
       filter: saturate(0);
     }
   }
@@ -48,7 +48,7 @@
       }
     }
     & p {
-      font-size: 2em;
+      font-size: 1.6em;
       @media screen and (max-width: $bp-small) {
         font-size: 2rem;
       }

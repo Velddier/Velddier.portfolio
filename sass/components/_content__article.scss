@@ -576,12 +576,12 @@ iframe {
   object-position: top;
   overflow: hidden;
   margin-bottom: 12rem;
-
+  
   & img {
     border-radius: 4px;
     transition: all 0.2s;
     width: 100%;
-    height: auto;
+    height: 100%;
     &:hover {
       cursor: zoom-in;
     }
@@ -727,4 +727,8 @@ iframe {
   & h4 {
     text-align: left;
   }
+}
+
+video {
+  margin-bottom: 16rem;
 }

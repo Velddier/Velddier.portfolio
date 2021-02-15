@@ -25,8 +25,7 @@
 
 html {
   color: #121314;
-  font-size: 62.5%;
-  line-height: 1.4; }
+  font-size: 62.5%; }
 
 ::-moz-selection {
   background-color: #4d6470;
@@ -393,9 +392,9 @@ template {
     .authorMessage__profile-img {
       border-radius: 100rem;
       box-shadow: 1rem 1rem 4rem rgba(7, 10, 34, 0.335);
-      width: 20rem;
+      width: 14rem;
       height: auto;
-      transform: rotate(5.5deg);
+      transform: rotate(3deg);
       filter: saturate(0); }
   .authorMessage__copy {
     width: 100%; }
@@ -404,7 +403,7 @@ template {
       .authorMessage__copy h4::after {
         background-color: white; }
     .authorMessage__copy p {
-      font-size: 2em; }
+      font-size: 1.6em; }
       @media screen and (max-width: 768px) {
         .authorMessage__copy p {
           font-size: 2rem; } }
@@ -888,7 +887,7 @@ iframe {
     border-radius: 4px;
     transition: all 0.2s;
     width: 100%;
-    height: auto; }
+    height: 100%; }
     .figure img:hover {
       cursor: zoom-in; }
   .figure:hover > .figure-caption {
@@ -999,6 +998,9 @@ iframe {
       background-color: #b8b8b8; }
   .article__comboImgCopy h4 {
     text-align: left; }
+
+video {
+  margin-bottom: 16rem; }
 
 .footer {
   background: #363636;
@@ -1667,12 +1669,6 @@ iframe {
   margin: 8rem -8rem;
   padding: 8rem 2rem;
   box-shadow: 0 5px 1rem -5px rgba(7, 10, 34, 0.335); }
-  .intro .btn {
-    background-color: #1e91dd;
-    color: white; }
-    .intro .btn:hover {
-      background-color: #C4EBFF;
-      color: #363636; }
   @media screen and (max-width: 768px) {
     .intro {
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -2233,30 +2229,6 @@ main {
     main {
       padding: 0 1.2rem; } }
 
-/* ////////////////////////////////////////////////////////////////////////////////
-// GLOBAL FOOTER
-////////////////////////////////////////////////////////////////////////////////
-.footer {
-  padding: 0.4rem;
-  margin-top: 2rem;
-  background-color: $color-white;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-around;
-
-  & span {
-    font-size: 1.2rem;
-    color: $color-gray-light;
-  }
-
-  @media screen and (max-width: $mobile-large) {
-    margin: 0;
-    border-radius: 0;
-    text-align: center;
-  }
-}
-
- */
 /* ==========================================================================
    Typography
    ========================================================================== */
@@ -2303,7 +2275,7 @@ h2,
   text-align: left; }
   h2::before,
   .h2::before {
-    content: '▸ ';
+    content: "▸ ";
     display: inline-block; }
   h2::after,
   .h2::after {
@@ -2313,6 +2285,13 @@ h2,
     width: 100%;
     height: 1px;
     transform: translateY(-6rem); }
+  h2 .sectionIndex,
+  .h2 .sectionIndex {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    opacity: 0.8; }
 
 h3,
 .h3 {
@@ -2384,7 +2363,8 @@ ul {
 
 blockquote {
   margin: 10rem 0;
-  position: relative; }
+  position: relative;
+  text-align: center; }
   @media screen and (max-width: 1024px) {
     blockquote {
       width: 75%;
@@ -2409,33 +2389,30 @@ blockquote {
    Button defaults
    ========================================================================== */
 .btn {
-  font-size: 1.6rem;
+  font-size: 2rem;
+  font-weight: 200;
   text-align: center;
-  padding: 2rem 6rem;
+  line-height: 0;
+  padding: 2rem 8rem;
   border-radius: 100px;
-  background: #ffffff;
+  background-color: #BD3737;
+  color: white;
   box-shadow: 5px 5px 10px #e6e6e6, -5px -5px 10px #ffffff;
-  transition: all 0.1s; }
+  transition: all 0.1s;
+  display: flex;
+  align-items: center;
+  box-shadow: 28px 28px 50px -20px #0d275034, -23px -23px 45px -20px #fff; }
+  .btn > a {
+    padding: 0;
+    margin: 0; }
   .btn::selection {
     color: inherit;
     background-color: rgba(0, 0, 0, 0); }
-  .btn-small {
-    color: inherit;
-    margin: 4rem auto;
-    font-size: 2.4rem;
-    font-weight: 600; }
-    .btn-small:link {
-      text-decoration: underline; }
-    .btn-small:hover {
-      color: #1e91dd;
-      transform: scale(1.005); }
-    .btn-small:active {
-      color: #4d6470;
-      transform: scale(1); }
   .btn:hover {
     transform: translateY(-3px) translateX(1px);
     border-radius: 100px;
-    background: #ffffff;
+    background: #f09bb8;
+    color: #121314;
     box-shadow: 14px 14px 28px #e6e6e6, -14px -14px 28px #ffffff;
     cursor: pointer; }
   .btn:active {
@@ -2443,16 +2420,30 @@ blockquote {
     box-shadow: -1px 3px 5px -1px rgba(7, 10, 34, 0.335);
     cursor: pointer; }
 
+.btn-small {
+  color: inherit;
+  margin: 4rem auto;
+  font-size: 2.4rem;
+  font-weight: 600; }
+  .btn-small:link {
+    text-decoration: underline; }
+  .btn-small:hover {
+    color: #1e91dd;
+    transform: scale(1.005); }
+  .btn-small:active {
+    color: #4d6470;
+    transform: scale(1); }
+
 .btn--large {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #1e91dd;
+  background-color: #BD3737;
   color: white;
   font-size: 2rem;
   font-weight: 600;
   text-align: center;
-  height: 6rem;
+  height: 9rem;
   border-radius: 4px;
   margin: 16rem auto;
   width: 50%;
@@ -2468,8 +2459,7 @@ blockquote {
     background-color: rgba(0, 0, 0, 0);
     color: inherit; }
   .btn--large:link, .btn--large:visited {
-    text-decoration: none;
-    color: inherit; }
+    text-decoration: none; }
   .btn--large:hover {
     transform: scale(1.04);
     color: #4d6470;

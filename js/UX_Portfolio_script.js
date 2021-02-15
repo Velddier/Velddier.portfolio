@@ -1,9 +1,9 @@
 
 
 function scrollIndicatorFunction() {
-  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  var scrolled = (winScroll / height) * 100;
+  let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  let scrolled = (winScroll / height) * 100;
   document.getElementById("scrollIndicator").style.width = scrolled + "%";
 }
 
@@ -12,7 +12,7 @@ window.onscroll = () => {
 };
 
 // Initial state
-var scrollPos2 = 0;
+let scrollPos2 = 0;
 // adding scroll event
 window.addEventListener('scroll', function () {
 

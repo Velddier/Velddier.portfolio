@@ -75,29 +75,4 @@ main {
 }
 
 
-/* ////////////////////////////////////////////////////////////////////////////////
-// GLOBAL FOOTER
-////////////////////////////////////////////////////////////////////////////////
-.footer {
-  padding: 0.4rem;
-  margin-top: 2rem;
-  background-color: $color-white;
-  border-radius: 4px;
-  display: flex;
-  justify-content: space-around;
-
-  & span {
-    font-size: 1.2rem;
-    color: $color-gray-light;
-  }
-
-  @media screen and (max-width: $mobile-large) {
-    margin: 0;
-    border-radius: 0;
-    text-align: center;
-  }
-}
-
- */
-
 

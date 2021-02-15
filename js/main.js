@@ -13,8 +13,6 @@ const navbar__content = `
   <a href="html/external/Frederik_DeVilder_UX_Designer_CV_2020.pdf" target="_blank" class="navbar__menuItem navbar__menuSecondaryItem">📃 CV</a>
   <a href="html/recommended_Good reads.html" class="navbar__menuItem navbar__menuSecondaryItem">📖 Good reads</a>
   </div>
-<div class="navbar__btn-respond btn"> <a href="mailto:velddier@gmail.com" class="mail">Send a
-    message</a> </div>
 </div>`
 
 document.querySelector('nav').insertAdjacentHTML("afterbegin", `
@@ -128,20 +126,17 @@ document.querySelector('footer').innerHTML = `
 document.querySelector('.closingParagraph').innerHTML = `
 <div class="authorMessage">
   <figure class="authorMessage__profile">
-    <a href="#" class="authorMessage__profile-link"><img src="img/Selfie_badge.png"
+    <a href="https://www.velddier.com/" class="authorMessage__profile-link"><img src="img/Selfie_badge.png"
         alt="Profile picture of the author" class="authorMessage__profile-img" /></a>
   </figure>
   <div class="authorMessage__copy">
     <h4>About the designer</h4>
     <p>
-      The content on this page is created by Frederik DeVilder, a
-      professionally trained and certified, detail-focused designer who
+      Frederik DeVilder is a professionally trained and certified, detail-focused designer who
       loves to come up with optimized experience flows and crystal clear
-      visual designs to guide user to their goals and objectives.
-      Besides designing, he often works on improving his understanding
-      and skills of front-end development. When not working on building
-      digital experiences, Frederik enjoys tech, music, playing the
-      piano, and cooking.
+      designs to guide user to their goals and objectives.
+      Besides designing, he works on improving his understanding
+      and skills of front-end development.
     </p>
   </div>
 </div>

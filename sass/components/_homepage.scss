@@ -160,15 +160,7 @@
   padding: 8rem 2rem;
   box-shadow: 0 5px 1rem -5px $shadow20;
 
-  & .btn {
-    background-color: $color-primary;
-    color: $color-white;
-
-    &:hover {
-      background-color: $color-primary-light;
-      color: $color-gray-dark
-    }
-  }
+ 
   
   @media screen and (max-width: $bp-small) {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
