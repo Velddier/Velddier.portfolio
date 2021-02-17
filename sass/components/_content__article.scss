@@ -115,11 +115,10 @@ iframe {
   &__banner {
     margin-top: 8rem;
     height: 29vh;
-    box-shadow: 0 -2rem 3rem -2rem $shadow20;
+    box-shadow: 0 -2rem 3rem -2rem $shadow15;
     width: 100%;
-    border-radius: 16px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: 100px;
+    border-bottom-left-radius: 4px;
     overflow: hidden;
     &-img {
       width: 100%;
@@ -213,7 +212,7 @@ iframe {
   &__iconsArray {
     display: flex;
     direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 4rem 1rem;
     padding: 0;
     list-style-type: none;

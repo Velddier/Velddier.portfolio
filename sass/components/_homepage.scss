@@ -8,11 +8,11 @@
   background-color: $color-black;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  height: 70rem;
+  height: 66rem;
   overflow: hidden;
   box-shadow: 0 2px 1rem $shadow20;
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
-
+  
   &Item {
     transition: all 0.4s;
     overflow: hidden;
@@ -216,6 +216,43 @@
         font-size: 6rem;
       }
     }
+  }
+}
+
+//Latest work
+.latest {
+  z-index: 1;
+  background-color: $color-white;
+  margin: 0 8rem;
+  margin-top: -8rem;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+
+  & .contentFrame {
+    margin: 0;
+  }
+}
+
+.latest__header {
+  font-size: 2.8rem;
+  z-index: 100;
+  position: sticky;
+  top: 0rem;
+  left: 0;
+  margin: 0rem -8rem;
+  margin-bottom: 4rem;
+  color: white;
+  padding: 2rem 8rem;
+  background-color: #1e91dd;
+  box-shadow: 0 -1rem 2rem $shadow20;
+  &::after {
+    display: none;
   }
 }
 
