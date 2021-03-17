@@ -13,6 +13,7 @@ html {
   margin: 0;
   @media screen and (max-width: $mobile-large) {
     margin-top: 10rem;
+    border-radius: 0;
   }
 }
 

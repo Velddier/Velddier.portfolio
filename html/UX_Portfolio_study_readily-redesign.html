@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Readily - Velddier</title>
+  <meta name="description"
+    content="UX Case Study and redesign for Readily, a concept mobile reading app that adapts to the user's interests and schedule." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- BASE ADDRESS -->
+  <base href="https://www.velddier.com/" />
+  <meta property="og:title"
+    content="Kickstart your projects or bring your company to the next level with pixel&ndash;perfect User Experience&amp;Interface Design." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.velddier.com/" />
+  <meta property="og:image" content="img/#.jpg" />
+
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="apple-touch-icon" href="icon.png" />
+  <!-- fonts & styles-->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Syne&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <meta name="theme-color" content="$color-primary" />
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <!-- Outer sources -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="pageContainer">
+
+    <!-- NAVIGATION from main.js -->
+    <nav id="navbar"></nav>
+
+
+
+    <!-- RETURN BUTTON -->
+    <a href="javascript:history.back()" class="bar"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20"
+        height="20" viewBox="0 0 20 20">
+        <title>chevron-small-left</title>
+        <path
+          d="M12.141 13.418c0.268 0.271 0.268 0.709 0 0.978s-0.701 0.272-0.969 0l-3.83-3.908c-0.268-0.27-0.268-0.707 0-0.979l3.83-3.908c0.267-0.27 0.701-0.27 0.969 0s0.268 0.709 0 0.978l-3.141 3.421 3.141 3.418z">
+        </path>
+      </svg>
+      <div class="bar__label">Back</div>
+    </a>
+
+
+    <!-- MAIN -->
+    <main>
+      <div class="articleHeader__banner">
+        <img style="object-position: bottom" src="img/#" alt="LitterID illustrated banner"
+          class="articleHeader__banner-img" />
+      </div>
+      <!-- PAGE HEADER -->
+      <section class="articleHeader">
+        <div class="articleHeader__grid">
+          <div class="articleHeader__title">
+            <h1 class="content-title">
+              Revisiting <br>The Readily <br>Concept
+            </h1>
+          </div>
+          <div class="articleHeader__sub">
+            <div class="articleHeader__source">
+              <span>
+                <p>2021</p>
+              </span>
+            </div>
+
+            <!-- CONTENT ICONS -->
+            <div class="articleHeader__icons">
+              <ul class="articleHeader__iconsArray">
+                <!-- ICON 1 -->
+                <li class="articleHeader__icon">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>user</title>
+                    <path
+                      d="M7.725 2.146c-1.016 0.756-1.289 1.953-1.239 2.59 0.064 0.779 0.222 1.793 0.222 1.793s-0.313 0.17-0.313 0.854c0.109 1.717 0.683 0.976 0.801 1.729 0.284 1.814 0.933 1.491 0.933 2.481 0 1.649-0.68 2.42-2.803 3.334-2.13 0.918-4.326 2.073-4.326 4.073v1h18v-1c0-2-2.197-3.155-4.328-4.072-2.123-0.914-2.801-1.684-2.801-3.334 0-0.99 0.647-0.667 0.932-2.481 0.119-0.753 0.692-0.012 0.803-1.729 0-0.684-0.314-0.854-0.314-0.854s0.158-1.014 0.221-1.793c0.065-0.817-0.398-2.561-2.3-3.096-0.333-0.34-0.558-0.881 0.466-1.424-2.24-0.105-2.761 1.067-3.954 1.929z">
+                    </path>
+                  </svg>
+                  <!-- LABEL 1 -->
+                  <div class="articleHeader__iconLabel">solo</div>
+                </li>
+
+                <!-- ICON 2 -->
+                <li class="articleHeader__icon">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>mobile</title>
+                    <path
+                      d="M14.004 0h-8.008c-1.102 0-1.996 0.894-1.996 1.996v16.007c0 1.103 0.894 1.997 1.996 1.997h8.007c1.103 0 1.997-0.894 1.997-1.996v-16.008c0-1.102-0.894-1.996-1.996-1.996zM10 19c-0.69 0-1.25-0.447-1.25-1s0.56-1 1.25-1 1.25 0.447 1.25 1-0.56 1-1.25 1zM14 16h-8v-14h8v14z">
+                    </path>
+                  </svg>
+                  <!-- LABEL 2 -->
+                  <div class="articleHeader__iconLabel">Mobile/Tablet</div>
+                </li>
+
+                <!-- ICON 3 -->
+                <li class="articleHeader__icon">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <title>stopwatch</title>
+                    <path
+                      d="M7.376 6.745c-0.447 0.275 1.197 4.242 1.598 4.888 0.35 0.569 1.093 0.742 1.658 0.394 0.568-0.352 0.745-1.094 0.395-1.66-0.397-0.648-3.205-3.898-3.651-3.622zM7.041 2.402c0.928-0.323 1.922-0.502 2.959-0.502s2.031 0.179 2.959 0.502c0.329 0.114 0.765-0.115 0.572-0.611-0.141-0.36-0.277-0.712-0.332-0.855-0.131-0.339-0.6-0.619-0.804-0.665-0.772-0.174-1.572-0.271-2.395-0.271s-1.623 0.097-2.396 0.271c-0.204 0.046-0.672 0.326-0.803 0.665-0.055 0.143-0.192 0.495-0.332 0.855-0.193 0.496 0.243 0.726 0.572 0.611zM19.098 3.186c-0.192-0.23-0.396-0.455-0.613-0.672-0.216-0.217-0.441-0.42-0.67-0.613-0.153-0.129-0.603-0.234-0.888 0.051s-1.648 1.647-1.648 1.647c0.402 0.288 0.793 0.605 1.155 0.966s0.677 0.752 0.966 1.155c0 0 1.363-1.362 1.647-1.647 0.286-0.286 0.181-0.735 0.051-0.887zM10 2.9c-4.475 0-8.101 3.626-8.101 8.1s3.626 8.101 8.101 8.101c4.473 0 8.1-3.626 8.1-8.101 0-4.473-3.627-8.1-8.1-8.1zM10 17.101c-3.368 0-6.1-2.731-6.1-6.1s2.731-6.1 6.1-6.1c3.369 0 6.101 2.731 6.101 6.1s-2.732 6.1-6.101 6.1z">
+                    </path>
+                  </svg>
+                  <!-- LABEL 3 -->
+                  <div class="articleHeader__iconLabel">In progress</div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="articleHeader__subtitle">
+              <p class="subtitle">
+                In this case study I return to a previous concept from 2019, <a href="https://www.velddier.com/html/UX_Portfolio_study_readily.html">"<i><u>Readily</u></i>"</a>, and see how I would take
+                on this project today. The concept remains mostly the same: Readily is a mobile app that brings the user
+                stories and content tailored to their interests and lifestyle. In this study I explore how to create a
+                media app that serves the user based on their changing interests and forms around their schedule.
+              </p>
+            </div>
+
+            <a href="#"
+              class="articleHeader__buttons main-btn">Preview Prototype<svg version="1.1"
+                xmlns="http://www.w3.org/2000/svg" width="10" height="14" viewBox="0 0 17 20">
+                <title>external-link-square</title>
+                <path
+                  d="M14.286 10.357v-5.357c0-0.391-0.324-0.714-0.714-0.714h-5.357c-0.29 0-0.547 0.179-0.658 0.435-0.112 0.268-0.056 0.58 0.156 0.781l1.607 1.607-5.96 5.96c-0.279 0.279-0.279 0.725 0 1.004l1.138 1.138c0.279 0.279 0.725 0.279 1.004 0l5.96-5.96 1.607 1.607c0.134 0.145 0.313 0.212 0.502 0.212 0.089 0 0.19-0.022 0.279-0.056 0.257-0.112 0.435-0.368 0.435-0.658zM17.143 4.643v10.714c0 1.775-1.44 3.214-3.214 3.214h-10.714c-1.775 0-3.214-1.44-3.214-3.214v-10.714c0-1.775 1.44-3.214 3.214-3.214h10.714c1.775 0 3.214 1.44 3.214 3.214z">
+                </path>
+              </svg>
+            </a>
+            
+
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGE INDEX -->
+      <section class="index">
+        <div class="index__background"></div>
+        <div class="index__divider">
+          <div class="header">
+            <div class="progress-container">
+              <div class="progress-bar" id="scrollIndicator"></div>
+            </div>
+          </div>
+        </div>
+        <div class="index-list">
+          <div class="index-list__label">Roadmap</div>
+          <div class="index-list__icon-open">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 40 40">
+              <title>chevron-right</title>
+              <path
+                d="M18.326 9.032c0.836 0.816 9.004 9.39 9.004 9.39 0.446 0.438 0.67 1.008 0.67 1.578s-0.224 1.14-0.67 1.574c0 0-8.168 8.578-9.004 9.39-0.836 0.816-2.34 0.872-3.23 0-0.892-0.868-0.962-2.082 0-3.148l7.494-7.816-7.494-7.816c-0.962-1.066-0.892-2.282 0-3.152 0.89-0.872 2.394-0.818 3.23 0z">
+              </path>
+            </svg>
+          </div>
+          <div class="index-list__sections">
+            <a href="/html/UX_Portfolio_study_readily.html#research" class="index-list__section">Research</a>
+            <a href="/html/UX_Portfolio_study_readily.html#design" class="index-list__section">Design</a>
+            <a href="/html/UX_Portfolio_study_readily.html#AppUIDesign" class="index-list__section">UI & Navigation</a>
+            <a href="/html/UX_Portfolio_study_readily.html#prototype" class="index-list__section">Style & Prototype</a>
+          </div>
+          <div class="index-list__icon-close">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 40 40">
+              <title>chevron-left</title>
+              <path
+                d="M24.904 9.032c0.892 0.872 0.962 2.086 0 3.152l-7.494 7.816 7.494 7.816c0.962 1.066 0.892 2.282 0 3.148-0.89 0.872-2.394 0.816-3.23 0-0.836-0.812-9.004-9.39-9.004-9.39-0.446-0.434-0.67-1.004-0.67-1.574s0.224-1.14 0.67-1.578c0 0 8.168-8.574 9.004-9.39 0.836-0.818 2.34-0.872 3.23 0z">
+              </path>
+            </svg>
+          </div>
+        </div>
+      </section>
+      <!-- HEADER/CONTENT DIVIDER -->
+      <section class="headerDivider">
+        <div class="headerDivider--wide">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+            <title>chevron-down</title>
+            <path
+              d="M9.032 15.096c0.872-0.892 2.086-0.962 3.152 0l7.816 7.494 7.816-7.494c1.066-0.962 2.282-0.892 3.148 0 0.872 0.89 0.816 2.394 0 3.23-0.812 0.836-9.39 9.004-9.39 9.004-0.434 0.446-1.004 0.67-1.574 0.67s-1.14-0.224-1.578-0.67c0 0-8.574-8.168-9.39-9.004-0.818-0.836-0.872-2.34 0-3.23z">
+            </path>
+          </svg>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+            <title>chevron-down</title>
+            <path
+              d="M9.032 15.096c0.872-0.892 2.086-0.962 3.152 0l7.816 7.494 7.816-7.494c1.066-0.962 2.282-0.892 3.148 0 0.872 0.89 0.816 2.394 0 3.23-0.812 0.836-9.39 9.004-9.39 9.004-0.434 0.446-1.004 0.67-1.574 0.67s-1.14-0.224-1.578-0.67c0 0-8.574-8.168-9.39-9.004-0.818-0.836-0.872-2.34 0-3.23z">
+            </path>
+          </svg>
+        </div>
+      </section>
+
+      <!-- MAIN ARTICLE -->
+      <article class="article">
+        <div class="article__comboImgCopy" id="introduction">
+          <img src="img/portfolio_assets/Readily_bannerPortrait.png" alt="Readily introduction banner"
+            class="article__comboImgCopy-img figure-small" />
+
+          <div class="article__comboImgCopy-copy">
+            <div class="article__comboImgCopy-header">Introduction</div>
+            <p class="article__comboImgCopy-text">
+              ###
+            </p>
+            <p class="article__comboImgCopy-text">
+              In short, Readily is visioned as a curated, user-content
+              provided media app with an emphasis on written media, such as
+              articles. An early goal, in contrary to the competition, was to
+              avoid the sometimes overloading quantity of content on other
+              sources.
+            </p>
+
+            <p class="article__comboImgCopy-text">
+              Readily should be the place you would come to for an
+              interesting, exciting, and relaxing read. It offering the user
+              exactly what they want to see, on a platform that induces
+              satisfaction, not addiction.
+            </p>
+          </div>
+        </div>
+
+        <div class="article__copy">
+          <h3>The problem</h3>
+          <p>
+            Many people use their smart devices as a daily source for news and
+            other types of reading media. Access is not limited to physical
+            location, allowing a user access wherever they go. Many people
+            have their favourite app, which they use multiple times per day.
+            However, there there is always the risk of poor heuristics and UX
+            in media/reading apps, some of which some are hypothesized in the
+            list below:
+          </p>
+
+          <ul>
+            <h4>Aiming to solve</h4>
+            <li>
+              Bad mobile integration of design can impede the user experience
+              with distracting page elements, poor text to element size ratio,
+              or sudden page loading shifts resulting in getting easily lost.
+            </li>
+            <li>
+              Many apps or sources can cause media fatigue, dulling the users'
+              experience by the sheer quantity of content or the similar
+              nature of many items.
+            </li>
+            <li>
+              Abundance of offer makes it harder to dedicate to and/or process
+              a certain article or piece of information.
+            </li>
+            <li>
+              The reader feels as an afterthought, with monetization methods
+              such as ads and sponsored content prioritized over a good user
+              experience
+            </li>
+          </ul>
+
+          <h3>Early goals</h3>
+
+          <p>
+            To figure out what makes a good reader UI/UX I will look at the
+            competition on mobile. To get started, I've set my self a few
+            hypothetic goals to chase:
+          </p>
+
+          <ul>
+            <li>Create an app that is engaging for the user</li>
+            <li>Create a pleasingly eying UI and a distinguishable style</li>
+            <li>
+              Add unique features as an experience improver and a selling
+              point
+            </li>
+            <li>Be a platform for various media types</li>
+          </ul>
+        </div>
+
+        <div class="flex__row">
+          <figure class="figure">
+            <a target="_blank" href="img/content_readily/sketches/Readily_notes_31.png" class="figure_link"><img
+                src="img/content_readily/sketches/Readily_notes_31.png" alt="" class="figure-large" /></a>
+            <figcaption class="figure-caption">
+              Capturing user engagement amongst hundreds of similar apps is a
+              challenge.
+            </figcaption>
+          </figure>
+        </div>
+
+        <h2 id="research">Research</h2>
+
+        <div class="article__comboImgCopy">
+          <div class="flex__column">
+            <a href="img/content_readily/Readily_survey-1.png">
+              <img src="img/content_readily/Readily_survey-1.png" alt="User research: what do they prefer?"
+                class="article__comboImgCopy-img" />
+            </a>
+            <a href="img/content_readily/Readily_survey-2.png">
+              <img src="img/content_readily/Readily_survey-2.png" alt="User research: what do they prefer?"
+                class="article__comboImgCopy-img" />
+            </a>
+          </div>
+
+          <div class="article__comboImgCopy-copy">
+            <div class="article__comboImgCopy-header">
+              Survey: What do users want?
+            </div>
+
+            <p class="article__comboImgCopy-text">
+              Before going deeper into analyzing and looking at solutions, I
+              asked a number of participants(n=25) to fill in a short survey about their
+              preferred methods for receiving reading media. This way I could
+              establish if there's a big enough potential audience for content
+              in reading format.
+            </p>
+
+            <ul>
+              <h4>
+                I asked the participant a few simple questions about their
+                daily activities, to find out these things:
+              </h4>
+              <li>
+                Does the participant access any media while away from home, and which
+                method would they prefer for doing so.
+              </li>
+              <li>
+                Which out of various media type does the participant access most
+                regularly in this situation.
+              </li>
+              <li>
+                Which app/source do they primarily use to access this type of
+                media.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="article__copy">
+          <ul>
+            <h4>
+              Top 6 most commonly used apps as stated by participants(25):
+            </h4>
+            <li>Spotify (8)</li>
+            <li>Instagram (6)</li>
+            <li>Reddit (4)</li>
+            <li>Facebook (3)</li>
+            <li>Twitter (3)</li>
+            <li>Youtube (3)</li>
+          </ul>
+
+          <ul>
+            <h4>Analysis</h4>
+            <li>
+              Amongst participants, the most common device to leave the user's
+              home is a smartphone.
+            </li>
+            <li>The second most common is a laptop.</li>
+            <li>
+              Many participants prefer to use their device to listen to music
+            </li>
+            <li>However, social media is the most popular choice</li>
+            <li>
+              Not many participants said to use more traditional sources such
+              as news or e-books.
+            </li>
+            <li>
+              Although, it does seem many participants use apps that provide
+              updated content on actualities or story- or media-based content
+              in a similar way (Twitter, Reddit, Instagram, Facebook, etc)
+            </li>
+            <li>
+              This might have to do with users in general using their social
+              media platforms as a primary method of staying in touch with the
+              world nowadays.
+            </li>
+            <li>
+              While no participant said to prefer video content, Youtube
+              appeared as an answer 3 times in the follow up question. Perhaps
+              the definition was misunderstood.
+            </li>
+          </ul>
+
+          <ul>
+            <h4>Insight</h4>
+            <li>
+              Most participants prefer short content in a continuous stream
+              (infinite scrollers, auto-updated walls, etc).
+            </li>
+            <li>They expect a social aspect to the apps they use</li>
+            <li>Actualities and social media are intertwined</li>
+            <li>
+              Some participants still enjoy lengthier media such as a story,
+              news or audiobooks
+            </li>
+          </ul>
+
+          <p>
+            Based on some of these discoveries I have a better idea of how to
+            approach building Readily, what to focus on, what the user would
+            expect. I also know which apps or sources I could draw inspiration
+            from.
+          </p>
+        </div>
+
+        <div class="article__comboImgCopy" id="competitor-analysis">
+          <img src="img/content_readily/Readily_competition_2@2x.png" alt="Readily introduction banner"
+            class="article__comboImgCopy-img" />
+
+          <div class="article__comboImgCopy-copy">
+            <div class="article__comboImgCopy-header">
+              Competitor analysis
+            </div>
+            <p class="article__comboImgCopy-text">
+              To gain understanding of what it takes to design a socially
+              enabled media and reading app I took a look at a handful of
+              market competitors. What do they do to ensure the user comes
+              back to their platform?
+            </p>
+            <ul>
+              <p class="article__comboImgCopy-text">
+                Based on prior research findings and intuition I've selected
+                various mobile platforms to test on these points:
+              </p>
+              <li>General purpose and operation</li>
+              <li>Heuristic qualities</li>
+              <li>Sign up / Onboarding</li>
+              <li>Social features</li>
+              <li>Beneficial unique features</li>
+            </ul>
+          </div>
+        </div>
+
+        <figure class="figure">
+          <a target="_blank" href="img/content_readily/Readily_competition_1@2x.png" class="figure_link"><img
+              src="img/content_readily/Readily_competition_1@2x.png" alt="" class="figure-largest" /></a>
+          <figcaption class="figure-caption">
+            By comparing some of the popular mobile apps, certain conventions
+            and best solutions become clear.
+          </figcaption>
+        </figure>
+
+        <div class="article__copy">
+          <ul>
+            <h4>Commonalities found in researched apps:</h4>
+            <li>
+              App navigation and primary functions is found on the bottom of
+              the screen in a tab bar
+            </li>
+            <li>
+              The apps' core functions are commonly found as a button in the
+              bottom right corner, within thumb's reach.
+            </li>
+            <li>
+              Secondary functions, such as account menu and secondary menu are
+              found at the top of the screen and appear sliding in in an
+              overlapping menu.
+            </li>
+            <li>
+              Tertiary functions are often displayed more prominently than
+              secondary functions (for example, a 'Reading list' label v.
+              'Settings' icon), because of how well people recognize each as
+              their function.
+            </li>
+            <li>Most apps have a dark theme.</li>
+            <li>
+              Signing up is convenient with Google- or Facebook accounts or an
+              email address.
+            </li>
+            <li>
+              Apps have relatively little onboarding, letting the user learn
+              by discovery.
+            </li>
+          </ul>
+
+          <p>
+            With this information there are still a few things to keep in
+            mind. The apps tested are all popular and well-established. They
+            show a lot of examples of great design that Readily definitly
+            should draw inspiration from, but there are elements of design
+            that they get to have as big names. Such as the minimal function
+            explanation: this because most people will already be aware how to
+            use them or have learned over time.
+          </p>
+          <p>
+            Finding a balance between new and familiar is always a challenge
+            in user design, as will it be now. Building timesaving features
+            don't save anything if they are not clear to the user.
+          </p>
+        </div>
+
+        <h2 id="design">Design</h2>
+
+        <div class="article__comboImgCopy" id="sketching_design">
+          <a target="_blank" href="img/content_readily/Readily_card-design_explained@2x.png" class="figure_link"><img
+              src="img/content_readily/Readily_card-design_explained@2x.png" alt="" class="figure-largest" /></a>
+          <div class="article__comboImgCopy-copy">
+            <div class="article__comboImgCopy-header">
+              Giving each item the card it deserves
+            </div>
+            <p class="article__comboImgCopy-text">
+              Building a content focussed app, delivery is key to a good user
+              experience. That's why I've decided to first focus on the looks
+              and functions of a single item and design the way it will be presented to the user in a most intriguing
+              way.
+            </p>
+            <p class="article__comboImgCopy-text">
+              I've decided on a card like design to allow for flexibility in
+              use and to add affordance in use. Also, testing to see the card
+              work on various display sizes validates the layout of other
+              parts of the app design.
+            </p>
+            <p class="article__comboImgCopy-text">
+              Size of individual items plays an important part of the UI and
+              UX experience. One of the goals being emphasis on quality over
+              quantity, I've decided to design individual items larger than
+              common; aiming to draw in the user's focus with larger
+              screenspace property use, and allowing for more preview space.
+            </p>
+          </div>
+        </div>
+        <figure class="figure">
+          <a target="_blank" href="img/content_readily/Readily_card_displayed@2x.png" class="figure_link"><img
+              src="img/content_readily/Readily_card_displayed@2x.png" alt="" class="figure-largest" /></a>
+          <figcaption class="figure-caption">
+            How content is delivered is an essential part of successful
+            design.
+          </figcaption>
+        </figure>
+
+        <div class="article__copy">
+          <h3>The Card Design Disected</h3>
+          <p>
+            My goal in designing content items for Readily was modularity. I
+            wanted to design a delivery device that could be used to display
+            text, multimedia, visual elements, metainfo, etc. in a single
+            container that would be functional on various screensizes.
+          </p>
+          <p>
+            Secondly, the card's design has to function as a preview of the
+            full item. This helps to draw in users to an item they are
+            interested in, or saves them time letting them decide to avoid an
+            item.
+          </p>
+          <figure class="figure">
+            <a target="_blank" href="img/content_readily/Readily_card_design_disect@2x.png" class="figure_link"><img
+                src="img/content_readily/Readily_card_design_disect@2x.png" alt="" class="figure-largest" /></a>
+            <figcaption class="figure-caption">
+              Cards are built out of modular components.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="article__copy">
+          <h3>Card Expansion Concept <br /><em>(early prototypes)</em></h3>
+          <p>
+            Each card has a hidden UI that reveals more about the item and
+            allows for quick deciding to continue with the item or look for
+            something else.
+          </p>
+        </div>
+        <div class="flex__row" style="gap: 8rem; margin: -4rem 0 -4rem 0;">
+          <div class="flex__column">
+            <h3>Video Content</h3>
+            <img style="height: 55vh" src="/img/content_readily/Readily_card-video_gif.gif" alt="" />
+          </div>
+          <div class="flex__column">
+            <h3>Text Content</h3>
+            <img style="height: 55vh" src="/img/content_readily/Readily_card-expand_gif-1.gif" alt="" />
+          </div>
+        </div>
+
+        <h2 id="AppUIDesign">App UI & Navigation</h2>
+
+        <div class="article__comboImgCopy" id="sketching_design">
+          <a href="/img/content_readily/Readily_UISketch_Viewers.png" class="img-link"><img
+              src="/img/content_readily/Readily_UISketch_Viewers.png" alt="#" class="article__comboImgCopy-img" /></a>
+
+          <div class="article__comboImgCopy-copy">
+            <div class="article__comboImgCopy-header">
+              2 Core Interfaces<br />
+            </div>
+            <p class="article__comboImgCopy-text">
+              Readily offers two primary use experiences:
+              <em>Highlighted Content Viewer</em> and
+              <em>Personal Content Viewer</em>. While both presenting the same
+              great content, each has a specialized focus to help the user
+              find the content they'll enjoy the most.
+            </p>
+          </div>
+        </div>
+        <div class="article__comboImgCopy" id="sketching_design">
+          <a href="/img/content_readily/Readily_UISketch_ItemNavigation.png" class="img-link"><img
+              src="/img/content_readily/Readily_UISketch_ItemNavigation.png" alt="#"
+              class="article__comboImgCopy-img" /></a>
+
+          <div class="article__comboImgCopy-copy">
+            <div class="article__comboImgCopy-header">
+              Preview items before committing
+            </div>
+            <p class="article__comboImgCopy-text">
+              To prevent fear of commitment, Readily allows the user to
+              preview each item by allowing a peak into the content. It keeps
+              operating the app fluid and allows users to easily decide on
+              what content to dedicate their time on.
+            </p>
+          </div>
+        </div>
+        <div class="article__comboImgCopy" id="sketching_design">
+          <a href="/img/content_readily/Readily_UISketch_SettingsNav.png" class="img-link"><img
+              src="/img/content_readily/Readily_UISketch_SettingsNav.png" alt="#"
+              class="article__comboImgCopy-img" /></a>
+
+          <div class="article__comboImgCopy-copy">
+            <div class="article__comboImgCopy-header">
+              Putting functions and settings in the right place
+            </div>
+            <p class="article__comboImgCopy-text">
+              The app settings, ranging from functionality settings, account
+              settings, privacy settings, etc, should be in a convenient place, without cluttering the UI.
+            </p>
+            <p>
+              Categorizing each function between primary, secondary, and
+              tertiary levels of need improves the layout design and helps the user with to find
+              the right settings with little effort.
+            </p>
+          </div>
+        </div>
+
+
+        <h2 id="prototype">App Style & Prototype</h2>
+
+        <div class="article__comboImgCopy" id="Readily__Stylechart">
+          <a href="img/content_readily/Readily_design-assets@2x.png" class="imgLink"><img
+              src="img/content_readily/Readily_design-assets.png" alt="The Readily Style System Chart"
+              class="article__comboImgCopy-img"></a>
+          <div class="article__comboImgCopy-copy">
+            <div class="article__comboImgCopy-header">Style system</div>
+            <p class="article__comboImgCopy-text">
+              A well-defined style system is important for creating a coherent and recognizable app. For Readily I
+              designed a system of core rules, elements, pallettes, etc., for function and form.
+            </p>
+          </div>
+        </div>
+
+        <div class="article__copy">
+          <h3>Highlight viewer</h3>
+          <p>The highlight viewer is a variation of the Readily default app state / homescreen. It shows a more general
+            selection of content, opposed to the personal viewer, which presents content specifically fitted to the
+            user's personal preferences.</p>
+        </div>
+
+        <div class="flex__row">
+          <a href="img/content_readily/Readily_mobileUI-2@2x.png" class="imgLink">
+            <img src="img/content_readily/Readily_mobileUI-2.png" alt="The Readily Style System Chart"
+              class="article__comboImgCopy-img figure-large"></a>
+          <a href="img/content_readily/Readily_mobileUI-3@2x.png" class="imgLink">
+            <img src="img/content_readily/Readily_mobileUI-3.png" alt="The Readily Style System Chart"
+              class="article__comboImgCopy-img figure-large"></a>
+
+        </div>
+
+
+
+
+
+
+      </article>
+    </main>
+
+
+
+
+    <section class="closingParagraph"></section>
+
+
+
+
+    <div class="recommended">
+      <h3>You might also enjoy...</h3>
+
+      <div class="contentGrid">
+        <a href="html/UX_Portfolio_study_flyux.html" class="contentFrame">
+          <div class="contentFrame__copy">
+            <div class="contentFrame__title">FlyUX</div>
+            <div class="contentFrame__description">
+              Case study - Designing an Airline web app from scratch,
+              following the agile UX process.
+            </div>
+            <div class="contentFrame__meta">2020</div>
+          </div>
+          <div class="contentFrame__img">
+            <img src="img/portfolio_assets/FlyUX_thumbnail@2x.png" alt="banner" />
+          </div>
+        </a>
+        <a href="html/UX_Portfolio_study_litterid.html" class="contentFrame">
+          <div class="contentFrame__copy">
+            <div class="contentFrame__title">LitterID</div>
+            <div class="contentFrame__description">
+              Case Study - LitterID is an app that tackles the littering
+              issue with the help of technology and civil vigilance.
+            </div>
+            <div class="contentFrame__meta">2021</div>
+          </div>
+          <div class="contentFrame__img">
+            <img src="img/portfolio_assets/LitterID_thumbnail@2x.png" alt="banner" />
+          </div>
+        </a>
+        <a href="html/UI_Portfolio_calendar.html" class="contentFrame">
+          <div class="contentFrame__copy">
+            <div class="contentFrame__title">Calendar</div>
+            <div class="contentFrame__description">
+              Concept UI design for a tablet planner and calendar with sleek
+              and professional aesthetics.
+            </div>
+            <div class="contentFrame__meta">2019</div>
+          </div>
+          <div class="contentFrame__img">
+            <img src="img/portfolio_assets/Calendar_thumbnail@2x.png" alt="banner" />
+          </div>
+        </a>
+      </div>
+    </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer"></footer>
+
+  </div>
+
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script async src="js/main.js"></script>
+  <script async src="js/UX_Portfolio_script.js"></script>
+
+  <!-- REUSABLE COMPONENT LINK -->
+
+
+
+
+</body>
+
+</html>

@@ -3,7 +3,7 @@ const navbar__content = `
 <div class="navbar__siteHeader"> <a href="index.html" class="navbar__siteHeader-link">Frederik DeVilder</a></div>
 <div class="navbar__menu">
   <a href="html/UX_Portfolio.html" class="navbar__menuItem">UX Design</a> 
-  <a href="html/UI_Portfolio.html" class="navbar__menuItem">Web/UI</a>
+  <a href="html/UI_Portfolio.html" class="navbar__menuItem">UI Design</a>
   <a href="html/Coding_Portfolio.html" class="navbar__menuItem">Coding</a>
   <a href="html/Other_Portfolio.html" class="navbar__menuItem">Etc.</a>
   </div>
@@ -11,7 +11,7 @@ const navbar__content = `
   <div class="navbar__menuSecondary">
   <a href="mailto:velddier@gmail.com" target="_blank" class="navbar__menuItem navbar__menuSecondaryItem">📧 Email</a>
   <a href="html/external/Frederik_DeVilder_UX_Designer_CV_2020.pdf" target="_blank" class="navbar__menuItem navbar__menuSecondaryItem">📃 CV</a>
-  <a href="html/recommended_Good reads.html" class="navbar__menuItem navbar__menuSecondaryItem">📖 Good reads</a>
+  <a href="https://www.linkedin.com/in/velddier" target="_blank" class="navbar__menuItem navbar__menuSecondaryItem">👤 My LinkedIn</a>
   </div>
 </div>`
 
@@ -70,21 +70,20 @@ document.querySelector('footer').innerHTML = `
         <div class="footerTiles__item footerTiles__item-1"> <a target="_blank" href="mailto:velddier@gmail.com"
             class="footerTiles__link"><img class="footerTiles__img" src="img/asset_Manchester_streets_1.jpg" alt="#" />
           </a>
-          <div class="footerTiles__label"><a href="mailto:velddier@gmail.com">Email</a></div>
+          <div class="footerTiles__label"><a href="mailto:velddier@gmail.com">Email me</a></div>
         </div>
         <!-- Tile 2 -->
         <div class="footerTiles__item footerTiles__item-2"> <a target="_blank"
             href="/html/external/Frederik_DeVilder_UX_Designer_CV_2020.pdf" class="footerTiles__link"><img
               class="footerTiles__img" src="img/asset_Manchester_streets_2.jpg" alt="Frederik DeVilder's CV" /> </a>
           <div class="footerTiles__label"><a
-              href="/html/external/Frederik_DeVilder_UX_Designer_CV_2020.pdf">CV</a></div>
+              href="/html/external/Frederik_DeVilder_UX_Designer_CV_2020.pdf">My CV</a></div>
         </div>
         <!-- Tile 3 -->
         <div class="footerTiles__item footerTiles__item-3"> <a target="_blank"
             href="https://www.nngroup.com/articles/definition-user-experience/" class="footerTiles__link"><img
               class="footerTiles__img" src="img/asset_Manchester_streets_5.jpg" alt="#" /> </a>
-          <div class="footerTiles__label"><a href="https://www.nngroup.com/articles/definition-user-experience/">What is
-              UX</a></div>
+          <div class="footerTiles__label"><a href="https://www.linkedin.com/in/velddier/">Find me on LinkedIn</a></div>
         </div>
         <!-- Tile 4 -->
         <div class="footerTiles__item footerTiles__item-4"> <a target="_blank" href="#" class="footerTiles__link"><img
@@ -107,7 +106,7 @@ document.querySelector('footer').innerHTML = `
         </div>
         <div class="footerNav__menu"> 
           <a href="html/UX_Portfolio.html" class="navbar__menuItem">UX Design</a>
-          <a href="html/UI_Portfolio.html" class="navbar__menuItem">Web/UI</a> 
+          <a href="html/UI_Portfolio.html" class="navbar__menuItem">UI Design</a> 
           <a href="html/Coding_Portfolio.html" class="navbar__menuItem">Coding</a>
           <a href="html/Other_Portfolio.html" class="navbar__menuItem">Etc.</a>
         </div>

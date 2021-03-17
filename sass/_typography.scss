@@ -73,9 +73,19 @@ h2,
 
 h3,
 .h3 {
-  font-size: 3.6rem;
+  font-size: 4rem;
+  font-weight: normal;
   text-align: center;
   margin-top: 12rem;
+
+  &::after {
+    display: inline-block;
+    content: "";
+    width: 66%;
+    height: 1px;
+    transform: translateY(-1.4rem);
+    background-color: $color-gray-light;
+  }
 }
 
 h4,

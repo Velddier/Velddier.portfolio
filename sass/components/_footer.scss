@@ -74,8 +74,9 @@
     }
 
     &__label {
-      transform: skewX(-8deg) translate(50%, 50%);
+      transform: skewx(2deg) translate(50%, 50%);
       font-size: 1.8rem;
+      text-align: center;
       opacity: 0.5;
       color: $color-white;
       position: absolute;
