@@ -10,7 +10,7 @@ const navbar__content = `
   <div class="navbar__menuExpand">more<span> &dtrif;</span></div>
   <div class="navbar__menuSecondary">
   <a href="mailto:velddier@gmail.com" target="_blank" class="navbar__menuItem navbar__menuSecondaryItem">📧 Email</a>
-  <a href="html/external/Frederik_DeVilder_UX_Designer_CV_2020.pdf" target="_blank" class="navbar__menuItem navbar__menuSecondaryItem">📃 CV</a>
+  <a href="html/external/Frederik_DeVilder_UX_UI_Designer_CV_2021.pdf" target="_blank" class="navbar__menuItem navbar__menuSecondaryItem">📃 CV</a>
   <a href="https://www.linkedin.com/in/velddier" target="_blank" class="navbar__menuItem navbar__menuSecondaryItem">👤 My LinkedIn</a>
   </div>
 </div>`
@@ -74,10 +74,10 @@ document.querySelector('footer').innerHTML = `
         </div>
         <!-- Tile 2 -->
         <div class="footerTiles__item footerTiles__item-2"> <a target="_blank"
-            href="/html/external/Frederik_DeVilder_UX_Designer_CV_2020.pdf" class="footerTiles__link"><img
+            href="/html/external/Frederik_DeVilder_UX_UI_Designer_CV_2021.pdf" class="footerTiles__link"><img
               class="footerTiles__img" src="img/asset_Manchester_streets_2.jpg" alt="Frederik DeVilder's CV" /> </a>
           <div class="footerTiles__label"><a
-              href="/html/external/Frederik_DeVilder_UX_Designer_CV_2020.pdf">My CV</a></div>
+              href="/html/external/Frederik_DeVilder_UX_UI_Designer_CV_2021.pdf">My CV</a></div>
         </div>
         <!-- Tile 3 -->
         <div class="footerTiles__item footerTiles__item-3"> <a target="_blank"
